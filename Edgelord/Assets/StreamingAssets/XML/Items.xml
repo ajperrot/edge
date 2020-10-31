@@ -1,0 +1,114 @@
+<Items xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Item>
+    <id>0</id>
+    <name>INVALID ITEM</name>
+    <cost>0</cost>
+    <stackable>0</stackable>
+    <iconPath></iconPath>
+    <description>This is a null placeholder for the ritual validator to function</description>
+  </Item>
+  <Item>
+    <id>1</id>
+    <name>Himalayan Rock Salt</name>
+    <cost>15</cost>
+    <stackable>1</stackable>
+    <iconPath>100x100</iconPath>
+    <description>Presumably just regular salt. I guess it's pink? A common ingredient in both cooking and summoning.</description>
+  </Item>
+  <Item>
+    <id>2</id>
+    <name>Herb</name>
+    <cost>15</cost>
+    <stackable>1</stackable>
+    <iconPath>100x100</iconPath>
+    <description>Smelly stuff rich people cook with. Adds flavor to summoning circles as well.</description>
+  </Item>
+  <Item>
+    <id>3</id>
+    <name>Essential Oil</name>
+    <cost>15</cost>
+    <stackable>1</stackable>
+    <iconPath>100x100</iconPath>
+    <description>An essential ingredient for lubricating entities into existence.</description>
+  </Item>
+    <Item>
+    <id>4</id>
+    <name>Carved Stone</name>
+    <cost>50</cost>
+    <stackable>1</stackable>
+    <iconPath>100x100</iconPath>
+    <description>Patterns of inexplicable origin surround its surface. This should make for a fine catalyst.</description>
+  </Item>
+    <Item>
+    <id>5</id>
+    <name>Sun-Warmed Stone</name>
+    <cost>50</cost>
+    <stackable>1</stackable>
+    <iconPath>100x100</iconPath>
+    <description>Duncan says this stone refuses to cool when moved indoors, making it a curious catalyst and ingredient in summoning.</description>
+  </Item>
+    <Item>
+    <id>6</id>
+    <name>Small Animal Heart</name>
+    <cost>50</cost>
+    <stackable>1</stackable>
+    <iconPath>100x100</iconPath>
+    <description>Wow, this is the real thing alright. A crude yet powerful catalyst and summoning ingredient.</description>
+  </Item>
+  <Item>
+    <id>7</id>
+    <name>Foreign Relic</name>
+    <cost>50</cost>
+    <stackable>1</stackable>
+    <iconPath>100x100</iconPath>
+    <description>Artifact of historical significance. What significance? Fueling of the the dark procession, of course!</description>
+  </Item>
+  <Item>
+    <id>8</id>
+    <name>Human Corpse</name>
+    <cost>50</cost>
+    <stackable>1</stackable>
+    <iconPath>100x100</iconPath>
+    <description>A necessary implement in any real summoner's arsenal. This is what seperates the men from the gods.</description>
+  </Item>
+  <Item>
+    <id>9</id>
+    <name>Kindling</name>
+    <cost>15</cost>
+    <stackable>1</stackable>
+    <iconPath>100x100</iconPath>
+    <description>The old me used to buy this just to watch it burn. Now it's only a summoning ingredient to me.</description>
+  </Item>
+  <Item>
+    <id>10</id>
+    <name>Rotting Deer Heart</name>
+    <cost>50</cost>
+    <stackable>1</stackable>
+    <iconPath>100x100</iconPath>
+    <description>I'd typically opt to preseve this stuff, but it's properties as a catalyst awaken with decomposition.</description>
+  </Item>
+  <Item>
+    <id>11</id>
+    <name>Unsettling Shard</name>
+    <cost>50</cost>
+    <stackable>1</stackable>
+    <iconPath>100x100</iconPath>
+    <description>Debris of completely unknown origin. Where the unenlightened see a rock, I see a catalyst.</description>
+  </Item>
+    <Item>
+    <id>12</id>
+    <name>Human Sacrifice</name>
+    <cost>0</cost>
+    <stackable>0</stackable>
+    <iconPath>100x100</iconPath>
+    <description>This is a live human being, who has agreed to honorably give their life for the cause.</description>
+  </Item>
+  <Item>
+    <id></id>
+    <name></name>
+    <cost></cost>
+    <stackable></stackable>
+    <iconPath>100x100</iconPath>
+    <description></description>
+  </Item>
+</Items>

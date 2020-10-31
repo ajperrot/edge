@@ -1,0 +1,23 @@
+<Lines xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Line>
+    <speaker>Jason Madison</speaker>
+    <isLeftActor>1</isLeftActor>
+    <spriteName>Jason</spriteName>
+    <text>(Damn it. Now we need something to show on stream tomorrow, which means we’ve gotta procure the supplies before sundown today, which means we’ve gotta burn all our damn free time walking to that trailer hic’s place!)</text>
+    <isLastLine>0</isLastLine>
+  </Line>
+  <Line>
+    <speaker>Jason Madison</speaker>
+    <isLeftActor>1</isLeftActor>
+    <spriteName>Jason</spriteName>
+    <text>(Once we’ve assumed our rightful seat of power in this universe, HE’ll be the first to go! Then we’ll have his wealth of occult relics to fuel the dark procession! Yes, yes, that will do nicely...)</text>
+    <isLastLine>0</isLastLine>
+  </Line>
+  <Line>
+    <speaker>Jason Madison</speaker>
+    <isLeftActor>1</isLeftActor>
+    <spriteName>Jason</spriteName>
+    <text>(...but seriously, I’ll never forgive that utter vermin, dad, for sticking us out in the middle of nowhere. It takes nearly the whole day just to walk anywhere! His day of reckoning will come once he’s outlived his usefulness to me. Bide your time, dad...))</text>
+    <isLastLine>1</isLastLine>
+  </Line>
+</Lines>

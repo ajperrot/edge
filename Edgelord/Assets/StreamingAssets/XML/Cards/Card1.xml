@@ -1,0 +1,15 @@
+<Card xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <id>1</id>
+  <name>Bruiser</name>
+  <Type>0</Type>
+  <SummonCost>
+    <Radiant>0</Radiant>
+    <Lush>0</Lush>
+    <Crimson>0</Crimson>
+    <Free>1</Free>
+  </SummonCost>
+  <hp>5</hp>
+  <attack>1</attack>
+  <cardText>Riposte - damages attackers</cardText>
+  <sanity>5</sanity>
+</Card>

@@ -1,0 +1,37 @@
+<Lines xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Line>
+    <speaker>Duncan</speaker>
+    <isLeftActor>0</isLeftActor>
+    <spriteName>Duncan</spriteName>
+    <text>“Hey there Jason, what miracle brings you by my end of existence today?”</text>
+    <isLastLine>0</isLastLine>
+  </Line>
+    <Line>
+    <speaker>Jason Madison</speaker>
+    <isLeftActor>1</isLeftActor>
+    <spriteName>Jason</spriteName>
+    <text>“Hello again, sir. I’ve actually got a shopping list today. I need himalayan rock salt, fresh herbs, and some essential oils, but I’m also in the market for something powerful in spirit. Any recommendations?”</text>
+    <isLastLine>0</isLastLine>
+  </Line>
+  <Line>
+    <speaker>Duncan</speaker>
+    <isLeftActor>0</isLeftActor>
+    <spriteName>Duncan</spriteName>
+    <text>“I respect the enthusiasm, little bro. You’ve come at the exact right moment in history. Any other day, and you might’ve missed out, what with the many forces of nature dipping their hands in and out of our ever changing supply...”</text>
+    <isLastLine>0</isLastLine>
+  </Line>
+  <Line>
+    <speaker>Duncan</speaker>
+    <isLeftActor>0</isLeftActor>
+    <spriteName>Duncan</spriteName>
+    <text>*Duncan gave you the himalayan rock salt, herbs, and oil*</text>
+    <isLastLine>0</isLastLine>
+  </Line>
+  <Line>
+    <speaker>Duncan</speaker>
+    <isLeftActor>0</isLeftActor>
+    <spriteName>Duncan</spriteName>
+    <text>Let me show you the real shit the many gods of circumstance have set out for you today…</text>
+    <isLastLine>1</isLastLine>
+  </Line>
+</Lines>

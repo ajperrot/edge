@@ -1,0 +1,65 @@
+<Lines xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Line>
+    <speaker>Book</speaker>
+    <isLeftActor>0</isLeftActor>
+    <spriteName>PrologueBook</spriteName>
+    <text>We are but a fabrication of grander actualities. Nothing more than a byproduct of an odious concoction of concentrated dominions.</text>
+    <isLastLine>0</isLastLine>
+  </Line>
+  <Line>
+    <speaker>Book</speaker>
+    <isLeftActor>0</isLeftActor>
+    <spriteName>PrologueBook</spriteName>
+    <text>The Uncanny nature of our very being is only protected by a thin veil of ignorance. A single misstep in the inquiry of the divine, and one’s membrane will give way to the fetid reality of their own repugnance in comparison.</text>
+    <isLastLine>0</isLastLine>
+  </Line>
+  <Line>
+    <speaker>Book</speaker>
+    <isLeftActor>0</isLeftActor>
+    <spriteName>PrologueBook</spriteName>
+    <text>If one were to surmise their nature and prevail, then, and only then, may they possess the requisite insight to behold their gods and revel as they banish them to the void.</text>
+    <isLastLine>0</isLastLine>
+  </Line>
+  <Line>
+    <speaker>Jason Madison</speaker>
+    <isLeftActor>1</isLeftActor>
+    <spriteName>Jason</spriteName>
+    <text>(... Yes, I see… Finally a text befitting my intellect… With this knowledge I’ll surely… uh…)</text>
+    <isLastLine>0</isLastLine>
+  </Line>
+  <Line>
+    <speaker>Jason Madison</speaker>
+    <isLeftActor>1</isLeftActor>
+    <spriteName>Jason</spriteName>
+    <text>“*mutter* fabrication… *mutter* ignorance, yeah, uh… *mutter* banish them to the void, huh?”</text>
+    <isLastLine>0</isLastLine>
+  </Line>
+  <Line>
+    <speaker>Jason Madison</speaker>
+    <isLeftActor>1</isLeftActor>
+    <spriteName>Jason</spriteName>
+    <text>(Hmm… Yes I see. A CLASSIC OCCULTIC CONUNDRUM. A lesser scholar in the dark arts would be UTTERLY FOOLED by this prose, spending hours attempting to intuit its meaning, however, I, in my years of experience with the arcane, see right through this ruse!)</text>
+    <isLastLine>0</isLastLine>
+  </Line>
+  <Line>
+    <speaker>Jason Madison</speaker>
+    <isLeftActor>1</isLeftActor>
+    <spriteName>Jason</spriteName>
+    <text>(Yes, that’s it, this text, like so much of the ancient literature, was designed to weed out the simpletons among us, but in fact, the text is meaningless! Simply a distraction to discourage the more esoterically illiterate from pursuing these dark truths further.)</text>
+    <isLastLine>0</isLastLine>
+  </Line>
+  <Line>
+    <speaker>Jason Madison</speaker>
+    <isLeftActor>1</isLeftActor>
+    <spriteName>Jason</spriteName>
+    <text>(Yes. Certainly, and with that, we can safely shelve this tome once again. I’m sure my intellectually lazy contemporaries would love NOTHING MORE than to be made privy to this knowledge, but to do so would deny the original intent of the work!)</text>
+    <isLastLine>0</isLastLine>
+  </Line>
+    <Line>
+    <speaker>Jason Madison</speaker>
+    <isLeftActor>1</isLeftActor>
+    <spriteName>Jason</spriteName>
+    <text>(I must, therefore, get online and let the others know how ‘meaningful’ I found this text. Surely that will drive the lesser among us to bask in my austerity as a true expert!)</text>
+    <isLastLine>1</isLastLine>
+  </Line>
+</Lines>

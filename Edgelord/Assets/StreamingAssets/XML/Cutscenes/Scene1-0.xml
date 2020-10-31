@@ -1,0 +1,37 @@
+<Lines xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Line>
+    <speaker>Jason Madison</speaker>
+    <isLeftActor>1</isLeftActor>
+    <spriteName>Jason</spriteName>
+    <text>(Okay, the moment we’ve been waiting for. This is what those hours of summoning circle tutorial videos and shitty gig jobs have led me towards.)</text>
+    <isLastLine>0</isLastLine>
+  </Line>
+  <Line>
+    <speaker>Jason Madison</speaker>
+    <isLeftActor>1</isLeftActor>
+    <spriteName>Jason</spriteName>
+    <text>(With chalk staining my hands, the absolute best professional recording equipment for its price point, and a basement swirling with the residual energy of deceased relatives' old collectibles, I assert myself as the GodSlayer.)</text>
+    <isLastLine>0</isLastLine>
+  </Line>
+  <Line>
+    <speaker>Jason Madison</speaker>
+    <isLeftActor>1</isLeftActor>
+    <spriteName>Jason</spriteName>
+    <text>(Undeniable. Inescapable. Infinite. Nerves are beneath me.)</text>
+    <isLastLine>0</isLastLine>
+  </Line>
+  <Line>
+    <speaker>Jason Madison</speaker>
+    <isLeftActor>1</isLeftActor>
+    <spriteName>Jason</spriteName>
+    <text>(are we forgetting anything… ? NO. My destiny is absolute. It has already been written in the deterministic nature of space time!)</text>
+    <isLastLine>0</isLastLine>
+  </Line>
+  <Line>
+    <speaker>Jason Madison</speaker>
+    <isLeftActor>1</isLeftActor>
+    <spriteName>Jason</spriteName>
+    <text>(Yes… Now, all we have to do is set the catalyst at the center, and the remaining ingredients in the three positions surrounding it. Let’s do this.)</text>
+    <isLastLine>1</isLastLine>
+  </Line>
+</Lines>

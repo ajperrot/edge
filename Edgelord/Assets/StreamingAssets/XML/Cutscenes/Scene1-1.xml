@@ -1,0 +1,51 @@
+<Lines xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Line>
+    <speaker>???</speaker>
+    <isLeftActor>0</isLeftActor>
+    <spriteName>None?</spriteName>
+    <text>“SON OF MAN…"</text>
+    <isLastLine>0</isLastLine>
+  </Line>
+  <Line>
+    <speaker>???</speaker>
+    <isLeftActor>0</isLeftActor>
+    <spriteName>None?</spriteName>
+    <text>“HE WHO DARES TEST THE CIRCLES’ ORDER…"</text>
+    <isLastLine>0</isLastLine>
+  </Line>
+  <Line>
+    <speaker>???</speaker>
+    <isLeftActor>0</isLeftActor>
+    <spriteName>None?</spriteName>
+    <text>“HE WHO UNDERSTANDS NOTHING OF HIS OWN REALITY, YET SEEKS THE KNOWLEDGE OF OTHERS…"</text>
+    <isLastLine>0</isLastLine>
+  </Line>
+  <Line>
+    <speaker>???</speaker>
+    <isLeftActor>0</isLeftActor>
+    <spriteName>None?</spriteName>
+    <text>“I SHALL HAVE MERCY UPON YOU ONLY BUT LONG ENOUGH TO WATCH YOU SUFFER THE AGONY OF TRUE POWER…"</text>
+    <isLastLine>0</isLastLine>
+  </Line>
+  <Line>
+    <speaker>???</speaker>
+    <isLeftActor>0</isLeftActor>
+    <spriteName>None?</spriteName>
+    <text>“ONLY ONCE YOU HAVE COME TO UNDERSTAND THE PAIN OF A GOD, SHALL I SHOW YOU YOUR TRUE NATURE."</text>
+    <isLastLine>0</isLastLine>
+  </Line>
+  <Line>
+    <speaker>???</speaker>
+    <isLeftActor>0</isLeftActor>
+    <spriteName>None?</spriteName>
+    <text>“ONLY THEN, SHALL I STRIKE YOU DOWN INTO THE VOID AT THE HEART OF YOUR CHERISHED SELFHOOD. FOR HE WHO KNOWS NOT HIS PLACE CAN KNOW ONLY STRUGGLE."</text>
+    <isLastLine>0</isLastLine>
+  </Line>
+  <Line>
+    <speaker>???</speaker>
+    <isLeftActor>0</isLeftActor>
+    <spriteName>None?</spriteName>
+    <text>“ACCEPT THIS, MY CHALLENGE, AND MEET ME IN BATTLE AT THIS PLANET’S HOUR OF UNBIRTH."</text>
+    <isLastLine>1</isLastLine>
+  </Line>
+</Lines>
