@@ -50,7 +50,7 @@ public class RitualNavigator : MonoBehaviour
     {
         maxScroll = (PlayerCharacter.Instance.Inventory.Count / InventoryBox.columnCount) - InventoryBox.rowCount + 1;
         RitualNavigators.Add(this);
-        if(hasRitual == true && Calendar.currentDay < 10) //ARBITRARY DAY MUST BE CHANGED
+        if(hasRitual == true && Setting.currentDay < 10) //ARBITRARY DAY MUST BE CHANGED
         {
             //remove panels we've yet to unlock
             int[] lockedPanels = {1, 2, 4, 6, 7};
@@ -624,7 +624,7 @@ public class RitualNavigator : MonoBehaviour
         //drop our item and return to inventory
         OnCancel(0);
         //if this was our first ever summon, do some fancy stuff
-        if(Calendar.currentDay == 1) OnFirstSummon();
+        if(Setting.currentDay == 1) OnFirstSummon();
     }
 
     //Trigger a cutscene, add popularity, and enable all tabs after our first summon

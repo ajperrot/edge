@@ -13,6 +13,7 @@ public class Permanent : MonoBehaviour
     public Slider SanityBar; //used to display sanity
     public TMP_Text SanityText; //prints sanity to screen
     public TMP_Text MaxSanityText; //prints maxSanity to screen
+    public AbilitiesRoot AbilityDisplay; //displays buttons for each ability
 
     public Slider RadiantHpBar; //used to display radiantHp
     public TMP_Text RadiantHpText; //displays radiantHp as a number
@@ -103,12 +104,28 @@ public class Permanent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        maxHp = 10;
-        hp = 7;
-        radiantHp = 2;
-        maxAp = 5;
-        ap = 3;
-        maxSanity = 3;
-        sanity = 1;
+    }
+
+    // Called on mouse hover
+    public void OnPointerEnter()
+    {
+        AbilityDisplay.AddHover(0);
+    }
+
+    // Mouse leaves
+    public void OnPointerExit()
+    {
+        AbilityDisplay.RemoveHover(0);
+    }
+
+    // Initialize with card info
+    public void Initizalize(CardInfo Info)
+    {
+        maxHp = Info.hp;
+        hp = maxHp;
+        //AP??
+        maxSanity = Info.maxSanity;
+        sanity = maxSanity;
+        AbilityDisplay.InitializeAbilityButtons(Info.Abilities);
     }
 }

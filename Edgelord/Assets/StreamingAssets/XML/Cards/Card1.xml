@@ -11,5 +11,11 @@
   <hp>5</hp>
   <attack>1</attack>
   <cardText>Riposte - damages attackers</cardText>
+  <Abilities>
+    <ability>0</ability>
+  </Abilities>
+  <Passives>
+    <passive>0</passive>
+  </Passives>
   <sanity>5</sanity>
 </Card>

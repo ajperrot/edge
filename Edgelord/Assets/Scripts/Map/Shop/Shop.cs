@@ -36,7 +36,7 @@ public class Shop : MonoBehaviour
         if(PlayerCharacter.Instance.movement == 0)
         {
             //go to next day if we had committed
-            Calendar.AdvanceDay();
+            Setting.AdvanceDay();
         } else
         {
             //otherwise return to map

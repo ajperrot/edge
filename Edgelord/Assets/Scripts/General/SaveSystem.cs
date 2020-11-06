@@ -10,7 +10,8 @@ using System.IO;
 // The data we need to save
 class SaveData
 {
-    public int day; //day of the calendar we saved just before
+    public int day; //day of the Setting we saved just before
+    public int location; //where we at? (Only needed for moving to combat)
     public PlayerAffinity BaseAffinity; //affinity the player character has
     public Deck PlayerDeck; //your deck as of this day
     public int followerCount; //your follower count at end of day
@@ -30,7 +31,7 @@ public class SaveSystem
         //rename previous save if a week start
         if(File.Exists(path))
         {
-            int yesterday = Calendar.currentDay - 1;
+            int yesterday = Setting.currentDay - 1;
             if(yesterday % 7 == 0)
             {
                 string newPath = Application.persistentDataPath + "/SaveData" + yesterday + ".dat";
@@ -44,7 +45,8 @@ public class SaveSystem
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(path); 
         SaveData Data = new SaveData();
-        Data.day = Calendar.currentDay;
+        Data.day = Setting.currentDay;
+        Data.location = Setting.location;
         Data.BaseAffinity = PlayerCharacter.Instance.BaseAffinity;
         Data.PlayerDeck = PlayerCharacter.Instance.PlayerDeck;
         Data.followerCount = PlayerCharacter.Instance.followerCount;
@@ -82,7 +84,8 @@ public class SaveSystem
             FileStream file = File.Open(path, FileMode.Open);
             SaveData Data = (SaveData)bf.Deserialize(file);
             file.Close();
-            Calendar.currentDay = Data.day;
+            Setting.currentDay = Data.day;
+            Setting.location = Data.location;
             PlayerCharacter.Instance.BaseAffinity = Data.BaseAffinity;
             PlayerCharacter.Instance.PlayerDeck = Data.PlayerDeck;
             PlayerCharacter.Instance.followerCount = Data.followerCount;

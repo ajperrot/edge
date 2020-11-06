@@ -15,6 +15,7 @@ TagManager:
   - Cutscene
   - CutsceneActivator
   - GoOutside
+  - PlayerPermanent
   layers:
   - Default
   - TransparentFX
