@@ -106,7 +106,21 @@ public class PlayerCharacter : Permanent
         PayableAffinity = BaseAffinity;
         movement = maxMovement;
         money = money;//test
+        //do some permanent init if necessary
+        if(gameObject.tag == "PlayerPermanent") InitializePermanent();
+    }
 
+    // Called at start if in combat
+    void InitializePermanent()
+    {
+        // ASK MATT WHICH STATS ARE VARIABLE SO WE KNOW WHAT TO SAVE/LOAD
+        maxHp = 20;
+        hp = maxHp;
+        maxSanity = 10;
+        sanity = maxSanity;
+        // INITIALIZE ABILITIES BASED ON EQUIPMENT
+        maxAp = 3;
+        ap = maxAp;
     }
 
     // Add item to inventory and stack it if stackable

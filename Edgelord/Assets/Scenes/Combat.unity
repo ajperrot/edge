@@ -3104,9 +3104,9 @@ MonoBehaviour:
     iconPath: Sprites/100x100
     description: THIS IS A DEFAULT DESCRIPTION. DID YOU LIKE IT?
   _BaseAffinity:
-    radiant: 0
-    lush: 0
-    crimson: 0
+    radiant: 1
+    lush: 1
+    crimson: 1
     free: 0
   PayableAffinity:
     radiant: 0

@@ -99,11 +99,6 @@ public class Permanent : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
     // Called on mouse hover
     public void OnPointerEnter()
     {
@@ -123,10 +118,11 @@ public class Permanent : MonoBehaviour
         hp = maxHp;
         if(isEnemy == false)
         {
-            //AP??
-            maxSanity = Info.maxSanity;
-            sanity = maxSanity;
+            maxSanity = Info.sanity;
+            sanity = sanity;
             AbilityDisplay.InitializeAbilityButtons(Info.Abilities);
+            maxAp = Info.ap;
+            ap = maxAp;
         }
     }
 }

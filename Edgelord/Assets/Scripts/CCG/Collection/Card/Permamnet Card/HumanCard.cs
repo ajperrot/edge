@@ -37,7 +37,7 @@ public class HumanCard : PermanentCard
     public override void FillCardUI()
     {
         //fill our sanity, defaulting to max
-        if(currentSanity < 0) currentSanity = Info.maxSanity;
+        if(currentSanity < 0) currentSanity = Info.sanity;
         //then fill standard card fields
         base.FillCardUI();
     }

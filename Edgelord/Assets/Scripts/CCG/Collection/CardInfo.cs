@@ -29,9 +29,11 @@ public class CardInfo
     public string cartArtPath = "DEFAULT PATH"; //path to the art for this card
     public int[] Abilities; //the functions this card can perform
     
+    // Permanent Only Info
+    public int ap = 0; //maximum ap, used for permanents
+
     // Human Only Info
-    //public string uniqueName = "D"; //name of the person, ignorder for others
-    public int maxSanity = 255; //maximum sanity, used only for humans
+    public int sanity = 255; //maximum sanity, used only for humans
 
     // Constructor
     public CardInfo(int id)
@@ -55,11 +57,14 @@ public class CardInfo
         for(int i = 0; i < Abilities.Length; i++)
         {
             Abilities[i] = XmlConvert.ToInt32(AbilityNodes[i].InnerText);
-        } 
+        }
+        //include ap and passives if not a phenomenon
+        // ADD PASSIVES
+        if(this.Type != CardType.Phenomenon) this.ap = XmlConvert.ToInt32(Nodes[9].InnerText);
         //include max sanity and unique name if human
         if(this.Type == CardType.Human)
         {
-            this.maxSanity = XmlConvert.ToInt32(Nodes[8].InnerText);
+            this.sanity = XmlConvert.ToInt32(Nodes[10].InnerText);
             this.name += " - " + GenerateRandomName();
         }
 
