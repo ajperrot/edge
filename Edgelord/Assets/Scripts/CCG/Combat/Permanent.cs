@@ -14,7 +14,6 @@ public class Permanent : MonoBehaviour
     public TMP_Text SanityText; //prints sanity to screen
     public TMP_Text MaxSanityText; //prints maxSanity to screen
     public AbilitiesRoot AbilityDisplay; //displays buttons for each ability
-
     public Slider RadiantHpBar; //used to display radiantHp
     public TMP_Text RadiantHpText; //displays radiantHp as a number
 
@@ -85,7 +84,6 @@ public class Permanent : MonoBehaviour
             if(value < sanity) sanity = value;
             SanityBar.maxValue = value;
             MaxSanityText.text = value.ToString();
-            print(value + "<" + sanity);
         }
     }
 
@@ -119,13 +117,16 @@ public class Permanent : MonoBehaviour
     }
 
     // Initialize with card info
-    public void Initizalize(CardInfo Info)
+    public void Initialize(CardInfo Info, bool isEnemy = false)
     {
         maxHp = Info.hp;
         hp = maxHp;
-        //AP??
-        maxSanity = Info.maxSanity;
-        sanity = maxSanity;
-        AbilityDisplay.InitializeAbilityButtons(Info.Abilities);
+        if(isEnemy == false)
+        {
+            //AP??
+            maxSanity = Info.maxSanity;
+            sanity = maxSanity;
+            AbilityDisplay.InitializeAbilityButtons(Info.Abilities);
+        }
     }
 }

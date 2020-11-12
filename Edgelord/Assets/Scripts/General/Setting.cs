@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Setting
 {
-    public static int currentDay = 0;
+    public static int currentDay = 1;
     public static int location = 0;
 
     // Advance the Setting and change scene to comp
