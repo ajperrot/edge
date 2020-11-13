@@ -82,6 +82,8 @@ public class TabManager : MonoBehaviour
     {
         if(tabNumber != currentTab)
         {
+            //setting the Wwise Computer_State depending on what tab we are using.
+            setWwiseState(tabNumber);
             //deactivate current tab
             Tabs[currentTab].SetActive(false);
             TabIndicators[currentTab].SetActive(true);
@@ -117,5 +119,16 @@ public class TabManager : MonoBehaviour
         }
         tabCount = TabIndicators.Length;
         ExitButton.SetActive(true);
+    }
+
+    //Sets the Wwise 'Computer_State' depending on the current tab. 
+    private void setWwiseState(int tabNumber)
+    {
+        if (tabNumber == 0)
+            AkSoundEngine.SetState("Computer_State", "Rumors");
+        else if(tabNumber == 1)
+            AkSoundEngine.SetState("Computer_State", "Recruitment");
+        else
+            AkSoundEngine.SetState("Computer_State", "Summoning");
     }
 }

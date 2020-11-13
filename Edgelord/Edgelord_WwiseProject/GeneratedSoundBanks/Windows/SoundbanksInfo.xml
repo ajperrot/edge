@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
+	<RootPaths>
+		<ProjectRoot>J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles>
+		<File Id="13185682" Language="SFX">
+			<ShortName>Computer-Strings_95bpm4-4_L16M.wav</ShortName>
+			<Path>SFX\Computer-Strings_95bpm4-4_L16M_D79FB2B7.wem</Path>
+		</File>
+		<File Id="15726675" Language="SFX">
+			<ShortName>Computer-Organ01_95bpm4-4_16M.wav</ShortName>
+			<Path>SFX\Computer-Organ01_95bpm4-4_16M_D79FB2B7.wem</Path>
+		</File>
+		<File Id="369070175" Language="SFX">
+			<ShortName>Computer-Keys03_95bpm4-4_16M.wav</ShortName>
+			<Path>SFX\Computer-Keys03_95bpm4-4_16M_D79FB2B7.wem</Path>
+		</File>
+		<File Id="490155424" Language="SFX">
+			<ShortName>Computer-Keys01_95bpm4-4_16M.wav</ShortName>
+			<Path>SFX\Computer-Keys01_95bpm4-4_16M_D79FB2B7.wem</Path>
+		</File>
+		<File Id="498296337" Language="SFX">
+			<ShortName>Computer-Keys04_95bpm4-4_16M.wav</ShortName>
+			<Path>SFX\Computer-Keys04_95bpm4-4_16M_D79FB2B7.wem</Path>
+		</File>
+		<File Id="516762877" Language="SFX">
+			<ShortName>Computer-Choir_95bpm4-4_L16M.wav</ShortName>
+			<Path>SFX\Computer-Choir_95bpm4-4_L16M_D79FB2B7.wem</Path>
+		</File>
+		<File Id="561225079" Language="SFX">
+			<ShortName>Computer-Keys02_95bpm4-4_16M.wav</ShortName>
+			<Path>SFX\Computer-Keys02_95bpm4-4_16M_D79FB2B7.wem</Path>
+		</File>
+		<File Id="571303960" Language="SFX">
+			<ShortName>Computer-Organ02_95bpm4-4_16M.wav</ShortName>
+			<Path>SFX\Computer-Organ02_95bpm4-4_16M_D79FB2B7.wem</Path>
+		</File>
+		<File Id="573247459" Language="SFX">
+			<ShortName>Computer-OrganUpper02_95bpm4-4_1P16M.wav</ShortName>
+			<Path>SFX\Computer-OrganUpper02_95bpm4-4_1P16M_D79FB2B7.wem</Path>
+		</File>
+		<File Id="607726064" Language="SFX">
+			<ShortName>Computer-OrganUpper01_95bpm4-4_1P16M.wav</ShortName>
+			<Path>SFX\Computer-OrganUpper01_95bpm4-4_1P16M_D79FB2B7.wem</Path>
+		</File>
+		<File Id="653768450" Language="SFX">
+			<ShortName>Computer-Drums04_95bpm4-4_8M.wav</ShortName>
+			<Path>SFX\Computer-Drums04_95bpm4-4_8M_D79FB2B7.wem</Path>
+		</File>
+		<File Id="655023700" Language="SFX">
+			<ShortName>Computer-Strings2_95bpm4-4_L16M.wav</ShortName>
+			<Path>SFX\Computer-Strings2_95bpm4-4_L16M_D79FB2B7.wem</Path>
+		</File>
+		<File Id="681149128" Language="SFX">
+			<ShortName>Computer-Drums01_95bpm4-4_8M.wav</ShortName>
+			<Path>SFX\Computer-Drums01_95bpm4-4_8M_D79FB2B7.wem</Path>
+		</File>
+		<File Id="719931777" Language="SFX">
+			<ShortName>Computer-Organ03_95bpm4-4_16M.wav</ShortName>
+			<Path>SFX\Computer-Organ03_95bpm4-4_16M_D79FB2B7.wem</Path>
+		</File>
+		<File Id="893271804" Language="SFX">
+			<ShortName>Computer-Drums03_95bpm4-4_8M.wav</ShortName>
+			<Path>SFX\Computer-Drums03_95bpm4-4_8M_D79FB2B7.wem</Path>
+		</File>
+		<File Id="897624119" Language="SFX">
+			<ShortName>Computer-Organ04_95bpm4-4_16M.wav</ShortName>
+			<Path>SFX\Computer-Organ04_95bpm4-4_16M_D79FB2B7.wem</Path>
+		</File>
+		<File Id="961722316" Language="SFX">
+			<ShortName>Computer-Drums02_95bpm4-4_8M.wav</ShortName>
+			<Path>SFX\Computer-Drums02_95bpm4-4_8M_D79FB2B7.wem</Path>
+		</File>
+	</StreamedFiles>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="329523063" Language="SFX" Hash="600797685">
+			<ObjectPath>\SoundBanks\Default Work Unit\LocationBanks\PowerPlant</ObjectPath>
+			<ShortName>PowerPlant</ShortName>
+			<Path>PowerPlant.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="389088463" Language="SFX" Hash="3748271484">
+			<ObjectPath>\SoundBanks\Default Work Unit\LocationBanks\VibeCheck</ObjectPath>
+			<ShortName>VibeCheck</ShortName>
+			<Path>VibeCheck.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="417916826" Language="SFX" Hash="2445911759">
+			<ObjectPath>\SoundBanks\Default Work Unit\LocationBanks\Ruins</ObjectPath>
+			<ShortName>Ruins</ShortName>
+			<Path>Ruins.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="760316600" Language="SFX" Hash="2941473135">
+			<ObjectPath>\SoundBanks\Default Work Unit\LocationBanks\Forrest</ObjectPath>
+			<ShortName>Forrest</ShortName>
+			<Path>Forrest.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="1048449605" Language="SFX" Hash="1311585367">
+			<ObjectPath>\SoundBanks\Default Work Unit\LocationBanks\Map</ObjectPath>
+			<ShortName>Map</ShortName>
+			<Path>Map.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="1355168291" Language="SFX" Hash="2709312735">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="1606241850" Language="SFX" Hash="2721395609">
+			<ObjectPath>\SoundBanks\Default Work Unit\LocationBanks\OutdoorSupplies</ObjectPath>
+			<ShortName>OutdoorSupplies</ShortName>
+			<Path>OutdoorSupplies.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="2075030320" Language="SFX" Hash="227652055">
+			<ObjectPath>\SoundBanks\Default Work Unit\GeneralAndUI</ObjectPath>
+			<ShortName>GeneralAndUI</ShortName>
+			<Path>GeneralAndUI.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2932040671" Name="Play_Music" ObjectPath="\Events\Default Work Unit\Play_Music" DurationType="Infinite">
+					<ReferencedStreamedFiles>
+						<File Id="13185682" Language="SFX">
+							<ShortName>Computer-Strings_95bpm4-4_L16M.wav</ShortName>
+							<Path>SFX\Computer-Strings_95bpm4-4_L16M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="15726675" Language="SFX">
+							<ShortName>Computer-Organ01_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Organ01_95bpm4-4_16M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="369070175" Language="SFX">
+							<ShortName>Computer-Keys03_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Keys03_95bpm4-4_16M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="490155424" Language="SFX">
+							<ShortName>Computer-Keys01_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Keys01_95bpm4-4_16M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="498296337" Language="SFX">
+							<ShortName>Computer-Keys04_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Keys04_95bpm4-4_16M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="516762877" Language="SFX">
+							<ShortName>Computer-Choir_95bpm4-4_L16M.wav</ShortName>
+							<Path>SFX\Computer-Choir_95bpm4-4_L16M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="561225079" Language="SFX">
+							<ShortName>Computer-Keys02_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Keys02_95bpm4-4_16M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="571303960" Language="SFX">
+							<ShortName>Computer-Organ02_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Organ02_95bpm4-4_16M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="573247459" Language="SFX">
+							<ShortName>Computer-OrganUpper02_95bpm4-4_1P16M.wav</ShortName>
+							<Path>SFX\Computer-OrganUpper02_95bpm4-4_1P16M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="607726064" Language="SFX">
+							<ShortName>Computer-OrganUpper01_95bpm4-4_1P16M.wav</ShortName>
+							<Path>SFX\Computer-OrganUpper01_95bpm4-4_1P16M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="653768450" Language="SFX">
+							<ShortName>Computer-Drums04_95bpm4-4_8M.wav</ShortName>
+							<Path>SFX\Computer-Drums04_95bpm4-4_8M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="655023700" Language="SFX">
+							<ShortName>Computer-Strings2_95bpm4-4_L16M.wav</ShortName>
+							<Path>SFX\Computer-Strings2_95bpm4-4_L16M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="681149128" Language="SFX">
+							<ShortName>Computer-Drums01_95bpm4-4_8M.wav</ShortName>
+							<Path>SFX\Computer-Drums01_95bpm4-4_8M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="719931777" Language="SFX">
+							<ShortName>Computer-Organ03_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Organ03_95bpm4-4_16M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="893271804" Language="SFX">
+							<ShortName>Computer-Drums03_95bpm4-4_8M.wav</ShortName>
+							<Path>SFX\Computer-Drums03_95bpm4-4_8M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="897624119" Language="SFX">
+							<ShortName>Computer-Organ04_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Organ04_95bpm4-4_16M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="961722316" Language="SFX">
+							<ShortName>Computer-Drums02_95bpm4-4_8M.wav</ShortName>
+							<Path>SFX\Computer-Drums02_95bpm4-4_8M_D79FB2B7.wem</Path>
+						</File>
+					</ReferencedStreamedFiles>
+					<ExcludedMemoryFiles>
+						<File Id="13185682" Language="SFX">
+							<ShortName>Computer-Strings_95bpm4-4_L16M.wav</ShortName>
+							<Path>SFX\Computer-Strings_95bpm4-4_L16M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="15726675" Language="SFX">
+							<ShortName>Computer-Organ01_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Organ01_95bpm4-4_16M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="369070175" Language="SFX">
+							<ShortName>Computer-Keys03_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Keys03_95bpm4-4_16M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="490155424" Language="SFX">
+							<ShortName>Computer-Keys01_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Keys01_95bpm4-4_16M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="498296337" Language="SFX">
+							<ShortName>Computer-Keys04_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Keys04_95bpm4-4_16M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="516762877" Language="SFX">
+							<ShortName>Computer-Choir_95bpm4-4_L16M.wav</ShortName>
+							<Path>SFX\Computer-Choir_95bpm4-4_L16M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="561225079" Language="SFX">
+							<ShortName>Computer-Keys02_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Keys02_95bpm4-4_16M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="571303960" Language="SFX">
+							<ShortName>Computer-Organ02_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Organ02_95bpm4-4_16M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="573247459" Language="SFX">
+							<ShortName>Computer-OrganUpper02_95bpm4-4_1P16M.wav</ShortName>
+							<Path>SFX\Computer-OrganUpper02_95bpm4-4_1P16M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="607726064" Language="SFX">
+							<ShortName>Computer-OrganUpper01_95bpm4-4_1P16M.wav</ShortName>
+							<Path>SFX\Computer-OrganUpper01_95bpm4-4_1P16M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="653768450" Language="SFX">
+							<ShortName>Computer-Drums04_95bpm4-4_8M.wav</ShortName>
+							<Path>SFX\Computer-Drums04_95bpm4-4_8M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="655023700" Language="SFX">
+							<ShortName>Computer-Strings2_95bpm4-4_L16M.wav</ShortName>
+							<Path>SFX\Computer-Strings2_95bpm4-4_L16M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="681149128" Language="SFX">
+							<ShortName>Computer-Drums01_95bpm4-4_8M.wav</ShortName>
+							<Path>SFX\Computer-Drums01_95bpm4-4_8M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="719931777" Language="SFX">
+							<ShortName>Computer-Organ03_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Organ03_95bpm4-4_16M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="893271804" Language="SFX">
+							<ShortName>Computer-Drums03_95bpm4-4_8M.wav</ShortName>
+							<Path>SFX\Computer-Drums03_95bpm4-4_8M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="897624119" Language="SFX">
+							<ShortName>Computer-Organ04_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Organ04_95bpm4-4_16M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="961722316" Language="SFX">
+							<ShortName>Computer-Drums02_95bpm4-4_8M.wav</ShortName>
+							<Path>SFX\Computer-Drums02_95bpm4-4_8M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+					</ExcludedMemoryFiles>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{378B2173-9341-4029-A145-F17D1F5630CB}">
+							<Children>
+								<SwitchContainer SwitchValue="{4C5C9C6C-8A4D-43CB-9698-0A794CA18202}">
+									<Children>
+										<SwitchContainer SwitchValue="{D9A90C6A-B57F-4833-AEB2-8C99BC70E59F}">
+											<Media>
+												<File Id="490155424"/>
+												<File Id="561225079"/>
+												<File Id="369070175"/>
+												<File Id="498296337"/>
+												<File Id="15726675"/>
+												<File Id="571303960"/>
+												<File Id="719931777"/>
+												<File Id="897624119"/>
+												<File Id="607726064"/>
+												<File Id="573247459"/>
+												<File Id="681149128"/>
+												<File Id="961722316"/>
+												<File Id="893271804"/>
+												<File Id="653768450"/>
+												<File Id="516762877"/>
+												<File Id="13185682"/>
+												<File Id="655023700"/>
+											</Media>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+			</IncludedEvents>
+			<StateGroups>
+				<StateGroup Id="1238077023" Name="Combat_State" ObjectPath="\States\Default Work Unit\Combat_State">
+					<States>
+						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\Combat_State\None"/>
+						<State Id="2764240573" Name="Combat" ObjectPath="\States\Default Work Unit\Combat_State\Combat"/>
+						<State Id="670611050" Name="Neutral" ObjectPath="\States\Default Work Unit\Combat_State\Neutral"/>
+					</States>
+				</StateGroup>
+				<StateGroup Id="2773429644" Name="Computer_State" ObjectPath="\States\Default Work Unit\Computer_State">
+					<States>
+						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\Computer_State\None"/>
+						<State Id="494913387" Name="Rumors" ObjectPath="\States\Default Work Unit\Computer_State\Rumors"/>
+						<State Id="2429809093" Name="Recruitment" ObjectPath="\States\Default Work Unit\Computer_State\Recruitment"/>
+						<State Id="158051784" Name="Summoning" ObjectPath="\States\Default Work Unit\Computer_State\Summoning"/>
+					</States>
+				</StateGroup>
+				<StateGroup Id="3263810795" Name="Game_Area_State" ObjectPath="\States\Default Work Unit\Game_Area_State">
+					<States>
+						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\Game_Area_State\None"/>
+						<State Id="2376682602" Name="Computer" ObjectPath="\States\Default Work Unit\Game_Area_State\Computer"/>
+						<State Id="1048449605" Name="Map" ObjectPath="\States\Default Work Unit\Game_Area_State\Map"/>
+						<State Id="2106987216" Name="ComicShop" ObjectPath="\States\Default Work Unit\Game_Area_State\ComicShop"/>
+						<State Id="4199045634" Name="OutdoorSupply" ObjectPath="\States\Default Work Unit\Game_Area_State\OutdoorSupply"/>
+						<State Id="760316600" Name="Forrest" ObjectPath="\States\Default Work Unit\Game_Area_State\Forrest"/>
+						<State Id="389088463" Name="VibeCheck" ObjectPath="\States\Default Work Unit\Game_Area_State\VibeCheck"/>
+						<State Id="3661816265" Name="School" ObjectPath="\States\Default Work Unit\Game_Area_State\School"/>
+						<State Id="3306575845" Name="Residential" ObjectPath="\States\Default Work Unit\Game_Area_State\Residential"/>
+						<State Id="329523063" Name="PowerPlant" ObjectPath="\States\Default Work Unit\Game_Area_State\PowerPlant"/>
+						<State Id="417916826" Name="Ruins" ObjectPath="\States\Default Work Unit\Game_Area_State\Ruins"/>
+						<State Id="2313638486" Name="LumberMill" ObjectPath="\States\Default Work Unit\Game_Area_State\LumberMill"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+		</SoundBank>
+		<SoundBank Id="2106987216" Language="SFX" Hash="1867775228">
+			<ObjectPath>\SoundBanks\Default Work Unit\LocationBanks\ComicShop</ObjectPath>
+			<ShortName>ComicShop</ShortName>
+			<Path>ComicShop.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="2313638486" Language="SFX" Hash="1319100180">
+			<ObjectPath>\SoundBanks\Default Work Unit\LocationBanks\LumberMill</ObjectPath>
+			<ShortName>LumberMill</ShortName>
+			<Path>LumberMill.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="2376682602" Language="SFX" Hash="1929314676">
+			<ObjectPath>\SoundBanks\Default Work Unit\LocationBanks\Computer</ObjectPath>
+			<ShortName>Computer</ShortName>
+			<Path>Computer.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2932040671" Name="Play_Music" ObjectPath="\Events\Default Work Unit\Play_Music" DurationType="Infinite">
+					<ReferencedStreamedFiles>
+						<File Id="13185682" Language="SFX">
+							<ShortName>Computer-Strings_95bpm4-4_L16M.wav</ShortName>
+							<Path>SFX\Computer-Strings_95bpm4-4_L16M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="15726675" Language="SFX">
+							<ShortName>Computer-Organ01_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Organ01_95bpm4-4_16M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="369070175" Language="SFX">
+							<ShortName>Computer-Keys03_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Keys03_95bpm4-4_16M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="490155424" Language="SFX">
+							<ShortName>Computer-Keys01_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Keys01_95bpm4-4_16M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="498296337" Language="SFX">
+							<ShortName>Computer-Keys04_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Keys04_95bpm4-4_16M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="516762877" Language="SFX">
+							<ShortName>Computer-Choir_95bpm4-4_L16M.wav</ShortName>
+							<Path>SFX\Computer-Choir_95bpm4-4_L16M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="561225079" Language="SFX">
+							<ShortName>Computer-Keys02_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Keys02_95bpm4-4_16M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="571303960" Language="SFX">
+							<ShortName>Computer-Organ02_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Organ02_95bpm4-4_16M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="573247459" Language="SFX">
+							<ShortName>Computer-OrganUpper02_95bpm4-4_1P16M.wav</ShortName>
+							<Path>SFX\Computer-OrganUpper02_95bpm4-4_1P16M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="607726064" Language="SFX">
+							<ShortName>Computer-OrganUpper01_95bpm4-4_1P16M.wav</ShortName>
+							<Path>SFX\Computer-OrganUpper01_95bpm4-4_1P16M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="653768450" Language="SFX">
+							<ShortName>Computer-Drums04_95bpm4-4_8M.wav</ShortName>
+							<Path>SFX\Computer-Drums04_95bpm4-4_8M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="655023700" Language="SFX">
+							<ShortName>Computer-Strings2_95bpm4-4_L16M.wav</ShortName>
+							<Path>SFX\Computer-Strings2_95bpm4-4_L16M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="681149128" Language="SFX">
+							<ShortName>Computer-Drums01_95bpm4-4_8M.wav</ShortName>
+							<Path>SFX\Computer-Drums01_95bpm4-4_8M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="719931777" Language="SFX">
+							<ShortName>Computer-Organ03_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Organ03_95bpm4-4_16M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="893271804" Language="SFX">
+							<ShortName>Computer-Drums03_95bpm4-4_8M.wav</ShortName>
+							<Path>SFX\Computer-Drums03_95bpm4-4_8M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="897624119" Language="SFX">
+							<ShortName>Computer-Organ04_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Organ04_95bpm4-4_16M_D79FB2B7.wem</Path>
+						</File>
+						<File Id="961722316" Language="SFX">
+							<ShortName>Computer-Drums02_95bpm4-4_8M.wav</ShortName>
+							<Path>SFX\Computer-Drums02_95bpm4-4_8M_D79FB2B7.wem</Path>
+						</File>
+					</ReferencedStreamedFiles>
+					<IncludedMemoryFiles>
+						<File Id="13185682" Language="SFX">
+							<ShortName>Computer-Strings_95bpm4-4_L16M.wav</ShortName>
+							<Path>SFX\Computer-Strings_95bpm4-4_L16M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="15726675" Language="SFX">
+							<ShortName>Computer-Organ01_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Organ01_95bpm4-4_16M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="369070175" Language="SFX">
+							<ShortName>Computer-Keys03_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Keys03_95bpm4-4_16M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="490155424" Language="SFX">
+							<ShortName>Computer-Keys01_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Keys01_95bpm4-4_16M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="498296337" Language="SFX">
+							<ShortName>Computer-Keys04_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Keys04_95bpm4-4_16M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="516762877" Language="SFX">
+							<ShortName>Computer-Choir_95bpm4-4_L16M.wav</ShortName>
+							<Path>SFX\Computer-Choir_95bpm4-4_L16M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="561225079" Language="SFX">
+							<ShortName>Computer-Keys02_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Keys02_95bpm4-4_16M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="571303960" Language="SFX">
+							<ShortName>Computer-Organ02_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Organ02_95bpm4-4_16M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="573247459" Language="SFX">
+							<ShortName>Computer-OrganUpper02_95bpm4-4_1P16M.wav</ShortName>
+							<Path>SFX\Computer-OrganUpper02_95bpm4-4_1P16M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="607726064" Language="SFX">
+							<ShortName>Computer-OrganUpper01_95bpm4-4_1P16M.wav</ShortName>
+							<Path>SFX\Computer-OrganUpper01_95bpm4-4_1P16M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="653768450" Language="SFX">
+							<ShortName>Computer-Drums04_95bpm4-4_8M.wav</ShortName>
+							<Path>SFX\Computer-Drums04_95bpm4-4_8M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="655023700" Language="SFX">
+							<ShortName>Computer-Strings2_95bpm4-4_L16M.wav</ShortName>
+							<Path>SFX\Computer-Strings2_95bpm4-4_L16M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="681149128" Language="SFX">
+							<ShortName>Computer-Drums01_95bpm4-4_8M.wav</ShortName>
+							<Path>SFX\Computer-Drums01_95bpm4-4_8M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="719931777" Language="SFX">
+							<ShortName>Computer-Organ03_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Organ03_95bpm4-4_16M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="893271804" Language="SFX">
+							<ShortName>Computer-Drums03_95bpm4-4_8M.wav</ShortName>
+							<Path>SFX\Computer-Drums03_95bpm4-4_8M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="897624119" Language="SFX">
+							<ShortName>Computer-Organ04_95bpm4-4_16M.wav</ShortName>
+							<Path>SFX\Computer-Organ04_95bpm4-4_16M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+						<File Id="961722316" Language="SFX">
+							<ShortName>Computer-Drums02_95bpm4-4_8M.wav</ShortName>
+							<Path>SFX\Computer-Drums02_95bpm4-4_8M_D79FB2B7.wem</Path>
+							<PrefetchSize>19264</PrefetchSize>
+						</File>
+					</IncludedMemoryFiles>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{378B2173-9341-4029-A145-F17D1F5630CB}">
+							<Children>
+								<SwitchContainer SwitchValue="{4C5C9C6C-8A4D-43CB-9698-0A794CA18202}">
+									<Children>
+										<SwitchContainer SwitchValue="{D9A90C6A-B57F-4833-AEB2-8C99BC70E59F}">
+											<Media>
+												<File Id="490155424"/>
+												<File Id="561225079"/>
+												<File Id="369070175"/>
+												<File Id="498296337"/>
+												<File Id="15726675"/>
+												<File Id="571303960"/>
+												<File Id="719931777"/>
+												<File Id="897624119"/>
+												<File Id="607726064"/>
+												<File Id="573247459"/>
+												<File Id="681149128"/>
+												<File Id="961722316"/>
+												<File Id="893271804"/>
+												<File Id="653768450"/>
+												<File Id="516762877"/>
+												<File Id="13185682"/>
+												<File Id="655023700"/>
+											</Media>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+			</IncludedEvents>
+			<StateGroups>
+				<StateGroup Id="1238077023" Name="Combat_State" ObjectPath="\States\Default Work Unit\Combat_State">
+					<States>
+						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\Combat_State\None"/>
+						<State Id="2764240573" Name="Combat" ObjectPath="\States\Default Work Unit\Combat_State\Combat"/>
+						<State Id="670611050" Name="Neutral" ObjectPath="\States\Default Work Unit\Combat_State\Neutral"/>
+					</States>
+				</StateGroup>
+				<StateGroup Id="2773429644" Name="Computer_State" ObjectPath="\States\Default Work Unit\Computer_State">
+					<States>
+						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\Computer_State\None"/>
+						<State Id="494913387" Name="Rumors" ObjectPath="\States\Default Work Unit\Computer_State\Rumors"/>
+						<State Id="2429809093" Name="Recruitment" ObjectPath="\States\Default Work Unit\Computer_State\Recruitment"/>
+						<State Id="158051784" Name="Summoning" ObjectPath="\States\Default Work Unit\Computer_State\Summoning"/>
+					</States>
+				</StateGroup>
+				<StateGroup Id="3263810795" Name="Game_Area_State" ObjectPath="\States\Default Work Unit\Game_Area_State">
+					<States>
+						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\Game_Area_State\None"/>
+						<State Id="2376682602" Name="Computer" ObjectPath="\States\Default Work Unit\Game_Area_State\Computer"/>
+						<State Id="1048449605" Name="Map" ObjectPath="\States\Default Work Unit\Game_Area_State\Map"/>
+						<State Id="2106987216" Name="ComicShop" ObjectPath="\States\Default Work Unit\Game_Area_State\ComicShop"/>
+						<State Id="4199045634" Name="OutdoorSupply" ObjectPath="\States\Default Work Unit\Game_Area_State\OutdoorSupply"/>
+						<State Id="760316600" Name="Forrest" ObjectPath="\States\Default Work Unit\Game_Area_State\Forrest"/>
+						<State Id="389088463" Name="VibeCheck" ObjectPath="\States\Default Work Unit\Game_Area_State\VibeCheck"/>
+						<State Id="3661816265" Name="School" ObjectPath="\States\Default Work Unit\Game_Area_State\School"/>
+						<State Id="3306575845" Name="Residential" ObjectPath="\States\Default Work Unit\Game_Area_State\Residential"/>
+						<State Id="329523063" Name="PowerPlant" ObjectPath="\States\Default Work Unit\Game_Area_State\PowerPlant"/>
+						<State Id="417916826" Name="Ruins" ObjectPath="\States\Default Work Unit\Game_Area_State\Ruins"/>
+						<State Id="2313638486" Name="LumberMill" ObjectPath="\States\Default Work Unit\Game_Area_State\LumberMill"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+		</SoundBank>
+		<SoundBank Id="2764240573" Language="SFX" Hash="3041297399">
+			<ObjectPath>\SoundBanks\Default Work Unit\Combat</ObjectPath>
+			<ShortName>Combat</ShortName>
+			<Path>Combat.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="3306575845" Language="SFX" Hash="429336868">
+			<ObjectPath>\SoundBanks\Default Work Unit\LocationBanks\Residential</ObjectPath>
+			<ShortName>Residential</ShortName>
+			<Path>Residential.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="3661816265" Language="SFX" Hash="991144043">
+			<ObjectPath>\SoundBanks\Default Work Unit\LocationBanks\School</ObjectPath>
+			<ShortName>School</ShortName>
+			<Path>School.bnk</Path>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>

@@ -1,0 +1,67 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2932040671	Play_Music			\Default Work Unit\Play_Music	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	1238077023	Combat_State			\Default Work Unit\Combat_State	
+	2773429644	Computer_State			\Default Work Unit\Computer_State	
+	3263810795	Game_Area_State			\Default Work Unit\Game_Area_State	
+
+State	ID	Name	State Group			Notes
+	670611050	Neutral	Combat_State			
+	748895195	None	Combat_State			
+	2764240573	Combat	Combat_State			
+	158051784	Summoning	Computer_State			
+	494913387	Rumors	Computer_State			
+	748895195	None	Computer_State			
+	2429809093	Recruitment	Computer_State			
+	329523063	PowerPlant	Game_Area_State			
+	389088463	VibeCheck	Game_Area_State			
+	417916826	Ruins	Game_Area_State			
+	748895195	None	Game_Area_State			
+	760316600	Forrest	Game_Area_State			
+	1048449605	Map	Game_Area_State			
+	2106987216	ComicShop	Game_Area_State			
+	2313638486	LumberMill	Game_Area_State			
+	2376682602	Computer	Game_Area_State			
+	3306575845	Residential	Game_Area_State			
+	3661816265	School	Game_Area_State			
+	4199045634	OutdoorSupply	Game_Area_State			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	13185682	TabIntrument	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-Strings_95bpm4-4_L16M_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\TabIntrument		19264
+	15726675	Organs	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-Organ01_95bpm4-4_16M_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\Organs		19264
+	369070175	Keys	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-Keys03_95bpm4-4_16M_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\Keys		19264
+	490155424	Keys	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-Keys01_95bpm4-4_16M_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\Keys		19264
+	498296337	Keys	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-Keys04_95bpm4-4_16M_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\Keys		19264
+	516762877	TabIntrument	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-Choir_95bpm4-4_L16M_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\TabIntrument		19264
+	561225079	Keys	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-Keys02_95bpm4-4_16M_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\Keys		19264
+	571303960	Organs	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-Organ02_95bpm4-4_16M_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\Organs		19264
+	573247459	Upper Organ	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-OrganUpper02_95bpm4-4_1P16M_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\Upper Organ		19264
+	607726064	Upper Organ	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-OrganUpper01_95bpm4-4_1P16M_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\Upper Organ		19264
+	653768450	Drums	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-Drums04_95bpm4-4_8M_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\Drums		19264
+	655023700	TabIntrument	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-Strings2_95bpm4-4_L16M_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\TabIntrument		19264
+	681149128	Drums	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-Drums01_95bpm4-4_8M_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\Drums		19264
+	719931777	Organs	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-Organ03_95bpm4-4_16M_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\Organs		19264
+	893271804	Drums	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-Drums03_95bpm4-4_8M_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\Drums		19264
+	897624119	Organs	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-Organ04_95bpm4-4_16M_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\Organs		19264
+	961722316	Drums	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-Drums02_95bpm4-4_8M_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\Drums		19264
+
+Streamed Audio	ID	Name	Audio source file	Generated audio file	Wwise Object Path	Notes
+	13185682	TabIntrument	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-Strings_95bpm4-4_L16M_D79FB2B7.wem	13185682.wem	\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\TabIntrument	
+	15726675	Organs	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-Organ01_95bpm4-4_16M_D79FB2B7.wem	15726675.wem	\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\Organs	
+	369070175	Keys	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-Keys03_95bpm4-4_16M_D79FB2B7.wem	369070175.wem	\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\Keys	
+	490155424	Keys	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-Keys01_95bpm4-4_16M_D79FB2B7.wem	490155424.wem	\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\Keys	
+	498296337	Keys	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-Keys04_95bpm4-4_16M_D79FB2B7.wem	498296337.wem	\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\Keys	
+	516762877	TabIntrument	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-Choir_95bpm4-4_L16M_D79FB2B7.wem	516762877.wem	\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\TabIntrument	
+	561225079	Keys	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-Keys02_95bpm4-4_16M_D79FB2B7.wem	561225079.wem	\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\Keys	
+	571303960	Organs	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-Organ02_95bpm4-4_16M_D79FB2B7.wem	571303960.wem	\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\Organs	
+	573247459	Upper Organ	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-OrganUpper02_95bpm4-4_1P16M_D79FB2B7.wem	573247459.wem	\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\Upper Organ	
+	607726064	Upper Organ	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-OrganUpper01_95bpm4-4_1P16M_D79FB2B7.wem	607726064.wem	\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\Upper Organ	
+	653768450	Drums	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-Drums04_95bpm4-4_8M_D79FB2B7.wem	653768450.wem	\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\Drums	
+	655023700	TabIntrument	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-Strings2_95bpm4-4_L16M_D79FB2B7.wem	655023700.wem	\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\TabIntrument	
+	681149128	Drums	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-Drums01_95bpm4-4_8M_D79FB2B7.wem	681149128.wem	\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\Drums	
+	719931777	Organs	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-Organ03_95bpm4-4_16M_D79FB2B7.wem	719931777.wem	\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\Organs	
+	893271804	Drums	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-Drums03_95bpm4-4_8M_D79FB2B7.wem	893271804.wem	\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\Drums	
+	897624119	Organs	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-Organ04_95bpm4-4_16M_D79FB2B7.wem	897624119.wem	\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\Organs	
+	961722316	Drums	J:\Game Design Projects\edge\Edgelord\Edgelord_WwiseProject\.cache\Mac\SFX\Computer-Drums02_95bpm4-4_8M_D79FB2B7.wem	961722316.wem	\Interactive Music Hierarchy\Default Work Unit\Music_Switch\ComputerTheme\ComputerThemeA\Drums	
+

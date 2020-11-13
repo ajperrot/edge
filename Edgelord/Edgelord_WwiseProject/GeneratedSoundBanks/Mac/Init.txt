@@ -1,0 +1,38 @@
+State Group	ID	Name			Wwise Object Path	Notes
+	1238077023	Combat_State			\Default Work Unit\Combat_State	
+	2773429644	Computer_State			\Default Work Unit\Computer_State	
+	3263810795	Game_Area_State			\Default Work Unit\Game_Area_State	
+
+State	ID	Name	State Group			Notes
+	670611050	Neutral	Combat_State			
+	748895195	None	Combat_State			
+	2764240573	Combat	Combat_State			
+	158051784	Summoning	Computer_State			
+	494913387	Rumors	Computer_State			
+	748895195	None	Computer_State			
+	2429809093	Recruitment	Computer_State			
+	329523063	PowerPlant	Game_Area_State			
+	389088463	VibeCheck	Game_Area_State			
+	417916826	Ruins	Game_Area_State			
+	748895195	None	Game_Area_State			
+	760316600	Forrest	Game_Area_State			
+	1048449605	Map	Game_Area_State			
+	2106987216	ComicShop	Game_Area_State			
+	2313638486	LumberMill	Game_Area_State			
+	2376682602	Computer	Game_Area_State			
+	3306575845	Residential	Game_Area_State			
+	3661816265	School	Game_Area_State			
+	4199045634	OutdoorSupply	Game_Area_State			
+
+Audio Bus	ID	Name			Wwise Object Path	Notes
+	393239870	SFX			\Default Work Unit\Master Audio Bus\SFX	
+	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+	3991942870	Music			\Default Work Unit\Master Audio Bus\Music	
+
+Effect plug-ins	ID	Name	Type				Notes
+	3796564934	Hard_Knee_Minus_3dB_RMS	Wwise Compressor			
+
+Audio Devices	ID	Name	Type				Notes
+	2317455096	No_Output	No Output			
+	3859886410	System	System			
+

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{06069655-9E02-4EC7-BCC4-591F3454C888}" SchemaVersion="97">
+	<States>
+		<WorkUnit Name="Default Work Unit" ID="{06069655-9E02-4EC7-BCC4-591F3454C888}" PersistMode="Standalone">
+			<ChildrenList>
+				<StateGroup Name="Game_Area_State" ID="{109DDD8A-2E96-470C-8A0F-524FD041FD38}">
+					<ChildrenList>
+						<State Name="None" ID="{9314BB37-65A8-4DE2-B6DE-BA3B2F2038F3}"/>
+						<State Name="Computer" ID="{4C5C9C6C-8A4D-43CB-9698-0A794CA18202}"/>
+						<State Name="Map" ID="{7903CCE3-34A5-489E-87D4-6B1CFCE9B7B9}"/>
+						<State Name="ComicShop" ID="{0536D570-4F2B-482D-9115-56036D659502}"/>
+						<State Name="OutdoorSupply" ID="{3C1AFC54-71B3-47F2-9753-9525CFC4C8C4}"/>
+						<State Name="Forrest" ID="{44EEA0D8-008F-4DC5-BB9C-54D04D295173}"/>
+						<State Name="VibeCheck" ID="{10720FCB-38CE-4D03-AA41-87C14BC18924}"/>
+						<State Name="School" ID="{CE8DAFA3-F6E0-4096-9812-D761228B02B1}"/>
+						<State Name="Residential" ID="{B5982D5D-5189-4005-87F3-EE8831CFF1E5}"/>
+						<State Name="PowerPlant" ID="{8E8DF14E-3502-4F13-8307-5D8F27458E93}"/>
+						<State Name="Ruins" ID="{14D250E0-71F1-4279-9D28-0808838C7419}"/>
+						<State Name="LumberMill" ID="{C4B09AD5-BE15-4D70-8337-FE04C835F15B}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="Combat_State" ID="{2419453A-CE55-4AE7-BFF0-D60D49278BA4}">
+					<ChildrenList>
+						<State Name="None" ID="{E97BA395-236A-40C3-AF8E-5BDBC7E9D323}"/>
+						<State Name="Combat" ID="{EF43287A-8FD5-4A0F-8942-FF01FBD9485E}"/>
+						<State Name="Neutral" ID="{378B2173-9341-4029-A145-F17D1F5630CB}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="Computer_State" ID="{D9A90C6A-B57F-4833-AEB2-8C99BC70E59F}">
+					<ChildrenList>
+						<State Name="None" ID="{43E46698-D8AF-41EC-85DC-9A14801DB7F5}"/>
+						<State Name="Rumors" ID="{02FA8461-DD10-417F-83D7-63B25A8C97A8}"/>
+						<State Name="Recruitment" ID="{7998F0C3-AF60-48BB-BA62-C6821CD7CD9D}"/>
+						<State Name="Summoning" ID="{F684EA15-2060-42D8-A9F2-27314A9C6AD1}"/>
+					</ChildrenList>
+				</StateGroup>
+			</ChildrenList>
+		</WorkUnit>
+	</States>
+</WwiseDocument>

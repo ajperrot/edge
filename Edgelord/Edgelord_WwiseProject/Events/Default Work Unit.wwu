@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{9CAAF2DE-C3C1-474D-8796-9144069D6FA4}" SchemaVersion="97">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{9CAAF2DE-C3C1-474D-8796-9144069D6FA4}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_Music" ID="{68BFF411-9D6F-45C6-AFEB-3CE26CDBF752}">
+					<ChildrenList>
+						<Action Name="" ID="{9464E429-F342-431C-85F2-2DEA35C55734}" ShortID="985902284">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_Switch" ID="{C767050C-9C7F-4112-AA4B-7983A1AD2ECD}" WorkUnitID="{B4BD154A-F43C-45FB-9D94-7E99DB5DA469}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{7A5C9B15-7199-4576-A707-536A9C6B0EE3}" ShortID="630848787">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_Switch" ID="{C767050C-9C7F-4112-AA4B-7983A1AD2ECD}" WorkUnitID="{B4BD154A-F43C-45FB-9D94-7E99DB5DA469}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

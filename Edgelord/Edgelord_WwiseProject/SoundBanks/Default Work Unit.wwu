@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{3D321E37-90F0-423F-B8AE-C3FDE600B0D6}" SchemaVersion="97">
+	<SoundBanks>
+		<WorkUnit Name="Default Work Unit" ID="{3D321E37-90F0-423F-B8AE-C3FDE600B0D6}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="Combat" ID="{E0579FF4-B730-4555-AAD4-DB1529294AE9}">
+					<ObjectInclusionList/>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<Folder Name="LocationBanks" ID="{F7188BD3-D22D-4CF8-B1C5-050B582C5874}" ShortID="169822887">
+					<ChildrenList>
+						<SoundBank Name="OutdoorSupplies" ID="{E4EBEF2F-DF44-44ED-9915-C8875F799A8E}">
+							<ObjectInclusionList/>
+							<ObjectExclusionList/>
+							<GameSyncExclusionList/>
+						</SoundBank>
+						<SoundBank Name="Map" ID="{64CB20F4-8717-4D0D-AB31-D1AA8B73B94F}">
+							<ObjectInclusionList/>
+							<ObjectExclusionList/>
+							<GameSyncExclusionList/>
+						</SoundBank>
+						<SoundBank Name="Forrest" ID="{90931C09-97E6-4FF1-89EC-C511B94D6032}">
+							<ObjectInclusionList/>
+							<ObjectExclusionList/>
+							<GameSyncExclusionList/>
+						</SoundBank>
+						<SoundBank Name="Computer" ID="{8771A76F-CA69-433A-8836-884E79BDC227}">
+							<ObjectInclusionList>
+								<ObjectRef Name="Play_Music" ID="{68BFF411-9D6F-45C6-AFEB-3CE26CDBF752}" WorkUnitID="{9CAAF2DE-C3C1-474D-8796-9144069D6FA4}" Origin="Manual" Filter="7"/>
+							</ObjectInclusionList>
+							<ObjectExclusionList/>
+							<GameSyncExclusionList/>
+						</SoundBank>
+						<SoundBank Name="Ruins" ID="{2EF4156A-F4DA-4809-B5E9-01F1E83D6781}">
+							<ObjectInclusionList/>
+							<ObjectExclusionList/>
+							<GameSyncExclusionList/>
+						</SoundBank>
+						<SoundBank Name="ComicShop" ID="{9E2F7828-EE94-400F-946A-0A62EA1AF3E0}">
+							<ObjectInclusionList/>
+							<ObjectExclusionList/>
+							<GameSyncExclusionList/>
+						</SoundBank>
+						<SoundBank Name="VibeCheck" ID="{A00F08D0-7746-4D33-B43B-B08DD3ED43F4}">
+							<ObjectInclusionList/>
+							<ObjectExclusionList/>
+							<GameSyncExclusionList/>
+						</SoundBank>
+						<SoundBank Name="PowerPlant" ID="{51A26D77-6CDF-420D-B57C-1B9084D7554D}">
+							<ObjectInclusionList/>
+							<ObjectExclusionList/>
+							<GameSyncExclusionList/>
+						</SoundBank>
+						<SoundBank Name="School" ID="{F0AEC41C-0663-44B5-A28E-B20FC1ACB750}">
+							<ObjectInclusionList/>
+							<ObjectExclusionList/>
+							<GameSyncExclusionList/>
+						</SoundBank>
+						<SoundBank Name="Residential" ID="{8AB1D26B-B68A-4B71-88D3-683D1422E76E}">
+							<ObjectInclusionList/>
+							<ObjectExclusionList/>
+							<GameSyncExclusionList/>
+						</SoundBank>
+						<SoundBank Name="LumberMill" ID="{4BC772CB-FD4E-4E40-B06D-D4328D5B97E8}">
+							<ObjectInclusionList/>
+							<ObjectExclusionList/>
+							<GameSyncExclusionList/>
+						</SoundBank>
+					</ChildrenList>
+				</Folder>
+				<SoundBank Name="GeneralAndUI" ID="{DE5D5BF7-3F23-490E-A769-BC0BE3EE68A1}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Play_Music" ID="{68BFF411-9D6F-45C6-AFEB-3CE26CDBF752}" WorkUnitID="{9CAAF2DE-C3C1-474D-8796-9144069D6FA4}" Origin="Manual" Filter="3"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>
