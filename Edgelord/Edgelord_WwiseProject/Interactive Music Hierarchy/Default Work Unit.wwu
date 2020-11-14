@@ -13,7 +13,7 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<MusicPlaylistContainer Name="ComputerTheme" ID="{B9B592E9-18D7-488A-8643-9D12C132BA38}" ShortID="163697159">
+						<MusicPlaylistContainer Name="OldTheme" ID="{B9B592E9-18D7-488A-8643-9D12C132BA38}" ShortID="163697159">
 							<PropertyList>
 								<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
 								<Property Name="Tempo" Type="Real64" Value="95"/>
@@ -27,7 +27,7 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<MusicSegment Name="ComputerThemeA" ID="{5BDC4D07-9BE4-4686-9B75-03D80737752E}" ShortID="553004375">
+								<MusicSegment Name="ComputerSegmentA" ID="{5BDC4D07-9BE4-4686-9B75-03D80737752E}" ShortID="553004375">
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="50526.3278508772"/>
 										<Property Name="Volume" Type="Real64">
@@ -115,7 +115,6 @@
 															<AudioSourceRef Name="Computer-Keys01_95bpm4-4_16M" ID="{D1AC3A87-5428-4209-8397-B3C7365F493A}"/>
 														</MusicClip>
 													</ClipList>
-													<ReferenceList/>
 												</MusicTrackSequence>
 												<MusicTrackSequence Name="" ID="{7B66CEEF-90D3-433D-8E82-426A2A823B0A}">
 													<ClipList>
@@ -129,7 +128,6 @@
 															<AudioSourceRef Name="Computer-Keys02_95bpm4-4_16M" ID="{95FD8E96-E64A-40FD-BCC4-7C0940471E3E}"/>
 														</MusicClip>
 													</ClipList>
-													<ReferenceList/>
 												</MusicTrackSequence>
 												<MusicTrackSequence Name="" ID="{7E9E1FE1-3F1E-4E25-9276-46A98A256170}">
 													<ClipList>
@@ -143,7 +141,6 @@
 															<AudioSourceRef Name="Computer-Keys03_95bpm4-4_16M" ID="{837B5F09-BAC7-4BF4-B322-C30C1881E04D}"/>
 														</MusicClip>
 													</ClipList>
-													<ReferenceList/>
 												</MusicTrackSequence>
 												<MusicTrackSequence Name="" ID="{F5BE164C-08F6-4C73-8EBF-642BA0FD763A}">
 													<ClipList>
@@ -157,7 +154,6 @@
 															<AudioSourceRef Name="Computer-Keys04_95bpm4-4_16M" ID="{3C481D9B-BC60-4D27-B9D0-33F7B6027CF9}"/>
 														</MusicClip>
 													</ClipList>
-													<ReferenceList/>
 												</MusicTrackSequence>
 											</SequenceList>
 										</MusicTrack>
@@ -467,7 +463,7 @@
 																			</Point>
 																			<Point>
 																				<XPos>22.7368541666667</XPos>
-																				<YPos>-0</YPos>
+																				<YPos>0</YPos>
 																				<Flags>37</Flags>
 																			</Point>
 																		</PointList>
@@ -508,7 +504,7 @@
 																			</Point>
 																			<Point>
 																				<XPos>22.7368541666667</XPos>
-																				<YPos>-0</YPos>
+																				<YPos>0</YPos>
 																				<Flags>37</Flags>
 																			</Point>
 																		</PointList>
@@ -549,7 +545,7 @@
 																			</Point>
 																			<Point>
 																				<XPos>22.7368541666667</XPos>
-																				<YPos>-0</YPos>
+																				<YPos>0</YPos>
 																				<Flags>37</Flags>
 																			</Point>
 																		</PointList>
@@ -590,7 +586,7 @@
 																			</Point>
 																			<Point>
 																				<XPos>22.7368541666667</XPos>
-																				<YPos>-0</YPos>
+																				<YPos>0</YPos>
 																				<Flags>37</Flags>
 																			</Point>
 																		</PointList>
@@ -651,7 +647,7 @@
 																			</Point>
 																			<Point>
 																				<XPos>22.7368541666667</XPos>
-																				<YPos>-0</YPos>
+																				<YPos>0</YPos>
 																				<Flags>37</Flags>
 																			</Point>
 																		</PointList>
@@ -1112,7 +1108,942 @@
 											<PropertyList>
 												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
 											</PropertyList>
-											<SegmentRef Name="ComputerThemeA" ID="{5BDC4D07-9BE4-4686-9B75-03D80737752E}"/>
+											<SegmentRef Name="ComputerSegmentA" ID="{5BDC4D07-9BE4-4686-9B75-03D80737752E}"/>
+										</MusicPlaylistItem>
+									</ChildrenList>
+								</MusicPlaylistItem>
+							</Playlist>
+						</MusicPlaylistContainer>
+						<MusicPlaylistContainer Name="D2D" ID="{ED244A60-2AAB-46FF-BDFA-5062FD744039}" ShortID="719226319">
+							<PropertyList>
+								<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
+								<Property Name="Tempo" Type="Real64" Value="95"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{35C98FDC-D20D-4546-B9D3-6013C9D08977}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{99264546-3573-4A12-BEB3-6C619232D795}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicSegment Name="SegmentA" ID="{B9A15250-466E-45AE-AAE2-744EA7A3811B}" ShortID="7304601">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="42947.3804824562"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{35C98FDC-D20D-4546-B9D3-6013C9D08977}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{99264546-3573-4A12-BEB3-6C619232D795}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="Bass" ID="{86839808-01C1-4341-854B-2C5F23E70C7F}" ShortID="476462154">
+											<PropertyList>
+												<Property Name="MusicTrackType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{99264546-3573-4A12-BEB3-6C619232D795}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="D2D-Bass1-95bpm_4-4_16M" ID="{60EE46BD-D154-45CE-A4A5-BB9BA7C60D85}">
+													<Language>SFX</Language>
+													<AudioFile>D2D-Bass1-95bpm_4-4_16M.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="345857506"/>
+													</MediaIDList>
+												</AudioFileSource>
+												<AudioFileSource Name="D2D-Bass2-95bpm_4-4_16M" ID="{05A710BC-F661-4FFD-9667-D3121299CFD2}">
+													<Language>SFX</Language>
+													<AudioFile>D2D-Bass2-95bpm_4-4_16M.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="293899590"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{DC90B541-5420-4BAC-807B-03249565DBCE}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{0529613A-BD3D-41CA-B643-70BA3696E59A}">
+													<ClipList>
+														<MusicClip Name="D2D-Bass1-95bpm_4-4_16M" ID="{DA4D3E7B-1989-43B8-8CC1-2B926F311CAB}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="42947.375"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="D2D-Bass1-95bpm_4-4_16M" ID="{60EE46BD-D154-45CE-A4A5-BB9BA7C60D85}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{68D94094-56BD-44B6-B210-FC21D27D4BCA}">
+													<ClipList>
+														<MusicClip Name="D2D-Bass2-95bpm_4-4_16M" ID="{6F4872D2-2C64-4CF9-80A0-5E926A38A8ED}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="42947.375"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="D2D-Bass2-95bpm_4-4_16M" ID="{05A710BC-F661-4FFD-9667-D3121299CFD2}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="LowOrgan" ID="{4DA56184-CAE6-48E8-8E52-1ABC231264A2}" ShortID="553454182">
+											<PropertyList>
+												<Property Name="MusicTrackType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{99264546-3573-4A12-BEB3-6C619232D795}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="D2D-LowOrgan1-95bpm_4-4_16M" ID="{8220618D-9B07-4D6A-9464-A4866A5BB7BD}">
+													<Language>SFX</Language>
+													<AudioFile>D2D-LowOrgan1-95bpm_4-4_16M.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="953675582"/>
+													</MediaIDList>
+												</AudioFileSource>
+												<AudioFileSource Name="D2D-LowOrgan2-95bpm_4-4_16M" ID="{D48C6FE0-A2F4-4A1F-9E4C-FF1FF8DCDEFB}">
+													<Language>SFX</Language>
+													<AudioFile>D2D-LowOrgan2-95bpm_4-4_16M.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="639794969"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{7016ABE0-67FD-4ACB-A90A-BD63879159E4}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{746C1BB9-BF09-4D24-9E80-8D0BC251923A}">
+													<ClipList>
+														<MusicClip Name="D2D-LowOrgan1-95bpm_4-4_16M" ID="{38764E74-FF81-4D60-9CC0-C94AF16914C0}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="42947.375"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="D2D-LowOrgan1-95bpm_4-4_16M" ID="{8220618D-9B07-4D6A-9464-A4866A5BB7BD}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{1889CA12-05E3-44F1-94D0-39EAF0156F55}">
+													<ClipList>
+														<MusicClip Name="D2D-LowOrgan2-95bpm_4-4_16M" ID="{ACCF65F8-94BA-4976-A764-B50399D7D488}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="42947.375"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="D2D-LowOrgan2-95bpm_4-4_16M" ID="{D48C6FE0-A2F4-4A1F-9E4C-FF1FF8DCDEFB}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{6E684230-D97B-4A79-B976-87CF59C8E710}"/>
+												<MusicTrackSequence Name="" ID="{B222C23E-5FD6-430E-90F5-D6EA18A79E05}"/>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="Flair" ID="{23E18ABE-454F-4CA8-85B8-E3789EA48A74}" ShortID="188685185">
+											<PropertyList>
+												<Property Name="MusicTrackType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{99264546-3573-4A12-BEB3-6C619232D795}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="D2D-Keys1-95bpm_4-4_16M" ID="{4316DB41-10D3-4558-B87E-0F11B27EC829}">
+													<Language>SFX</Language>
+													<AudioFile>D2D-Keys1-95bpm_4-4_16M.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="458401900"/>
+													</MediaIDList>
+												</AudioFileSource>
+												<AudioFileSource Name="D2D-Keys2-95bpm_4-4_16M" ID="{B58D4356-9FC4-4A57-AB47-1C6210EC901E}">
+													<Language>SFX</Language>
+													<AudioFile>D2D-Keys2-95bpm_4-4_16M.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="529189227"/>
+													</MediaIDList>
+												</AudioFileSource>
+												<AudioFileSource Name="D2D-Keys3-95bpm_4-4_16M" ID="{F0789A56-1741-4B77-8A6E-F6C69969CC17}">
+													<Language>SFX</Language>
+													<AudioFile>D2D-Keys3-95bpm_4-4_16M.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="66603641"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{8D7B795D-BB71-4333-93BA-C1A2CD7493DC}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{A2E36908-95B0-460D-B1A1-A09DF057C06D}">
+													<ClipList>
+														<MusicClip Name="D2D-Keys1-95bpm_4-4_16M" ID="{8FE79E90-31FF-4C80-AE25-D69BBF6D87EB}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="42947.375"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="D2D-Keys1-95bpm_4-4_16M" ID="{4316DB41-10D3-4558-B87E-0F11B27EC829}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{656C3FE5-BEC4-4A04-97F2-7173CC4E87FB}">
+													<ClipList>
+														<MusicClip Name="D2D-Keys2-95bpm_4-4_16M" ID="{38300395-3E9C-4A25-B71F-3C567603A95F}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="42947.375"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="D2D-Keys2-95bpm_4-4_16M" ID="{B58D4356-9FC4-4A57-AB47-1C6210EC901E}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{F40153DA-88B0-4E49-8E78-FAAB8017E939}">
+													<ClipList>
+														<MusicClip Name="D2D-Keys3-95bpm_4-4_16M" ID="{50ACDA27-4229-45FE-A23B-F46F8B623025}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="42947.375"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="D2D-Keys3-95bpm_4-4_16M" ID="{F0789A56-1741-4B77-8A6E-F6C69969CC17}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{F3472037-E8ED-43BB-B672-137C78480405}"/>
+												<MusicTrackSequence Name="" ID="{9BE70C45-5B53-4357-BF56-7E61ED82754D}"/>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="Melody" ID="{B7FC0B01-06C5-4D4D-99BD-42CCDA9A9C3E}" ShortID="344713714">
+											<PropertyList>
+												<Property Name="MusicTrackType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{99264546-3573-4A12-BEB3-6C619232D795}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="D2D-Choir1-95bpm_4-4_16M" ID="{D8463D65-E2F1-4FAF-B208-B4E104B61D3C}">
+													<Language>SFX</Language>
+													<AudioFile>D2D-Choir1-95bpm_4-4_16M.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="148361298"/>
+													</MediaIDList>
+												</AudioFileSource>
+												<AudioFileSource Name="D2D-Choir2-95bpm_4-4_16M" ID="{BAF1987F-3C21-43A4-AC38-91E7E36973D5}">
+													<Language>SFX</Language>
+													<AudioFile>D2D-Choir2-95bpm_4-4_16M.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="817990293"/>
+													</MediaIDList>
+												</AudioFileSource>
+												<AudioFileSource Name="D2D-HighOrgan1-95bpm_4-4_16M" ID="{51F9B989-0B69-4C9D-BFDD-9865A015B93A}">
+													<Language>SFX</Language>
+													<AudioFile>D2D-HighOrgan1-95bpm_4-4_16M.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="611598698"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{73D7C848-9952-4F42-9F83-55900475FE95}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{B051BBDD-E104-4109-846F-0CAE20D2E578}">
+													<ClipList>
+														<MusicClip Name="D2D-Choir1-95bpm_4-4_16M" ID="{B6981B57-C582-4B15-892E-10953D6FA7CB}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="42947.375"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="D2D-Choir1-95bpm_4-4_16M" ID="{D8463D65-E2F1-4FAF-B208-B4E104B61D3C}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{DD37EC66-FF06-461A-9C1D-04906BFB57B5}">
+													<ClipList>
+														<MusicClip Name="D2D-Choir2-95bpm_4-4_16M" ID="{EC157B48-F2BC-4FDC-9A89-5B76DC94D243}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="42947.375"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="D2D-Choir2-95bpm_4-4_16M" ID="{BAF1987F-3C21-43A4-AC38-91E7E36973D5}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{653537A7-0D1A-4398-ACDE-A39A67E07110}">
+													<ClipList>
+														<MusicClip Name="D2D-HighOrgan1-95bpm_4-4_16M" ID="{4EBE2DC2-B5B8-4630-B1D8-7F3256699BBD}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="42947.375"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="D2D-HighOrgan1-95bpm_4-4_16M" ID="{51F9B989-0B69-4C9D-BFDD-9865A015B93A}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{037D5D25-83AF-44AF-8B9A-AED5295606D5}"/>
+												<MusicTrackSequence Name="" ID="{A75ABC1D-6A08-46D0-8C60-C8874E44B889}"/>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="Drums" ID="{7EFCC992-6D78-4454-B787-A276FE318125}" ShortID="575703350">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{99264546-3573-4A12-BEB3-6C619232D795}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{D73648B1-AE8E-4813-944B-4A4671826304}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{570D9A4E-4DB9-4FBA-9FA7-C8DAEC07428C}"/>
+											</SequenceList>
+										</MusicTrack>
+										<MusicTrack Name="Drums_01" ID="{72F1443D-2100-478E-9AEA-8600127977DE}" ShortID="12569418">
+											<PropertyList>
+												<Property Name="IsStreamingEnabled" Type="bool">
+													<ValueList>
+														<Value>True</Value>
+													</ValueList>
+												</Property>
+												<Property Name="IsZeroLantency" Type="bool">
+													<ValueList>
+														<Value>True</Value>
+													</ValueList>
+												</Property>
+												<Property Name="MusicTrackType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Music_Conversion_Shareset" ID="{7F5812A9-287D-4AE7-8779-8AFD2C572C55}" WorkUnitID="{35C98FDC-D20D-4546-B9D3-6013C9D08977}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Music" ID="{83A445D5-2E15-47F5-9B70-27DD2EBF774C}" WorkUnitID="{99264546-3573-4A12-BEB3-6C619232D795}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Computer-Drums01_95bpm4-4_8M" ID="{8570144C-265A-4951-80D1-8AA35588C424}">
+													<Language>SFX</Language>
+													<AudioFile>Computer-Drums01_95bpm4-4_8M.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="681149128"/>
+													</MediaIDList>
+												</AudioFileSource>
+												<AudioFileSource Name="Computer-Drums02_95bpm4-4_8M" ID="{9FB4E982-451A-48EF-B87E-D64A88318E92}">
+													<Language>SFX</Language>
+													<AudioFile>Computer-Drums02_95bpm4-4_8M.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="961722316"/>
+													</MediaIDList>
+												</AudioFileSource>
+												<AudioFileSource Name="Computer-Drums03_95bpm4-4_8M" ID="{10F455D4-BAF1-4E79-95AD-0CF7F8DB31F6}">
+													<Language>SFX</Language>
+													<AudioFile>Computer-Drums03_95bpm4-4_8M.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="893271804"/>
+													</MediaIDList>
+												</AudioFileSource>
+												<AudioFileSource Name="Computer-Drums04_95bpm4-4_8M" ID="{5D42CDE5-F897-446D-A572-D38160BAD6DD}">
+													<Language>SFX</Language>
+													<AudioFile>Computer-Drums04_95bpm4-4_8M.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="653768450"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{B199A567-85E5-4F1D-9F26-E4E90F401025}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{2AEF0FA0-3640-4915-9647-42D4FE80F14E}">
+													<ClipList>
+														<MusicClip Name="Computer-Drums01_95bpm4-4_8M" ID="{846EEEA4-EAD9-48C2-84AA-1F930348AE00}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums01_95bpm4-4_8M" ID="{8570144C-265A-4951-80D1-8AA35588C424}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{F323B5C9-0E36-4698-9404-AEE7FB2BEF59}">
+													<ClipList>
+														<MusicClip Name="Computer-Drums01_95bpm4-4_8M" ID="{7EC19EC6-6D87-4F1E-B01C-0DA70FECEAF9}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums01_95bpm4-4_8M" ID="{8570144C-265A-4951-80D1-8AA35588C424}"/>
+															<PropertyCurveList>
+																<PropertyCurve PropertyName="Volume">
+																	<Curve Name="" ID="{C604FFB9-40A1-4669-A8DD-E5592819E099}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>22.7368541666667</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+															</PropertyCurveList>
+														</MusicClip>
+														<MusicClip Name="Computer-Drums01_95bpm4-4_8M" ID="{212215C6-75F2-4C00-9BD7-02C80B58FDF5}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																<Property Name="PlayAt" Type="Real64" Value="20210.5263157895"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums01_95bpm4-4_8M" ID="{8570144C-265A-4951-80D1-8AA35588C424}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{08F29778-EAC5-4C2A-9FA9-33EC208230A2}">
+													<ClipList>
+														<MusicClip Name="Computer-Drums01_95bpm4-4_8M" ID="{F15BCAF0-8F86-482F-AE26-63C3A11DEC4D}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums01_95bpm4-4_8M" ID="{8570144C-265A-4951-80D1-8AA35588C424}"/>
+															<PropertyCurveList>
+																<PropertyCurve PropertyName="Volume">
+																	<Curve Name="" ID="{B0A8FB6B-28F4-44F6-95E7-C574DD814560}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>22.7368541666667</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+															</PropertyCurveList>
+														</MusicClip>
+														<MusicClip Name="Computer-Drums02_95bpm4-4_8M" ID="{141949DF-69FB-4D55-B9D5-9BD2A015CA8D}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																<Property Name="PlayAt" Type="Real64" Value="20210.5263157895"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums02_95bpm4-4_8M" ID="{9FB4E982-451A-48EF-B87E-D64A88318E92}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{63F205EF-9AA3-41E1-B213-1CA19B68B65B}">
+													<ClipList>
+														<MusicClip Name="Computer-Drums01_95bpm4-4_8M" ID="{5934B378-7E15-48F8-A17F-0E42878ECAB7}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums01_95bpm4-4_8M" ID="{8570144C-265A-4951-80D1-8AA35588C424}"/>
+															<PropertyCurveList>
+																<PropertyCurve PropertyName="Volume">
+																	<Curve Name="" ID="{4D33E01C-05C8-43F3-96E4-BCC54ACF477A}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>22.7368541666667</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+															</PropertyCurveList>
+														</MusicClip>
+														<MusicClip Name="Computer-Drums03_95bpm4-4_8M" ID="{423D3A67-7B6D-4389-A297-8E675FDF8D48}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																<Property Name="PlayAt" Type="Real64" Value="20210.5263157895"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums03_95bpm4-4_8M" ID="{10F455D4-BAF1-4E79-95AD-0CF7F8DB31F6}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{4DC4EDBA-2FFC-4540-BA6A-134C9D7A8D36}">
+													<ClipList>
+														<MusicClip Name="Computer-Drums01_95bpm4-4_8M" ID="{814B016A-4129-48B7-ABD8-CDC6AFB4DE42}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums01_95bpm4-4_8M" ID="{8570144C-265A-4951-80D1-8AA35588C424}"/>
+															<PropertyCurveList>
+																<PropertyCurve PropertyName="Volume">
+																	<Curve Name="" ID="{EED056F0-5CC8-41AB-BF71-AECA5CC07516}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>22.7368541666667</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+															</PropertyCurveList>
+														</MusicClip>
+														<MusicClip Name="Computer-Drums04_95bpm4-4_8M" ID="{07508F0C-AFC7-49E3-806B-2E70CDAFEEFA}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																<Property Name="PlayAt" Type="Real64" Value="20210.5263157895"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums04_95bpm4-4_8M" ID="{5D42CDE5-F897-446D-A572-D38160BAD6DD}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{10CB2F77-4AE0-4B9E-9971-E95E581D03F5}">
+													<ClipList>
+														<MusicClip Name="Computer-Drums02_95bpm4-4_8M" ID="{A5EA4D8C-FE7C-4B7C-B2DE-EBA78A729506}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums02_95bpm4-4_8M" ID="{9FB4E982-451A-48EF-B87E-D64A88318E92}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{A7D0570A-258F-40D7-8F08-DE8A827882B5}">
+													<ClipList>
+														<MusicClip Name="Computer-Drums02_95bpm4-4_8M" ID="{BDAAA790-4687-4DF7-851E-2547CA247B1D}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums02_95bpm4-4_8M" ID="{9FB4E982-451A-48EF-B87E-D64A88318E92}"/>
+														</MusicClip>
+														<MusicClip Name="Computer-Drums01_95bpm4-4_8M" ID="{EC15A5B4-0CEE-41E3-84EF-CAE57F816807}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="PlayAt" Type="Real64" Value="20210.5263157895"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums01_95bpm4-4_8M" ID="{8570144C-265A-4951-80D1-8AA35588C424}"/>
+															<PropertyCurveList>
+																<PropertyCurve PropertyName="Volume">
+																	<Curve Name="" ID="{54D8F77D-EDE4-4BE2-B3D2-1BFA5EECA96A}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>22.7368541666667</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+															</PropertyCurveList>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{619F5BE1-C7F2-4071-9BDD-0FA2E4BCFB27}">
+													<ClipList>
+														<MusicClip Name="Computer-Drums02_95bpm4-4_8M" ID="{289EE339-74A6-4A8B-B186-13BD0C1A2331}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums02_95bpm4-4_8M" ID="{9FB4E982-451A-48EF-B87E-D64A88318E92}"/>
+														</MusicClip>
+														<MusicClip Name="Computer-Drums02_95bpm4-4_8M" ID="{C4DCD6D2-5E72-4BA6-98CB-79C357E4CE5C}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																<Property Name="PlayAt" Type="Real64" Value="20210.5263157895"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums02_95bpm4-4_8M" ID="{9FB4E982-451A-48EF-B87E-D64A88318E92}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{634910E9-4C68-478C-9991-23FEF2FE617D}">
+													<ClipList>
+														<MusicClip Name="Computer-Drums02_95bpm4-4_8M" ID="{B0DD76D1-CE9D-4655-B113-D6F7FE5ED602}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums02_95bpm4-4_8M" ID="{9FB4E982-451A-48EF-B87E-D64A88318E92}"/>
+														</MusicClip>
+														<MusicClip Name="Computer-Drums03_95bpm4-4_8M" ID="{07F47366-775A-4EC1-ACDD-4EADA954B8C8}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																<Property Name="PlayAt" Type="Real64" Value="20210.5263157895"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums03_95bpm4-4_8M" ID="{10F455D4-BAF1-4E79-95AD-0CF7F8DB31F6}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{74ECD1AD-638C-4C9A-8F4D-84E8544C2DAD}">
+													<ClipList>
+														<MusicClip Name="Computer-Drums02_95bpm4-4_8M" ID="{B58E58CC-9B9E-454B-BEB4-0ED1306F06C2}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums02_95bpm4-4_8M" ID="{9FB4E982-451A-48EF-B87E-D64A88318E92}"/>
+														</MusicClip>
+														<MusicClip Name="Computer-Drums04_95bpm4-4_8M" ID="{2D139DD3-8030-4309-A386-7E4D77F6876E}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																<Property Name="PlayAt" Type="Real64" Value="20210.5263157895"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums04_95bpm4-4_8M" ID="{5D42CDE5-F897-446D-A572-D38160BAD6DD}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{96FFAAAF-50FA-4D7B-AABF-9C2C97DD8C71}">
+													<ClipList>
+														<MusicClip Name="Computer-Drums03_95bpm4-4_8M" ID="{18904AEF-596E-4D84-B0A5-85B252CD9774}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums03_95bpm4-4_8M" ID="{10F455D4-BAF1-4E79-95AD-0CF7F8DB31F6}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{A77924CB-9974-41C7-AB2D-0E488B0AE0D9}">
+													<ClipList>
+														<MusicClip Name="Computer-Drums03_95bpm4-4_8M" ID="{759B79E8-1FCE-4CD0-9617-D5FA44EF081C}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums03_95bpm4-4_8M" ID="{10F455D4-BAF1-4E79-95AD-0CF7F8DB31F6}"/>
+														</MusicClip>
+														<MusicClip Name="Computer-Drums01_95bpm4-4_8M" ID="{816A696A-37B1-4C5E-9AAA-73F162EF8368}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																<Property Name="PlayAt" Type="Real64" Value="20210.5263157895"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums01_95bpm4-4_8M" ID="{8570144C-265A-4951-80D1-8AA35588C424}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{3081DB96-0A9E-47E0-AD6E-ECCFADCD51DE}">
+													<ClipList>
+														<MusicClip Name="Computer-Drums03_95bpm4-4_8M" ID="{E32B3EA6-8182-44BF-AA22-080C35AE3E9E}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums03_95bpm4-4_8M" ID="{10F455D4-BAF1-4E79-95AD-0CF7F8DB31F6}"/>
+														</MusicClip>
+														<MusicClip Name="Computer-Drums02_95bpm4-4_8M" ID="{86DC7D6C-11F2-457F-801F-E6C33D2D8DA5}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="PlayAt" Type="Real64" Value="20210.5263157895"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums02_95bpm4-4_8M" ID="{9FB4E982-451A-48EF-B87E-D64A88318E92}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{B1AE9F42-0C36-4AF1-A04F-624CD3C4EA24}">
+													<ClipList>
+														<MusicClip Name="Computer-Drums03_95bpm4-4_8M" ID="{0C2D21A2-79D7-4653-9AC4-CAE40D052DD1}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums03_95bpm4-4_8M" ID="{10F455D4-BAF1-4E79-95AD-0CF7F8DB31F6}"/>
+														</MusicClip>
+														<MusicClip Name="Computer-Drums03_95bpm4-4_8M" ID="{B6B828B1-C365-4B9B-93F7-E88C23D21E26}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																<Property Name="PlayAt" Type="Real64" Value="20210.5263157895"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums03_95bpm4-4_8M" ID="{10F455D4-BAF1-4E79-95AD-0CF7F8DB31F6}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{99AE126B-528C-4717-B337-6BB3B849071C}">
+													<ClipList>
+														<MusicClip Name="Computer-Drums03_95bpm4-4_8M" ID="{54DE7E8B-972A-444E-8D8F-8543EF41D794}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums03_95bpm4-4_8M" ID="{10F455D4-BAF1-4E79-95AD-0CF7F8DB31F6}"/>
+														</MusicClip>
+														<MusicClip Name="Computer-Drums04_95bpm4-4_8M" ID="{4BAEFD7E-3DB9-42CA-B7C4-C45EB9E329AB}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																<Property Name="PlayAt" Type="Real64" Value="20210.5263157895"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums04_95bpm4-4_8M" ID="{5D42CDE5-F897-446D-A572-D38160BAD6DD}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{D65FAE2E-608A-4FFB-9AE9-5A0A29BF2E8E}">
+													<ClipList>
+														<MusicClip Name="Computer-Drums04_95bpm4-4_8M" ID="{916DE327-61B4-40E3-90A7-BA0719FE1CB7}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums04_95bpm4-4_8M" ID="{5D42CDE5-F897-446D-A572-D38160BAD6DD}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{42150BB8-B579-4168-9C3F-04BECDC5BEC2}">
+													<ClipList>
+														<MusicClip Name="Computer-Drums04_95bpm4-4_8M" ID="{14FD983F-2E9D-4033-89E9-F761431FCC14}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums04_95bpm4-4_8M" ID="{5D42CDE5-F897-446D-A572-D38160BAD6DD}"/>
+														</MusicClip>
+														<MusicClip Name="Computer-Drums01_95bpm4-4_8M" ID="{711C70CA-A790-4E4F-988D-3AF373091F08}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeInDuration" Type="Real64" Value="69.388625592419"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																<Property Name="PlayAt" Type="Real64" Value="20210.5263157895"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums01_95bpm4-4_8M" ID="{8570144C-265A-4951-80D1-8AA35588C424}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{BCE25730-D4CB-4BE9-BEB7-663D7AA775C5}">
+													<ClipList>
+														<MusicClip Name="Computer-Drums04_95bpm4-4_8M" ID="{046328D4-8F5C-431E-AB88-C891270C53D7}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums04_95bpm4-4_8M" ID="{5D42CDE5-F897-446D-A572-D38160BAD6DD}"/>
+														</MusicClip>
+														<MusicClip Name="Computer-Drums02_95bpm4-4_8M" ID="{E2F7CA39-2904-4AA9-92E6-C9068CED6B7D}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="PlayAt" Type="Real64" Value="20210.5263157895"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums02_95bpm4-4_8M" ID="{9FB4E982-451A-48EF-B87E-D64A88318E92}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{310B260D-D731-4F57-88E9-0EFD1B2016D8}">
+													<ClipList>
+														<MusicClip Name="Computer-Drums04_95bpm4-4_8M" ID="{520C62B4-D3ED-409B-A7F2-29B0423B2FFB}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums04_95bpm4-4_8M" ID="{5D42CDE5-F897-446D-A572-D38160BAD6DD}"/>
+														</MusicClip>
+														<MusicClip Name="Computer-Drums03_95bpm4-4_8M" ID="{325C1A9E-4AC2-487A-BA16-671D7868ED59}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="PlayAt" Type="Real64" Value="20210.5263157895"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums03_95bpm4-4_8M" ID="{10F455D4-BAF1-4E79-95AD-0CF7F8DB31F6}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{84078DA9-B624-4121-B6A4-8046A1324BB7}">
+													<ClipList>
+														<MusicClip Name="Computer-Drums04_95bpm4-4_8M" ID="{36E5CA15-EF56-4195-9BC8-DDA3496562A0}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums04_95bpm4-4_8M" ID="{5D42CDE5-F897-446D-A572-D38160BAD6DD}"/>
+														</MusicClip>
+														<MusicClip Name="Computer-Drums04_95bpm4-4_8M" ID="{CE8033C2-1C26-4294-A73E-7F2ADFD5CFD6}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																<Property Name="PlayAt" Type="Real64" Value="20210.5263157895"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums04_95bpm4-4_8M" ID="{5D42CDE5-F897-446D-A572-D38160BAD6DD}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{D0169499-FD15-4C39-98C9-208B6601414D}"/>
+												<MusicTrackSequence Name="" ID="{6C2C3466-C441-405E-B116-EA4C18707E76}">
+													<ClipList>
+														<MusicClip Name="Computer-Drums01_95bpm4-4_8M" ID="{875C4C4F-DED9-4738-8827-5BB6C5351C8B}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeInDuration" Type="Real64" Value="69.388625592419"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																<Property Name="PlayAt" Type="Real64" Value="20210.5263157895"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums01_95bpm4-4_8M" ID="{8570144C-265A-4951-80D1-8AA35588C424}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{FA89C678-9F64-4D73-A18A-1B0F65B1DAFC}">
+													<ClipList>
+														<MusicClip Name="Computer-Drums02_95bpm4-4_8M" ID="{6D59DD77-4999-49A8-8011-CF36898E231D}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="PlayAt" Type="Real64" Value="20210.5263157895"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums02_95bpm4-4_8M" ID="{9FB4E982-451A-48EF-B87E-D64A88318E92}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{D452ACC1-61EE-4EC6-8AEF-C33E51CEFA19}">
+													<ClipList>
+														<MusicClip Name="Computer-Drums03_95bpm4-4_8M" ID="{B30FD61E-6140-4DB0-9B90-EFD35324E22A}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="PlayAt" Type="Real64" Value="20210.5263157895"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums03_95bpm4-4_8M" ID="{10F455D4-BAF1-4E79-95AD-0CF7F8DB31F6}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+												<MusicTrackSequence Name="" ID="{54CE4AEA-AB47-4E9E-AC01-EC7DBB64F6EE}">
+													<ClipList>
+														<MusicClip Name="Computer-Drums04_95bpm4-4_8M" ID="{CCE956D2-5A0D-4E6A-B90D-7D44A24A7A9A}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="22736.8541666667"/>
+																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																<Property Name="PlayAt" Type="Real64" Value="20210.5263157895"/>
+															</PropertyList>
+															<AudioSourceRef Name="Computer-Drums04_95bpm4-4_8M" ID="{5D42CDE5-F897-446D-A572-D38160BAD6DD}"/>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+									</ChildrenList>
+									<CueList>
+										<MusicCue Name="Entry Cue" ID="{F1CC2789-0C6A-4152-8F92-745C4FA6449C}"/>
+										<MusicCue Name="Exit Cue" ID="{B4F20FA5-97CF-4277-8B24-EBBAC0865BF3}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="1"/>
+												<Property Name="TimeMs" Type="Real64" Value="40421.0526315789"/>
+											</PropertyList>
+										</MusicCue>
+									</CueList>
+								</MusicSegment>
+							</ChildrenList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{C2C43764-8389-4F98-8FEB-686080017873}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{7D063012-BECB-4CF1-ABAD-C716BFCC3BDB}">
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<Playlist>
+								<MusicPlaylistItem Name="" ID="{E2C6863E-4EFE-4A9B-B433-2459820F5B20}" ShortID="484868024">
+									<PropertyList>
+										<Property Name="LoopCount" Type="int16" Value="0"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicPlaylistItem Name="" ID="{A4CCDFA7-0126-4F85-AAF3-FE8300E6516F}" ShortID="337447342">
+											<PropertyList>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<SegmentRef Name="SegmentA" ID="{B9A15250-466E-45AE-AAE2-744EA7A3811B}"/>
 										</MusicPlaylistItem>
 									</ChildrenList>
 								</MusicPlaylistItem>
@@ -1145,7 +2076,7 @@
 								<PathElementRef Name="Computer_State" ID="{D9A90C6A-B57F-4833-AEB2-8C99BC70E59F}"/>
 							</Path>
 							<AudioNodeInfo>
-								<AudioNodeRef Name="ComputerTheme" ID="{B9B592E9-18D7-488A-8643-9D12C132BA38}" WorkUnitID="{B4BD154A-F43C-45FB-9D94-7E99DB5DA469}" Platform="Linked"/>
+								<AudioNodeRef Name="D2D" ID="{ED244A60-2AAB-46FF-BDFA-5062FD744039}" WorkUnitID="{B4BD154A-F43C-45FB-9D94-7E99DB5DA469}" Platform="Linked"/>
 							</AudioNodeInfo>
 						</Entry>
 					</EntryList>
