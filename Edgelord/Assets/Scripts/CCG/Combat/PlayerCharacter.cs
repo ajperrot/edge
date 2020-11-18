@@ -92,6 +92,16 @@ public class PlayerCharacter : Permanent
         }
     }
 
+    [Header("COMBAT ONLY")]
+    public Transform HandRoot; //parent to cards in hand
+    public GameObject HumanCardPrefab; //copied to make human cards in hand
+    public GameObject EntityCardPrefab; //copied to make entity cards in hand
+    public GameObject PhenomenonCardPrefab; //copied to make phenomenon cards in hand
+    public float cardSpacing; //space between each card in the hand
+
+    private List<CardInfo> Hand; //your hand in combat
+    private List<GameObject> HandCards = new List<GameObject>(); //card ui for each card in handa
+
 
     // Called before Start
     void Awake()
@@ -110,6 +120,7 @@ public class PlayerCharacter : Permanent
         if(gameObject.tag == "PlayerPermanent") InitializePermanent();
     }
 
+    // COMBAT
     // Called at start if in combat
     void InitializePermanent()
     {
@@ -121,8 +132,40 @@ public class PlayerCharacter : Permanent
         // INITIALIZE ABILITIES BASED ON EQUIPMENT
         maxAp = 3;
         ap = maxAp;
+        //set up hand
+        DealStartingHand();
     }
 
+    // Shuffles the deck, gets a starting hand, and puts it onscreen
+    void DealStartingHand()
+    {
+        //get cards
+        PlayerDeck.Shuffle();
+        Hand = PlayerDeck.GetHand();
+        //display cards
+        for(int i = 0; i < Hand.Count; i++)
+        {
+            if(Hand[i].Type == CardInfo.CardType.Human)
+            {
+                //make human card
+                HandCards.Add(Instantiate(HumanCardPrefab, HandRoot));
+                HandCards[i].GetComponent<HumanCard>().Info = Hand[i];
+            } else if(Hand[i].Type == CardInfo.CardType.Entity)
+            {
+                //make entity card
+                HandCards.Add(Instantiate(EntityCardPrefab, HandRoot));
+                HandCards[i].GetComponent<EntityCard>().Info = Hand[i];
+            } else
+            {
+                //make phenomenon card
+                HandCards.Add(Instantiate(PhenomenonCardPrefab, HandRoot));
+                HandCards[i].GetComponent<PhenomenonCard>().Info = Hand[i];
+            }
+            HandCards[i].transform.localPosition += new Vector3(cardSpacing * i, 0, 0);
+        }
+    }
+
+    //INVENTORY
     // Add item to inventory and stack it if stackable
     public void GetItem(Item NewItem)
     {
@@ -154,4 +197,5 @@ public class PlayerCharacter : Permanent
             if(Inventory[i].count <= 0) Inventory.RemoveAt(i);
         }
     }
+
 }
