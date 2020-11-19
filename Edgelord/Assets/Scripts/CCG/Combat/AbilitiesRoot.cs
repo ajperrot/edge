@@ -8,7 +8,7 @@ public class AbilitiesRoot : MonoBehaviour
     public float ButtonSpacing = 40; //space between buttons vertically
 
     private GameObject[] AbilityButtons; //array of all ability buttons
-    private List<bool> HoverStatus; //what is being hovered over
+    private List<bool> HoverStatus = new List<bool>(); //what is being hovered over
 
     // Sets up the UI for each ability in the given array
     public void InitializeAbilityButtons(int[] Abilities)

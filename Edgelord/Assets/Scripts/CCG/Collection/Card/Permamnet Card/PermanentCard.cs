@@ -4,18 +4,10 @@ using UnityEngine;
 
 public class PermanentCard : Card
 {
-    public int associatedPermanentId = -1; //id of the permanent summoned via this card
-
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     // Fill in fields on the card
@@ -24,21 +16,19 @@ public class PermanentCard : Card
         base.FillCardUI();
     }
 
-  // Summon the associated permanent for the SummonCost
-
-
     // Summon the associated permanent for the SummonCost
     public override void Use()
     {
         //pay the summon cost
         Info.SummonCost.Pay();
-        //GENERATE THE PERMANENT FROM ID
-        //ADD THE PERMANENT TO THE PLAYER'S SIDE
-        //REMOVE THIS CARD FROM THE PLAYER'S HAND (DO NOT DESTROY)
+        //generate the permanent
+        Encounter.Instance.AddAlly(Info);
+        //remove card from hand
+        PlayerCharacter.Instance.RemoveFromHand(transform.GetSiblingIndex());
         //REGISTER UNDO IN THE TURNLOG SO THIS MAY BE UNDONE
     }
 
-    // Summon the associated permanent for the SummonCost
+    // UN-Summon the associated permanent for the SummonCost
     public override void Undo()
     {
         //give back the summon cost

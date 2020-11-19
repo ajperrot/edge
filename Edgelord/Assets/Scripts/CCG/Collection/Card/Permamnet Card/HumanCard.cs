@@ -20,17 +20,12 @@ public class HumanCard : PermanentCard
         base.Start();
     }
 
+    // Fill out the card with stats, art, edscription, etc
     public override void FillCardUI()
     {
         //fill our sanity, defaulting to max
         SanityField.text = "" + Info.sanity;
         //then fill standard card fields
         base.FillCardUI();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

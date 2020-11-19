@@ -1880,6 +1880,6 @@ MonoBehaviour:
   SanityBar: {fileID: 559913205}
   SanityText: {fileID: 1705515194}
   MaxSanityText: {fileID: 1574980950}
-  AbilityDisplay: {fileID: 0}
+  AbilityDisplay: {fileID: 134465866}
   RadiantHpBar: {fileID: 1896493841}
   RadiantHpText: {fileID: 137861221}

@@ -170,6 +170,20 @@ public class PlayerCharacter : Permanent
         }
     }
 
+    // Remove the card at the given index from the hand
+    public void RemoveFromHand(int index)
+    {
+        //delete card
+        Hand.RemoveAt(index);
+        Destroy(HandCards[index]);
+        HandCards.RemoveAt(index);
+        //move over other cards
+        for(int i = index; i < HandCards.Count; i++)
+        {
+            HandCards[i].transform.localPosition -= new Vector3(cardSpacing, 0, 0);
+        }
+    }
+
     //INVENTORY
     // Add item to inventory and stack it if stackable
     public void GetItem(Item NewItem)
