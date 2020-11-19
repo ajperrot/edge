@@ -19,6 +19,9 @@ class SaveData
     public int money; //your money at end of day
     public int maxMovement; //your movement per day
     public List<Item> Inventory; //player's items at end of day
+    public int baseHp; //players maxHp at end of day
+    public int baseSanity; //players maxSanity at end of day
+    public int baseAp; //players maxAp at end of day
 }
 
 // Processes for saving and loaing data
@@ -54,6 +57,9 @@ public class SaveSystem
         Data.money = PlayerCharacter.Instance.money;
         Data.Inventory = PlayerCharacter.Instance.Inventory;
         Data.maxMovement = PlayerCharacter.Instance.maxMovement;
+        Data.baseHp = PlayerCharacter.Instance.baseHp;
+        Data.baseSanity = PlayerCharacter.Instance.baseSanity;
+        Data.baseAp = PlayerCharacter.Instance.baseAp;
         bf.Serialize(file, Data);
         file.Close();
         //Debug.Log("Game data saved!");//test
@@ -93,6 +99,9 @@ public class SaveSystem
             PlayerCharacter.Instance.money = Data.money;
             PlayerCharacter.Instance.Inventory = Data.Inventory;
             PlayerCharacter.Instance.maxMovement = Data.maxMovement;
+            PlayerCharacter.Instance.baseHp = Data.baseHp;
+            PlayerCharacter.Instance.baseSanity = Data.baseSanity;
+            PlayerCharacter.Instance.baseAp = Data.baseAp;
             //Debug.Log("Game data loaded!");//test
         }
         else

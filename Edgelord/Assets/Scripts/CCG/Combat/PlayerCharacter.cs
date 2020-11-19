@@ -92,6 +92,11 @@ public class PlayerCharacter : Permanent
         }
     }
 
+    // Combat Stats
+    public int baseHp = 20;
+    public int baseSanity = 10;
+    public int baseAp = 3;
+
     [Header("COMBAT ONLY")]
     public Transform HandRoot; //parent to cards in hand
     public GameObject HumanCardPrefab; //copied to make human cards in hand
@@ -124,14 +129,14 @@ public class PlayerCharacter : Permanent
     // Called at start if in combat
     void InitializePermanent()
     {
-        // ASK MATT WHICH STATS ARE VARIABLE SO WE KNOW WHAT TO SAVE/LOAD
-        maxHp = 20;
+        //set stats to their base values
+        maxHp = baseHp;
         hp = maxHp;
-        maxSanity = 10;
+        maxSanity = baseSanity;
         sanity = maxSanity;
-        // INITIALIZE ABILITIES BASED ON EQUIPMENT
-        maxAp = 3;
+        maxAp = baseAp;
         ap = maxAp;
+        // INITIALIZE ABILITIES BASED ON EQUIPMENT
         //set up hand
         DealStartingHand();
     }
