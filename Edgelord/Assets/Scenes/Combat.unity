@@ -226,7 +226,7 @@ RectTransform:
   - {fileID: 1888393240}
   - {fileID: 1666259240}
   m_Father: {fileID: 773638756}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b30a903165bc49998439fc9f500a719, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Backgrounds: []
   EnemyPrefab: {fileID: 7074704774227669305, guid: 54ab1e900615f44ec9b63236ef0d6a19,
     type: 3}
   AllyPrefab: {fileID: 7074704774227669305, guid: 157d19926d6eb478da864de1eaa9518e,
@@ -252,6 +253,7 @@ MonoBehaviour:
   EnemiesRoot: {fileID: 1736815959}
   AlliesRoot: {fileID: 887378593}
   charSpacing: 250
+  yourTurn: 1
 --- !u!114 &548605454 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 623569837, guid: e3c653fc6f8d34b8eb456fb1e35ae178,
@@ -374,8 +376,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 222215941}
-  - {fileID: 1604457271}
   - {fileID: 330601301}
+  - {fileID: 1604457271}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2929,7 +2931,22 @@ MonoBehaviour:
       name: 
       Type: 0
       SummonCost:
-        radiant: 0
+        radiant: 1
+        lush: 0
+        crimson: 0
+        free: 0
+      hp: 1
+      attack: 1
+      cardText: 
+      cartArtPath: 
+      Abilities: 00000000
+      ap: 0
+      sanity: 0
+    - id: 1
+      name: 
+      Type: 0
+      SummonCost:
+        radiant: 1
         lush: 0
         crimson: 0
         free: 0
@@ -2944,22 +2961,7 @@ MonoBehaviour:
       name: 
       Type: 0
       SummonCost:
-        radiant: 0
-        lush: 0
-        crimson: 0
-        free: 0
-      hp: 0
-      attack: 0
-      cardText: 
-      cartArtPath: 
-      Abilities: 00000000
-      ap: 0
-      sanity: 0
-    - id: 1
-      name: 
-      Type: 0
-      SummonCost:
-        radiant: 0
+        radiant: 1
         lush: 0
         crimson: 0
         free: 0
@@ -2974,7 +2976,7 @@ MonoBehaviour:
       name: 
       Type: 0
       SummonCost:
-        radiant: 0
+        radiant: 1
         lush: 0
         crimson: 0
         free: 0

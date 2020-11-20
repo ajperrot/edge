@@ -12,7 +12,7 @@ class SaveData
 {
     public int day; //day of the Setting we saved just before
     public int location; //where we at? (Only needed for moving to combat)
-    public PlayerAffinity BaseAffinity; //affinity the player character has
+    public Affinity BaseAffinity; //affinity the player character has
     public Deck PlayerDeck; //your deck as of this day
     public int followerCount; //your follower count at end of day
     public int popularity; //your popularity at end of day

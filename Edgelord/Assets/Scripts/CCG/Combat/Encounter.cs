@@ -13,11 +13,10 @@ public class Encounter : MonoBehaviour
     public Transform EnemiesRoot; //all enemy permanents are children of this
     public Transform AlliesRoot; //all allied permanents are children of this
     public float charSpacing = 250; //space between characters
+    public bool yourTurn = true; //can the player take actions?
 
     private List<Permanent> Enemies = new List<Permanent>(); // All opposing entities
     private List<Permanent> Allies = new List<Permanent>(); // All your entities
-
-    private bool yourTurn = true; //can the player take actions?
 
     // Start is called before the first frame update
     void Start()

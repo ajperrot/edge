@@ -67,7 +67,6 @@ public class CardInfo
             this.sanity = XmlConvert.ToInt32(Nodes[10].InnerText);
             this.name += " - " + GenerateRandomName();
         }
-
     }
 
     // Load the document for a specified card

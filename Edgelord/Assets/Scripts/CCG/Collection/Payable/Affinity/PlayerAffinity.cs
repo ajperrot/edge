@@ -11,6 +11,17 @@ public class PlayerAffinity : Affinity
     private int _lush = 0;
     private int _crimson = 0;
 
+    // Default constructor
+    public PlayerAffinity(){}
+
+    // Construct from Affinity
+    public PlayerAffinity(Affinity a)
+    {
+        this.radiant = a.radiant;
+        this.lush = a.lush;
+        this.crimson = a.crimson;
+        this.free = a.free;
+    }
 
     // Properties
     public new int radiant
@@ -48,10 +59,5 @@ public class PlayerAffinity : Affinity
                 PlayerCharacter.Instance.AffinityDisplay[2].text = "" + value;
             }
         }
-    }
-
-    public string toString()
-    {
-        return "" + _radiant;
     }
 }

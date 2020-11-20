@@ -19,8 +19,10 @@ public class PermanentCard : Card
     // Summon the associated permanent for the SummonCost
     public override void Use()
     {
-        //pay the summon cost
-        Info.SummonCost.Pay();
+        //do not use if it is not your turn
+        if(Encounter.Instance.yourTurn == false) return;
+        //pay the summon cost, return if unable
+        if(Info.SummonCost.Pay() == false) return;
         //generate the permanent
         Encounter.Instance.AddAlly(Info);
         //remove card from hand

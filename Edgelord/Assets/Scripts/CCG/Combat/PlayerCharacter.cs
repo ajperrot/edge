@@ -20,22 +20,10 @@ public class PlayerCharacter : Permanent
 
     // Your normal affinity
     [SerializeField]
-    private PlayerAffinity _BaseAffinity = new PlayerAffinity();
-    public PlayerAffinity BaseAffinity
-    {
-        get {return _BaseAffinity;}
-        set
-        {
-            _BaseAffinity = value;
-            //write new values to screen
-            AffinityDisplay[0].text = "" + value.radiant;
-            AffinityDisplay[1].text = "" + value.lush;
-            AffinityDisplay[2].text = "" + value.crimson;
-        }
-    }
+    public Affinity BaseAffinity = new Affinity();
 
     // Your payable Affinity
-    public Affinity PayableAffinity = new Affinity();
+    public PlayerAffinity PayableAffinity;
 
     // Your follower count
     [SerializeField]
@@ -118,7 +106,7 @@ public class PlayerCharacter : Permanent
     void Start()
     {
         //set depletable stats to their maximum
-        PayableAffinity = BaseAffinity;
+        PayableAffinity = new PlayerAffinity(BaseAffinity);
         movement = maxMovement;
         money = money;//test
         //do some permanent init if necessary
