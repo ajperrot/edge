@@ -6,6 +6,7 @@ public class AbilitiesRoot : MonoBehaviour
 {
     public GameObject AbilityPrefab; //template for ability UI
     public float ButtonSpacing = 40; //space between buttons vertically
+    public GameObject TargetingArrow; //contains ui for targeting
 
     private GameObject[] AbilityButtons; //array of all ability buttons
     private List<bool> HoverStatus = new List<bool>(); //what is being hovered over
@@ -38,6 +39,7 @@ public class AbilitiesRoot : MonoBehaviour
     {
         HoverStatus[hoverIndex] = false;
         if(HoverStatus.Contains(true)) return;
+        //set inactive if no hovering
         gameObject.SetActive(false);
     }
 }

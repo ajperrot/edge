@@ -21,20 +21,6 @@ public class Ability : MonoBehaviour
   private List<Payable> cost; //what do we lose when using this ability
   private bool autoTargeting; //if true, we don't have to target manually
 
-  // Highlight and open description when hovering over
-  public void OnPointerEnter()
-  {
-    HoverOnlyUI.SetActive(true);
-    Root.AddHover(hoverIndex);
-  }
-
-  // Undo the effects of OnPointerEnter
-  public void OnPointerExit()
-  {
-    HoverOnlyUI.SetActive(false);
-    Root.RemoveHover(hoverIndex);
-  }
-
   // Fill in the data for this ability and write to UI
   public void Initialize(AbilitiesRoot Root, int id)
   {
@@ -49,6 +35,38 @@ public class Ability : MonoBehaviour
     //COST DATA AND DISPLAY
     DescriptionText.text = Nodes[2].InnerText;
     autoTargeting = XmlConvert.ToBoolean(Nodes[3].InnerText);
+  }
+
+  // Highlight and open description when hovering over
+  public void OnPointerEnter()
+  {
+    HoverOnlyUI.SetActive(true);
+    Root.AddHover(hoverIndex);
+  }
+
+  // Undo the effects of OnPointerEnter
+  public void OnPointerExit()
+  {
+    HoverOnlyUI.SetActive(false);
+    Root.RemoveHover(hoverIndex);
+  }
+
+  // Use the ability if no targeting is needed, otherwise enter targeting
+  public void OnClick()
+  {
+    if(autoTargeting == true)
+    {
+      Use();
+    } else
+    {
+      //enter targeting mode
+    }
+  }
+
+  // Call the function associated with this anility id
+  public void Use()
+  {
+
   }
 
   // Loads the xml defining the ability with the given id

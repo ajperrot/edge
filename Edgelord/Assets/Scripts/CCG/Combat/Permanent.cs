@@ -103,6 +103,7 @@ public class Permanent : MonoBehaviour
     public void OnPointerEnter()
     {
         AbilityDisplay.AddHover(0);
+        Targeting.Target = this;
     }
 
     // Mouse leaves
