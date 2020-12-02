@@ -15,6 +15,7 @@ public class AbilitiesRoot : MonoBehaviour
     public void InitializeAbilityButtons(int[] Abilities)
     {
         HoverStatus.Add(false);
+        HoverStatus.Add(false);
         AbilityButtons = new GameObject[Abilities.Length];
         for(int i = 0; i < AbilityButtons.Length; i++)
         {
@@ -22,7 +23,7 @@ public class AbilitiesRoot : MonoBehaviour
             AbilityButtons[i] = GameObject.Instantiate(AbilityPrefab, transform);
             Ability CurrentAbility = AbilityButtons[i].GetComponent<Ability>();
             CurrentAbility.Initialize(this, Abilities[i]);
-            CurrentAbility.hoverIndex = i + 1;
+            CurrentAbility.hoverIndex = i + 2;
             AbilityButtons[i].transform.localPosition += new Vector3(0, ButtonSpacing, 0);
             HoverStatus.Add(false);
         }
