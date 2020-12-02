@@ -23,7 +23,18 @@ public class PlayerCharacter : Permanent
     public Affinity BaseAffinity = new Affinity();
 
     // Your payable Affinity
-    public PlayerAffinity PayableAffinity;
+    private PlayerAffinity _PayableAffinity = new PlayerAffinity();
+    public PlayerAffinity PayableAffinity
+    {
+        get {return _PayableAffinity;}
+        set
+        {
+            _PayableAffinity.radiant = value.radiant;
+            _PayableAffinity.lush = value.lush;
+            _PayableAffinity.crimson = value.crimson;
+            _PayableAffinity.free = value.free;
+        }
+    }
 
     // Your follower count
     [SerializeField]

@@ -3098,8 +3098,8 @@ MonoBehaviour:
       cardText: 
       cartArtPath: 
       Abilities: 00000000
-      ap: 0
-      sanity: 0
+      ap: 1
+      sanity: 1
     - id: 1
       name: 
       Type: 0
@@ -3108,43 +3108,13 @@ MonoBehaviour:
         lush: 0
         crimson: 0
         free: 0
-      hp: 0
-      attack: 0
+      hp: 1
+      attack: 1
       cardText: 
       cartArtPath: 
       Abilities: 00000000
-      ap: 0
-      sanity: 0
-    - id: 1
-      name: 
-      Type: 0
-      SummonCost:
-        radiant: 1
-        lush: 0
-        crimson: 0
-        free: 0
-      hp: 0
-      attack: 0
-      cardText: 
-      cartArtPath: 
-      Abilities: 
-      ap: 0
-      sanity: 0
-    - id: 1
-      name: 
-      Type: 0
-      SummonCost:
-        radiant: 1
-        lush: 0
-        crimson: 0
-        free: 0
-      hp: 0
-      attack: 0
-      cardText: 
-      cartArtPath: 
-      Abilities: 
-      ap: 0
-      sanity: 0
+      ap: 1
+      sanity: 1
   Inventory:
   - id: 1
     name: 
@@ -3287,7 +3257,7 @@ MonoBehaviour:
     iconPath: Sprites/100x100
     description: THIS IS A DEFAULT DESCRIPTION. DID YOU LIKE IT?
   BaseAffinity:
-    radiant: 0
+    radiant: 1
     lush: 0
     crimson: 0
     free: 0

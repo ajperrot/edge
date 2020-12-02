@@ -17,7 +17,6 @@ public class Targeting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(Camera.main.ScreenToWorldPoint(Input.mousePosition));//test
         Line.SetPosition(1, Camera.main.ScreenToWorldPoint(Input.mousePosition));
     }
 }
