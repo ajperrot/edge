@@ -186,8 +186,24 @@ public class Affinity : Payable
         PlayerCharacter.Instance.PayableAffinity = new PlayerAffinity(PlayerCharacter.Instance.PayableAffinity + this);
     }
 
+
+    // OBJECT OVERRIDES
+
+    // ToString
     public override string ToString()
     {
         return "" + radiant + "," + lush + "," + crimson + "," + free;
+    }
+
+    // Equals
+    public override bool Equals(object o)
+    {
+        return o.Equals(this);
+    }
+
+    // GetHashCode
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
     }
 }

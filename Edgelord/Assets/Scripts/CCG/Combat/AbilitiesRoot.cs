@@ -19,7 +19,6 @@ public class AbilitiesRoot : MonoBehaviour
         AbilityButtons = new GameObject[Abilities.Length];
         for(int i = 0; i < AbilityButtons.Length; i++)
         {
-            print("D");//test
             AbilityButtons[i] = GameObject.Instantiate(AbilityPrefab, transform);
             Ability CurrentAbility = AbilityButtons[i].GetComponent<Ability>();
             CurrentAbility.Initialize(this, Abilities[i]);
@@ -40,7 +39,6 @@ public class AbilitiesRoot : MonoBehaviour
     public void RemoveHover(int hoverIndex)
     {
         HoverStatus[hoverIndex] = false;
-        print(HoverStatus);//test
         if(HoverStatus.Contains(true)) return;
         //set inactive if no hovering
         gameObject.SetActive(false);
