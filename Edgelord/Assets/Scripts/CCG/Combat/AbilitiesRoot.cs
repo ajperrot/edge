@@ -6,10 +6,17 @@ public class AbilitiesRoot : MonoBehaviour
 {
     public GameObject AbilityPrefab; //template for ability UI
     public float ButtonSpacing = 40; //space between buttons vertically
+    public Permanent User; //who is using these abilities?
     public GameObject TargetingArrow; //contains ui for targeting
 
     private GameObject[] AbilityButtons; //array of all ability buttons
     private List<bool> HoverStatus = new List<bool>(); //what is being hovered over
+
+    // Called once at the start
+    void Start()
+    {
+        User = transform.parent.GetComponent<Permanent>();
+    }
 
     // Sets up the UI for each ability in the given array
     public void InitializeAbilityButtons(int[] Abilities)

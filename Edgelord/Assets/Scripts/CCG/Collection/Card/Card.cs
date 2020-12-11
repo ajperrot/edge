@@ -36,7 +36,7 @@ public class Card : MonoBehaviour
         {
             TextFields[currentBox].text = "" + Info.SummonCost.radiant;
             //set icon
-            Images[1 + currentBox].sprite = Resources.Load<Sprite>("Sprites/icon_radient");
+            Images[1 + currentBox].sprite = Resources.Load<Sprite>("Sprites/icon_radiant");
             currentBox++;
         }
         if(Info.SummonCost.lush > 0)

@@ -121,7 +121,11 @@ public class PlayerCharacter : Permanent
         movement = maxMovement;
         money = money;//test
         //do some permanent init if necessary
-        if(gameObject.tag == "PlayerPermanent") InitializePermanent();
+        if(gameObject.tag == "PlayerPermanent")
+        {
+            InitializePermanent();
+            isAlly = true;
+        }
     }
 
     // COMBAT

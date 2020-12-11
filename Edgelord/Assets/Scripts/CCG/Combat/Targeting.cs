@@ -5,9 +5,21 @@ using UnityEngine;
 public class Targeting : MonoBehaviour
 {
     public static Permanent Target; //permanents put themselves here when they are hovered over
+    public static Targeting ActiveInstance = null; //are we in targeting mode
 
-    public RectTransform Line; // stretches and rotates to point to the target
-    public UnityEngine.UI.CanvasScaler Scaler;// scales teh canvas to fit the camera's view
+    public RectTransform Line; //stretches and rotates to point to the target
+
+    // Called when entering targeting mode
+    void OnEnable()
+    {
+        ActiveInstance = this;
+    }
+
+    // Called when leaving targeting mode
+    void OnDisable()
+    {
+        ActiveInstance = null;
+    }
 
     // Update is called once per frame
     void Update()
@@ -21,5 +33,13 @@ public class Targeting : MonoBehaviour
         float extraRotation = 0;
         if(MousePosition.x < transform.position.x) extraRotation = 180;
         Line.eulerAngles = new Vector3(0, 0, Mathf.Atan((MousePosition.y - transform.position.y) / (MousePosition.x - transform.position.x)) * Mathf.Rad2Deg + extraRotation);
+    }
+
+    // Set the target, set the skill to fire, and deactivate
+    public void SetTarget(Permanent NewTarget)
+    {
+        Target = NewTarget;
+
+        gameObject.SetActive(false);
     }
 }

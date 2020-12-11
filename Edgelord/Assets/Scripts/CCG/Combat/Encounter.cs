@@ -46,6 +46,7 @@ public class Encounter : MonoBehaviour
         int allyIndex = Allies.Count;
         Allies.Add(NewAlly.GetComponent<Permanent>());
         Allies[allyIndex].Initialize(AllyInfo);
+        Allies[allyIndex].isAlly = true;
         //move the ally to its own spot
         NewAlly.transform.localPosition += new Vector3(charSpacing * allyIndex, Random.Range(-100, 100), 0);
     }

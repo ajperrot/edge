@@ -462,7 +462,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &782202916
 RectTransform:
   m_ObjectHideFlags: 0
@@ -496,7 +496,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Line: {fileID: 1596346059}
-  Scaler: {fileID: 773638758}
 --- !u!1 &887378592
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,7 +525,7 @@ RectTransform:
   m_Children:
   - {fileID: 2817863496236730772}
   m_Father: {fileID: 1888393240}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -989,7 +988,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1888393240}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1023,8 +1022,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 887378593}
   - {fileID: 1736815959}
+  - {fileID: 887378593}
   m_Father: {fileID: 330601301}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1358,6 +1357,7 @@ MonoBehaviour:
   AbilityPrefab: {fileID: 1293639544077517638, guid: 3770d1e78e39f4463bf580fd1fad5fcd,
     type: 3}
   ButtonSpacing: 40
+  User: {fileID: 0}
   TargetingArrow: {fileID: 0}
 --- !u!224 &2239659768925958610
 RectTransform:
@@ -2918,6 +2918,7 @@ MonoBehaviour:
   AbilityDisplay: {fileID: 2239659768719098215}
   RadiantHpBar: {fileID: 2239659770748713788}
   RadiantHpText: {fileID: 2239659768715677768}
+  isAlly: 0
   AffinityDisplay:
   - {fileID: 1604457276}
   - {fileID: 1604457275}

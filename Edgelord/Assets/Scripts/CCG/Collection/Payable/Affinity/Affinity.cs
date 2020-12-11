@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Xml;
 
 [Serializable]
 public class Affinity : Payable
@@ -186,13 +187,40 @@ public class Affinity : Payable
         PlayerCharacter.Instance.PayableAffinity = new PlayerAffinity(PlayerCharacter.Instance.PayableAffinity + this);
     }
 
+    // Fill out Fields based on XML data
+    public void FillFromXml(XmlNode Root)
+    {
+        XmlNodeList Nodes = Root.ChildNodes;
+        radiant = XmlConvert.ToInt32(Nodes[0].InnerText);
+        lush = XmlConvert.ToInt32(Nodes[1].InnerText);
+        crimson = XmlConvert.ToInt32(Nodes[2].InnerText);
+        free = XmlConvert.ToInt32(Nodes[3].InnerText);
+    }
+
 
     // OBJECT OVERRIDES
 
     // ToString
     public override string ToString()
     {
-        return "" + radiant + "," + lush + "," + crimson + "," + free;
+        string result = "";
+        for(int i = 0; i < radiant; i++)
+        {
+            result += "<sprite=0>";
+        }
+        for(int i = 0; i < lush; i++)
+        {
+            result += "<sprite=1>";
+        }
+        for(int i = 0; i < crimson; i++)
+        {
+            result += "<sprite=2>";
+        }
+        for(int i = 0; i < free; i++)
+        {
+            result += "<sprite=3>";
+        }
+        return result;
     }
 
     // Equals

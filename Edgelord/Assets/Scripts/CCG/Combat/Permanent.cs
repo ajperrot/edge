@@ -16,6 +16,7 @@ public class Permanent : MonoBehaviour
     public AbilitiesRoot AbilityDisplay; //displays buttons for each ability
     public Slider RadiantHpBar; //used to display radiantHp
     public TMP_Text RadiantHpText; //displays radiantHp as a number
+    public bool isAlly = false; //is this a member of the player's party?
 
     // Our maximum hp
     public int maxHp
@@ -125,5 +126,11 @@ public class Permanent : MonoBehaviour
             maxAp = Info.ap;
             ap = maxAp;
         }
+    }
+
+    // Called when clicked, sets this as the target if targeting
+    public void SetAsTarget()
+    {
+        if(Targeting.ActiveInstance != null) Targeting.ActiveInstance.SetTarget(this);
     }
 }
