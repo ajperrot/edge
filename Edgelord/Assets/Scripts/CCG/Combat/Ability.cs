@@ -106,13 +106,13 @@ public class Ability : MonoBehaviour
       //give your side 3 defense if used by a party member
       Encounter.Instance.allyDefense += 3;
       //add yourself to the frontline
-      Encounter.JoinFrontLines(User, 0);
+      Encounter.Instance.JoinFrontLines(User, 0);
     } else
     {
       //otherwise the enemy gets 3 defense
       Encounter.Instance.enemyDefense += 3;
       //add yourself to the frontline
-      Encounter.JoinFrontLines(User, 1);
+      Encounter.Instance.JoinFrontLines(User, 1);
     }
   }
 

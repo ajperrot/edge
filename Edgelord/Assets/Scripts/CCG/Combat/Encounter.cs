@@ -93,7 +93,7 @@ public class Encounter : MonoBehaviour
     }
 
     // Add a new permanent to the FrontLines
-    public static void JoinFrontLines(Permanent Defender, int side)
+    public void JoinFrontLines(Permanent Defender, int side)
     {
         //join the front line
         FrontLines[side].Add(Defender);
