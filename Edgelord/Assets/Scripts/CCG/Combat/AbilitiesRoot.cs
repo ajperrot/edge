@@ -5,22 +5,17 @@ using UnityEngine;
 public class AbilitiesRoot : MonoBehaviour
 {
     public GameObject AbilityPrefab; //template for ability UI
-    public float ButtonSpacing = 40; //space between buttons vertically
+    public float buttonSpacing = 60; //space between buttons vertically
     public Permanent User; //who is using these abilities?
     public GameObject TargetingArrow; //contains ui for targeting
 
     private GameObject[] AbilityButtons; //array of all ability buttons
     private List<bool> HoverStatus = new List<bool>(); //what is being hovered over
 
-    // Called once at the start
-    void Start()
-    {
-        User = transform.parent.GetComponent<Permanent>();
-    }
-
     // Sets up the UI for each ability in the given array
     public void InitializeAbilityButtons(int[] Abilities)
     {
+        User = transform.parent.GetComponent<Permanent>();
         HoverStatus.Add(false);
         HoverStatus.Add(false);
         AbilityButtons = new GameObject[Abilities.Length];
@@ -30,7 +25,7 @@ public class AbilitiesRoot : MonoBehaviour
             Ability CurrentAbility = AbilityButtons[i].GetComponent<Ability>();
             CurrentAbility.Initialize(this, Abilities[i]);
             CurrentAbility.hoverIndex = i + 2;
-            AbilityButtons[i].transform.localPosition += new Vector3(0, ButtonSpacing, 0);
+            AbilityButtons[i].transform.localPosition += new Vector3(0, buttonSpacing * i, 0);
             HoverStatus.Add(false);
         }
     }

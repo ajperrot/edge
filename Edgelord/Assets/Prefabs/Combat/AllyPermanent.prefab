@@ -53,7 +53,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilityPrefab: {fileID: 1293639544077517638, guid: 3770d1e78e39f4463bf580fd1fad5fcd,
     type: 3}
-  ButtonSpacing: 40
+  buttonSpacing: 60
+  User: {fileID: 0}
   TargetingArrow: {fileID: 5508855572590554136}
 --- !u!222 &2079536276770720442
 CanvasRenderer:
@@ -2020,6 +2021,22 @@ MonoBehaviour:
   RadiantHpBar: {fileID: 1896493841}
   RadiantHpText: {fileID: 137861221}
   isAlly: 0
+  Info:
+    id: 0
+    name: 
+    Type: 0
+    SummonCost:
+      radiant: 0
+      lush: 0
+      crimson: 0
+      free: 0
+    hp: 0
+    attack: 0
+    cardText: 
+    cartArtPath: 
+    Abilities: 
+    ap: 0
+    sanity: 0
 --- !u!114 &6342797199440371395
 MonoBehaviour:
   m_ObjectHideFlags: 0

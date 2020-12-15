@@ -1,11 +1,11 @@
 <Ability xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <name>Defend</name>
+  <name>Attack</name>
   <Cost>
-    <Radiant>1</Radiant>
-    <Lush>1</Lush>
-    <Crimson>1</Crimson>
-    <Free>1</Free>
+    <Radiant>0</Radiant>
+    <Lush>0</Lush>
+    <Crimson>0</Crimson>
+    <Free>0</Free>
   </Cost>
-  <description>"Blocks 3 Damage"</description>
-  <autoTargeting>1</autoTargeting>
+  <description>Attack one enemy.</description>
+  <autoTargeting>0</autoTargeting>
 </Ability>

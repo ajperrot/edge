@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using TMPro;
 
 public class Encounter : MonoBehaviour
 {
@@ -14,9 +15,46 @@ public class Encounter : MonoBehaviour
     public Transform AlliesRoot; //all allied permanents are children of this
     public float charSpacing = 250; //space between characters
     public bool yourTurn = true; //can the player take actions?
+    public TMP_Text[] DefenseDisplays; //displays ally and enemy defense
+
+    //takes damage for the team
+    private int _allyDefense = 0;
+    public int allyDefense
+    {
+        get {return _allyDefense;}
+        set
+        {
+            if(value <= 0)
+            {
+                _allyDefense = 0;
+                DefenseDisplays[0].enabled = false;
+            }
+            _allyDefense = value;
+            DefenseDisplays[0].text = "" + value;
+            DefenseDisplays[0].enabled = true;
+        }
+    }
+    private int _enemyDefense = 0;
+    public int enemyDefense
+    {
+        get {return _enemyDefense;}
+        set
+        {
+            if(value <= 0)
+            {
+                _enemyDefense = 0;
+                DefenseDisplays[1].enabled = false;
+            }
+            _enemyDefense = value;
+            DefenseDisplays[1].text = "" + value;
+            DefenseDisplays[1].enabled = true;
+        }
+    }
 
     private List<Permanent> Enemies = new List<Permanent>(); // All opposing entities
     private List<Permanent> Allies = new List<Permanent>(); // All your entities
+    private List<Permanent>[] FrontLines = new List<Permanent>[2]; //first allies/enemies to be targeted
+
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +74,9 @@ public class Encounter : MonoBehaviour
             //move the enemy in some way
             NewEnemy.transform.localPosition -= new Vector3(charSpacing * i, Random.Range(-100, 100), 0);
         }
+        // Set up front lines
+        FrontLines[0] = new List<Permanent>();
+        FrontLines[1] = new List<Permanent>();
     }
 
     // Adds a new permanent to your side
@@ -49,5 +90,24 @@ public class Encounter : MonoBehaviour
         Allies[allyIndex].isAlly = true;
         //move the ally to its own spot
         NewAlly.transform.localPosition += new Vector3(charSpacing * allyIndex, Random.Range(-100, 100), 0);
+    }
+
+    // Add a new permanent to the FrontLines
+    public static void JoinFrontLines(Permanent Defender, int side)
+    {
+        //join the front line
+        FrontLines[side].Add(Defender);
+        if(side == 1)
+        {
+            //if enemy, prevent player from targeting others
+            if(FrontLines[1].Count == 1)
+            {
+                for(int i = 0; i < Enemies.Count; i++)
+                {
+                    Enemies[i].MakeUntargetable();
+                }
+            }
+            Defender.MakeTargetable();
+        }
     }
 }

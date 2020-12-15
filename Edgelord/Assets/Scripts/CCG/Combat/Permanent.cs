@@ -17,6 +17,10 @@ public class Permanent : MonoBehaviour
     public Slider RadiantHpBar; //used to display radiantHp
     public TMP_Text RadiantHpText; //displays radiantHp as a number
     public bool isAlly = false; //is this a member of the player's party?
+    public CardInfo Info; //tracks stats not represented by off-card UI
+    public GameObject Dimmer; //dims the image of the enemy to show blocking
+    
+    private bool targetable = true; //only set to false when defended by frontline
 
     // Our maximum hp
     public int maxHp
@@ -116,6 +120,7 @@ public class Permanent : MonoBehaviour
     // Initialize with card info
     public void Initialize(CardInfo Info, bool isEnemy = false)
     {
+        this.Info = Info;
         maxHp = Info.hp;
         hp = maxHp;
         if(isEnemy == false)
@@ -131,6 +136,41 @@ public class Permanent : MonoBehaviour
     // Called when clicked, sets this as the target if targeting
     public void SetAsTarget()
     {
-        if(Targeting.ActiveInstance != null) Targeting.ActiveInstance.SetTarget(this);
+        if(targetable == true && Targeting.ActiveInstance != null) Targeting.ActiveInstance.SetTarget(this);
+    }
+
+    // Lose hp, taking into account buffs/debuffs
+    public void TakeHit(int damage)
+    {
+        int defense;
+        if(isAlly == true)
+        {
+            //check ally defense if ally
+            defense = Encounter.Instance.allyDefense;
+            defense -= damage;
+            Encounter.Instance.allyDefense = defense;
+        } else
+        {
+            //use enemy defense if enemy
+            defense = Encounter.Instance.allyDefense;
+            defense -= damage;
+            Encounter.Instance.allyDefense = defense;
+        }
+        //take damage not eaten by defense
+        if(defense < 0) hp -= defense;
+    }
+
+    // Make untargetable and show by dimming
+    public void MakeUntargetable()
+    {
+        targetable = false;
+        Dimmer.SetActive(true);
+    }
+
+    // Undo MakeUntargetable
+    public void MakeTargetable()
+    {
+        targetable = true;
+        Dimmer.SetActive(false);
     }
 }

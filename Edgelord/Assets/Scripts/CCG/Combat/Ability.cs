@@ -7,7 +7,7 @@ using TMPro;
 
 public class Ability : MonoBehaviour
 {
-  public delegate void Usage();
+  public delegate void Usage(Permanent User);
 
   public static Dictionary<int, XmlDocument> AbilityDocs = new Dictionary<int, XmlDocument>(); //cache for ability documents
 
@@ -59,7 +59,9 @@ public class Ability : MonoBehaviour
   public void OnClick()
   {
     //pay Cost, return if unable
-    if(Cost.Pay() == false) return;
+    print(User);//test
+    if(User.ap < 1 || Cost.Pay() == false) return;
+    User.ap--;
     if(autoTargeting == true)
     {
       //use immediately if auto-targeting
@@ -74,7 +76,7 @@ public class Ability : MonoBehaviour
   // Call the function associated with this anility id
   public void Use()
   {
-    AbilityUsages[id]();
+    AbilityUsages[id](User);
   }
 
   // Loads the xml defining the ability with the given id
@@ -90,15 +92,34 @@ public class Ability : MonoBehaviour
 
   // ALL THE ABILITIES ARE DEFINED BELOW //
 
-  // 
-  private static void Defend()
+  // User hits the target with their attack power
+  static void Attack(Permanent User)
   {
+    Targeting.Target.TakeHit(User.Info.attack);
+  }
 
+  // User draws agro and gives party 3 defense
+  static void Defend(Permanent User)
+  {
+    if(Encounter.Instance.yourTurn == true)
+    {
+      //give your side 3 defense if used by a party member
+      Encounter.Instance.allyDefense += 3;
+      //add yourself to the frontline
+      Encounter.JoinFrontLines(User, 0);
+    } else
+    {
+      //otherwise the enemy gets 3 defense
+      Encounter.Instance.enemyDefense += 3;
+      //add yourself to the frontline
+      Encounter.JoinFrontLines(User, 1);
+    }
   }
 
 
   private static Usage[] AbilityUsages = new Usage[]
   {
+    new Usage(Attack),
     new Usage(Defend)
   };
 

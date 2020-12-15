@@ -1,0 +1,11 @@
+<Ability xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Defend</name>
+  <Cost>
+    <Radiant>1</Radiant>
+    <Lush>0</Lush>
+    <Crimson>0</Crimson>
+    <Free>0</Free>
+  </Cost>
+  <description>Increase the party's defense by 3, and draw enemy attacks.</description>
+  <autoTargeting>1</autoTargeting>
+</Ability>
