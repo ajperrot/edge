@@ -125,6 +125,7 @@ public class PlayerCharacter : Permanent
         {
             InitializePermanent();
             isAlly = true;
+            isLeader = true;
         }
     }
 

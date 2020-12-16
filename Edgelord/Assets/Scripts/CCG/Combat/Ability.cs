@@ -59,8 +59,8 @@ public class Ability : MonoBehaviour
   // Use the ability if no targeting is needed, otherwise enter targeting
   public void OnClick()
   {
-    //pay Cost, return if unable
-    if(User.ap < 1 || Cost.Pay() == false) return;
+    //pay Cost, return if unable (also return if not your turn)
+    if(Encounter.Instance.yourTurn == false || User.ap < 1 || Cost.Pay() == false) return;
     User.ap--;
     if(autoTargeting == true)
     {
@@ -98,6 +98,7 @@ public class Ability : MonoBehaviour
   static void Attack(Permanent User)
   {
     Targeting.Target.TakeHit(User.Info.attack);
+    Targeting.Target.Attacker = User;
   }
 
   // User draws agro and gives party 3 defense
@@ -119,7 +120,7 @@ public class Ability : MonoBehaviour
   }
 
 
-  private static Usage[] AbilityUsages = new Usage[]
+  public static Usage[] AbilityUsages = new Usage[]
   {
     new Usage(Attack),
     new Usage(Defend)

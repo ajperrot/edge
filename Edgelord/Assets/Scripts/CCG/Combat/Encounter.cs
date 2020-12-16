@@ -16,6 +16,7 @@ public class Encounter : MonoBehaviour
     public float charSpacing = 250; //space between characters
     public bool yourTurn = true; //can the player take actions?
     public TMP_Text[] DefenseDisplays; //displays ally and enemy defense
+    public GameObject[] PlayerTurnUI; //toggle these for the player's turn
 
     //takes damage for the team
     private int _allyDefense = 0;
@@ -55,9 +56,9 @@ public class Encounter : MonoBehaviour
         }
     }
 
-    private List<Permanent> Enemies = new List<Permanent>(); // All opposing entities
-    private List<Permanent> Allies = new List<Permanent>(); // All your entities
-    private List<Permanent>[] FrontLines = new List<Permanent>[2]; //first allies/enemies to be targeted
+    public List<Permanent> Enemies = new List<Permanent>(); // All opposing entities
+    public List<Permanent> Allies = new List<Permanent>(); // All your entities
+    public List<Permanent>[] FrontLines = new List<Permanent>[2]; //first allies/enemies to be targeted
 
 
     // Start is called before the first frame update
@@ -81,6 +82,34 @@ public class Encounter : MonoBehaviour
         // Set up front lines
         FrontLines[0] = new List<Permanent>();
         FrontLines[1] = new List<Permanent>();
+    }
+
+    // Passes the turn from player to AI
+    public void EndPlayerTurn()
+    {
+        //deactivate play'er ability to act
+        yourTurn = false;
+        foreach(GameObject O in PlayerTurnUI)
+        {
+            O.SetActive(false);
+        }
+        //let each enemy act
+        for(int i = Enemies.Count - 1; i >= 0; i--)
+        {
+            Enemies[i].Act();
+        }
+        //then resume player turn
+        BeginPlayerTurn();
+    }
+
+    // Passes turn from AI to player
+    public void BeginPlayerTurn()
+    {
+        yourTurn = true;
+        foreach(GameObject O in PlayerTurnUI)
+        {
+            O.SetActive(false);
+        }
     }
 
     // Adds a new permanent to your side

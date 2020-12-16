@@ -28,13 +28,14 @@ public class AbilitiesRoot : MonoBehaviour
             AbilityButtons[i].transform.localPosition += new Vector3(0, buttonSpacing * i, 0);
             HoverStatus.Add(false);
         }
+        gameObject.SetActive(false);
     }
 
     // Set the given HoverStatus to true and activate self
     public void AddHover(int hoverIndex)
     {
         HoverStatus[hoverIndex] = true;
-        gameObject.SetActive(true);
+        if(Encounter.Instance.yourTurn == true) gameObject.SetActive(true);
     }
 
     // Set the given HoverStatus to false and deactivate self if none are true

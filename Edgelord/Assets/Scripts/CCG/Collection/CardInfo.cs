@@ -28,6 +28,7 @@ public class CardInfo
     public string cardText = "DEFAULT CARD TEXT"; //rich-text written on the card explaining its use
     public string cartArtPath = "DEFAULT PATH"; //path to the art for this card
     public int[] Abilities; //the functions this card can perform
+    public int pattern; //the attack pattern of this card (for enemy permanents)
     
     // Permanent Only Info
     public int ap = 0; //maximum ap, used for permanents

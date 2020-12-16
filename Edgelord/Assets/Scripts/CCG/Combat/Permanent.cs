@@ -19,6 +19,8 @@ public class Permanent : MonoBehaviour
     public bool isAlly = false; //is this a member of the player's party?
     public CardInfo Info; //tracks stats not represented by off-card UI
     public GameObject Dimmer; //dims the image of the enemy to show blocking
+    public Permanent Attacker; //last permanent to attack this one
+    public bool isLeader = false; //false for all but the player character
     
     private bool targetable = true; //only set to false when defended by frontline
 
@@ -172,5 +174,18 @@ public class Permanent : MonoBehaviour
     {
         targetable = true;
         Dimmer.SetActive(false);
+    }
+
+    // Select and use a skill on a target based on AI
+    public void Act()
+    {
+        //do not act if out of ap
+        if(ap <= 0) return;
+        //use an ability if AI will allow it, checking more specialized ones first
+        for(int i = Info.Abilities.Length - 1; i >= 0; i--)
+        {
+            int a = Info.Abilities[i];
+            if(AI.AbilityDecisions[a](this) == true) Ability.AbilityUsages[a](this);
+        }
     }
 }
