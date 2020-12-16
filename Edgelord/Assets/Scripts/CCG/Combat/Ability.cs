@@ -10,6 +10,7 @@ public class Ability : MonoBehaviour
   public delegate void Usage(Permanent User);
 
   public static Dictionary<int, XmlDocument> AbilityDocs = new Dictionary<int, XmlDocument>(); //cache for ability documents
+  public static Ability ActiveAbility = null;
 
   public TMP_Text Nametag; //displays the name of this ability
   public TMP_Text CostText; //rich text displaying the Cost
@@ -59,7 +60,6 @@ public class Ability : MonoBehaviour
   public void OnClick()
   {
     //pay Cost, return if unable
-    print(User);//test
     if(User.ap < 1 || Cost.Pay() == false) return;
     User.ap--;
     if(autoTargeting == true)
@@ -70,6 +70,7 @@ public class Ability : MonoBehaviour
     {
       //otherwise begin targeting
       Root.TargetingArrow.SetActive(true);
+      ActiveAbility = this;
     }
   }
 
@@ -77,6 +78,7 @@ public class Ability : MonoBehaviour
   public void Use()
   {
     AbilityUsages[id](User);
+    ActiveAbility = null;
   }
 
   // Loads the xml defining the ability with the given id

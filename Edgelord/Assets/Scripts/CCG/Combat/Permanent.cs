@@ -152,12 +152,12 @@ public class Permanent : MonoBehaviour
         } else
         {
             //use enemy defense if enemy
-            defense = Encounter.Instance.allyDefense;
+            defense = Encounter.Instance.enemyDefense;
             defense -= damage;
-            Encounter.Instance.allyDefense = defense;
+            Encounter.Instance.enemyDefense = defense;
         }
         //take damage not eaten by defense
-        if(defense < 0) hp -= defense;
+        if(defense < 0) hp += defense;
     }
 
     // Make untargetable and show by dimming

@@ -39,7 +39,7 @@ public class Targeting : MonoBehaviour
     public void SetTarget(Permanent NewTarget)
     {
         Target = NewTarget;
-
         gameObject.SetActive(false);
+        Ability.ActiveAbility.Use();
     }
 }

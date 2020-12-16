@@ -28,10 +28,12 @@ public class Encounter : MonoBehaviour
             {
                 _allyDefense = 0;
                 DefenseDisplays[0].enabled = false;
+            } else
+            {
+                _allyDefense = value;
+                DefenseDisplays[0].text = "" + value;
+                DefenseDisplays[0].enabled = true;
             }
-            _allyDefense = value;
-            DefenseDisplays[0].text = "" + value;
-            DefenseDisplays[0].enabled = true;
         }
     }
     private int _enemyDefense = 0;
@@ -44,10 +46,12 @@ public class Encounter : MonoBehaviour
             {
                 _enemyDefense = 0;
                 DefenseDisplays[1].enabled = false;
+            } else
+            {
+                _enemyDefense = value;
+                DefenseDisplays[1].text = "" + value;
+                DefenseDisplays[1].enabled = true;
             }
-            _enemyDefense = value;
-            DefenseDisplays[1].text = "" + value;
-            DefenseDisplays[1].enabled = true;
         }
     }
 
