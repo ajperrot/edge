@@ -167,4 +167,19 @@ public class Encounter : MonoBehaviour
             Defender.MakeTargetable();
         }
     }
+
+    // Remove a permanent from existance and also from the encounter
+    public void Kill(Permanent Loser)
+    {
+        if(Loser.isAlly == true)
+        {
+            Allies.Remove(Loser);
+            FrontLines[0].Remove(Loser);
+        } else
+        {
+            Enemies.Remove(Loser);
+            FrontLines[1].Remove(Loser);
+        }
+        Destroy(Loser.gameObject);
+    }
 }
