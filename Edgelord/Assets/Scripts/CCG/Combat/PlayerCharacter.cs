@@ -92,9 +92,9 @@ public class PlayerCharacter : Permanent
     }
 
     // Combat Stats
-    public int baseHp = 20;
-    public int baseSanity = 10;
-    public int baseAp = 3;
+    public int baseHp = 5;
+    public int baseSanity = 3;
+    public int baseAp = 1;
 
     [Header("COMBAT ONLY")]
     public Transform HandRoot; //parent to cards in hand
@@ -140,7 +140,10 @@ public class PlayerCharacter : Permanent
         sanity = maxSanity;
         maxAp = baseAp;
         ap = maxAp;
+        //set cardinfo stuff
+        Info = new CardInfo(0);
         // INITIALIZE ABILITIES BASED ON EQUIPMENT
+        AbilityDisplay.InitializeAbilityButtons(Info.Abilities);
         //set up hand
         DealStartingHand();
     }

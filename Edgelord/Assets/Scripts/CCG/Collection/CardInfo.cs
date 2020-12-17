@@ -31,7 +31,7 @@ public class CardInfo
     public int pattern; //the attack pattern of this card (for enemy permanents)
     
     // Permanent Only Info
-    public int ap = 0; //maximum ap, used for permanents
+    public int ap = 1; //maximum ap, used for permanents
 
     // Human Only Info
     public int sanity = 255; //maximum sanity, used only for humans

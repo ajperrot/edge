@@ -61,7 +61,6 @@ public class Ability : MonoBehaviour
   {
     //pay Cost, return if unable (also return if not your turn)
     if(Encounter.Instance.yourTurn == false || User.ap < 1 || Cost.Pay() == false) return;
-    User.ap--;
     if(autoTargeting == true)
     {
       //use immediately if auto-targeting
@@ -78,6 +77,7 @@ public class Ability : MonoBehaviour
   public void Use()
   {
     AbilityUsages[id](User);
+    User.ap--;
     ActiveAbility = null;
   }
 

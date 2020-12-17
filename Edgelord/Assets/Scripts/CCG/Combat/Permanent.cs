@@ -125,13 +125,19 @@ public class Permanent : MonoBehaviour
         this.Info = Info;
         maxHp = Info.hp;
         hp = maxHp;
-        if(isEnemy == false)
+        maxAp = Info.ap;
+        ap = maxAp;
+        //activate sanity for humans
+        if(Info.Type == CardInfo.CardType.Human)
         {
             maxSanity = Info.sanity;
-            sanity = sanity;
+            sanity = Info.sanity;
+            SanityBar.gameObject.SetActive(true);
+        }
+        //activate ability buttons only for allies
+        if(isEnemy == false)
+        {
             AbilityDisplay.InitializeAbilityButtons(Info.Abilities);
-            maxAp = Info.ap;
-            ap = maxAp;
         }
     }
 
@@ -179,13 +185,16 @@ public class Permanent : MonoBehaviour
     // Select and use a skill on a target based on AI
     public void Act()
     {
-        //do not act if out of ap
-        if(ap <= 0) return;
-        //use an ability if AI will allow it, checking more specialized ones first
-        for(int i = Info.Abilities.Length - 1; i >= 0; i--)
+        //act until out of ap
+        while(ap > 0)
         {
-            int a = Info.Abilities[i];
-            if(AI.AbilityDecisions[a](this) == true) Ability.AbilityUsages[a](this);
+            //use an ability if AI will allow it, checking more specialized ones first
+            for(int i = Info.Abilities.Length - 1; i >= 0; i--)
+            {
+                int a = Info.Abilities[i];
+                if(AI.AbilityDecisions[a](this) == true) Ability.AbilityUsages[a](this);
+            }
+            ap--;
         }
     }
 }

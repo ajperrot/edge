@@ -1322,7 +1322,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1361210964
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1339,7 +1339,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -155, y: -97}
+  m_AnchoredPosition: {x: -100, y: -121}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1361210965
@@ -1977,8 +1977,12 @@ MonoBehaviour:
     cardText: 
     cartArtPath: 
     Abilities: 
+    pattern: 0
     ap: 0
     sanity: 0
+  Dimmer: {fileID: 2462223663559651408}
+  Attacker: {fileID: 0}
+  isLeader: 0
 --- !u!114 &8930173394608118624
 MonoBehaviour:
   m_ObjectHideFlags: 0

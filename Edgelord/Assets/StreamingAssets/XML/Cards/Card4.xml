@@ -12,6 +12,8 @@
   <attack>1</attack>
   <cardText>Riposte - damages attackers</cardText>
   <Abilities>
+    <ability>0</ability>
+    <ability>1</ability>
   </Abilities>
   <Passives>
   </Passives>

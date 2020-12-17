@@ -87,12 +87,27 @@ public class Encounter : MonoBehaviour
     // Passes the turn from player to AI
     public void EndPlayerTurn()
     {
-        //deactivate play'er ability to act
+        //deactivate player's ability to act
         yourTurn = false;
         foreach(GameObject O in PlayerTurnUI)
         {
             O.SetActive(false);
         }
+        //begin enemy turn
+        BeginEnemyTurn();
+    }
+
+    // Plays out the AI turn
+    public void BeginEnemyTurn()
+    {
+        //restore ap, blockers, etc
+        foreach (Permanent Enemy in Enemies)
+        {
+            Enemy.ap = Enemy.maxAp;
+            Enemy.MakeTargetable();
+        }
+        FrontLines[1] = new List<Permanent>();
+        enemyDefense = 0;
         //let each enemy act
         for(int i = Enemies.Count - 1; i >= 0; i--)
         {
@@ -106,10 +121,19 @@ public class Encounter : MonoBehaviour
     public void BeginPlayerTurn()
     {
         yourTurn = true;
+        //turn on player control ui
         foreach(GameObject O in PlayerTurnUI)
         {
             O.SetActive(false);
         }
+        //restore ap, defense, and affinity
+        foreach(Permanent Ally in Allies)
+        {
+            Ally.ap = Ally.maxAp;
+        }
+        FrontLines[0] = new List<Permanent>();
+        allyDefense = 0;
+        PlayerCharacter.Instance.PayableAffinity = new PlayerAffinity(PlayerCharacter.Instance.BaseAffinity);
     }
 
     // Adds a new permanent to your side

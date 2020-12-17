@@ -132,7 +132,6 @@ GameObject:
   - component: {fileID: 17015819}
   - component: {fileID: 17015822}
   - component: {fileID: 17015821}
-  - component: {fileID: 17015820}
   m_Layer: 5
   m_Name: End Turn
   m_TagString: Untagged
@@ -159,34 +158,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &17015820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 17015818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 330601300}
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &17015821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,7 +395,9 @@ MonoBehaviour:
   DefenseDisplays:
   - {fileID: 1471209072}
   - {fileID: 910386112}
-  HandRoot: {fileID: 1666259239}
+  PlayerTurnUI: []
+  Enemies: []
+  Allies: []
 --- !u!114 &548605454 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 623569837, guid: e3c653fc6f8d34b8eb456fb1e35ae178,
@@ -1063,6 +1036,7 @@ GameObject:
   - component: {fileID: 1563522199}
   - component: {fileID: 1563522201}
   - component: {fileID: 1563522200}
+  - component: {fileID: 1563522202}
   m_Layer: 5
   m_Name: End Button
   m_TagString: Untagged
@@ -1087,7 +1061,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 35, y: 367}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1563522200
@@ -1127,6 +1101,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1563522198}
   m_CullTransparentMesh: 0
+--- !u!114 &1563522202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563522198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 330601302}
+          m_MethodName: EndPlayerTurn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1596346058
 GameObject:
   m_ObjectHideFlags: 0
@@ -3058,7 +3060,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -155, y: -97}
+  m_AnchoredPosition: {x: -100, y: -118}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2239659770210281086
@@ -3401,6 +3403,7 @@ GameObject:
   - component: {fileID: 908376565490060801}
   - component: {fileID: 4160130659123151474}
   - component: {fileID: 9023727335570290965}
+  - component: {fileID: 9023727335570290966}
   m_Layer: 5
   m_Name: PlayerPermanent
   m_TagString: PlayerPermanent
@@ -3445,9 +3448,12 @@ MonoBehaviour:
     cardText: 
     cartArtPath: 
     Abilities: 
+    pattern: 0
     ap: 0
     sanity: 0
   Dimmer: {fileID: 0}
+  Attacker: {fileID: 0}
+  isLeader: 0
   AffinityDisplay:
   - {fileID: 1604457276}
   - {fileID: 1604457275}
@@ -3472,6 +3478,7 @@ MonoBehaviour:
       cardText: 
       cartArtPath: 
       Abilities: 0100000000000000
+      pattern: 0
       ap: 1
       sanity: 1
   Inventory:
@@ -3625,9 +3632,9 @@ MonoBehaviour:
   _money: 0
   maxMovement: 1
   _movement: 1
-  baseHp: 20
-  baseSanity: 10
-  baseAp: 3
+  baseHp: 5
+  baseSanity: 3
+  baseAp: 1
   HandRoot: {fileID: 1666259240}
   HumanCardPrefab: {fileID: 8428880295766225320, guid: cef8dbf959c3a40d199126f2679e05b1,
     type: 3}
@@ -3636,3 +3643,46 @@ MonoBehaviour:
   PhenomenonCardPrefab: {fileID: 8428880295766225320, guid: d087fcfe5ac2140e5998529a36664b5e,
     type: 3}
   cardSpacing: 450
+--- !u!114 &9023727335570290966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9023727335570290964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2239659768719098215}
+          m_MethodName: AddHover
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2239659768719098215}
+          m_MethodName: RemoveHover
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
