@@ -93,7 +93,7 @@ public class PlayerCharacter : Permanent
 
     // Combat Stats
     public int baseHp = 5;
-    public int baseSanity = 3;
+    public int baseSanity = 10;
     public int baseAp = 1;
 
     [Header("COMBAT ONLY")]
