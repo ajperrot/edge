@@ -47,9 +47,6 @@ public class Permanent : MonoBehaviour
             HpBar.value = value;
             HpText.text = value.ToString();
             if(value <= 0 && radiantHp <= 0) Encounter.Instance.Kill(this);
-            print("v" + value);//test
-            print("r" + radiantHp);//test
-
         }
     }
 

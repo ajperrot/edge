@@ -28,8 +28,8 @@ public class Card : MonoBehaviour
         Image[] Images = gameObject.GetComponentsInChildren<Image>();
         //add card art
         Images[0].sprite = GetCardArt();
-        //then the type
-        TextFields[0].text = Info.Type.ToString();
+        //then the name
+        TextFields[0].text = Info.name;
         //next three are Affinity costs
         int currentBox = 1;
         if(Info.SummonCost.radiant > 0)
@@ -72,9 +72,16 @@ public class Card : MonoBehaviour
         //card text
         TextFields[4].text = Info.cardText;
         //name
-        TextFields[5].text = Info.name;
+        TextFields[5].text = Info.Type.ToString();
+        if(Info.Type == CardInfo.CardType.Human)
+        {
+            TextFields[5].text += " - " + Info.humanClass;
+        } else if(Info.Type == CardInfo.CardType.Entity)
+        {
+            TextFields[5].text += " - " + Info.EntityClass.ToString();
+        }
         //next is attack, deactivate if unused
-        if(Info.attack < 0)
+        if(Info.attack <= 0)
         {
             transform.GetChild(8).gameObject.SetActive(false);
         } else
@@ -82,7 +89,7 @@ public class Card : MonoBehaviour
             TextFields[6].text = "" + Info.attack;
         }
         //next is hp, deactivate if unused
-        if(Info.hp < 0)
+        if(Info.hp <= 0)
         {
             transform.GetChild(9).gameObject.SetActive(false);
         } else

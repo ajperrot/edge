@@ -1,0 +1,11 @@
+<Ability xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Gate</name>
+  <Cost>
+    <Radiant>0</Radiant>
+    <Lush>0</Lush>
+    <Crimson>0</Crimson>
+    <Free>0</Free>
+  </Cost>
+  <description>Summon 1 additional entity at no cost just after summoning this entity. The new entity is soulbound to the Arch and requires no upkeep.</description>
+  <autoTargeting>1</autoTargeting>
+</Ability>

@@ -9,6 +9,7 @@ using UnityEngine;
 public class CardInfo
 {
     public enum CardType {Human, Entity, Phenomenon} //Enumeration of card types
+    public enum EntityType {Abberation} //Extra classification for entities
 
     // Info About Cards In General
     public static int firstHumanId = 1; //location of the first human card
@@ -29,6 +30,9 @@ public class CardInfo
     public string cartArtPath = "DEFAULT PATH"; //path to the art for this card
     public int[] Abilities; //the functions this card can perform
     public int pattern; //the attack pattern of this card (for enemy permanents)
+    public EntityType EntityClass; //entity sub-catagory
+    public Affinity Upkeep; //cost paid to retain an entity
+    public string humanClass = "";
     
     // Permanent Only Info
     public int ap = 1; //maximum ap, used for permanents
@@ -59,16 +63,29 @@ public class CardInfo
         {
             Abilities[i] = XmlConvert.ToInt32(AbilityNodes[i].InnerText);
         }
-        //include ap and passives if not a phenomenon
-        // ADD PASSIVES
-        if(this.Type != CardType.Phenomenon) this.ap = XmlConvert.ToInt32(Nodes[9].InnerText);
-        //include max sanity and unique name if human
-        if(this.Type == CardType.Human)
+        //include ap, pattern and passives if not a phenomenon
+        if(this.Type != CardType.Phenomenon)
         {
-            this.sanity = XmlConvert.ToInt32(Nodes[10].InnerText);
-            this.name += " - " + GenerateRandomName();
+            this.ap = XmlConvert.ToInt32(Nodes[9].InnerText);
+            this.pattern = XmlConvert.ToInt32(Nodes[11].InnerText);
+                    // ADD PASSIVES
+                    
+            //include max sanity and unique name if human
+            if(this.Type == CardType.Human)
+            {
+                this.sanity = XmlConvert.ToInt32(Nodes[10].InnerText);
+                this.name += GenerateRandomName();
+                this.humanClass = Nodes[12].InnerText;
+            }
+            else
+            {
+                //include entity class and upkeep if entity
+                this.EntityClass = (EntityType)XmlConvert.ToInt32(Nodes[12].InnerText);
+                this.Upkeep = GetAffinityFromXmlNodes(Nodes[13].ChildNodes);
+                this.cardText += "\nUPKEEP: " + Upkeep.ToString();
+            }
         }
-        this.pattern = XmlConvert.ToInt32(Nodes[11].InnerText);
+        
     }
 
     // Load the document for a specified card

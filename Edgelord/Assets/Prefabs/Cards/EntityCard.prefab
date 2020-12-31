@@ -226,7 +226,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4023079893697730026
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1101,7 +1101,7 @@ MonoBehaviour:
   Info:
     id: 0
     name: 
-    Type: 0
+    Type: 1
     SummonCost:
       radiant: 0
       lush: 0
@@ -1112,9 +1112,16 @@ MonoBehaviour:
     cardText: 
     cartArtPath: 
     Abilities: 
+    pattern: 0
+    EntityClass: 0
+    Upkeep:
+      radiant: 0
+      lush: 0
+      crimson: 0
+      free: 0
+    humanClass: 
     ap: 0
     sanity: 0
-  associatedPermanentId: -1
 --- !u!1 &8428880295815801585
 GameObject:
   m_ObjectHideFlags: 0
