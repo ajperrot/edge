@@ -25,7 +25,7 @@ public class PermanentCard : Card
         //pay the summon cost, return if unable
         if(Info.SummonCost.Pay() == false) return;
         //generate the permanent
-        Encounter.Instance.AddAlly(Info, transform.GetChild(0).GetComponent<Image>().sprite);
+        Encounter.Instance.AddAlly(Info);
         //remove card from hand
         PlayerCharacter.Instance.RemoveFromHand(transform.GetSiblingIndex());
         //REGISTER UNDO IN THE TURNLOG SO THIS MAY BE UNDONE

@@ -138,12 +138,11 @@ public class Encounter : MonoBehaviour
     }
 
     // Adds a new permanent to your side
-    public void AddAlly(CardInfo AllyInfo, Sprite Appearance)
+    public void AddAlly(CardInfo AllyInfo)
     {
         //generate permanent for the new ally
         GameObject NewAlly = Instantiate(AllyPrefab, AlliesRoot);
         int allyIndex = Allies.Count;
-        NewAlly.GetComponent<Image>().sprite = Appearance;
         Allies.Add(NewAlly.GetComponent<Permanent>());
         Allies[allyIndex].Initialize(AllyInfo);
         Allies[allyIndex].isAlly = true;

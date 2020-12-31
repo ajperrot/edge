@@ -106,6 +106,12 @@ public class Permanent : MonoBehaviour
         }
     }
 
+    // Called on Start
+    void Start()
+    {
+        GetComponent<Image>().sprite = Card.GetCardArt(Info.id);
+    }
+
     // Called on mouse hover
     public void OnPointerEnter()
     {

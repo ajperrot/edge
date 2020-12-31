@@ -27,7 +27,7 @@ public class Card : MonoBehaviour
         TMP_Text[] TextFields = gameObject.GetComponentsInChildren<TMP_Text>();
         Image[] Images = gameObject.GetComponentsInChildren<Image>();
         //add card art
-        Images[0].sprite = GetCardArt();
+        Images[0].sprite = GetCardArt(Info.id);
         //then the name
         TextFields[0].text = Info.name;
         //next three are Affinity costs
@@ -111,19 +111,19 @@ public class Card : MonoBehaviour
     }
 
     // Returns the card art sprite for a given card id
-    private Sprite GetCardArt()
+    public static Sprite GetCardArt(int id)
     {
         //return the art if already loaded
-        if(LoadedCardArt.ContainsKey(Info.id)) return LoadedCardArt[Info.id];
+        if(LoadedCardArt.ContainsKey(id)) return LoadedCardArt[id];
         //otherwise load it as raw bytes from png
-        byte[] pngBytes = System.IO.File.ReadAllBytes(Application.streamingAssetsPath + "/CardArt/" + Info.id + ".png");
+        byte[] pngBytes = System.IO.File.ReadAllBytes(Application.streamingAssetsPath + "/CardArt/" + id + ".png");
         //load bytes into texture
         Texture2D CardArt = new Texture2D(127, 97); //CHANGE SIZE ONCE WE AGREE ON ONE
         CardArt.LoadImage(pngBytes);
         //convert texture to sprite
         Sprite NewSprite = Sprite.Create(CardArt, new Rect(0.0f, 0.0f, CardArt.width, CardArt.height), new Vector2(0.5f, 0.5f));
         //register sprite in dictionary and return
-        LoadedCardArt.Add(Info.id, NewSprite);
-        return LoadedCardArt[Info.id];
+        LoadedCardArt.Add(id, NewSprite);
+        return LoadedCardArt[id];
     }
 }
