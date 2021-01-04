@@ -131,6 +131,8 @@ public class Encounter : MonoBehaviour
         foreach(Permanent Ally in Allies)
         {
             Ally.ap = Ally.maxAp;
+            //demand upkeep if entity
+            Ally.RequestUpkeep();
         }
         FrontLines[0] = new List<Permanent>();
         allyDefense = 0;

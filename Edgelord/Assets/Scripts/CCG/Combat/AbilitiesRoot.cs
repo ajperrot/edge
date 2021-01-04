@@ -11,6 +11,7 @@ public class AbilitiesRoot : MonoBehaviour
 
     private GameObject[] AbilityButtons; //array of all ability buttons
     private List<bool> HoverStatus = new List<bool>(); //what is being hovered over
+    private bool on = true;
 
     // Sets up the UI for each ability in the given array
     public void InitializeAbilityButtons(int[] Abilities)
@@ -35,7 +36,7 @@ public class AbilitiesRoot : MonoBehaviour
     public void AddHover(int hoverIndex)
     {
         HoverStatus[hoverIndex] = true;
-        if(Encounter.Instance.yourTurn == true) gameObject.SetActive(true);
+        if(Encounter.Instance.yourTurn == true && on == true) gameObject.SetActive(true);
     }
 
     // Set the given HoverStatus to false and deactivate self if none are true
@@ -45,5 +46,12 @@ public class AbilitiesRoot : MonoBehaviour
         if(HoverStatus.Contains(true)) return;
         //set inactive if no hovering
         gameObject.SetActive(false);
+    }
+
+    // Do not allow ui activation
+    public void ToggleActivation(bool active)
+    {
+        gameObject.SetActive(active);
+        on = active;
     }
 }

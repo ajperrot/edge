@@ -16,6 +16,7 @@ public class Permanent : MonoBehaviour
     public AbilitiesRoot AbilityDisplay; //displays buttons for each ability
     public Slider RadiantHpBar; //used to display radiantHp
     public TMP_Text RadiantHpText; //displays radiantHp as a number
+    public GameObject UpkeepDisplay; //activated to show/accept entity upkeep
     public bool isAlly = false; //is this a member of the player's party?
     public CardInfo Info; //tracks stats not represented by off-card UI
     public GameObject Dimmer; //dims the image of the enemy to show blocking
@@ -144,6 +145,7 @@ public class Permanent : MonoBehaviour
         if(isEnemy == false)
         {
             AbilityDisplay.InitializeAbilityButtons(Info.Abilities);
+            if(Info.Upkeep != null) UpkeepDisplay.GetComponentInChildren<TMP_Text>().text = Info.Upkeep.ToString();
         }
     }
 
@@ -172,6 +174,28 @@ public class Permanent : MonoBehaviour
         }
         //take damage not eaten by defense
         if(defense < 0) hp += defense;
+    }
+
+    // Activate upkeep request ui if entity, become unusable otherwise
+    public void RequestUpkeep()
+    {
+        //only request upkeep if necessary
+        if(Info.Upkeep != null)
+        {
+            UpkeepDisplay.SetActive(true);
+            AbilityDisplay.ToggleActivation(false);
+        }
+    }
+
+    // Pay upkeep if able, disable upkeep ui and allow entity control
+    public void PayUpkeep()
+    {
+        //attempt to deduct upkeep, will fail if unable
+        if(Info.Upkeep.Pay())
+        {
+            UpkeepDisplay.SetActive(false);
+            AbilityDisplay.ToggleActivation(true);
+        }
     }
 
     // Make untargetable and show by dimming

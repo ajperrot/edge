@@ -81,6 +81,7 @@ public class Affinity : Payable
     // ==
     public static bool operator== (Affinity a, Affinity b)
     {
+        if((object)b == null) return ((object)a == null);
         Affinity c = a - b;
         if(c.radiant == 0 && c.lush == 0 && c.crimson == 0 && c.free == 0)
         {

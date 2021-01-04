@@ -31,7 +31,7 @@ public class CardInfo
     public int[] Abilities; //the functions this card can perform
     public int pattern; //the attack pattern of this card (for enemy permanents)
     public EntityType EntityClass; //entity sub-catagory
-    public Affinity Upkeep; //cost paid to retain an entity
+    public Affinity Upkeep = null; //cost paid to retain an entity
     public string humanClass = "";
     
     // Permanent Only Info
@@ -69,7 +69,7 @@ public class CardInfo
             this.ap = XmlConvert.ToInt32(Nodes[9].InnerText);
             this.pattern = XmlConvert.ToInt32(Nodes[11].InnerText);
                     // ADD PASSIVES
-                    
+
             //include max sanity and unique name if human
             if(this.Type == CardType.Human)
             {
