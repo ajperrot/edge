@@ -376,6 +376,7 @@ MonoBehaviour:
   AbilityDisplay: {fileID: 709833127}
   RadiantHpBar: {fileID: 505932290}
   RadiantHpText: {fileID: 932545652}
+  UpkeepDisplay: {fileID: 1866489092}
   isAlly: 1
   Info:
     id: 0
@@ -1898,6 +1899,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1866489092 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3965470105420718600, guid: 157d19926d6eb478da864de1eaa9518e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1069216486}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1888393239
 GameObject:
   m_ObjectHideFlags: 0

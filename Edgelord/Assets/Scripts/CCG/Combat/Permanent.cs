@@ -198,6 +198,12 @@ public class Permanent : MonoBehaviour
         }
     }
 
+    // Return false if Upkeep unpaid
+    public bool CheckUpkeep()
+    {
+        return !(UpkeepDisplay.activeSelf);
+    }
+
     // Make untargetable and show by dimming
     public void MakeUntargetable()
     {

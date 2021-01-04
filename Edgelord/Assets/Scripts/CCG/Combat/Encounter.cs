@@ -94,6 +94,15 @@ public class Encounter : MonoBehaviour
         {
             O.SetActive(false);
         }
+        //un-upkept entities run away
+        for(int i = Allies.Count - 1; i >= 0; i--)
+        {
+            if(Allies[i].CheckUpkeep() == false)
+            {
+                Allies.RemoveAt(i);
+                Destroy(AlliesRoot.GetChild(i).gameObject);
+            }
+        }
         //begin enemy turn
         BeginEnemyTurn();
     }
