@@ -5,8 +5,8 @@
   <SummonCost>
     <Radiant>0</Radiant>
     <Lush>0</Lush>
-    <Crimson>3</Crimson>
-    <Free>0</Free>
+    <Crimson>1</Crimson>
+    <Free>2</Free>
   </SummonCost>
   <hp>15</hp>
   <attack>0</attack>

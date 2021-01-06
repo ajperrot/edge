@@ -10,6 +10,7 @@ public class PlayerAffinity : Affinity
     private int _radiant = 0;
     private int _lush = 0;
     private int _crimson = 0;
+    private int _free = 0;
 
     // Default constructor
     public PlayerAffinity(){}
@@ -57,6 +58,18 @@ public class PlayerAffinity : Affinity
             {
                 _crimson = value;
                 PlayerCharacter.Instance.AffinityDisplay[2].text = "" + value;
+            }
+        }
+    }
+    public new int free
+    {
+        get {return _free;}
+        set
+        {
+            if(_free != value)
+            {
+                _free = value;
+                if(free < 0) AffinityPicker.Instance.Prompt(); //prompt for free payment
             }
         }
     }

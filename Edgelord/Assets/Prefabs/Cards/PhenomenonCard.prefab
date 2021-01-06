@@ -1024,7 +1024,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1112,6 +1112,14 @@ MonoBehaviour:
     cardText: 
     cartArtPath: 
     Abilities: 
+    pattern: 0
+    EntityClass: 0
+    Upkeep:
+      radiant: 0
+      lush: 0
+      crimson: 0
+      free: 0
+    humanClass: 
     ap: 0
     sanity: 0
 --- !u!1 &8428880295815801585

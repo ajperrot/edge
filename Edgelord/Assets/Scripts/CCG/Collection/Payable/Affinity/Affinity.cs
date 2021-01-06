@@ -17,6 +17,11 @@ public class Affinity : Payable
         get {return radiant + lush + crimson + free;}
     }
 
+    public int partialSum
+    {
+        get {return radiant + lush + crimson;}
+    }
+
     // +
     public static Affinity operator+ (Affinity a, Affinity b)
     {
@@ -35,6 +40,28 @@ public class Affinity : Payable
         c.radiant = a.radiant - b.radiant;
         c.lush = a.lush - b.lush;
         c.crimson = a.crimson - b.crimson;
+        c.free = a.free;
+        int remaining = b.free;
+        while(c.radiant > 0 && remaining > 0)
+        {
+            remaining--;
+            c.radiant--;
+        }
+        while(c.lush > 0 && remaining > 0)
+        {
+            remaining--;
+            c.lush--;
+        }
+        while(c.crimson > 0 && remaining > 0)
+        {
+            remaining--;
+            c.crimson--;
+        }
+        while(c.free > 0 && remaining > 0)
+        {
+            remaining--;
+            c.free--;
+        }
         return c;
     }
 
@@ -113,6 +140,7 @@ public class Affinity : Payable
         c.radiant = a.radiant - b.radiant;
         c.lush = a.lush - b.lush;
         c.crimson = a.crimson - b.crimson;
+        c.free = a.free - b.free;
         return c;
     }
 
@@ -120,7 +148,7 @@ public class Affinity : Payable
     public static bool operator> (PlayerAffinity a, Affinity b)
     {
         Affinity c = a - b;
-        if(c.radiant > 0 && c.lush > 0 && c.crimson > 0 && c.free > 0)
+        if(c.radiant > 0 && c.lush > 0 && c.crimson > 0 && c.partialSum > b.free)
         {
             return true;
         } else return false;
@@ -130,7 +158,7 @@ public class Affinity : Payable
     public static bool operator< (PlayerAffinity a, Affinity b)
     {
         Affinity c = a - b;
-        if(c.radiant < 0 || c.lush < 0 || c.crimson < 0 || c.free < 0)
+        if(c.radiant < 0 || c.lush < 0 || c.crimson < 0 || c.partialSum < b.free)
         {
             return true;
         } else return false;
@@ -140,7 +168,7 @@ public class Affinity : Payable
     public static bool operator>= (PlayerAffinity a, Affinity b)
     {
         Affinity c = a - b;
-        if(c.radiant >= 0 && c.lush >= 0 && c.crimson >= 0 && c.free >= 0)
+        if(c.radiant >= 0 && c.lush >= 0 && c.crimson >= 0 && c.partialSum >= b.free)
         {
             return true;
         } else return false;
@@ -150,7 +178,7 @@ public class Affinity : Payable
     public static bool operator<= (PlayerAffinity a, Affinity b)
     {
         Affinity c = a - b;
-        if(c.radiant <= 0 && c.lush <= 0 && c.crimson <= 0 && c.free <= 0)
+        if(c.radiant <= 0 && c.lush <= 0 && c.crimson <= 0 && c.partialSum <= b.free)
         {
             return true;
         } else return false;
