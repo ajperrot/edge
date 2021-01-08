@@ -22,6 +22,8 @@ public class Permanent : MonoBehaviour
     public GameObject Dimmer; //dims the image of the enemy to show blocking
     public Permanent Attacker; //last permanent to attack this one
     public bool isLeader = false; //false for all but the player character
+    public bool soulbound = false; //is this permanent bound by another?
+    public List<Permanent> SoulboundEntities = null; //this permanent stays free until the soulbind leaves
     
     private bool targetable = true; //only set to false when defended by frontline
 
@@ -110,7 +112,10 @@ public class Permanent : MonoBehaviour
     // Called on Start
     void Start()
     {
+        //get sprite
         GetComponent<Image>().sprite = Card.GetCardArt(Info.id);
+        //use summon-triggered passives
+        Passive.OnSummon(this);
     }
 
     // Called on mouse hover
@@ -140,6 +145,10 @@ public class Permanent : MonoBehaviour
             maxSanity = Info.sanity;
             sanity = Info.sanity;
             SanityBar.gameObject.SetActive(true);
+        } else
+        {
+            //activate soulbind for entities
+            SoulboundEntities = new List<Permanent>();
         }
         //activate ability buttons only for allies
         if(isEnemy == false)
@@ -180,7 +189,7 @@ public class Permanent : MonoBehaviour
     public void RequestUpkeep()
     {
         //only request upkeep if necessary
-        if(Info.Upkeep != null)
+        if(Info.Upkeep != null && soulbound == false)
         {
             UpkeepDisplay.SetActive(true);
             AbilityDisplay.ToggleActivation(false);

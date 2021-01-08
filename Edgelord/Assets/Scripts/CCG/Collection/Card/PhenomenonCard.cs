@@ -10,11 +10,5 @@ public class PhenomenonCard : Card
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 
 }

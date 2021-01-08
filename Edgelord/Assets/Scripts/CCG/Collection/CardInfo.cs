@@ -29,6 +29,7 @@ public class CardInfo
     public string cardText = "DEFAULT CARD TEXT"; //rich-text written on the card explaining its use
     public string cartArtPath = "DEFAULT PATH"; //path to the art for this card
     public int[] Abilities; //the functions this card can perform
+    public int[] Passives; //the functions this card performs automatically
     public int pattern; //the attack pattern of this card (for enemy permanents)
     public EntityType EntityClass; //entity sub-catagory
     public Affinity Upkeep = null; //cost paid to retain an entity
@@ -66,9 +67,16 @@ public class CardInfo
         //include ap, pattern and passives if not a phenomenon
         if(this.Type != CardType.Phenomenon)
         {
+            //add passives like abilities
+            AbilityNodes = Nodes[8].ChildNodes;
+            Passives = new int[AbilityNodes.Count];
+            for(int i = 0; i < Passives.Length; i++)
+            {
+                Passives[i] = XmlConvert.ToInt32(AbilityNodes[i].InnerText);
+            }
+            //ap / pattern
             this.ap = XmlConvert.ToInt32(Nodes[9].InnerText);
             this.pattern = XmlConvert.ToInt32(Nodes[11].InnerText);
-                    // ADD PASSIVES
 
             //include max sanity and unique name if human
             if(this.Type == CardType.Human)

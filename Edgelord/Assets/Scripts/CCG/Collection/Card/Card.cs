@@ -9,9 +9,13 @@ using TMPro;
 [Serializable]
 public class Card : MonoBehaviour
 {
+    public delegate void CardCallback();
+
     public static Dictionary<int, Sprite> LoadedCardArt = new Dictionary<int, Sprite>(); //cache of card art
    
-   public CardInfo Info = null;
+    public CardInfo Info = null;
+
+    public CardCallback OnUse;
 
     // Runs once at start
     protected virtual void Start()
@@ -101,7 +105,7 @@ public class Card : MonoBehaviour
     // What the card does when played
     public virtual void Use()
     {
-
+        if(OnUse != null) OnUse();
     }
 
     // How to undo what the card does when played

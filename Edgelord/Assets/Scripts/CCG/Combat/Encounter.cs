@@ -61,6 +61,8 @@ public class Encounter : MonoBehaviour
     public List<Permanent> Allies = new List<Permanent>(); // All your entities
     public List<Permanent>[] FrontLines = new List<Permanent>[2]; //first allies/enemies to be targeted
 
+    public Permanent NextAllySoulbind; //soulbind the next ally to this permanent if it exists
+
 
     // Start is called before the first frame update
     void Start()
@@ -99,8 +101,7 @@ public class Encounter : MonoBehaviour
         {
             if(Allies[i].CheckUpkeep() == false)
             {
-                Allies.RemoveAt(i);
-                Destroy(AlliesRoot.GetChild(i).gameObject);
+                Kill(Allies[i]);
             }
         }
         //begin enemy turn
@@ -159,6 +160,13 @@ public class Encounter : MonoBehaviour
         Allies[allyIndex].isAlly = true;
         //move the ally to its own spot
         NewAlly.transform.localPosition += new Vector3(charSpacing * allyIndex, Random.Range(-100, 100), 0);
+        //soulbind if necessary
+        if(NextAllySoulbind != null)
+        {
+            Allies[allyIndex].soulbound = true;
+            NextAllySoulbind.SoulboundEntities.Add(Allies[allyIndex]);
+            NextAllySoulbind = null;
+        }
     }
 
     // Add a new permanent to the FrontLines
@@ -183,6 +191,12 @@ public class Encounter : MonoBehaviour
     // Remove a permanent from existance and also from the encounter
     public void Kill(Permanent Loser)
     {
+        //kill soulbound entities first
+        for(int i = Loser.SoulboundEntities.Count - 1; i >= 0; i--)
+        {
+            Kill(Loser.SoulboundEntities[i]);
+        }
+        //then kill this permanent
         if(Loser.isAlly == true)
         {
             Allies.Remove(Loser);

@@ -103,8 +103,8 @@ public class PlayerCharacter : Permanent
     public GameObject PhenomenonCardPrefab; //copied to make phenomenon cards in hand
     public float cardSpacing; //space between each card in the hand
 
-    private List<CardInfo> Hand; //your hand in combat
-    private List<GameObject> HandCards = new List<GameObject>(); //card ui for each card in handa
+    public List<CardInfo> Hand; //your hand in combat
+    public List<GameObject> HandCards = new List<GameObject>(); //card ui for each card in hand
 
 
     // Called before Start

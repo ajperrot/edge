@@ -5,16 +5,16 @@
   <SummonCost>
     <Radiant>0</Radiant>
     <Lush>0</Lush>
-    <Crimson>1</Crimson>
-    <Free>2</Free>
+    <Crimson>3</Crimson>
+    <Free>0</Free>
   </SummonCost>
   <hp>15</hp>
   <attack>0</attack>
   <cardText>Gate: Summon 1 additional entity at no cost just after summoning the Arch. The new entity is soulbound to the Arch and requires no upkeep.</cardText>
   <Abilities>
-    <ability>2</ability>
   </Abilities>
   <Passives>
+    <passive>0</passive>
   </Passives>
   <ap>1</ap>
   <sanity>0</sanity>

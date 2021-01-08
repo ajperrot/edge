@@ -119,18 +119,10 @@ public class Ability : MonoBehaviour
     }
   }
 
-  // Select an entity card from your hand, it is summoned free an soulbound to the user
-  // If used by an enemy, summon a "chained" soulbound to the user
-  static void Gate(Permanent User)
-  {
-
-  }
-
   public static Usage[] AbilityUsages = new Usage[]
   {
     new Usage(Attack),
-    new Usage(Defend),
-    new Usage(Gate)
+    new Usage(Defend)
   };
 
 }
