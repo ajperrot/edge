@@ -17,12 +17,12 @@ public class TabManager : MonoBehaviour
     void Start()
     {
         // remove stream tab for day 0
-        if(Calendar.currentDay == 0)
+        if(Setting.currentDay == 0)
         {
             Tabs[2].SetActive(false);
             TabIndicators[2].SetActive(false);
             tabCount--;
-        } else if(Calendar.currentDay == 1)
+        } else if(Setting.currentDay == 1)
         {
             //activate ritual tab
             ChangeTabTo(2);

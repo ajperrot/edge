@@ -24,7 +24,7 @@ public class TextLog : MonoBehaviour
         InputManager.SaveAndClearInputEvents();
         InputManager.OnInputHit[(int)InputManager.AxisEnum.Confirm] += PrintNextLine;
         //get series of lines to read
-        LoadTextLines(Calendar.currentDay);
+        LoadTextLines(Setting.currentDay);
         //print first line
         currentLine = 0;
         PrintLine(Lines[currentLine]);

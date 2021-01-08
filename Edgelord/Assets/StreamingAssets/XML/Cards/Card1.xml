@@ -8,8 +8,17 @@
     <Crimson>0</Crimson>
     <Free>1</Free>
   </SummonCost>
-  <hp>5</hp>
+  <hp>3</hp>
   <attack>1</attack>
-  <cardText>Riposte - damages attackers</cardText>
-  <sanity>5</sanity>
+  <cardText>Defend(3): Blocks a total of 3 damage. (The first Bruiser to block will take the damage on defense break.)</cardText>
+  <Abilities>
+    <ability>0</ability>
+    <ability>1</ability>
+  </Abilities>
+  <Passives>
+  </Passives>
+  <ap>1</ap>
+  <sanity>3</sanity>
+  <pattern>3</pattern>
+  <class>Bruiser</class>
 </Card>

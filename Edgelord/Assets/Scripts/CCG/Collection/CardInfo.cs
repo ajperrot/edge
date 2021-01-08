@@ -9,6 +9,7 @@ using UnityEngine;
 public class CardInfo
 {
     public enum CardType {Human, Entity, Phenomenon} //Enumeration of card types
+    public enum EntityType {Abberation} //Extra classification for entities
 
     // Info About Cards In General
     public static int firstHumanId = 1; //location of the first human card
@@ -27,10 +28,18 @@ public class CardInfo
     public int attack = -1; //attack, negative if unused
     public string cardText = "DEFAULT CARD TEXT"; //rich-text written on the card explaining its use
     public string cartArtPath = "DEFAULT PATH"; //path to the art for this card
+    public int[] Abilities; //the functions this card can perform
+    public int[] Passives; //the functions this card performs automatically
+    public int pattern; //the attack pattern of this card (for enemy permanents)
+    public EntityType EntityClass; //entity sub-catagory
+    public Affinity Upkeep = null; //cost paid to retain an entity
+    public string humanClass = "";
     
+    // Permanent Only Info
+    public int ap = 1; //maximum ap, used for permanents
+
     // Human Only Info
-    //public string uniqueName = "D"; //name of the person, ignorder for others
-    public int maxSanity = 255; //maximum sanity, used only for humans
+    public int sanity = 255; //maximum sanity, used only for humans
 
     // Constructor
     public CardInfo(int id)
@@ -48,12 +57,43 @@ public class CardInfo
         this.hp = XmlConvert.ToInt32(Nodes[4].InnerText);
         this.attack = XmlConvert.ToInt32(Nodes[5].InnerText);
         this.cardText = Nodes[6].InnerText;
-        //include max sanity and unique name if human
-        if(this.Type == CardType.Human)
+        //add abilities
+        XmlNodeList AbilityNodes = Nodes[7].ChildNodes;
+        Abilities = new int[AbilityNodes.Count];
+        for(int i = 0; i < Abilities.Length; i++)
         {
-            this.maxSanity = XmlConvert.ToInt32(Nodes[7].InnerText);
-            this.name += " - " + GenerateRandomName();
+            Abilities[i] = XmlConvert.ToInt32(AbilityNodes[i].InnerText);
         }
+        //include ap, pattern and passives if not a phenomenon
+        if(this.Type != CardType.Phenomenon)
+        {
+            //add passives like abilities
+            AbilityNodes = Nodes[8].ChildNodes;
+            Passives = new int[AbilityNodes.Count];
+            for(int i = 0; i < Passives.Length; i++)
+            {
+                Passives[i] = XmlConvert.ToInt32(AbilityNodes[i].InnerText);
+            }
+            //ap / pattern
+            this.ap = XmlConvert.ToInt32(Nodes[9].InnerText);
+            this.pattern = XmlConvert.ToInt32(Nodes[11].InnerText);
+
+            //include max sanity and unique name if human
+            if(this.Type == CardType.Human)
+            {
+                this.sanity = XmlConvert.ToInt32(Nodes[10].InnerText);
+                this.name += GenerateRandomName();
+                this.humanClass = Nodes[12].InnerText;
+            }
+            else
+            {
+                //include entity class and upkeep if entity
+                this.EntityClass = (EntityType)XmlConvert.ToInt32(Nodes[12].InnerText);
+                this.Upkeep = GetAffinityFromXmlNodes(Nodes[13].ChildNodes);
+                this.cardText += "\nUPKEEP: " + Upkeep.ToString();
+            }
+        }
+        
     }
 
     // Load the document for a specified card

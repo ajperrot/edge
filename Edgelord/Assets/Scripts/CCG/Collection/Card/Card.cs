@@ -9,9 +9,13 @@ using TMPro;
 [Serializable]
 public class Card : MonoBehaviour
 {
+    public delegate void CardCallback();
+
     public static Dictionary<int, Sprite> LoadedCardArt = new Dictionary<int, Sprite>(); //cache of card art
    
-   public CardInfo Info = null;
+    public CardInfo Info = null;
+
+    public CardCallback OnUse;
 
     // Runs once at start
     protected virtual void Start()
@@ -27,16 +31,16 @@ public class Card : MonoBehaviour
         TMP_Text[] TextFields = gameObject.GetComponentsInChildren<TMP_Text>();
         Image[] Images = gameObject.GetComponentsInChildren<Image>();
         //add card art
-        Images[0].sprite = GetCardArt();
-        //then the type
-        TextFields[0].text = Info.Type.ToString();
+        Images[0].sprite = GetCardArt(Info.id);
+        //then the name
+        TextFields[0].text = Info.name;
         //next three are Affinity costs
         int currentBox = 1;
         if(Info.SummonCost.radiant > 0)
         {
             TextFields[currentBox].text = "" + Info.SummonCost.radiant;
             //set icon
-            Images[1 + currentBox].sprite = Resources.Load<Sprite>("Sprites/icon_radient");
+            Images[1 + currentBox].sprite = Resources.Load<Sprite>("Sprites/icon_radiant");
             currentBox++;
         }
         if(Info.SummonCost.lush > 0)
@@ -72,9 +76,16 @@ public class Card : MonoBehaviour
         //card text
         TextFields[4].text = Info.cardText;
         //name
-        TextFields[5].text = Info.name;
+        TextFields[5].text = Info.Type.ToString();
+        if(Info.Type == CardInfo.CardType.Human)
+        {
+            TextFields[5].text += " - " + Info.humanClass;
+        } else if(Info.Type == CardInfo.CardType.Entity)
+        {
+            TextFields[5].text += " - " + Info.EntityClass.ToString();
+        }
         //next is attack, deactivate if unused
-        if(Info.attack < 0)
+        if(Info.attack <= 0)
         {
             transform.GetChild(8).gameObject.SetActive(false);
         } else
@@ -82,7 +93,7 @@ public class Card : MonoBehaviour
             TextFields[6].text = "" + Info.attack;
         }
         //next is hp, deactivate if unused
-        if(Info.hp < 0)
+        if(Info.hp <= 0)
         {
             transform.GetChild(9).gameObject.SetActive(false);
         } else
@@ -94,7 +105,7 @@ public class Card : MonoBehaviour
     // What the card does when played
     public virtual void Use()
     {
-
+        if(OnUse != null) OnUse();
     }
 
     // How to undo what the card does when played
@@ -104,19 +115,19 @@ public class Card : MonoBehaviour
     }
 
     // Returns the card art sprite for a given card id
-    private Sprite GetCardArt()
+    public static Sprite GetCardArt(int id)
     {
         //return the art if already loaded
-        if(LoadedCardArt.ContainsKey(Info.id)) return LoadedCardArt[Info.id];
+        if(LoadedCardArt.ContainsKey(id)) return LoadedCardArt[id];
         //otherwise load it as raw bytes from png
-        byte[] pngBytes = System.IO.File.ReadAllBytes(Application.streamingAssetsPath + "/CardArt/" + Info.id + ".png");
+        byte[] pngBytes = System.IO.File.ReadAllBytes(Application.streamingAssetsPath + "/CardArt/" + id + ".png");
         //load bytes into texture
         Texture2D CardArt = new Texture2D(127, 97); //CHANGE SIZE ONCE WE AGREE ON ONE
         CardArt.LoadImage(pngBytes);
         //convert texture to sprite
         Sprite NewSprite = Sprite.Create(CardArt, new Rect(0.0f, 0.0f, CardArt.width, CardArt.height), new Vector2(0.5f, 0.5f));
         //register sprite in dictionary and return
-        LoadedCardArt.Add(Info.id, NewSprite);
-        return LoadedCardArt[Info.id];
+        LoadedCardArt.Add(id, NewSprite);
+        return LoadedCardArt[id];
     }
 }

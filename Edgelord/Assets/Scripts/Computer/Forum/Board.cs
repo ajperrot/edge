@@ -49,7 +49,7 @@ public class Board : MonoBehaviour
         PreviewRoot = transform.GetChild(0);
         Selector = PreviewRoot.GetChild(0);
         //get threads from xml based on day
-        LoadThreads(Calendar.currentDay);
+        LoadThreads(Setting.currentDay);
         //allocate space in Previews
         Previews = new GameObject[Threads.Length];
         //display a preview for every thread on the board

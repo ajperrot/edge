@@ -1310,8 +1310,8 @@ RectTransform:
   - {fileID: 559222411}
   - {fileID: 124504797}
   - {fileID: 945000338}
-  - {fileID: 745987231}
   - {fileID: 553230426}
+  - {fileID: 745987231}
   - {fileID: 336744860}
   m_Father: {fileID: 1847551410}
   m_RootOrder: 1
@@ -4835,6 +4835,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7114923445274aaca823dbbe4a13e29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HpBar: {fileID: 0}
+  HpText: {fileID: 0}
+  MaxHpText: {fileID: 0}
+  ApDisplay: {fileID: 0}
+  SanityBar: {fileID: 0}
+  SanityText: {fileID: 0}
+  MaxSanityText: {fileID: 0}
+  AbilityDisplay: {fileID: 0}
+  RadiantHpBar: {fileID: 0}
+  RadiantHpText: {fileID: 0}
   AffinityDisplay:
   - {fileID: 8308454457179554722}
   - {fileID: 8308454457179554721}
@@ -4844,22 +4854,27 @@ MonoBehaviour:
   - {fileID: 8308454457179554718}
   MoneyDisplay: {fileID: 8308454457179554717}
   MovementDisplay: {fileID: 8308454457179554716}
+  PlayerDeck:
+    Contents: []
   Inventory: []
-  _BaseAffinity:
-    radiant: 3
-    lush: 1
-    crimson: 1
-    free: 0
-  PayableAffinity:
-    radiant: 1
-    lush: 1
-    crimson: 1
+  BaseAffinity:
+    radiant: 0
+    lush: 0
+    crimson: 0
     free: 0
   _followerCount: 0
   _popularity: 1
   _money: 99
   maxMovement: 1
   _movement: 1
+  baseHp: 20
+  baseSanity: 10
+  baseAp: 3
+  HandRoot: {fileID: 0}
+  HumanCardPrefab: {fileID: 0}
+  EntityCardPrefab: {fileID: 0}
+  PhenomenonCardPrefab: {fileID: 0}
+  cardSpacing: 0
 --- !u!114 &1265405493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7458,7 +7473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 1
-  m_ReferencePixelsPerUnit: 100
+  m_ReferencePixelsPerUnit: 1
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
@@ -7479,12 +7494,12 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 963194227}
   m_PlaneDistance: 100
-  m_PixelPerfect: 1
+  m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 31
+  m_AdditionalShaderChannelsFlag: 7
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0

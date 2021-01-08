@@ -13,9 +13,19 @@ public class Permanent : MonoBehaviour
     public Slider SanityBar; //used to display sanity
     public TMP_Text SanityText; //prints sanity to screen
     public TMP_Text MaxSanityText; //prints maxSanity to screen
-
+    public AbilitiesRoot AbilityDisplay; //displays buttons for each ability
     public Slider RadiantHpBar; //used to display radiantHp
     public TMP_Text RadiantHpText; //displays radiantHp as a number
+    public GameObject UpkeepDisplay; //activated to show/accept entity upkeep
+    public bool isAlly = false; //is this a member of the player's party?
+    public CardInfo Info; //tracks stats not represented by off-card UI
+    public GameObject Dimmer; //dims the image of the enemy to show blocking
+    public Permanent Attacker; //last permanent to attack this one
+    public bool isLeader = false; //false for all but the player character
+    public bool soulbound = false; //is this permanent bound by another?
+    public List<Permanent> SoulboundEntities = null; //this permanent stays free until the soulbind leaves
+    
+    private bool targetable = true; //only set to false when defended by frontline
 
     // Our maximum hp
     public int maxHp
@@ -39,7 +49,7 @@ public class Permanent : MonoBehaviour
             if(value > maxHp) value = maxHp;
             HpBar.value = value;
             HpText.text = value.ToString();
-
+            if(value <= 0 && radiantHp <= 0) Encounter.Instance.Kill(this);
         }
     }
 
@@ -84,7 +94,6 @@ public class Permanent : MonoBehaviour
             if(value < sanity) sanity = value;
             SanityBar.maxValue = value;
             MaxSanityText.text = value.ToString();
-            print(value + "<" + sanity);
         }
     }
 
@@ -100,15 +109,137 @@ public class Permanent : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
+    // Called on Start
     void Start()
     {
-        maxHp = 10;
-        hp = 7;
-        radiantHp = 2;
-        maxAp = 5;
-        ap = 3;
-        maxSanity = 3;
-        sanity = 1;
+        //get sprite
+        GetComponent<Image>().sprite = Card.GetCardArt(Info.id);
+        //use summon-triggered passives
+        Passive.OnSummon(this);
+    }
+
+    // Called on mouse hover
+    public void OnPointerEnter()
+    {
+        AbilityDisplay.AddHover(0);
+        Targeting.Target = this;
+    }
+
+    // Mouse leaves
+    public void OnPointerExit()
+    {
+        AbilityDisplay.RemoveHover(0);
+    }
+
+    // Initialize with card info
+    public void Initialize(CardInfo Info, bool isEnemy = false)
+    {
+        this.Info = Info;
+        maxHp = Info.hp;
+        hp = maxHp;
+        maxAp = Info.ap;
+        ap = maxAp;
+        //activate sanity for humans
+        if(Info.Type == CardInfo.CardType.Human)
+        {
+            maxSanity = Info.sanity;
+            sanity = Info.sanity;
+            SanityBar.gameObject.SetActive(true);
+        } else
+        {
+            //activate soulbind for entities
+            SoulboundEntities = new List<Permanent>();
+        }
+        //activate ability buttons only for allies
+        if(isEnemy == false)
+        {
+            AbilityDisplay.InitializeAbilityButtons(Info.Abilities);
+            if(Info.Upkeep != null) UpkeepDisplay.GetComponentInChildren<TMP_Text>().text = Info.Upkeep.ToString();
+        }
+    }
+
+    // Called when clicked, sets this as the target if targeting
+    public void SetAsTarget()
+    {
+        if(targetable == true && Targeting.ActiveInstance != null) Targeting.ActiveInstance.SetTarget(this);
+    }
+
+    // Lose hp, taking into account buffs/debuffs
+    public void TakeHit(int damage)
+    {
+        int defense;
+        if(isAlly == true)
+        {
+            //check ally defense if ally
+            defense = Encounter.Instance.allyDefense;
+            defense -= damage;
+            Encounter.Instance.allyDefense = defense;
+        } else
+        {
+            //use enemy defense if enemy
+            defense = Encounter.Instance.enemyDefense;
+            defense -= damage;
+            Encounter.Instance.enemyDefense = defense;
+        }
+        //take damage not eaten by defense
+        if(defense < 0) hp += defense;
+    }
+
+    // Activate upkeep request ui if entity, become unusable otherwise
+    public void RequestUpkeep()
+    {
+        //only request upkeep if necessary
+        if(Info.Upkeep != null && soulbound == false)
+        {
+            UpkeepDisplay.SetActive(true);
+            AbilityDisplay.ToggleActivation(false);
+        }
+    }
+
+    // Pay upkeep if able, disable upkeep ui and allow entity control
+    public void PayUpkeep()
+    {
+        //attempt to deduct upkeep, will fail if unable
+        if(Info.Upkeep.Pay())
+        {
+            UpkeepDisplay.SetActive(false);
+            AbilityDisplay.ToggleActivation(true);
+        }
+    }
+
+    // Return false if Upkeep unpaid
+    public bool CheckUpkeep()
+    {
+        return !(UpkeepDisplay.activeSelf);
+    }
+
+    // Make untargetable and show by dimming
+    public void MakeUntargetable()
+    {
+        targetable = false;
+        Dimmer.SetActive(true);
+    }
+
+    // Undo MakeUntargetable
+    public void MakeTargetable()
+    {
+        targetable = true;
+        Dimmer.SetActive(false);
+    }
+
+    // Select and use a skill on a target based on AI
+    public void Act()
+    {
+        //act until out of ap
+        while(ap > 0)
+        {
+            //use an ability if AI will allow it, checking more specialized ones first
+            for(int i = Info.Abilities.Length - 1; i >= 0; i--)
+            {
+                int a = Info.Abilities[i];
+                if(AI.AbilityDecisions[a](this) == true) Ability.AbilityUsages[a](this);
+            }
+            ap--;
+        }
     }
 }
