@@ -13,7 +13,7 @@ public class ItemShop : Shop
     {
         base.Start();
         //fill out Stock
-        if(Calendar.currentDay == 0)
+        if(Setting.currentDay == 0)
         {
             FillTutorialStock();
         } else
@@ -200,7 +200,7 @@ public class ItemShop : Shop
     {
         Stock = new ItemGood[(int)Random.Range(minStockCount, maxStockCount)];
         stockPurchased = new bool[Stock.Length];
-        int highestPossibleGoodIndex = numberOfPossibleGoodsPerDay[Calendar.currentDay];
+        int highestPossibleGoodIndex = numberOfPossibleGoodsPerDay[Setting.currentDay];
         for(int i = 0; i < Stock.Length; i++)
         {
             //create and position the good

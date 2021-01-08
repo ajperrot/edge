@@ -10,7 +10,19 @@ public class PlayerAffinity : Affinity
     private int _radiant = 0;
     private int _lush = 0;
     private int _crimson = 0;
+    private int _free = 0;
 
+    // Default constructor
+    public PlayerAffinity(){}
+
+    // Construct from Affinity
+    public PlayerAffinity(Affinity a)
+    {
+        this.radiant = a.radiant;
+        this.lush = a.lush;
+        this.crimson = a.crimson;
+        this.free = a.free;
+    }
 
     // Properties
     public new int radiant
@@ -49,9 +61,16 @@ public class PlayerAffinity : Affinity
             }
         }
     }
-
-    public string toString()
+    public new int free
     {
-        return "" + _radiant;
+        get {return _free;}
+        set
+        {
+            if(_free != value)
+            {
+                _free = value;
+                if(free < 0) AffinityPicker.Instance.Prompt(); //prompt for free payment
+            }
+        }
     }
 }

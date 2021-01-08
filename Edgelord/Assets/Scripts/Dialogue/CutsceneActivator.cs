@@ -19,9 +19,9 @@ public class CutsceneActivator : MonoBehaviour
     void Update()
     {
         //activate the scene for today if one exists
-        if(ScenePerDay.ContainsKey(Calendar.currentDay))
+        if(ScenePerDay.ContainsKey(Setting.currentDay))
         {
-            Log.sceneNumber = ScenePerDay[Calendar.currentDay];
+            Log.sceneNumber = ScenePerDay[Setting.currentDay];
             Cutscene.SetActive(true);
         }
         //disable self no matter what
