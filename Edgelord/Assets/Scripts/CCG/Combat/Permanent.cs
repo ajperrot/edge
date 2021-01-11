@@ -22,9 +22,10 @@ public class Permanent : MonoBehaviour
     public GameObject Dimmer; //dims the image of the enemy to show blocking
     public Permanent Attacker; //last permanent to attack this one
     public bool isLeader = false; //false for all but the player character
-    public bool soulbound = false; //is this permanent bound by another?
+    public Permanent Soulbind = null; //is this permanent bound by another?
     public List<Permanent> SoulboundEntities = null; //this permanent stays free until the soulbind leaves
-    
+    public bool gated = false; //has this permanent used the passive ability gate yet?
+
     private bool targetable = true; //only set to false when defended by frontline
 
     // Our maximum hp
@@ -115,7 +116,8 @@ public class Permanent : MonoBehaviour
         //get sprite
         GetComponent<Image>().sprite = Card.GetCardArt(Info.id);
         //use summon-triggered passives
-        Passive.OnSummon(this);
+        Passive.TriggerPassives(this, 0);//on summon
+        Passive.TriggerPassives(this, 1);//per turn
     }
 
     // Called on mouse hover
@@ -132,13 +134,14 @@ public class Permanent : MonoBehaviour
     }
 
     // Initialize with card info
-    public void Initialize(CardInfo Info, bool isEnemy = false)
+    public void Initialize(CardInfo Info, bool isAlly = true)
     {
         this.Info = Info;
         maxHp = Info.hp;
         hp = maxHp;
         maxAp = Info.ap;
         ap = maxAp;
+        this.isAlly = isAlly;
         //activate sanity for humans
         if(Info.Type == CardInfo.CardType.Human)
         {
@@ -151,7 +154,7 @@ public class Permanent : MonoBehaviour
             SoulboundEntities = new List<Permanent>();
         }
         //activate ability buttons only for allies
-        if(isEnemy == false)
+        if(isAlly == true)
         {
             AbilityDisplay.InitializeAbilityButtons(Info.Abilities);
             if(Info.Upkeep != null) UpkeepDisplay.GetComponentInChildren<TMP_Text>().text = Info.Upkeep.ToString();
@@ -189,7 +192,7 @@ public class Permanent : MonoBehaviour
     public void RequestUpkeep()
     {
         //only request upkeep if necessary
-        if(Info.Upkeep != null && soulbound == false)
+        if(Info.Upkeep != null && Soulbind == null)
         {
             UpkeepDisplay.SetActive(true);
             AbilityDisplay.ToggleActivation(false);
