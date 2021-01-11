@@ -78,7 +78,7 @@ public class Encounter : MonoBehaviour
             //generate permanent for each enemy
             GameObject NewEnemy = Instantiate(EnemyPrefab, EnemiesRoot);
             Enemies.Add(NewEnemy.GetComponent<Permanent>());
-            Enemies[i].Initialize(new CardInfo(int.Parse(lines[i])), true);
+            Enemies[i].Initialize(new CardInfo(int.Parse(lines[i])), false);
             //move the enemy in some way
             NewEnemy.transform.localPosition -= new Vector3(charSpacing * i, Random.Range(-100, 100), 0);
         }
@@ -119,9 +119,10 @@ public class Encounter : MonoBehaviour
         }
         FrontLines[1] = new List<Permanent>();
         enemyDefense = 0;
-        //let each enemy act
+        //let each enemy act and use its per-turn passive
         for(int i = Enemies.Count - 1; i >= 0; i--)
         {
+            Passive.TriggerPassives(Enemies[i], 1);
             Enemies[i].Act();
         }
         //then resume player turn
@@ -147,6 +148,11 @@ public class Encounter : MonoBehaviour
         FrontLines[0] = new List<Permanent>();
         allyDefense = 0;
         PlayerCharacter.Instance.PayableAffinity = new PlayerAffinity(PlayerCharacter.Instance.BaseAffinity);
+        //trigger per-turn passives
+        foreach(Permanent Ally in Allies)
+        {
+            Passive.TriggerPassives(Ally, 1);
+        }
     }
 
     // Adds a new permanent to your side
@@ -157,16 +163,34 @@ public class Encounter : MonoBehaviour
         int allyIndex = Allies.Count;
         Allies.Add(NewAlly.GetComponent<Permanent>());
         Allies[allyIndex].Initialize(AllyInfo);
-        Allies[allyIndex].isAlly = true;
         //move the ally to its own spot
         NewAlly.transform.localPosition += new Vector3(charSpacing * allyIndex, Random.Range(-100, 100), 0);
         //soulbind if necessary
         if(NextAllySoulbind != null)
         {
-            Allies[allyIndex].soulbound = true;
+            Allies[allyIndex].Soulbind = NextAllySoulbind;
             NextAllySoulbind.SoulboundEntities.Add(Allies[allyIndex]);
             NextAllySoulbind = null;
         }
+    }
+
+    // Adds a new permanent to the other side
+    public void AddEnemy(CardInfo EnemyInfo)
+    {
+        //generate permanent for the new ally
+        GameObject NewEnemy = Instantiate(EnemyPrefab, EnemiesRoot);
+        int enemyIndex = Enemies.Count;
+        Enemies.Add(NewEnemy.GetComponent<Permanent>());
+        Enemies[enemyIndex].Initialize(EnemyInfo, false);
+        //move the ally to its own spot
+        NewEnemy.transform.localPosition += new Vector3(charSpacing * enemyIndex, Random.Range(-100, 100), 0);
+        //soulbind if necessary
+        /*if(NextAllySoulbind != null)
+        {
+            Allies[allyIndex].soulbound = true;
+            NextAllySoulbind.SoulboundEntities.Add(Allies[allyIndex]);
+            NextAllySoulbind = null;
+        }*/
     }
 
     // Add a new permanent to the FrontLines
@@ -196,6 +220,8 @@ public class Encounter : MonoBehaviour
         {
             Kill(Loser.SoulboundEntities[i]);
         }
+        //unbind this
+        if(Loser.Soulbind != null) Loser.Soulbind.SoulboundEntities.Remove(Loser);
         //then kill this permanent
         if(Loser.isAlly == true)
         {
