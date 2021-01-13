@@ -9,7 +9,7 @@ using UnityEngine;
 public class CardInfo
 {
     public enum CardType {Human, Entity, Phenomenon} //Enumeration of card types
-    public enum EntityType {Abberation, Enslaved} //Extra classification for entities
+    public enum EntityType {Abberation, Enslaved, Construct} //Extra classification for entities
 
     // Info About Cards In General
     public static int firstHumanId = 1; //location of the first human card

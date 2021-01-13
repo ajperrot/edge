@@ -5,7 +5,7 @@ using CardType = CardInfo.CardType;
 
 public class Passive : MonoBehaviour
 {
-    public enum TriggerType {Summon, Turn} //What triggers the passive?
+    public enum TriggerType {Summon, Turn, None} //What triggers the passive?
 
     public delegate void Usage(Permanent User);
 
@@ -39,13 +39,20 @@ public class Passive : MonoBehaviour
         User.gated = true;
     }
 
+    //take half damage when damaged
+    static void Flying(Permanent User)
+    {
+        User.flying = true;
+    }
+
     private static int[] TriggerPerPassive = new int[]
     {
-        1
+        1, 0
     };
 
     public static Usage[] PassiveUsages = new Usage[]
     {
-        new Usage(Gate)
+        new Usage(Gate),
+        new Usage(Flying)
     };
 }

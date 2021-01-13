@@ -25,6 +25,7 @@ public class Permanent : MonoBehaviour
     public Permanent Soulbind = null; //is this permanent bound by another?
     public List<Permanent> SoulboundEntities = null; //this permanent stays free until the soulbind leaves
     public bool gated = false; //has this permanent used the passive ability gate yet?
+    public bool flying = false; //does this permanent take half damage?
 
     private bool targetable = true; //only set to false when defended by frontline
 
@@ -170,6 +171,9 @@ public class Permanent : MonoBehaviour
     // Lose hp, taking into account buffs/debuffs
     public void TakeHit(int damage)
     {
+        //halve damage if flying
+        if(flying == true) damage = damage / 2;
+        //take defense into account
         int defense;
         if(isAlly == true)
         {

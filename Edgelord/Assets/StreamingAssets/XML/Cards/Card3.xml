@@ -1,21 +1,30 @@
 <Card xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <id>3</id>
   <name>Blessing</name>
-  <Type>1</Type>
+  <Type>2</Type>
   <SummonCost>
+    <Radiant>1</Radiant>
+    <Lush>0</Lush>
+    <Crimson>0</Crimson>
+    <Free>0</Free>
+  </SummonCost>
+  <hp>3</hp>
+  <attack>0</attack>
+  <cardText>Flying: This creature takes half damage.\n\nDevotion: Soulbind this entity to a unit, that unit gains 5 radiant hp.</cardText>
+  <Abilities>
+    <ability>0</ability>
+  </Abilities>
+  <Passives>
+    <passives>1</passives>
+  </Passives>
+  <ap>1</ap>
+  <sanity>0</sanity>
+  <pattern>3</pattern>
+  <class>1</class>
+  <Upkeep>
     <Radiant>0</Radiant>
     <Lush>0</Lush>
     <Crimson>0</Crimson>
     <Free>1</Free>
-  </SummonCost>
-  <hp>5</hp>
-  <attack>1</attack>
-  <cardText>Riposte - damages attackers</cardText>
-  <Abilities>
-  </Abilities>
-  <Passives>
-  </Passives>
-  <ap>1</ap>
-  <sanity>5</sanity>
-  <pattern>0</pattern>
+  </Upkeep>
 </Card>
