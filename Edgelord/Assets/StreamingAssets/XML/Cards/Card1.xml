@@ -10,7 +10,7 @@
   </SummonCost>
   <hp>3</hp>
   <attack>1</attack>
-  <cardText>Defend(3): Blocks a total of 3 damage. (The first Bruiser to block will take the damage on defense break.)</cardText>
+  <cardText>Defend: Blocks a total of 3 damage. (The first Bruiser to block will take the damage on defense break.)</cardText>
   <Abilities>
     <ability>0</ability>
     <ability>1</ability>

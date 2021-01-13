@@ -90,6 +90,8 @@ public class Encounter : MonoBehaviour
     // Passes the turn from player to AI
     public void EndPlayerTurn()
     {
+        //only end if nothing else takes priority
+        if(Targeting.ActiveInstance != null) return;
         //deactivate player's ability to act
         yourTurn = false;
         foreach(GameObject O in PlayerTurnUI)
@@ -168,7 +170,7 @@ public class Encounter : MonoBehaviour
         //soulbind if necessary
         if(NextAllySoulbind != null)
         {
-            Allies[allyIndex].Soulbind = NextAllySoulbind;
+            Allies[allyIndex].Soulbinds.Add(NextAllySoulbind);
             NextAllySoulbind.SoulboundEntities.Add(Allies[allyIndex]);
             NextAllySoulbind = null;
         }
@@ -221,7 +223,10 @@ public class Encounter : MonoBehaviour
             Kill(Loser.SoulboundEntities[i]);
         }
         //unbind this
-        if(Loser.Soulbind != null) Loser.Soulbind.SoulboundEntities.Remove(Loser);
+        foreach (Permanent Bind in Loser.Soulbinds)
+        {
+            Bind.SoulboundEntities.Remove(Loser);
+        }
         //then kill this permanent
         if(Loser.isAlly == true)
         {

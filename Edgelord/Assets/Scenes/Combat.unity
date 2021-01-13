@@ -512,6 +512,7 @@ MonoBehaviour:
   Soulbind: {fileID: 0}
   SoulboundEntities: []
   gated: 0
+  flying: 0
   AffinityDisplay:
   - {fileID: 1604457276}
   - {fileID: 1604457275}
@@ -1644,6 +1645,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 302365173, guid: 157d19926d6eb478da864de1eaa9518e, type: 3}
       propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 559913203, guid: 157d19926d6eb478da864de1eaa9518e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 745988345, guid: 157d19926d6eb478da864de1eaa9518e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 745988345, guid: 157d19926d6eb478da864de1eaa9518e, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1896493841, guid: 157d19926d6eb478da864de1eaa9518e, type: 3}

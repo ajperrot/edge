@@ -17,12 +17,12 @@ public class Ability : MonoBehaviour
   public TMP_Text DescriptionText; //writes a description of the ability
   public GameObject HoverOnlyUI; //UI only active while hovering 
   public int hoverIndex; //give this to root when hovered over
+  public Permanent User; //who is using these abilities?
 
   private AbilitiesRoot Root; //the root which summoned us
   private int id; //which ability is this?
   private Affinity Cost = new Affinity(); //what do we lose when using this ability
   private bool autoTargeting; //if true, we don't have to target manually
-  private Permanent User; //who is using these abilities?
 
   // Fill in the data for this ability and write to UI
   public void Initialize(AbilitiesRoot Root, int id)
@@ -119,10 +119,19 @@ public class Ability : MonoBehaviour
     }
   }
 
+  // User is soulbound to the target and gives them 5 rhp
+  static void Devotion(Permanent User)
+  {
+    User.Soulbinds.Add(Targeting.Target);
+    Targeting.Target.SoulboundEntities.Add(User);
+    Targeting.Target.radiantHp += 5;
+  }
+
   public static Usage[] AbilityUsages = new Usage[]
   {
     new Usage(Attack),
-    new Usage(Defend)
+    new Usage(Defend),
+    new Usage(Devotion)
   };
 
 }

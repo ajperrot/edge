@@ -51,7 +51,6 @@ public class CardInfo
         XmlNodeList Nodes = CardDocs[id].FirstChild.ChildNodes;
         //store stats from doc in this
         this.id = id;
-        this.name = Nodes[1].InnerText;
         this.Type = (CardType)XmlConvert.ToInt32(Nodes[2].InnerText);
         this.SummonCost = GetAffinityFromXmlNodes(Nodes[3].ChildNodes);
         this.hp = XmlConvert.ToInt32(Nodes[4].InnerText);
@@ -82,12 +81,13 @@ public class CardInfo
             if(this.Type == CardType.Human)
             {
                 this.sanity = XmlConvert.ToInt32(Nodes[10].InnerText);
-                this.name += GenerateRandomName();
+                this.name = GenerateRandomName();
                 this.humanClass = Nodes[12].InnerText;
             }
             else
             {
-                //include entity class and upkeep if entity
+                //include entity name, class and upkeep if entity
+                this.name = Nodes[1].InnerText;
                 this.EntityClass = (EntityType)XmlConvert.ToInt32(Nodes[12].InnerText);
                 this.Upkeep = GetAffinityFromXmlNodes(Nodes[13].ChildNodes);
                 this.cardText += "\nUPKEEP: " + Upkeep.ToString();

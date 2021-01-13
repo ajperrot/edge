@@ -13,6 +13,8 @@ public class AbilitiesRoot : MonoBehaviour
     private List<bool> HoverStatus = new List<bool>(); //what is being hovered over
     private bool on = true;
 
+    private static float abilityOffset = -200;
+
     // Sets up the UI for each ability in the given array
     public void InitializeAbilityButtons(int[] Abilities)
     {
@@ -26,7 +28,7 @@ public class AbilitiesRoot : MonoBehaviour
             Ability CurrentAbility = AbilityButtons[i].GetComponent<Ability>();
             CurrentAbility.Initialize(this, Abilities[i]);
             CurrentAbility.hoverIndex = i + 2;
-            AbilityButtons[i].transform.localPosition += new Vector3(0, buttonSpacing * i, 0);
+            AbilityButtons[i].transform.localPosition += new Vector3(0, buttonSpacing * i + abilityOffset, 0);
             HoverStatus.Add(false);
         }
         gameObject.SetActive(false);

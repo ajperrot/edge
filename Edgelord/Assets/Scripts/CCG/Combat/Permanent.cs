@@ -22,8 +22,8 @@ public class Permanent : MonoBehaviour
     public GameObject Dimmer; //dims the image of the enemy to show blocking
     public Permanent Attacker; //last permanent to attack this one
     public bool isLeader = false; //false for all but the player character
-    public Permanent Soulbind = null; //is this permanent bound by another?
-    public List<Permanent> SoulboundEntities = null; //this permanent stays free until the soulbind leaves
+    public List<Permanent> Soulbinds = new List<Permanent>(); //is this permanent bound by another?
+    public List<Permanent> SoulboundEntities = new List<Permanent>(); //this permanent stays free until the soulbind leaves
     public bool gated = false; //has this permanent used the passive ability gate yet?
     public bool flying = false; //does this permanent take half damage?
 
@@ -49,6 +49,11 @@ public class Permanent : MonoBehaviour
         set
         {
             if(value > maxHp) value = maxHp;
+            if(value < 0)
+            {
+                radiantHp += value;
+                value = 0;
+            }
             HpBar.value = value;
             HpText.text = value.ToString();
             if(value <= 0 && radiantHp <= 0) Encounter.Instance.Kill(this);
@@ -68,6 +73,7 @@ public class Permanent : MonoBehaviour
                 RadiantHpBar.gameObject.SetActive(true);
             } else
             {
+                RadiantHpBar.value = 0;
                 RadiantHpBar.gameObject.SetActive(false);
             }
         }
@@ -140,6 +146,7 @@ public class Permanent : MonoBehaviour
         this.Info = Info;
         maxHp = Info.hp;
         hp = maxHp;
+        radiantHp = 0;
         maxAp = Info.ap;
         ap = maxAp;
         this.isAlly = isAlly;
@@ -149,10 +156,6 @@ public class Permanent : MonoBehaviour
             maxSanity = Info.sanity;
             sanity = Info.sanity;
             SanityBar.gameObject.SetActive(true);
-        } else
-        {
-            //activate soulbind for entities
-            SoulboundEntities = new List<Permanent>();
         }
         //activate ability buttons only for allies
         if(isAlly == true)
@@ -165,7 +168,7 @@ public class Permanent : MonoBehaviour
     // Called when clicked, sets this as the target if targeting
     public void SetAsTarget()
     {
-        if(targetable == true && Targeting.ActiveInstance != null) Targeting.ActiveInstance.SetTarget(this);
+        if(Targeting.ActiveInstance != null && (targetable == true || Ability.ActiveAbility.User.isAlly == true)) Targeting.ActiveInstance.SetTarget(this);
     }
 
     // Lose hp, taking into account buffs/debuffs
@@ -196,7 +199,7 @@ public class Permanent : MonoBehaviour
     public void RequestUpkeep()
     {
         //only request upkeep if necessary
-        if(Info.Upkeep != null && Soulbind == null)
+        if(Info.Upkeep != null && Soulbinds.Count == 0)
         {
             UpkeepDisplay.SetActive(true);
             AbilityDisplay.ToggleActivation(false);

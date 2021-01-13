@@ -1,7 +1,7 @@
 <Card xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <id>3</id>
   <name>Blessing</name>
-  <Type>2</Type>
+  <Type>1</Type>
   <SummonCost>
     <Radiant>1</Radiant>
     <Lush>0</Lush>
@@ -10,9 +10,11 @@
   </SummonCost>
   <hp>3</hp>
   <attack>0</attack>
-  <cardText>Flying: This creature takes half damage.\n\nDevotion: Soulbind this entity to a unit, that unit gains 5 radiant hp.</cardText>
+  <cardText>Flying: This creature takes half damage.
+
+Devotion: Soulbind this entity to a unit, that unit gains 5 radiant hp.</cardText>
   <Abilities>
-    <ability>0</ability>
+    <ability>2</ability>
   </Abilities>
   <Passives>
     <passives>1</passives>
@@ -20,7 +22,7 @@
   <ap>1</ap>
   <sanity>0</sanity>
   <pattern>3</pattern>
-  <class>1</class>
+  <class>2</class>
   <Upkeep>
     <Radiant>0</Radiant>
     <Lush>0</Lush>

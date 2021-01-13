@@ -34,6 +34,33 @@ public class AI
         return false;
     }
 
+    // Give Devotion to the ally with the lowest combined hp and rhp, prioritizing the front line
+    public static bool Devotion(Permanent User)
+    {
+        int lowestHp = 256;
+        int targetIndex = 0;
+        List<Permanent> PotentialTargets;
+        if(Encounter.Instance.FrontLines[1].Count > 0)
+        {
+            PotentialTargets = Encounter.Instance.FrontLines[1];
+        } else
+        {
+            PotentialTargets = Encounter.Instance.Enemies;
+        }
+        for(int i = 0; i < PotentialTargets.Count; i++)
+        {
+            Permanent PotentialTarget = PotentialTargets[i];
+            int combinedHp = PotentialTarget.hp + PotentialTarget.radiantHp;
+            if(combinedHp < lowestHp)
+            {
+                lowestHp = combinedHp;
+                targetIndex = i;
+            }
+        }
+        Targeting.Target = PotentialTargets[targetIndex];
+        return true;
+    }
+
     // Attck the leader, or the biggest threat(?)
     public static bool IntelligentSelection(Permanent User, List<Permanent> Options)
     {
