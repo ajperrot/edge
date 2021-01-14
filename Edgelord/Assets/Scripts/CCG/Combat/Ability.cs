@@ -4,6 +4,7 @@ using System.IO;
 using System.Xml;
 using UnityEngine;
 using TMPro;
+using EntityType = CardInfo.EntityType;
 
 public class Ability : MonoBehaviour
 {
@@ -76,8 +77,8 @@ public class Ability : MonoBehaviour
   // Call the function associated with this anility id
   public void Use()
   {
-    AbilityUsages[id](User);
     User.ap--;
+    AbilityUsages[id](User);
     ActiveAbility = null;
   }
 
@@ -127,11 +128,46 @@ public class Ability : MonoBehaviour
     Targeting.Target.radiantHp += 5;
   }
 
+  // Transform User into a Symphony. Only usable after Consuming 3 human corpses.
+  static void Fuse(Permanent User)
+  {
+    if(User.fuseCounter >= 3)
+    {
+      if(User.isAlly == true)
+      {
+        Encounter.Instance.AddAlly(new CardInfo(10));
+      } else
+      {
+        Encounter.Instance.AddEnemy(new CardInfo(10));
+      }
+      Encounter.Instance.Kill(User);
+    } else
+    {
+        User.ap++; //don't waste ap on a failed attempt
+    }
+  }
+
+  // If the target is a corpse, kill it and add to your fuse counter
+  static void Consume(Permanent User)
+  {
+    Permanent Target = Targeting.Target;
+    if(Target.Info.EntityClass == EntityType.Corpse)
+    {
+      Encounter.Instance.Kill(Target);
+      if(User != null) User.fuseCounter++;
+    } else
+    {
+      User.ap++;
+    }
+  }
+
   public static Usage[] AbilityUsages = new Usage[]
   {
     new Usage(Attack),
     new Usage(Defend),
-    new Usage(Devotion)
+    new Usage(Devotion),
+    new Usage(Fuse),
+    new Usage(Consume)
   };
 
 }

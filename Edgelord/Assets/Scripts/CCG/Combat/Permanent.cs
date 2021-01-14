@@ -22,10 +22,12 @@ public class Permanent : MonoBehaviour
     public GameObject Dimmer; //dims the image of the enemy to show blocking
     public Permanent Attacker; //last permanent to attack this one
     public bool isLeader = false; //false for all but the player character
+    
     public List<Permanent> Soulbinds = new List<Permanent>(); //is this permanent bound by another?
     public List<Permanent> SoulboundEntities = new List<Permanent>(); //this permanent stays free until the soulbind leaves
     public bool gated = false; //has this permanent used the passive ability gate yet?
     public bool flying = false; //does this permanent take half damage?
+    public int fuseCounter = 0; //progress toward possible transformation
 
     private bool targetable = true; //only set to false when defended by frontline
 

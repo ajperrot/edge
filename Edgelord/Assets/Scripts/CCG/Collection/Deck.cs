@@ -52,4 +52,15 @@ public class Deck
     }
     return Hand;
   }
+
+  // Returns a list of cards to fill the hand, given its current size
+  public List<CardInfo> DrawUntilFullFrom(int currentSize = 0)
+  {
+    List<CardInfo> Hand = new List<CardInfo>();
+    for(int i = 0; i < maxHandSize - currentSize; i++)
+    {
+      if(Order.Count > 0) Hand.Add(Contents[Order.Pop()]);
+    }
+    return Hand;
+  }
 }

@@ -509,10 +509,11 @@ MonoBehaviour:
   Dimmer: {fileID: 0}
   Attacker: {fileID: 0}
   isLeader: 1
-  Soulbind: {fileID: 0}
+  Soulbinds: []
   SoulboundEntities: []
   gated: 0
   flying: 0
+  fuseCounter: 0
   AffinityDisplay:
   - {fileID: 1604457276}
   - {fileID: 1604457275}
@@ -523,31 +524,7 @@ MonoBehaviour:
   MoneyDisplay: {fileID: 1604457270}
   MovementDisplay: {fileID: 548605454}
   PlayerDeck:
-    Contents:
-    - id: 1
-      name: 
-      Type: 1
-      SummonCost:
-        radiant: 1
-        lush: 0
-        crimson: 0
-        free: 0
-      hp: 1
-      attack: 1
-      cardText: 
-      cartArtPath: 
-      Abilities: 0100000000000000
-      Passives: 
-      pattern: 0
-      EntityClass: 0
-      Upkeep:
-        radiant: 0
-        lush: 0
-        crimson: 0
-        free: 0
-      humanClass: 
-      ap: 1
-      sanity: 1
+    Contents: []
   Inventory:
   - id: 1
     name: 
@@ -1659,6 +1636,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 826050111, guid: 157d19926d6eb478da864de1eaa9518e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 826050111, guid: 157d19926d6eb478da864de1eaa9518e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1896493839, guid: 157d19926d6eb478da864de1eaa9518e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1896493841, guid: 157d19926d6eb478da864de1eaa9518e, type: 3}
       propertyPath: m_Value
       value: 0
@@ -1777,6 +1766,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6342797199440371395, guid: 157d19926d6eb478da864de1eaa9518e,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 238290750}
+    - target: {fileID: 6342797199440371395, guid: 157d19926d6eb478da864de1eaa9518e,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetAsTarget
       objectReference: {fileID: 0}
     - target: {fileID: 7074704774227669305, guid: 157d19926d6eb478da864de1eaa9518e,
         type: 3}
@@ -2488,7 +2487,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 100, y: 0}
+  m_AnchoredPosition: {x: 850, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1757247154 stripped

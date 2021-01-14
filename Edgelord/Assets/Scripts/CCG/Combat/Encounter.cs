@@ -155,6 +155,8 @@ public class Encounter : MonoBehaviour
         {
             Passive.TriggerPassives(Ally, 1);
         }
+        //refill the player's hand
+        PlayerCharacter.Instance.FillHand();
     }
 
     // Adds a new permanent to your side

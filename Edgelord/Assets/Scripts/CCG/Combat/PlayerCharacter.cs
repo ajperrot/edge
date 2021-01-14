@@ -123,9 +123,10 @@ public class PlayerCharacter : Permanent
         //do some permanent init if necessary
         if(gameObject.tag == "PlayerPermanent")
         {
-            PlayerDeck.AddNewCard(1);//test
-            PlayerDeck.AddNewCard(2);//test
-            PlayerDeck.AddNewCard(3);//test
+            PlayerDeck.AddNewCard(4);//test
+            PlayerDeck.AddNewCard(4);//test
+            PlayerDeck.AddNewCard(4);//test
+            PlayerDeck.AddNewCard(4);//test
             InitializePermanent();
             isAlly = true;
             isLeader = true;
@@ -158,7 +159,35 @@ public class PlayerCharacter : Permanent
         PlayerDeck.Shuffle();
         Hand = PlayerDeck.GetHand();
         //display cards
-        for(int i = 0; i < Hand.Count; i++)
+        DisplayHandFrom(0);
+    }
+
+    // Add cards until the hand is full
+    public void FillHand()
+    {
+        int oldCount = Hand.Count;
+        Hand.AddRange(PlayerDeck.DrawUntilFullFrom(Hand.Count));
+        DisplayHandFrom(oldCount);
+    }
+
+    // Remove the card at the given index from the hand
+    public void RemoveFromHand(int index)
+    {
+        //delete card
+        Hand.RemoveAt(index);
+        Destroy(HandCards[index]);
+        HandCards.RemoveAt(index);
+        //move over other cards
+        for(int i = index; i < HandCards.Count; i++)
+        {
+            HandCards[i].transform.localPosition -= new Vector3(cardSpacing, 0, 0);
+        }
+    }
+
+    // Creates Card Objects for cards from a certain index in the hand
+    void DisplayHandFrom(int start = 0)
+    {
+        for(int i = start; i < Hand.Count; i++)
         {
             if(Hand[i].Type == CardInfo.CardType.Human)
             {
@@ -177,20 +206,6 @@ public class PlayerCharacter : Permanent
                 HandCards[i].GetComponent<PhenomenonCard>().Info = Hand[i];
             }
             HandCards[i].transform.localPosition += new Vector3(cardSpacing * i, 0, 0);
-        }
-    }
-
-    // Remove the card at the given index from the hand
-    public void RemoveFromHand(int index)
-    {
-        //delete card
-        Hand.RemoveAt(index);
-        Destroy(HandCards[index]);
-        HandCards.RemoveAt(index);
-        //move over other cards
-        for(int i = index; i < HandCards.Count; i++)
-        {
-            HandCards[i].transform.localPosition -= new Vector3(cardSpacing, 0, 0);
         }
     }
 

@@ -12,10 +12,18 @@
   <attack>1</attack>
   <cardText>Riposte - damages attackers</cardText>
   <Abilities>
+    <ability>0</ability>
   </Abilities>
   <Passives>
   </Passives>
   <ap>1</ap>
-  <sanity>5</sanity>
-  <pattern>0</pattern>
+  <sanity>0</sanity>
+  <pattern>1</pattern>
+  <class>3</class>
+  <Upkeep>
+    <Radiant>0</Radiant>
+    <Lush>0</Lush>
+    <Crimson>0</Crimson>
+    <Free>1</Free>
+  </Upkeep>
 </Card>

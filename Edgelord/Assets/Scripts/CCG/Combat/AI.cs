@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using EntityType = CardInfo.EntityType;
 
 public class AI
 {
@@ -59,6 +60,43 @@ public class AI
         }
         Targeting.Target = PotentialTargets[targetIndex];
         return true;
+    }
+
+    // Fuse if the counter is at or above 3
+    public static bool Fuse(Permanent User)
+    {
+        if(User.fuseCounter >= 3) return true;
+        return false;
+    }
+
+    // Consume if there is even another corpse on the field
+    public static bool Consume(Permanent User)
+    {
+        List<Permanent> Options;
+        if(Encounter.Instance.FrontLines[0].Count > 0)
+        {
+            Options = Encounter.Instance.FrontLines[0];
+        } else
+        {
+            Options = Encounter.Instance.Allies;
+        }
+        foreach (Permanent Unit in Options)
+        {
+            if(Unit.Info.EntityClass == EntityType.Corpse)
+            {
+                Targeting.Target = Unit;
+                return true;
+            }
+        }
+        foreach (Permanent Unit in Encounter.Instance.Enemies)
+        {
+            if(Unit.Info.EntityClass == EntityType.Corpse && Unit != User)
+            {
+                Targeting.Target = Unit;
+                return true;
+            }
+        }
+        return false;
     }
 
     // Attck the leader, or the biggest threat(?)
@@ -135,6 +173,9 @@ public class AI
     public static Decision[] AbilityDecisions = new Decision[]
     {
         new Decision(Attack),
-        new Decision(Defend)
+        new Decision(Defend),
+        new Decision(Devotion),
+        new Decision(Fuse),
+        new Decision(Consume)
     };
 }
