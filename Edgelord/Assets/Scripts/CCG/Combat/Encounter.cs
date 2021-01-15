@@ -4,6 +4,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using CardType = CardInfo.CardType;
 
 public class Encounter : MonoBehaviour
 {
@@ -232,7 +233,7 @@ public class Encounter : MonoBehaviour
         //create a corpse if human
         if(Loser.Info.Type == CardType.Human)
         {
-            if(Loser.IsAly) AddAlly(new CardInfo(13));
+            if(Loser.isAlly) AddAlly(new CardInfo(13));
         }
         //then kill this permanent
         if(Loser.isAlly == true)
