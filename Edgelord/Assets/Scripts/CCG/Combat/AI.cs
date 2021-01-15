@@ -132,7 +132,10 @@ public class AI
     // Attack a random target
     public static bool RandomSelection(Permanent User, List<Permanent> Options)
     {
-        Targeting.Target = Options[(int)Random.Range(0, Options.Count)];
+        do
+        {
+            Targeting.Target = Options[(int)Random.Range(0, Options.Count)];
+        } while (Targeting.Target.targetable == false);
         return true;
     }
 

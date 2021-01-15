@@ -39,20 +39,28 @@ public class Passive : MonoBehaviour
         User.gated = true;
     }
 
-    //take half damage when damaged
+    // Take half damage when damaged
     static void Flying(Permanent User)
     {
         User.flying = true;
     }
 
+    // Make the user untargetable
+    static void Untargetable(Permanent User)
+    {
+        User.targetable = false;
+    }
+
+
     private static int[] TriggerPerPassive = new int[]
     {
-        1, 0
+        1, 0, 0
     };
 
     public static Usage[] PassiveUsages = new Usage[]
     {
         new Usage(Gate),
-        new Usage(Flying)
+        new Usage(Flying),
+        new Usage(Untargetable)
     };
 }

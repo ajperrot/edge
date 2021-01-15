@@ -229,6 +229,11 @@ public class Encounter : MonoBehaviour
         {
             Bind.SoulboundEntities.Remove(Loser);
         }
+        //create a corpse if human
+        if(Loser.Info.Type == CardType.Human)
+        {
+            if(Loser.IsAly) AddAlly(new CardInfo(13));
+        }
         //then kill this permanent
         if(Loser.isAlly == true)
         {
