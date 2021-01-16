@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using CardType = CardInfo.CardType;
 using EntityType = CardInfo.EntityType;
 
 public class AI
@@ -99,6 +100,28 @@ public class AI
         return false;
     }
 
+    // Target the nearest human
+    public static bool Parasite(Permanent User)
+    {
+        foreach (Permanent Unit in Encounter.Instance.Enemies)
+        {
+            if(Unit.Info.Type == CardType.Human)
+            {
+                Targeting.Target = Unit;
+                return true;
+            }
+        }
+        foreach (Permanent Unit in Encounter.Instance.Allies)
+        {
+            if(Unit.Info.Type == CardType.Human)
+            {
+                Targeting.Target = Unit;
+                return true;
+            }
+        }
+        return false;
+    }
+
     // Attck the leader, or the biggest threat(?)
     public static bool IntelligentSelection(Permanent User, List<Permanent> Options)
     {
@@ -179,6 +202,7 @@ public class AI
         new Decision(Defend),
         new Decision(Devotion),
         new Decision(Fuse),
-        new Decision(Consume)
+        new Decision(Consume),
+        new Decision(Parasite)
     };
 }

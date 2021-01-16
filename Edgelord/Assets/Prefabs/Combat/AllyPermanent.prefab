@@ -2155,10 +2155,13 @@ MonoBehaviour:
   Dimmer: {fileID: 0}
   Attacker: {fileID: 0}
   isLeader: 0
+  targetable: 1
   Soulbinds: []
   SoulboundEntities: []
   gated: 0
   flying: 0
+  fuseCounter: 0
+  attackModifier: 0
 --- !u!114 &6342797199440371395
 MonoBehaviour:
   m_ObjectHideFlags: 0

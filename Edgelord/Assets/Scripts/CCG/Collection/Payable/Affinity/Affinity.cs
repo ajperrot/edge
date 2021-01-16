@@ -25,6 +25,8 @@ public class Affinity : Payable
     // +
     public static Affinity operator+ (Affinity a, Affinity b)
     {
+        if(a == null) return b;
+        if(b == null) return a;
         Affinity c = new Affinity();
         c.radiant = a.radiant + b.radiant;
         c.lush = a.lush + b.lush;

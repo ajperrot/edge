@@ -10,9 +10,9 @@
   </SummonCost>
   <hp>7</hp>
   <attack>5</attack>
-  <cardText>Fuse: Transform this bloom into a symphony. Only usable after Consuming 3 human corpses.
+  <cardText>Fuse: Transform this bloom into a symphony after consuming 3 human corpses.
 
-Consume: Consume any corpse on the field.</cardText>
+Consume: eat a corpse.</cardText>
   <Abilities>
     <ability>0</ability>
     <ability>3</ability>

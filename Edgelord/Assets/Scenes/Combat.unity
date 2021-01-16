@@ -509,11 +509,13 @@ MonoBehaviour:
   Dimmer: {fileID: 0}
   Attacker: {fileID: 0}
   isLeader: 1
+  targetable: 1
   Soulbinds: []
   SoulboundEntities: []
   gated: 0
   flying: 0
   fuseCounter: 0
+  attackModifier: 0
   AffinityDisplay:
   - {fileID: 1604457276}
   - {fileID: 1604457275}
@@ -1766,6 +1768,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919345047683318663, guid: 157d19926d6eb478da864de1eaa9518e,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 238290750}
+    - target: {fileID: 4919345047683318663, guid: 157d19926d6eb478da864de1eaa9518e,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PayUpkeep
       objectReference: {fileID: 0}
     - target: {fileID: 6342797199440371395, guid: 157d19926d6eb478da864de1eaa9518e,
         type: 3}

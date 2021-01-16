@@ -56,4 +56,11 @@ public class AbilitiesRoot : MonoBehaviour
         gameObject.SetActive(active);
         on = active;
     }
+
+    // Treat an ability as though it were clicked
+    public void UseAbility(int index = 0)
+    {
+        print("0");//test
+        AbilityButtons[index].GetComponent<Ability>().OnClick();
+    }
 }

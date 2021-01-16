@@ -61,7 +61,9 @@ public class Ability : MonoBehaviour
   public void OnClick()
   {
     //pay Cost, return if unable (also return if not your turn)
+    print("1");//test
     if(Encounter.Instance.yourTurn == false || User.ap < 1 || Cost.Pay() == false) return;
+    print("2");//test
     if(autoTargeting == true)
     {
       //use immediately if auto-targeting
@@ -98,7 +100,7 @@ public class Ability : MonoBehaviour
   // User hits the target with their attack power
   static void Attack(Permanent User)
   {
-    Targeting.Target.TakeHit(User.Info.attack);
+    Targeting.Target.TakeHit(User.Info.attack + User.attackModifier);
     Targeting.Target.Attacker = User;
   }
 
@@ -161,13 +163,23 @@ public class Ability : MonoBehaviour
     }
   }
 
+  // Kill the user, and add its attack and upkeep to the target
+  static void Parasite(Permanent User)
+  {
+    Permanent Target = Targeting.Target;
+    Target.attackModifier += User.Info.attack;
+    Target.Upkeep += User.Upkeep;
+    Encounter.Instance.Kill(User);
+  }
+
   public static Usage[] AbilityUsages = new Usage[]
   {
     new Usage(Attack),
     new Usage(Defend),
     new Usage(Devotion),
     new Usage(Fuse),
-    new Usage(Consume)
+    new Usage(Consume),
+    new Usage(Parasite)
   };
 
 }

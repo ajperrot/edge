@@ -23,12 +23,13 @@ public class Permanent : MonoBehaviour
     public Permanent Attacker; //last permanent to attack this one
     public bool isLeader = false; //false for all but the player character
     public bool targetable = true; //only set to false when defended by frontline, used in allies to prevent attack of corpses
-    
+
     public List<Permanent> Soulbinds = new List<Permanent>(); //is this permanent bound by another?
     public List<Permanent> SoulboundEntities = new List<Permanent>(); //this permanent stays free until the soulbind leaves
     public bool gated = false; //has this permanent used the passive ability gate yet?
     public bool flying = false; //does this permanent take half damage?
     public int fuseCounter = 0; //progress toward possible transformation
+    public int attackModifier = 0; //extra damage added to your attacks
 
     // Our maximum hp
     public int maxHp
@@ -118,6 +119,20 @@ public class Permanent : MonoBehaviour
         }
     }
 
+    // Upkeep for this permanent, seperate from card info for modification
+    private Affinity upkeep = null;
+    public Affinity Upkeep
+    {
+        get {return upkeep;}
+        set
+        {
+            upkeep = value;
+            if(isAlly == true) UpkeepDisplay.GetComponentInChildren<TMP_Text>().text = upkeep.ToString();
+        }
+    }
+
+
+
     // Called on Start
     void Start()
     {
@@ -151,6 +166,7 @@ public class Permanent : MonoBehaviour
         maxAp = Info.ap;
         ap = maxAp;
         this.isAlly = isAlly;
+        this.Upkeep = Info.Upkeep;
         //activate sanity for humans
         if(Info.Type == CardInfo.CardType.Human)
         {
@@ -162,7 +178,7 @@ public class Permanent : MonoBehaviour
         if(isAlly == true)
         {
             AbilityDisplay.InitializeAbilityButtons(Info.Abilities);
-            if(Info.Upkeep != null) UpkeepDisplay.GetComponentInChildren<TMP_Text>().text = Info.Upkeep.ToString();
+            if(Info.Upkeep != null) UpkeepDisplay.GetComponentInChildren<TMP_Text>().text = Upkeep.ToString();
         }
     }
 
@@ -200,7 +216,7 @@ public class Permanent : MonoBehaviour
     public void RequestUpkeep()
     {
         //only request upkeep if necessary
-        if(Info.Upkeep != null && Soulbinds.Count == 0)
+        if(Upkeep != null && Soulbinds.Count == 0)
         {
             UpkeepDisplay.SetActive(true);
             AbilityDisplay.ToggleActivation(false);
@@ -211,7 +227,7 @@ public class Permanent : MonoBehaviour
     public void PayUpkeep()
     {
         //attempt to deduct upkeep, will fail if unable
-        if(Info.Upkeep.Pay())
+        if(Upkeep.Pay())
         {
             UpkeepDisplay.SetActive(false);
             AbilityDisplay.ToggleActivation(true);

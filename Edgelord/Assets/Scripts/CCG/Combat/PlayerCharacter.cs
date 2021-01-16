@@ -123,10 +123,10 @@ public class PlayerCharacter : Permanent
         //do some permanent init if necessary
         if(gameObject.tag == "PlayerPermanent")
         {
+            PlayerDeck.AddNewCard(1);//test
+            PlayerDeck.AddNewCard(2);//test
             PlayerDeck.AddNewCard(4);//test
-            PlayerDeck.AddNewCard(4);//test
-            PlayerDeck.AddNewCard(4);//test
-            PlayerDeck.AddNewCard(4);//test
+            PlayerDeck.AddNewCard(5);//test
             InitializePermanent();
             isAlly = true;
             isLeader = true;

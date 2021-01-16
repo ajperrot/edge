@@ -51,16 +51,23 @@ public class Passive : MonoBehaviour
         User.targetable = false;
     }
 
+    // Use the User's first ability if they are an ally
+    static void TriggerAbilityIfAlly(Permanent User)
+    {
+        if(User.isAlly) User.AbilityDisplay.UseAbility();
+    }
+
 
     private static int[] TriggerPerPassive = new int[]
     {
-        1, 0, 0
+        1, 0, 0, 0
     };
 
     public static Usage[] PassiveUsages = new Usage[]
     {
         new Usage(Gate),
         new Usage(Flying),
-        new Usage(Untargetable)
+        new Usage(Untargetable),
+        new Usage(TriggerAbilityIfAlly)
     };
 }
