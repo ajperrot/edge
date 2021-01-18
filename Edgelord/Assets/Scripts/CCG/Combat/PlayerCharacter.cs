@@ -126,7 +126,7 @@ public class PlayerCharacter : Permanent
             PlayerDeck.AddNewCard(1);//test
             PlayerDeck.AddNewCard(2);//test
             PlayerDeck.AddNewCard(4);//test
-            PlayerDeck.AddNewCard(5);//test
+            PlayerDeck.AddNewCard(6);//test
             InitializePermanent();
             isAlly = true;
             isLeader = true;

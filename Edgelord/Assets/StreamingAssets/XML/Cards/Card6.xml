@@ -3,27 +3,25 @@
   <name>Cog</name>
   <Type>1</Type>
   <SummonCost>
-    <Radiant>0</Radiant>
-    <Lush>1</Lush>
+    <Radiant>1</Radiant>
+    <Lush>0</Lush>
     <Crimson>0</Crimson>
     <Free>0</Free>
   </SummonCost>
-  <hp>7</hp>
-  <attack>5</attack>
-  <cardText>Fuse: Transform this bloom into a symphony. Only usable after Consuming 3 human corpses.
-
-Consume: Consume any corpse on the field.</cardText>
+  <hp>3</hp>
+  <attack>0</attack>
+  <cardText>Light: Gives each ally besides this Cog 3 radiant hp</cardText>
   <Abilities>
-    <ability>0</ability>
-    <ability>3</ability>
-    <ability>4</ability>
   </Abilities>
   <Passives>
+    <passive>4</passive>
+    <passive>5</passive>
+    <passive>6</passive>
   </Passives>
-  <ap>1</ap>
+  <ap>0</ap>
   <sanity>0</sanity>
-  <pattern>4</pattern>
-  <class>3</class>
+  <pattern>3</pattern>
+  <class>2</class>
   <Upkeep>
     <Radiant>0</Radiant>
     <Lush>0</Lush>

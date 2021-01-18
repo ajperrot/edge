@@ -64,6 +64,9 @@ public class Encounter : MonoBehaviour
 
     public Permanent NextAllySoulbind; //soulbind the next ally to this permanent if it exists
 
+    private List<int>[] OnMemberPassives = new List<int>[2]; //passives to be used when a new ally/enemy is summoned
+    private List<Permanent>[] OnMemberPassiveUsers = new List<Permanent>[2]; //Users of the above passives 
+
 
     // Start is called before the first frame update
     void Start()
@@ -86,6 +89,11 @@ public class Encounter : MonoBehaviour
         // Set up front lines
         FrontLines[0] = new List<Permanent>();
         FrontLines[1] = new List<Permanent>();
+        //set up passive lists
+        OnMemberPassives[0] = new List<int>();
+        OnMemberPassives[1] = new List<int>();
+        OnMemberPassiveUsers[0] = new List<Permanent>();
+        OnMemberPassiveUsers[1] = new List<Permanent>();
     }
 
     // Passes the turn from player to AI
@@ -177,6 +185,10 @@ public class Encounter : MonoBehaviour
             NextAllySoulbind.SoulboundEntities.Add(Allies[allyIndex]);
             NextAllySoulbind = null;
         }
+        //call passives
+        CallOnMemberPassives(Allies[allyIndex], 0);
+        //add passives
+        AddOnMemberPassives(AllyInfo, Allies[allyIndex], 0);
     }
 
     // Adds a new permanent to the other side
@@ -189,13 +201,45 @@ public class Encounter : MonoBehaviour
         Enemies[enemyIndex].Initialize(EnemyInfo, false);
         //move the ally to its own spot
         NewEnemy.transform.localPosition += new Vector3(charSpacing * enemyIndex, Random.Range(-100, 100), 0);
-        //soulbind if necessary
-        /*if(NextAllySoulbind != null)
+        //call passives
+        CallOnMemberPassives(Enemies[enemyIndex], 1);
+        //add passives
+        AddOnMemberPassives(EnemyInfo, Enemies[enemyIndex], 1);
+    }
+
+    // Adds the onmember passives of the given user to the correct list
+    void AddOnMemberPassives(CardInfo Info, Permanent User, int side)
+    {
+        foreach(int passiveId in Info.Passives)
         {
-            Allies[allyIndex].soulbound = true;
-            NextAllySoulbind.SoulboundEntities.Add(Allies[allyIndex]);
-            NextAllySoulbind = null;
-        }*/
+            if(Passive.TriggerPerPassive[passiveId] == 2)
+            {
+                OnMemberPassives[side].Add(passiveId);
+                OnMemberPassiveUsers[side].Add(User);
+            }
+        }
+    }
+
+    // Calls the onmember passives of a given side on a specified target
+    void CallOnMemberPassives(Permanent Target, int side)
+    {
+        Targeting.Target = Target;
+        for(int i = 0; i < OnMemberPassives[side].Count; i++)
+        {
+            Passive.PassiveUsages[OnMemberPassives[side][i]](OnMemberPassiveUsers[side][i]);
+        }
+        Targeting.Target = null;
+    }
+
+    //Removes the onmember passives associated with the given user
+    void RemoveOnMemberPassives(Permanent User, int side)
+    {
+        while(OnMemberPassiveUsers[side].Contains(User))
+        {
+            int index = OnMemberPassiveUsers[side].IndexOf(User);
+            OnMemberPassiveUsers[side].RemoveAt(index);
+            OnMemberPassives[side].RemoveAt(index);
+        }
     }
 
     // Add a new permanent to the FrontLines
@@ -238,10 +282,12 @@ public class Encounter : MonoBehaviour
         //then kill this permanent
         if(Loser.isAlly == true)
         {
+            RemoveOnMemberPassives(Loser, 0);
             Allies.Remove(Loser);
             FrontLines[0].Remove(Loser);
         } else
         {
+            RemoveOnMemberPassives(Loser, 1);
             Enemies.Remove(Loser);
             FrontLines[1].Remove(Loser);
         }
