@@ -90,7 +90,7 @@ public class Passive : MonoBehaviour
             Party = Encounter.Instance.Allies;
         } else
         {
-            Encounter.Instance.Enemies
+            Party = Encounter.Instance.Enemies;
         }
         foreach (Permanent Member in Party)
         {
