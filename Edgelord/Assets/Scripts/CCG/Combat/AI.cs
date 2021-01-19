@@ -103,7 +103,7 @@ public class AI
     // Target the nearest human
     public static bool Parasite(Permanent User)
     {
-        foreach (Permanent Unit in Encounter.Instance.Enemies)
+        foreach (Permanent Unit in Encounter.Instance.Allies)
         {
             if(Unit.Info.Type == CardType.Human)
             {
@@ -111,7 +111,7 @@ public class AI
                 return true;
             }
         }
-        foreach (Permanent Unit in Encounter.Instance.Allies)
+        foreach (Permanent Unit in Encounter.Instance.Enemies)
         {
             if(Unit.Info.Type == CardType.Human)
             {
@@ -203,6 +203,7 @@ public class AI
         new Decision(Devotion),
         new Decision(Fuse),
         new Decision(Consume),
+        new Decision(Parasite),
         new Decision(Parasite)
     };
 }

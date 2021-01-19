@@ -4,6 +4,7 @@ using System.IO;
 using System.Xml;
 using UnityEngine;
 using TMPro;
+using CardType = CardInfo.CardType;
 using EntityType = CardInfo.EntityType;
 
 public class Ability : MonoBehaviour
@@ -61,9 +62,7 @@ public class Ability : MonoBehaviour
   public void OnClick()
   {
     //pay Cost, return if unable (also return if not your turn)
-    print("1");//test
     if(Encounter.Instance.yourTurn == false || User.ap < 1 || Cost.Pay() == false) return;
-    print("2");//test
     if(autoTargeting == true)
     {
       //use immediately if auto-targeting
@@ -172,6 +171,20 @@ public class Ability : MonoBehaviour
     Encounter.Instance.Kill(User);
   }
 
+  // Deal 10 sanity damage to a human target and kill the user
+  static void Vision(Permanent User)
+  {
+    Permanent Target = Targeting.Target;
+    if(Target.Info.Type == CardType.Human)
+    {
+      Target.sanity -= 10;
+      Encounter.Instance.Kill(User);
+    } else
+    {
+      User.ap++;
+    }
+  }
+
   public static Usage[] AbilityUsages = new Usage[]
   {
     new Usage(Attack),
@@ -179,7 +192,8 @@ public class Ability : MonoBehaviour
     new Usage(Devotion),
     new Usage(Fuse),
     new Usage(Consume),
-    new Usage(Parasite)
+    new Usage(Parasite),
+    new Usage(Vision)
   };
 
 }

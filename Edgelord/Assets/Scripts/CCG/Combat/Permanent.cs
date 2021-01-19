@@ -68,6 +68,7 @@ public class Permanent : MonoBehaviour
         get {return (int)RadiantHpBar.value;}
         set
         {
+            if(Info.id == 13) return; //do not set for corpses
             if(value > 0)
             {
                 RadiantHpBar.value = value;
@@ -116,18 +117,23 @@ public class Permanent : MonoBehaviour
             if(value > maxSanity) value = maxSanity;
             SanityBar.value = value;
             SanityText.text = value.ToString();
+            if(sanity <= 0)
+            {
+                //Encounter.Instance.AddEnemy();
+                Encounter.Instance.Kill(this);
+            }
         }
     }
 
     // Upkeep for this permanent, seperate from card info for modification
-    private Affinity upkeep = null;
+    private Affinity _Upkeep = null;
     public Affinity Upkeep
     {
-        get {return upkeep;}
+        get {return _Upkeep;}
         set
         {
-            upkeep = value;
-            if(isAlly == true) UpkeepDisplay.GetComponentInChildren<TMP_Text>().text = upkeep.ToString();
+            _Upkeep = value;
+            if(isAlly == true) UpkeepDisplay.GetComponentInChildren<TMP_Text>().text = _Upkeep.ToString();
         }
     }
 
@@ -166,7 +172,6 @@ public class Permanent : MonoBehaviour
         maxAp = Info.ap;
         ap = maxAp;
         this.isAlly = isAlly;
-        this.Upkeep = Info.Upkeep;
         //activate sanity for humans
         if(Info.Type == CardInfo.CardType.Human)
         {
@@ -178,7 +183,17 @@ public class Permanent : MonoBehaviour
         if(isAlly == true)
         {
             AbilityDisplay.InitializeAbilityButtons(Info.Abilities);
-            if(Info.Upkeep != null) UpkeepDisplay.GetComponentInChildren<TMP_Text>().text = Upkeep.ToString();
+            if(Info.Upkeep != null && Info.Upkeep > 0)
+            {
+                this.Upkeep = Info.Upkeep;
+                UpkeepDisplay.GetComponentInChildren<TMP_Text>().text = Upkeep.ToString();
+            }
+        }
+        if(Info.id == 13)
+        {
+            HpBar.gameObject.SetActive(false);
+            AbilityDisplay.ToggleActivation(false);
+            return;
         }
     }
 

@@ -77,6 +77,13 @@ public class Affinity : Payable
         } else return false;
     }
 
+    // > int
+    public static bool operator> (Affinity a, int b)
+    {
+        if(a.sum > b) return true;
+        return false;
+    }
+
     // <
     public static bool operator< (Affinity a, Affinity b)
     {
@@ -85,6 +92,13 @@ public class Affinity : Payable
         {
             return true;
         } else return false;
+    }
+
+    // < int
+    public static bool operator< (Affinity a, int b)
+    {
+        if(a.sum < b) return true;
+        return false;
     }
 
     // >=
