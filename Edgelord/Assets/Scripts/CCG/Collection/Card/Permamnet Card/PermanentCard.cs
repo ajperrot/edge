@@ -20,8 +20,6 @@ public class PermanentCard : Card
     // Summon the associated permanent for the SummonCost
     public override void Use()
     {
-        //use any necessary callbacks
-        base.Use();
         //do not use if it is not your turn
         if(Encounter.Instance.yourTurn == false) return;
         //pay the summon cost, return if unable
@@ -30,6 +28,8 @@ public class PermanentCard : Card
         Encounter.Instance.AddAlly(Info);
         //remove card from hand
         PlayerCharacter.Instance.RemoveFromHand(transform.GetSiblingIndex());
+        //use any necessary callbacks
+        base.Use();
         //REGISTER UNDO IN THE TURNLOG SO THIS MAY BE UNDONE
     }
 

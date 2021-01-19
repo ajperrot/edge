@@ -46,7 +46,7 @@ public class CardPrompt : MonoBehaviour
     public void CloseHandPrompt()
     {
         gameObject.SetActive(false);
-        for(int i = 1; i < transform.childCount; i++)
+        for(int i = transform.childCount - 1; i >= 0; i--)
         {
             transform.GetChild(i).SetParent(HandRoot);
         }
