@@ -124,11 +124,11 @@ public class PlayerCharacter : Permanent
         if(gameObject.tag == "PlayerPermanent")
         {
             PlayerDeck.AddNewCard(1);//test
-            PlayerDeck.AddNewCard(2);//test
-            PlayerDeck.AddNewCard(4);//test
-            PlayerDeck.AddNewCard(6);//test
+            //PlayerDeck.AddNewCard(7);//test
+            //PlayerDeck.AddNewCard(4);//test
+            PlayerDeck.AddNewCard(8);//test
             InitializePermanent();
-            isAlly = true;
+            side = 0;
             isLeader = true;
         }
     }

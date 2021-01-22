@@ -8,6 +8,8 @@ using CardType = CardInfo.CardType;
 
 public class Encounter : MonoBehaviour
 {
+    public delegate void AddPermanent(CardInfo Info);
+
     public static Encounter Instance; //makes this a singleton
 
     public List<Sprite> Backgrounds; //list of backgrounds for each location
@@ -58,31 +60,33 @@ public class Encounter : MonoBehaviour
         }
     }
 
-    public List<Permanent> Enemies = new List<Permanent>(); // All opposing entities
-    public List<Permanent> Allies = new List<Permanent>(); // All your entities
+    public List<Permanent>[] Parties = new List<Permanent>[2]; // All opposing entities
     public List<Permanent>[] FrontLines = new List<Permanent>[2]; //first allies/enemies to be targeted
+    public List<Permanent>[] Wards = new List<Permanent>[2]; //permanents which take damage for their side 
 
     public Permanent NextAllySoulbind; //soulbind the next ally to this permanent if it exists
 
     private List<int>[] OnMemberPassives = new List<int>[2]; //passives to be used when a new ally/enemy is summoned
     private List<Permanent>[] OnMemberPassiveUsers = new List<Permanent>[2]; //Users of the above passives 
 
-
     // Start is called before the first frame update
     void Start()
     {
         //singleton
         Instance = this;
+        // Set up parties
+        Parties[0] = new List<Permanent>();
+        Parties[1] = new List<Permanent>();
         // Add the player to the list of allies
-        Allies.Add(GameObject.FindWithTag("PlayerPermanent").GetComponent<PlayerCharacter>());
+        Parties[0].Add(GameObject.FindWithTag("PlayerPermanent").GetComponent<PlayerCharacter>());
         // Generate the encounter
         string[] lines = File.ReadAllLines(Application.streamingAssetsPath + "/Encounters/" + Setting.location + "/" + Setting.currentDay + ".txt");
         for(int i = 0; i < lines.Length; i++)
         {
             //generate permanent for each enemy
             GameObject NewEnemy = Instantiate(EnemyPrefab, EnemiesRoot);
-            Enemies.Add(NewEnemy.GetComponent<Permanent>());
-            Enemies[i].Initialize(new CardInfo(int.Parse(lines[i])), false);
+            Parties[1].Add(NewEnemy.GetComponent<Permanent>());
+            Parties[1][i].Initialize(new CardInfo(int.Parse(lines[i])), 1);
             //move the enemy in some way
             NewEnemy.transform.localPosition -= new Vector3(charSpacing * i, Random.Range(-100, 100), 0);
         }
@@ -94,6 +98,12 @@ public class Encounter : MonoBehaviour
         OnMemberPassives[1] = new List<int>();
         OnMemberPassiveUsers[0] = new List<Permanent>();
         OnMemberPassiveUsers[1] = new List<Permanent>();
+        //set up ward lists
+        Wards[0] = new List<Permanent>();
+        Wards[1] = new List<Permanent>();
+        //set up add permanent functions
+        AddPermanentFunctions[0] = this.AddAlly;
+        AddPermanentFunctions[1] = this.AddEnemy;
     }
 
     // Passes the turn from player to AI
@@ -108,11 +118,11 @@ public class Encounter : MonoBehaviour
             O.SetActive(false);
         }
         //un-upkept entities run away
-        for(int i = Allies.Count - 1; i >= 0; i--)
+        for(int i = Parties[0].Count - 1; i >= 0; i--)
         {
-            if(Allies[i].CheckUpkeep() == false)
+            if(Parties[0][i].CheckUpkeep() == false)
             {
-                Kill(Allies[i]);
+                Kill(Parties[0][i]);
             }
         }
         //begin enemy turn
@@ -123,7 +133,7 @@ public class Encounter : MonoBehaviour
     public void BeginEnemyTurn()
     {
         //restore ap, blockers, etc
-        foreach (Permanent Enemy in Enemies)
+        foreach (Permanent Enemy in Parties[1])
         {
             Enemy.ap = Enemy.maxAp;
             Enemy.MakeTargetable();
@@ -131,10 +141,10 @@ public class Encounter : MonoBehaviour
         FrontLines[1] = new List<Permanent>();
         enemyDefense = 0;
         //let each enemy act and use its per-turn passive
-        for(int i = Enemies.Count - 1; i >= 0; i--)
+        for(int i = Parties[1].Count - 1; i >= 0; i--)
         {
-            Passive.TriggerPassives(Enemies[i], 1);
-            Enemies[i].Act();
+            Passive.TriggerPassives(Parties[1][i], 1);
+            Parties[1][i].Act();
         }
         //then resume player turn
         BeginPlayerTurn();
@@ -150,7 +160,7 @@ public class Encounter : MonoBehaviour
             O.SetActive(false);
         }
         //restore ap, defense, and affinity
-        foreach(Permanent Ally in Allies)
+        foreach(Permanent Ally in Parties[0])
         {
             Ally.ap = Ally.maxAp;
             //demand upkeep if necessary
@@ -160,7 +170,7 @@ public class Encounter : MonoBehaviour
         allyDefense = 0;
         PlayerCharacter.Instance.PayableAffinity = new PlayerAffinity(PlayerCharacter.Instance.BaseAffinity);
         //trigger per-turn passives
-        foreach(Permanent Ally in Allies)
+        foreach(Permanent Ally in Parties[0])
         {
             Passive.TriggerPassives(Ally, 1);
         }
@@ -173,22 +183,22 @@ public class Encounter : MonoBehaviour
     {
         //generate permanent for the new ally
         GameObject NewAlly = Instantiate(AllyPrefab, AlliesRoot);
-        int allyIndex = Allies.Count;
-        Allies.Add(NewAlly.GetComponent<Permanent>());
-        Allies[allyIndex].Initialize(AllyInfo);
+        int allyIndex = Parties[0].Count;
+        Parties[0].Add(NewAlly.GetComponent<Permanent>());
+        Parties[0][allyIndex].Initialize(AllyInfo);
         //move the ally to its own spot
         NewAlly.transform.localPosition += new Vector3(charSpacing * allyIndex, Random.Range(-100, 100), 0);
         //soulbind if necessary
         if(NextAllySoulbind != null)
         {
-            Allies[allyIndex].Soulbinds.Add(NextAllySoulbind);
-            NextAllySoulbind.SoulboundEntities.Add(Allies[allyIndex]);
+            Parties[0][allyIndex].Soulbinds.Add(NextAllySoulbind);
+            NextAllySoulbind.SoulboundEntities.Add(Parties[0][allyIndex]);
             NextAllySoulbind = null;
         }
         //call passives
-        CallOnMemberPassives(Allies[allyIndex], 0);
+        CallOnMemberPassives(Parties[0][allyIndex], 0);
         //add passives
-        AddOnMemberPassives(AllyInfo, Allies[allyIndex], 0);
+        AddOnMemberPassives(AllyInfo, Parties[0][allyIndex], 0);
     }
 
     // Adds a new permanent to the other side
@@ -196,15 +206,15 @@ public class Encounter : MonoBehaviour
     {
         //generate permanent for the new ally
         GameObject NewEnemy = Instantiate(EnemyPrefab, EnemiesRoot);
-        int enemyIndex = Enemies.Count;
-        Enemies.Add(NewEnemy.GetComponent<Permanent>());
-        Enemies[enemyIndex].Initialize(EnemyInfo, false);
+        int enemyIndex = Parties[1].Count;
+        Parties[1].Add(NewEnemy.GetComponent<Permanent>());
+        Parties[1][enemyIndex].Initialize(EnemyInfo, 1);
         //move the ally to its own spot
         NewEnemy.transform.localPosition += new Vector3(charSpacing * enemyIndex, Random.Range(-100, 100), 0);
         //call passives
-        CallOnMemberPassives(Enemies[enemyIndex], 1);
+        CallOnMemberPassives(Parties[1][enemyIndex], 1);
         //add passives
-        AddOnMemberPassives(EnemyInfo, Enemies[enemyIndex], 1);
+        AddOnMemberPassives(EnemyInfo, Parties[1][enemyIndex], 1);
     }
 
     // Adds the onmember passives of the given user to the correct list
@@ -252,9 +262,9 @@ public class Encounter : MonoBehaviour
             //if enemy, prevent player from targeting others
             if(FrontLines[1].Count == 1)
             {
-                for(int i = 0; i < Enemies.Count; i++)
+                for(int i = 0; i < Parties[1].Count; i++)
                 {
-                    Enemies[i].MakeUntargetable();
+                    Parties[1][i].MakeUntargetable();
                 }
             }
             Defender.MakeTargetable();
@@ -264,6 +274,11 @@ public class Encounter : MonoBehaviour
     // Remove a permanent from existance and also from the encounter
     public void Kill(Permanent Loser)
     {
+        //call your "on death" passives
+        foreach (int passiveId in Loser.Info.Passives)
+        {
+            if(Passive.TriggerPerPassive[passiveId] == 3) Passive.PassiveUsages[passiveId](Loser);
+        }
         //kill soulbound entities first
         for(int i = Loser.SoulboundEntities.Count - 1; i >= 0; i--)
         {
@@ -274,23 +289,17 @@ public class Encounter : MonoBehaviour
         {
             Bind.SoulboundEntities.Remove(Loser);
         }
-        //create a corpse if human
-        if(Loser.Info.Type == CardType.Human)
+        //create a corpse if a human ally
+        if(Loser.Info.Type == CardType.Human && Loser.side == 0)
         {
-            if(Loser.isAlly) AddAlly(new CardInfo(13));
+            AddPermanentFunctions[0](new CardInfo(13));
         }
         //then kill this permanent
-        if(Loser.isAlly == true)
-        {
-            RemoveOnMemberPassives(Loser, 0);
-            Allies.Remove(Loser);
-            FrontLines[0].Remove(Loser);
-        } else
-        {
-            RemoveOnMemberPassives(Loser, 1);
-            Enemies.Remove(Loser);
-            FrontLines[1].Remove(Loser);
-        }
+        RemoveOnMemberPassives(Loser, Loser.side);
+        Parties[Loser.side].Remove(Loser);
+        FrontLines[Loser.side].Remove(Loser);
         Destroy(Loser.gameObject);
     }
+
+    public AddPermanent[] AddPermanentFunctions = new AddPermanent[2];
 }

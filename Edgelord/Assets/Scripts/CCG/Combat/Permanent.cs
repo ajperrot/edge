@@ -17,7 +17,7 @@ public class Permanent : MonoBehaviour
     public Slider RadiantHpBar; //used to display radiantHp
     public TMP_Text RadiantHpText; //displays radiantHp as a number
     public GameObject UpkeepDisplay; //activated to show/accept entity upkeep
-    public bool isAlly = false; //is this a member of the player's party?
+    public int side = 1; //is this a member of the player's party?
     public CardInfo Info; //tracks stats not represented by off-card UI
     public GameObject Dimmer; //dims the image of the enemy to show blocking
     public Permanent Attacker; //last permanent to attack this one
@@ -133,7 +133,7 @@ public class Permanent : MonoBehaviour
         set
         {
             _Upkeep = value;
-            if(isAlly == true) UpkeepDisplay.GetComponentInChildren<TMP_Text>().text = _Upkeep.ToString();
+            if(side == 0) UpkeepDisplay.GetComponentInChildren<TMP_Text>().text = _Upkeep.ToString();
         }
     }
 
@@ -163,7 +163,7 @@ public class Permanent : MonoBehaviour
     }
 
     // Initialize with card info
-    public void Initialize(CardInfo Info, bool isAlly = true)
+    public void Initialize(CardInfo Info, int side = 0)
     {
         this.Info = Info;
         maxHp = Info.hp;
@@ -171,7 +171,7 @@ public class Permanent : MonoBehaviour
         radiantHp = 0;
         maxAp = Info.ap;
         ap = maxAp;
-        this.isAlly = isAlly;
+        this.side = side;
         //activate sanity for humans
         if(Info.Type == CardInfo.CardType.Human)
         {
@@ -180,7 +180,7 @@ public class Permanent : MonoBehaviour
             SanityBar.gameObject.SetActive(true);
         }
         //activate ability buttons only for allies
-        if(isAlly == true)
+        if(side == 0)
         {
             AbilityDisplay.InitializeAbilityButtons(Info.Abilities);
             if(Info.Upkeep != null && Info.Upkeep > 0)
@@ -192,7 +192,7 @@ public class Permanent : MonoBehaviour
         if(Info.id == 13)
         {
             HpBar.gameObject.SetActive(false);
-            AbilityDisplay.ToggleActivation(false);
+            //AbilityDisplay.ToggleActivation(false);
             return;
         }
     }
@@ -200,7 +200,7 @@ public class Permanent : MonoBehaviour
     // Called when clicked, sets this as the target if targeting
     public void SetAsTarget()
     {
-        if(Targeting.ActiveInstance != null && (targetable == true || Ability.ActiveAbility.User.isAlly == true)) Targeting.ActiveInstance.SetTarget(this);
+        if(Targeting.ActiveInstance != null && (targetable == true || Ability.ActiveAbility.User.side == 0)) Targeting.ActiveInstance.SetTarget(this);
     }
 
     // Lose hp, taking into account buffs/debuffs
@@ -210,7 +210,7 @@ public class Permanent : MonoBehaviour
         if(flying == true) damage = damage / 2;
         //take defense into account
         int defense;
-        if(isAlly == true)
+        if(side == 0)
         {
             //check ally defense if ally
             defense = Encounter.Instance.allyDefense;
@@ -224,7 +224,17 @@ public class Permanent : MonoBehaviour
             Encounter.Instance.enemyDefense = defense;
         }
         //take damage not eaten by defense
-        if(defense < 0) hp += defense;
+        if(defense < 0)
+        {
+            //let a ward take the hit if possible
+            if(Encounter.Instance.Wards[side].Count > 0 && Encounter.Instance.Wards[side].Contains(this) == false)
+            {
+                Encounter.Instance.Wards[side][0].TakeHit(0 - defense);
+            } else
+            {
+                hp += defense;
+            }
+        }
     }
 
     // Activate upkeep request ui if entity, become unusable otherwise
@@ -279,7 +289,11 @@ public class Permanent : MonoBehaviour
             for(int i = Info.Abilities.Length - 1; i >= 0; i--)
             {
                 int a = Info.Abilities[i];
-                if(AI.AbilityDecisions[a](this) == true) Ability.AbilityUsages[a](this);
+                if(AI.AbilityDecisions[a](this) == true) 
+                {
+                    Ability.AbilityUsages[a](this);
+                    break;
+                }
             }
             ap--;
         }

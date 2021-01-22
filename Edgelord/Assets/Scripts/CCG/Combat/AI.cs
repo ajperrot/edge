@@ -19,7 +19,7 @@ public class AI
             Options = Encounter.Instance.FrontLines[0];
         } else
         {
-            Options = Encounter.Instance.Allies;
+            Options = Encounter.Instance.Parties[0];
         }
         return TargetSelectors[User.Info.pattern](User, Options);
     }
@@ -28,7 +28,7 @@ public class AI
     public static bool Defend(Permanent User)
     {
         int potentialAttack = 0;
-        foreach(Permanent Attacker in Encounter.Instance.Allies)
+        foreach(Permanent Attacker in Encounter.Instance.Parties[0])
         {
             potentialAttack += Attacker.Info.attack;
         }
@@ -47,7 +47,7 @@ public class AI
             PotentialTargets = Encounter.Instance.FrontLines[1];
         } else
         {
-            PotentialTargets = Encounter.Instance.Enemies;
+            PotentialTargets = Encounter.Instance.Parties[1];
         }
         for(int i = 0; i < PotentialTargets.Count; i++)
         {
@@ -70,7 +70,7 @@ public class AI
         return false;
     }
 
-    // Consume if there is even another corpse on the field
+    // Consume if there is ever another corpse on the field
     public static bool Consume(Permanent User)
     {
         List<Permanent> Options;
@@ -79,7 +79,7 @@ public class AI
             Options = Encounter.Instance.FrontLines[0];
         } else
         {
-            Options = Encounter.Instance.Allies;
+            Options = Encounter.Instance.Parties[0];
         }
         foreach (Permanent Unit in Options)
         {
@@ -89,7 +89,7 @@ public class AI
                 return true;
             }
         }
-        foreach (Permanent Unit in Encounter.Instance.Enemies)
+        foreach (Permanent Unit in Encounter.Instance.Parties[1])
         {
             if(Unit.Info.EntityClass == EntityType.Corpse && Unit != User)
             {
@@ -103,7 +103,7 @@ public class AI
     // Target the nearest human
     public static bool Parasite(Permanent User)
     {
-        foreach (Permanent Unit in Encounter.Instance.Allies)
+        foreach (Permanent Unit in Encounter.Instance.Parties[0])
         {
             if(Unit.Info.Type == CardType.Human)
             {
@@ -111,7 +111,7 @@ public class AI
                 return true;
             }
         }
-        foreach (Permanent Unit in Encounter.Instance.Enemies)
+        foreach (Permanent Unit in Encounter.Instance.Parties[1])
         {
             if(Unit.Info.Type == CardType.Human)
             {

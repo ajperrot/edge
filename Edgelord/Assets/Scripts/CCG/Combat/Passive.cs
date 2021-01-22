@@ -25,7 +25,7 @@ public class Passive : MonoBehaviour
     static void Gate(Permanent User)
     {
         //check if this is the ally's first gate
-        if(User.isAlly == true)
+        if(User.side == 0)
         {
             //does nothing if there are no entities in hand
             if(User.gated == false && CardPrompt.Instance.PromptPlayFromHand(CardType.Entity) == true)
@@ -54,24 +54,15 @@ public class Passive : MonoBehaviour
     // Use the User's first ability if they are an ally
     static void TriggerAbilityIfAlly(Permanent User)
     {
-        if(User.isAlly) User.AbilityDisplay.UseAbility();
+        if(User.side == 0) User.AbilityDisplay.UseAbility();
     }
 
     // Give each party member besides the User radiant hp equal to the user's max hp
     static void LightOnSummon(Permanent User)
     {
-        if(User.isAlly)
+        foreach (Permanent Ally in Encounter.Instance.Parties[User.side])
         {
-            foreach (Permanent Ally in Encounter.Instance.Allies)
-            {
-                if(Ally != User) Ally.radiantHp += User.maxHp;
-            }
-        } else
-        {
-            foreach (Permanent Enemy in Encounter.Instance.Enemies)
-            {
-                if(Enemy != User) Enemy.radiantHp += User.maxHp;
-            } 
+            if(Ally != User) Ally.radiantHp += User.maxHp;
         }
     }
 
@@ -84,24 +75,28 @@ public class Passive : MonoBehaviour
     // Take away rhp from each party member equal to the user's max hp
     static void LightOnDeath(Permanent User)
     {
-        List<Permanent> Party;
-        if(User.isAlly)
-        {
-            Party = Encounter.Instance.Allies;
-        } else
-        {
-            Party = Encounter.Instance.Enemies;
-        }
-        foreach (Permanent Member in Party)
+        foreach (Permanent Member in Encounter.Instance.Parties[User.side])
         {
             Member.radiantHp -= User.maxHp;
         }
     }
 
+    // Set the User to take damage for the party
+    static void WardOnSummon(Permanent User)
+    {
+        Encounter.Instance.Wards[User.side].Add(User);
+    }
+
+    // Remove the user from the list of wards for their side
+    static void WardOnDeath(Permanent User)
+    {
+        Encounter.Instance.Wards[User.side].Remove(User);
+    }
+
 
     public static int[] TriggerPerPassive = new int[]
     {
-        1, 0, 0, 0, 0, 2, 3
+        1, 0, 0, 0, 0, 2, 3, 1, 3
     };
 
     public static Usage[] PassiveUsages = new Usage[]
@@ -112,6 +107,8 @@ public class Passive : MonoBehaviour
         new Usage(TriggerAbilityIfAlly),
         new Usage(LightOnSummon),
         new Usage(LightOnNewMember),
-        new Usage(LightOnDeath)
+        new Usage(LightOnDeath),
+        new Usage(WardOnSummon),
+        new Usage(WardOnDeath)
     };
 }
