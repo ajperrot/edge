@@ -1,0 +1,11 @@
+<Ability xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Harmony</name>
+  <Cost>
+    <Radiant>0</Radiant>
+    <Lush>1</Lush>
+    <Crimson>0</Crimson>
+    <Free>0</Free>
+  </Cost>
+  <description>deal 2 unblockable damage to all enemies</description>
+  <autoTargeting>1</autoTargeting>
+</Ability>

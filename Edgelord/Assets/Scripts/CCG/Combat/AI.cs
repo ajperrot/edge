@@ -122,6 +122,30 @@ public class AI
         return false;
     }
 
+    // Just activate the ability
+    public static bool JustUse(Permanent User)
+    {
+        return true;
+    }
+
+    // Use if there are more opposing humans than allied ones
+    public static bool Melody(Permanent User)
+    {
+        int[] humanCounts = {0, 0};
+        for(int i = 0; i < 2; i++)
+        {
+            foreach(Permanent Unit in Encounter.Instance.Parties[i])
+            {
+                if(Unit.Info.Type == CardType.Human)
+                {
+                    humanCounts[i]++;
+                }
+            }
+        }
+        if(humanCounts[0] > humanCounts[1]) return true;
+        return false;
+    }
+
     // Attck the leader, or the biggest threat(?)
     public static bool IntelligentSelection(Permanent User, List<Permanent> Options)
     {
@@ -204,6 +228,8 @@ public class AI
         new Decision(Fuse),
         new Decision(Consume),
         new Decision(Parasite),
-        new Decision(Parasite)
+        new Decision(Parasite),
+        new Decision(JustUse),
+        new Decision(Melody)
     };
 }

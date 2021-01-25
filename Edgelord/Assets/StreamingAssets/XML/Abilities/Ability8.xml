@@ -1,0 +1,11 @@
+<Ability xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Melody</name>
+  <Cost>
+    <Radiant>0</Radiant>
+    <Lush>1</Lush>
+    <Crimson>0</Crimson>
+    <Free>0</Free>
+  </Cost>
+  <description>deal 1 sanity damage to all humans on the field</description>
+  <autoTargeting>1</autoTargeting>
+</Ability>

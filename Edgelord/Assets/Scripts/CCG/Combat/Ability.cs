@@ -179,6 +179,36 @@ public class Ability : MonoBehaviour
     }
   }
 
+  // Deal 2 damage to the opposing party
+  static void Harmony(Permanent User)
+  {
+    int opposingSide = 0;
+    if(User.side == 0) opposingSide = 1;
+    List<Permanent> Party = Encounter.Instance.Parties[opposingSide];
+    Permanent Target;
+    for(int i = Party.Count - 1; i >= 0; i--)
+    {
+      Target = Party[i];
+      Target.hp -= 2;
+    }
+  }
+
+  // Deal 1 sanity damage to all humans
+  static void Melody(Permanent User)
+  {
+    Permanent Target;
+    List<Permanent> Party;
+    for(int i = 0; i < 2; i++)
+    {
+      Party = Encounter.Instance.Parties[i];
+      for(int j = Party.Count - 1; j >= 0; j--)
+      {
+        Target = Party[j];
+        if(Target.Info.Type == CardType.Human) Target.sanity -= 1;
+      }
+    }
+  }
+
   public static Usage[] AbilityUsages = new Usage[]
   {
     new Usage(Attack),
@@ -187,7 +217,9 @@ public class Ability : MonoBehaviour
     new Usage(Fuse),
     new Usage(Consume),
     new Usage(Parasite),
-    new Usage(Vision)
+    new Usage(Vision),
+    new Usage(Harmony),
+    new Usage(Melody)
   };
 
 }

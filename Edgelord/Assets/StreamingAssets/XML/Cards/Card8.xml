@@ -10,7 +10,8 @@
   </SummonCost>
   <hp>5</hp>
   <attack>0</attack>
-  <cardText>Ward: Any damage breking through the party's defense is received by this pike</cardText>
+  <cardText>Ward: Any damage breking through the party's defense is received by this pike
+  </cardText>
   <Abilities>
   </Abilities>
   <Passives>

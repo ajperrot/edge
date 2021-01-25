@@ -480,7 +480,7 @@ MonoBehaviour:
   RadiantHpBar: {fileID: 505932290}
   RadiantHpText: {fileID: 932545652}
   UpkeepDisplay: {fileID: 1866489092}
-  isAlly: 1
+  side: 1
   Info:
     id: 0
     name: 
@@ -670,7 +670,7 @@ MonoBehaviour:
     description: THIS IS A DEFAULT DESCRIPTION. DID YOU LIKE IT?
   BaseAffinity:
     radiant: 1
-    lush: 1
+    lush: 3
     crimson: 4
     free: 0
   _followerCount: 0
@@ -759,8 +759,6 @@ MonoBehaviour:
   - {fileID: 1471209072}
   - {fileID: 910386112}
   PlayerTurnUI: []
-  Enemies: []
-  Allies: []
   NextAllySoulbind: {fileID: 0}
 --- !u!1 &477423708
 GameObject:
