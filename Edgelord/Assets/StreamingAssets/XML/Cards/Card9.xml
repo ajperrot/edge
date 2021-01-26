@@ -12,6 +12,7 @@
   <attack>2</attack>
   <cardText>Grapple: Any unit attacked by this Reborn may only attack this Reborn for the round.</cardText>
   <Abilities>
+    <ability>0</ability>
   </Abilities>
   <Passives>
     <passive>9</passive>

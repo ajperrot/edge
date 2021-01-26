@@ -117,9 +117,10 @@ public class Encounter : MonoBehaviour
         {
             O.SetActive(false);
         }
-        //un-upkept entities run away
+        //un-upkept entities run away, and grapplers are reset
         for(int i = Parties[0].Count - 1; i >= 0; i--)
         {
+            Parties[0][i].Grappler = null;
             if(Parties[0][i].CheckUpkeep() == false)
             {
                 Kill(Parties[0][i]);
@@ -165,6 +166,11 @@ public class Encounter : MonoBehaviour
             Ally.ap = Ally.maxAp;
             //demand upkeep if necessary
             Ally.RequestUpkeep();
+        }
+        //reset enemy Grapplers
+        foreach (Permanent Enemy in Parties[1])
+        {
+            Enemy.Grappler = null;
         }
         FrontLines[0] = new List<Permanent>();
         allyDefense = 0;

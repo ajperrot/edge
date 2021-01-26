@@ -146,9 +146,18 @@ public class AI
         return false;
     }
 
+    public static bool AttackDirectly(Permanent User, Permanent Target)
+    {
+        Targeting.Target = Target;
+        Passive.TriggerPassives(User, 4);
+        Target.hp -= User.Info.attack;
+        return true;
+    }
+
     // Attck the leader, or the biggest threat(?)
     public static bool IntelligentSelection(Permanent User, List<Permanent> Options)
     {
+        if(User.Grappler != null) return AttackDirectly(User, User.Grappler);
         foreach(Permanent Option in Options)
         {
             if(Option.isLeader == true)
@@ -165,6 +174,7 @@ public class AI
     // Attack randomly if attacked
     public static bool NeutralSelection(Permanent User, List<Permanent> Options)
     {
+        if(User.Grappler != null) return AttackDirectly(User, User.Grappler);
         if(User.Attacker != null) return RandomSelection(User, Options);
         return false;
     }
@@ -172,6 +182,7 @@ public class AI
     // Attack nobody
     public static bool PassiveSelection(Permanent User, List<Permanent> Options)
     {
+        if(User.Grappler != null) return AttackDirectly(User, User.Grappler);
         Targeting.Target = null;
         return false;
     }
@@ -179,6 +190,7 @@ public class AI
     // Attack a random target
     public static bool RandomSelection(Permanent User, List<Permanent> Options)
     {
+        if(User.Grappler != null) return AttackDirectly(User, User.Grappler);
         do
         {
             Targeting.Target = Options[(int)Random.Range(0, Options.Count)];
@@ -189,6 +201,7 @@ public class AI
     // Attack the option with the lowest hp
     public static bool RavenousSelection(Permanent User, List<Permanent> Options)
     {
+        if(User.Grappler != null) return AttackDirectly(User, User.Grappler);
         int lowestHp = 100;
         foreach(Permanent Option in Options)
         {
@@ -200,6 +213,7 @@ public class AI
     // Attack the last option to attack you, otherwise randomly
     public static bool VengefulSelection(Permanent User, List<Permanent> Options)
     {
+        if(User.Grappler != null) return AttackDirectly(User, User.Grappler);
         if(User.Attacker != null && Options.Contains(User.Attacker))
         {
             Targeting.Target = User.Attacker;

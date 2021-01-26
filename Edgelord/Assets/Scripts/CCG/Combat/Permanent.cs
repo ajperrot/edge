@@ -30,6 +30,7 @@ public class Permanent : MonoBehaviour
     public bool flying = false; //does this permanent take half damage?
     public int fuseCounter = 0; //progress toward possible transformation
     public int attackModifier = 0; //extra damage added to your attacks
+    public Permanent Grappler; //only target attackable
 
     // Our maximum hp
     public int maxHp

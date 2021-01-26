@@ -67,7 +67,15 @@ public class Ability : MonoBehaviour
     {
       //use immediately if auto-targeting
       Use();
-    } else
+    } else if(id == 0 && User.Grappler != null)
+    {
+      //special case if being grappled
+      User.ap--;
+      Permanent Target = User.Grappler;
+      Targeting.Target = Target;
+      Passive.TriggerPassives(User, 4);
+      Target.hp -= User.Info.attack;
+    }else
     {
       //otherwise begin targeting
       Root.TargetingArrow.SetActive(true);
@@ -99,6 +107,7 @@ public class Ability : MonoBehaviour
   // User hits the target with their attack power
   static void Attack(Permanent User)
   {
+    Passive.TriggerPassives(User, 4);
     Targeting.Target.TakeHit(User.Info.attack + User.attackModifier);
     Targeting.Target.Attacker = User;
   }

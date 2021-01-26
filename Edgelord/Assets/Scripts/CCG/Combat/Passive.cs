@@ -5,7 +5,7 @@ using CardType = CardInfo.CardType;
 
 public class Passive : MonoBehaviour
 {
-    public enum TriggerType {Summon, Turn, NewMember, None} //What triggers the passive?
+    public enum TriggerType {Summon, Turn, NewMember, Attack, None} //What triggers the passive?
 
     public delegate void Usage(Permanent User);
 
@@ -93,10 +93,16 @@ public class Passive : MonoBehaviour
         Encounter.Instance.Wards[User.side].Remove(User);
     }
 
+    // Set the user as the target's grappler
+    static void Grapple(Permanent User)
+    {
+        Targeting.Target.Grappler = User;
+    }
+
 
     public static int[] TriggerPerPassive = new int[]
     {
-        1, 0, 0, 0, 0, 2, 3, 1, 3
+        1, 0, 0, 0, 0, 2, 3, 1, 3, 4
     };
 
     public static Usage[] PassiveUsages = new Usage[]
@@ -109,6 +115,7 @@ public class Passive : MonoBehaviour
         new Usage(LightOnNewMember),
         new Usage(LightOnDeath),
         new Usage(WardOnSummon),
-        new Usage(WardOnDeath)
+        new Usage(WardOnDeath),
+        new Usage(Grapple)
     };
 }
