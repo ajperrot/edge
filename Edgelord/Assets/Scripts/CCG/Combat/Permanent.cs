@@ -299,4 +299,17 @@ public class Permanent : MonoBehaviour
             ap--;
         }
     }
+
+    // Add the given entity to soulbound entities, increase ap if holy support is active
+    public void AddSoulboundEntity(Permanent Sucker)
+    {
+        SoulboundEntities.Add(Sucker);
+        Sucker.Soulbinds.Add(this);
+        //holy support
+        if(Info.Passives[0] == 10 && SoulboundEntities.Count >= maxAp)
+        {
+            maxAp++;
+            ap++;
+        }
+    }
 }

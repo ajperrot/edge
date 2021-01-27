@@ -197,8 +197,7 @@ public class Encounter : MonoBehaviour
         //soulbind if necessary
         if(NextAllySoulbind != null)
         {
-            Parties[0][allyIndex].Soulbinds.Add(NextAllySoulbind);
-            NextAllySoulbind.SoulboundEntities.Add(Parties[0][allyIndex]);
+            NextAllySoulbind.AddSoulboundEntity(Parties[0][allyIndex]);
             NextAllySoulbind = null;
         }
         //call passives

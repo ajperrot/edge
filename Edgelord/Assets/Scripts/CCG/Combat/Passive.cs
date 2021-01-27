@@ -99,10 +99,17 @@ public class Passive : MonoBehaviour
         Targeting.Target.Grappler = User;
     }
 
+    // Set the user's max ap and ap equal to its number of soulbound units + 1
+    static void HolySupport(Permanent User)
+    {
+        User.maxAp = User.SoulboundEntities.Count + 1;
+        User.ap = User.maxAp;
+    }
+
 
     public static int[] TriggerPerPassive = new int[]
     {
-        1, 0, 0, 0, 0, 2, 3, 1, 3, 4
+        1, 0, 0, 0, 0, 2, 3, 1, 3, 4, 1
     };
 
     public static Usage[] PassiveUsages = new Usage[]
@@ -116,6 +123,7 @@ public class Passive : MonoBehaviour
         new Usage(LightOnDeath),
         new Usage(WardOnSummon),
         new Usage(WardOnDeath),
-        new Usage(Grapple)
+        new Usage(Grapple),
+        new Usage(HolySupport) //THIS SHOULD BE THE FIRST LISTED PASSIVE IN CARD[_].XML
     };
 }

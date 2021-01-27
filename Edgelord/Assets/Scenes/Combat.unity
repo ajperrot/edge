@@ -516,6 +516,7 @@ MonoBehaviour:
   flying: 0
   fuseCounter: 0
   attackModifier: 0
+  Grappler: {fileID: 0}
   AffinityDisplay:
   - {fileID: 1604457276}
   - {fileID: 1604457275}
@@ -669,7 +670,7 @@ MonoBehaviour:
     iconPath: Sprites/100x100
     description: THIS IS A DEFAULT DESCRIPTION. DID YOU LIKE IT?
   BaseAffinity:
-    radiant: 1
+    radiant: 3
     lush: 3
     crimson: 4
     free: 0

@@ -108,8 +108,8 @@ public class Ability : MonoBehaviour
   static void Attack(Permanent User)
   {
     Passive.TriggerPassives(User, 4);
-    Targeting.Target.TakeHit(User.Info.attack + User.attackModifier);
     Targeting.Target.Attacker = User;
+    Targeting.Target.TakeHit(User.Info.attack + User.attackModifier);
   }
 
   // User draws agro and gives party 3 defense
@@ -133,9 +133,15 @@ public class Ability : MonoBehaviour
   // User is soulbound to the target and gives them 5 rhp
   static void Devotion(Permanent User)
   {
-    User.Soulbinds.Add(Targeting.Target);
-    Targeting.Target.SoulboundEntities.Add(User);
-    Targeting.Target.radiantHp += 5;
+    Permanent Target = Targeting.Target;
+    //do nothing if the user is already soulbound to the target
+    if(Target.SoulboundEntities.Contains(User) == true)
+    {
+      User.ap++;
+      return;
+    }
+    Target.AddSoulboundEntity(User);
+    Target.radiantHp += 5;
   }
 
   // Transform User into a Symphony. Only usable after Consuming 3 human corpses.
