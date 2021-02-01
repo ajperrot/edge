@@ -152,13 +152,13 @@ public class AI
         int highestAttack = 1;
         int strongestIndex = -1;
         int opposingSide = 0;
-        if(User.side = 0) opposingSide = 1;
+        if(User.side == 0) opposingSide = 1;
         int thisAttack;
         Permanent ThisTarget;
-        for(int i = 0; i < Encounter.Parties[opposingSide].Count; i++)
+        for(int i = 0; i < Encounter.Instance.Parties[opposingSide].Count; i++)
         {
-            ThisTarget = Encounter.Parties[opposingSide][i];
-            thisAttack = ThisTarget.attack + ThisTarget.attackModifier;
+            ThisTarget = Encounter.Instance.Parties[opposingSide][i];
+            thisAttack = ThisTarget.Info.attack + ThisTarget.attackModifier;
             if(thisAttack > highestAttack)
             {
                 highestAttack = thisAttack;
@@ -166,7 +166,7 @@ public class AI
             }
         }
         if(strongestIndex == -1) return false;
-        Targeting.Target = Encounter.Parties[opposingSide][strongestIndex];
+        Targeting.Target = Encounter.Instance.Parties[opposingSide][strongestIndex];
         return true;
     }
 
@@ -269,6 +269,6 @@ public class AI
         new Decision(Parasite),
         new Decision(JustUse),
         new Decision(Melody),
-        new Decision(TargetStrongest)
+        new Decision(TargetStrongestOverOne)
     };
 }
