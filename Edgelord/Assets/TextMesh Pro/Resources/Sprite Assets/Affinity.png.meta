@@ -14,6 +14,27 @@ TextureImporter:
   - first:
       213: 4669469265138811142
     second: Affinity_3
+  - first:
+      213: -7922640791416097158
+    second: Affinity_0
+  - first:
+      213: 7565499169765738762
+    second: Affinity_1
+  - first:
+      213: 1863646889154886437
+    second: Affinity_2
+  - first:
+      213: 30441046974028263
+    second: Affinity_3
+  - first:
+      213: 5500724768541387309
+    second: Affinity_4
+  - first:
+      213: 9167734878600856495
+    second: Affinity_5
+  - first:
+      213: -5094918886048361249
+    second: Affinity_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -102,10 +123,10 @@ TextureImporter:
       name: Affinity_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 180
-        width: 180
-        height: 180
+        x: 11
+        y: 375
+        width: 161
+        height: 139
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -113,8 +134,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46df8b08f74054910800000000000000
-      internalID: 1820866570008198500
+      spriteID: a76bf981d202d0290800000000000000
+      internalID: -7922640791416097158
       vertices: []
       indices: 
       edges: []
@@ -123,10 +144,10 @@ TextureImporter:
       name: Affinity_1
       rect:
         serializedVersion: 2
-        x: 180
-        y: 180
-        width: 180
-        height: 180
+        x: 196
+        y: 366
+        width: 146
+        height: 167
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,8 +155,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd4e80792330bb840800000000000000
-      internalID: 5240786107192894687
+      spriteID: a094662496d0ef860800000000000000
+      internalID: 7565499169765738762
       vertices: []
       indices: 
       edges: []
@@ -144,10 +165,10 @@ TextureImporter:
       name: Affinity_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 180
-        height: 180
+        x: 370
+        y: 375
+        width: 160
+        height: 139
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,8 +176,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8543b387b50548a50800000000000000
-      internalID: 6522426514128712792
+      spriteID: 52bb6deb8f00dd910800000000000000
+      internalID: 1863646889154886437
       vertices: []
       indices: 
       edges: []
@@ -165,10 +186,10 @@ TextureImporter:
       name: Affinity_3
       rect:
         serializedVersion: 2
-        x: 180
-        y: 0
-        width: 180
-        height: 180
+        x: 13
+        y: 190
+        width: 153
+        height: 159
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,8 +197,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60104368e894dc040800000000000000
-      internalID: 4669469265138811142
+      spriteID: 7e95a7f88f52c6000800000000000000
+      internalID: 30441046974028263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Affinity_4
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 196
+        width: 150
+        height: 150
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2a2a1c6800865c40800000000000000
+      internalID: 5500724768541387309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Affinity_5
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 186
+        width: 146
+        height: 167
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa386f1ac465a3f70800000000000000
+      internalID: 9167734878600856495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Affinity_6
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 10
+        width: 153
+        height: 159
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd498a564463b49b0800000000000000
+      internalID: -5094918886048361249
       vertices: []
       indices: 
       edges: []

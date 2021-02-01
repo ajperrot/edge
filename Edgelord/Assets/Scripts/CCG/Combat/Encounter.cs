@@ -63,11 +63,14 @@ public class Encounter : MonoBehaviour
     public List<Permanent>[] Parties = new List<Permanent>[2]; // All opposing entities
     public List<Permanent>[] FrontLines = new List<Permanent>[2]; //first allies/enemies to be targeted
     public List<Permanent>[] Wards = new List<Permanent>[2]; //permanents which take damage for their side 
+    public List<int>[] PendingAttackBuffs = new List<int>[2]; //ammounts that permanents in the following list should get buffed after their next turn
+    public List<Permanent>[] PendingAttackBuffRecipients = new List<Permanent>[2]; //Permanents to receive the above buffs at the end of their next turn
 
     public Permanent NextAllySoulbind; //soulbind the next ally to this permanent if it exists
 
     private List<int>[] OnMemberPassives = new List<int>[2]; //passives to be used when a new ally/enemy is summoned
     private List<Permanent>[] OnMemberPassiveUsers = new List<Permanent>[2]; //Users of the above passives 
+
 
     // Start is called before the first frame update
     void Start()
@@ -90,20 +93,21 @@ public class Encounter : MonoBehaviour
             //move the enemy in some way
             NewEnemy.transform.localPosition -= new Vector3(charSpacing * i, Random.Range(-100, 100), 0);
         }
-        // Set up front lines
-        FrontLines[0] = new List<Permanent>();
-        FrontLines[1] = new List<Permanent>();
-        //set up passive lists
-        OnMemberPassives[0] = new List<int>();
-        OnMemberPassives[1] = new List<int>();
-        OnMemberPassiveUsers[0] = new List<Permanent>();
-        OnMemberPassiveUsers[1] = new List<Permanent>();
-        //set up ward lists
-        Wards[0] = new List<Permanent>();
-        Wards[1] = new List<Permanent>();
-        //set up add permanent functions
-        AddPermanentFunctions[0] = this.AddAlly;
-        AddPermanentFunctions[1] = this.AddEnemy;
+        for(int i = 0; i < 2; i++)
+        {
+            // Set up front lines
+            FrontLines[i] = new List<Permanent>();
+            //set up passive lists
+            OnMemberPassives[i] = new List<int>();
+            OnMemberPassiveUsers[i] = new List<Permanent>();
+            //set up ward lists
+            Wards[i] = new List<Permanent>();
+            //set up add permanent functions
+            AddPermanentFunctions[i] = this.AddAlly;
+            //set up buffies
+            PendingAttackBuffs[i] = new List<int>();
+            PendingAttackBuffRecipients[i] = new List<Permanent>();
+        }
     }
 
     // Passes the turn from player to AI
@@ -126,6 +130,12 @@ public class Encounter : MonoBehaviour
                 Kill(Parties[0][i]);
             }
         }
+        for(int i = 0; i < PendingAttackBuffRecipients[0].Count; i++)
+        {
+            PendingAttackBuffRecipients[0][i].attackModifier += PendingAttackBuffs[0][i];
+        }
+        PendingAttackBuffs[0] = new List<int>();
+        PendingAttackBuffRecipients[0] = new List<Permanent>();
         //begin enemy turn
         BeginEnemyTurn();
     }
@@ -154,6 +164,14 @@ public class Encounter : MonoBehaviour
     // Passes turn from AI to player
     public void BeginPlayerTurn()
     {
+        //resolve pending attack buffs for enemies
+        for(int i = 0; i < PendingAttackBuffRecipients[1].Count; i++)
+        {
+            PendingAttackBuffRecipients[1][i].attackModifier += PendingAttackBuffs[1][i];
+        }
+        PendingAttackBuffs[1] = new List<int>();
+        PendingAttackBuffRecipients[1] = new List<Permanent>();
+        //this
         yourTurn = true;
         //turn on player control ui
         foreach(GameObject O in PlayerTurnUI)

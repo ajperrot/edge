@@ -67,6 +67,17 @@ public class Affinity : Payable
         return c;
     }
 
+    // *int
+    public static Affinity operator* (Affinity a, int b)
+    {
+        Affinity c = new Affinity();
+        c.radiant = a.radiant * b;
+        c.lush = a.lush * b;
+        c.crimson = a.crimson * b;
+        c.free = a.free * b;
+        return c;
+    }
+
     // >
     public static bool operator> (Affinity a, Affinity b)
     {
@@ -219,6 +230,23 @@ public class Affinity : Payable
     // Deduct this affinity from the player's working affinity
     public override bool Pay()
     {
+        //check first for variable costs
+        if(radiant > 99)
+        {
+            if(PlayerCharacter.Instance.PayableAffinity.radiant <= 0) return false;
+            VariableAffinity.Object.SetActive(true);
+            return true;
+        }else if (lush > 99)
+        {
+            if(PlayerCharacter.Instance.PayableAffinity.lush <= 0) return false;
+            VariableAffinity.Object.SetActive(true);
+            return true;
+        }else if (crimson > 99)
+        {
+            if(PlayerCharacter.Instance.PayableAffinity.crimson <= 0) return false;
+            VariableAffinity.Object.SetActive(true);
+            return true;
+        }
         if(PlayerCharacter.Instance.PayableAffinity >= this)
         {
             PlayerCharacter.Instance.PayableAffinity = new PlayerAffinity(PlayerCharacter.Instance.PayableAffinity - this);
@@ -248,6 +276,18 @@ public class Affinity : Payable
     // ToString
     public override string ToString()
     {
+        //check first for variable costs
+        if(radiant > 99)
+        {
+            return "<sprite=4>";
+        }else if (lush > 99)
+        {
+            return "<sprite=5>";
+        }else if (crimson > 99)
+        {
+            return "<sprite=6>";
+        }
+        //then do it normal
         string result = "";
         for(int i = 0; i < radiant; i++)
         {

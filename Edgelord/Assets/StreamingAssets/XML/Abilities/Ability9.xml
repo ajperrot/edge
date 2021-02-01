@@ -1,0 +1,11 @@
+<Ability xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Shackle</name>
+  <Cost>
+    <Radiant>0</Radiant>
+    <Lush>0</Lush>
+    <Crimson>100</Crimson>
+    <Free>0</Free>
+  </Cost>
+  <description>decrease a unit's attack by X * (this unit's sanity) for one turn</description>
+  <autoTargeting>0</autoTargeting>
+</Ability>

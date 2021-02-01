@@ -127,7 +127,7 @@ public class PlayerCharacter : Permanent
             //PlayerDeck.AddNewCard(7);//test
             PlayerDeck.AddNewCard(3);//test
             PlayerDeck.AddNewCard(3);//test
-            PlayerDeck.AddNewCard(11);//test
+            PlayerDeck.AddNewCard(14);//test
             InitializePermanent();
             side = 0;
             isLeader = true;

@@ -224,6 +224,16 @@ public class Ability : MonoBehaviour
     }
   }
 
+  // Debuff the target's attack by the User's sanity * X for 1 turn
+  static void Shackle(Permanent User)
+  {
+    Permanent Target = Targeting.Target;
+    int debuffAmmont = VariableAffinity.x * User.sanity;
+    Target.attackModifier -= debuffAmmont;
+    Encounter.Instance.PendingAttackBuffs[Target.side].Add(debuffAmmont);
+    Encounter.Instance.PendingAttackBuffRecipients[Target.side].Add(Target);
+  }
+
   public static Usage[] AbilityUsages = new Usage[]
   {
     new Usage(Attack),
@@ -234,7 +244,8 @@ public class Ability : MonoBehaviour
     new Usage(Parasite),
     new Usage(Vision),
     new Usage(Harmony),
-    new Usage(Melody)
+    new Usage(Melody),
+    new Usage(Shackle)
   };
 
 }
