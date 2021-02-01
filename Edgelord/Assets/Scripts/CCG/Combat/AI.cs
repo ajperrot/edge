@@ -146,6 +146,30 @@ public class AI
         return false;
     }
 
+    // Target the unit with the most attack (must be over 1)
+    public static bool TargetStrongestOverOne(Permanent User)
+    {
+        int highestAttack = 1;
+        int strongestIndex = -1;
+        int opposingSide = 0;
+        if(User.side = 0) opposingSide = 1;
+        int thisAttack;
+        Permanent ThisTarget;
+        for(int i = 0; i < Encounter.Parties[opposingSide].Count; i++)
+        {
+            ThisTarget = Encounter.Parties[opposingSide][i];
+            thisAttack = ThisTarget.attack + ThisTarget.attackModifier;
+            if(thisAttack > highestAttack)
+            {
+                highestAttack = thisAttack;
+                strongestIndex = i;
+            }
+        }
+        if(strongestIndex == -1) return false;
+        Targeting.Target = Encounter.Parties[opposingSide][strongestIndex];
+        return true;
+    }
+
     public static bool AttackDirectly(Permanent User, Permanent Target)
     {
         Targeting.Target = Target;
@@ -244,6 +268,7 @@ public class AI
         new Decision(Parasite),
         new Decision(Parasite),
         new Decision(JustUse),
-        new Decision(Melody)
+        new Decision(Melody),
+        new Decision(TargetStrongest)
     };
 }
