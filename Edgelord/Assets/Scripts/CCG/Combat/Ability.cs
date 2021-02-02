@@ -87,6 +87,7 @@ public class Ability : MonoBehaviour
   public void Use()
   {
     User.ap--;
+    Permanent.CurrentActor = User;
     AbilityUsages[id](User);
     ActiveAbility = null;
   }
@@ -142,6 +143,12 @@ public class Ability : MonoBehaviour
     }
     Target.AddSoulboundEntity(User);
     Target.radiantHp += 5;
+    //reflect with mirror
+    if(Target.mirror == true)
+    {
+      Targeting.Target = User;
+      Devotion(Target);
+    }
   }
 
   // Transform User into a Symphony. Only usable after Consuming 3 human corpses.
@@ -232,6 +239,13 @@ public class Ability : MonoBehaviour
     Target.attackModifier -= debuffAmmont;
     Encounter.Instance.PendingAttackBuffs[Target.side].Add(debuffAmmont);
     Encounter.Instance.PendingAttackBuffRecipients[Target.side].Add(Target);
+    //reflect with mirror
+    if(Target.mirror == true)
+    {
+      User.attackModifier -= debuffAmmont;
+      Encounter.Instance.PendingAttackBuffs[User.side].Add(debuffAmmont);
+      Encounter.Instance.PendingAttackBuffRecipients[User.side].Add(User);
+    }
   }
 
   public static Usage[] AbilityUsages = new Usage[]

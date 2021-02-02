@@ -106,10 +106,16 @@ public class Passive : MonoBehaviour
         User.ap = User.maxAp;
     }
 
+    // Set the user's mirror flag, which will be used to trigger reflected abilities
+    static void Mirror(Permanent User)
+    {
+        User.mirror = true;
+    }
+
 
     public static int[] TriggerPerPassive = new int[]
     {
-        1, 0, 0, 0, 0, 2, 3, 1, 3, 4, 1
+        1, 0, 0, 0, 0, 2, 3, 1, 3, 4, 1, 0
     };
 
     public static Usage[] PassiveUsages = new Usage[]
@@ -124,6 +130,7 @@ public class Passive : MonoBehaviour
         new Usage(WardOnSummon),
         new Usage(WardOnDeath),
         new Usage(Grapple),
-        new Usage(HolySupport) //THIS SHOULD BE THE FIRST LISTED PASSIVE IN CARD[_].XML
+        new Usage(HolySupport), //THIS SHOULD BE THE FIRST LISTED PASSIVE IN CARD[_].XML
+        new Usage(Mirror)
     };
 }

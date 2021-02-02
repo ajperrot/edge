@@ -71,6 +71,10 @@ public class Card : MonoBehaviour
             if(currentBox < 3)
             {
                 transform.GetChild(4).gameObject.SetActive(false);
+                if(currentBox < 2)
+                {
+                    transform.GetChild(3).gameObject.SetActive(false);
+                }
             }
         }
         //card text

@@ -6,6 +6,8 @@ using TMPro;
 
 public class Permanent : MonoBehaviour
 {
+    public static Permanent CurrentActor; //currently acting permanent
+
     public Slider HpBar; //used to display hp
     public TMP_Text HpText; //displays hp as a number
     public TMP_Text MaxHpText; //displays maxHP as a number
@@ -31,6 +33,7 @@ public class Permanent : MonoBehaviour
     public int fuseCounter = 0; //progress toward possible transformation
     public int attackModifier = 0; //extra damage added to your attacks
     public Permanent Grappler; //only target attackable
+    public bool mirror = false; //does this permanent reflect abilities?
 
     // Our maximum hp
     public int maxHp
@@ -234,6 +237,7 @@ public class Permanent : MonoBehaviour
             } else
             {
                 hp += defense;
+                if(mirror == true) Permanent.CurrentActor.hp += defense; //reflect damage with mirror
             }
         }
     }
@@ -283,6 +287,7 @@ public class Permanent : MonoBehaviour
     // Select and use a skill on a target based on AI
     public void Act()
     {
+        CurrentActor = this;
         //act until out of ap
         while(ap > 0)
         {

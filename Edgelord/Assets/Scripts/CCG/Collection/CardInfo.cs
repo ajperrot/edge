@@ -90,7 +90,7 @@ public class CardInfo
                 this.name = Nodes[1].InnerText;
                 this.EntityClass = (EntityType)XmlConvert.ToInt32(Nodes[12].InnerText);
                 this.Upkeep = GetAffinityFromXmlNodes(Nodes[13].ChildNodes);
-                this.cardText += "\nUPKEEP: " + Upkeep.ToString();
+                if(Upkeep > 0) this.cardText += "\nUPKEEP: " + Upkeep.ToString();
             }
         }
         
