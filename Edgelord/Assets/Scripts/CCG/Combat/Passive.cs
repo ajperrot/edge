@@ -112,10 +112,16 @@ public class Passive : MonoBehaviour
         User.mirror = true;
     }
 
+    // Use defend every turn
+    static void Guard(Permanent User)
+    {
+        Ability.AbilityUsages[1](User);
+    }
+
 
     public static int[] TriggerPerPassive = new int[]
     {
-        1, 0, 0, 0, 0, 2, 3, 1, 3, 4, 1, 0
+        1, 0, 0, 0, 0, 2, 3, 1, 3, 4, 1, 0, 1
     };
 
     public static Usage[] PassiveUsages = new Usage[]
@@ -131,6 +137,7 @@ public class Passive : MonoBehaviour
         new Usage(WardOnDeath),
         new Usage(Grapple),
         new Usage(HolySupport), //THIS SHOULD BE THE FIRST LISTED PASSIVE IN CARD[_].XML
-        new Usage(Mirror)
+        new Usage(Mirror),
+        new Usage(Guard)
     };
 }
