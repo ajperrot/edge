@@ -284,6 +284,23 @@ public class Ability : MonoBehaviour
     }
   }
 
+  // Deal 2X damage to all enemies
+  static void Scorch(Permanent User)
+  {
+    List<Permanent> Party;
+    int x = 3;
+    if(User.side == 0)
+    {
+      x = VariableAffinity.x;
+      Party = Encounter.Instance.Parties[1];
+    } else Party = Encounter.Instance.Parties[1];
+    int damage = 2 * x;
+    for(int i = Party.Count - 1; i >= 0; i--)
+    {
+      Party[i].TakeHit(damage);
+    }
+  }
+
   public static Usage[] AbilityUsages = new Usage[]
   {
     new Usage(Attack),
@@ -296,7 +313,8 @@ public class Ability : MonoBehaviour
     new Usage(Harmony),
     new Usage(Melody),
     new Usage(Shackle),
-    new Usage(Reanimate)
+    new Usage(Reanimate),
+    new Usage(Scorch)
   };
 
 }
