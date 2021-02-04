@@ -5,7 +5,7 @@ using CardType = CardInfo.CardType;
 
 public class Passive : MonoBehaviour
 {
-    public enum TriggerType {Summon, Turn, NewMember, Attack, None} //What triggers the passive?
+    public enum TriggerType {Summon, Turn, NewMember, OnDeath, Attack, None} //What triggers the passive?
 
     public delegate void Usage(Permanent User);
 

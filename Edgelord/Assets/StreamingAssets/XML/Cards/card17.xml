@@ -1,0 +1,30 @@
+<Card xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <id>17</id>
+  <name>Librarian</name>
+  <Type>0</Type>
+  <SummonCost>
+    <Radiant>0</Radiant>
+    <Lush>1</Lush>
+    <Crimson>0</Crimson>
+    <Free>0</Free>
+  </SummonCost>
+  <hp>3</hp>
+  <attack>1</attack>
+  <cardText>Reanimate: Reanimates X human corpse(s) creating X 'reborn'.  </cardText>
+  <Abilities>
+    <ability>0</ability>
+    <ability>10</ability>
+  </Abilities>
+  <Passives>
+  </Passives>
+  <ap>1</ap>
+  <sanity>3</sanity>
+  <pattern>0</pattern>
+  <class>0</class>
+  <Upkeep>
+    <Radiant>0</Radiant>
+    <Lush>0</Lush>
+    <Crimson>0</Crimson>
+    <Free>0</Free>
+  </Upkeep>
+</Card>

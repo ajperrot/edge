@@ -298,10 +298,7 @@ public class Encounter : MonoBehaviour
     public void Kill(Permanent Loser)
     {
         //call your "on death" passives
-        foreach (int passiveId in Loser.Info.Passives)
-        {
-            if(Passive.TriggerPerPassive[passiveId] == 3) Passive.PassiveUsages[passiveId](Loser);
-        }
+        Passive.TriggerPassives(Loser, 3);
         //kill soulbound entities first
         for(int i = Loser.SoulboundEntities.Count - 1; i >= 0; i--)
         {

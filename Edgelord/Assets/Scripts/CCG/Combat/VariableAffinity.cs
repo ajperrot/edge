@@ -59,6 +59,11 @@ public class VariableAffinity : MonoBehaviour
         if(Costs[affinityType, count].Pay() == false) return;
         x = count + 1;
         Object.SetActive(false);
+        if(Ability.ActiveAbility.autoTargeting == true)
+        {
+            Ability.ActiveAbility.Use();
+            Ability.ActiveAbility = null;
+        }
     }
 
 }

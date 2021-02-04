@@ -170,6 +170,21 @@ public class AI
         return true;
     }
 
+    // Return true if there is a human corpse on the field
+    public static bool UseInPresenceOfHumanCorpse(Permanent User)
+    {
+        for(int i = 0; i < 2; i++)
+        {
+            List<Permanent> Party = Encounter.Instance.Parties[i];
+            for(int j = Party.Count - 1; j >= 0; j++)
+            {
+                if(Party[j].Info.id == 13) return true;
+            }
+        }
+        return false;
+    }
+
+    // Deal damage bypassing defense
     public static bool AttackDirectly(Permanent User, Permanent Target)
     {
         Targeting.Target = Target;
@@ -269,6 +284,7 @@ public class AI
         new Decision(Parasite),
         new Decision(JustUse),
         new Decision(Melody),
-        new Decision(TargetStrongestOverOne)
+        new Decision(TargetStrongestOverOne),
+        new Decision(UseInPresenceOfHumanCorpse)
     };
 }

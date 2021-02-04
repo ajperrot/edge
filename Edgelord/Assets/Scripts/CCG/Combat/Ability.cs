@@ -20,11 +20,11 @@ public class Ability : MonoBehaviour
   public GameObject HoverOnlyUI; //UI only active while hovering 
   public int hoverIndex; //give this to root when hovered over
   public Permanent User; //who is using these abilities?
+  public bool autoTargeting; //if true, we don't have to target manually
 
   private AbilitiesRoot Root; //the root which summoned us
   private int id; //which ability is this?
   private Affinity Cost = new Affinity(); //what do we lose when using this ability
-  private bool autoTargeting; //if true, we don't have to target manually
 
   // Fill in the data for this ability and write to UI
   public void Initialize(AbilitiesRoot Root, int id)
@@ -65,6 +65,12 @@ public class Ability : MonoBehaviour
     if(Encounter.Instance.yourTurn == false || User.ap < 1 || Cost.Pay() == false) return;
     if(autoTargeting == true)
     {
+      //wait for variableAffinity if necessary
+      if(Cost > 99)
+      {
+        ActiveAbility = this;
+        return;
+      }
       //use immediately if auto-targeting
       Use();
     } else if(id == 0 && User.Grappler != null)
@@ -235,7 +241,9 @@ public class Ability : MonoBehaviour
   static void Shackle(Permanent User)
   {
     Permanent Target = Targeting.Target;
-    int debuffAmmont = VariableAffinity.x * User.sanity;
+    int x = 3;
+    if(User.side == 0) x = VariableAffinity.x;
+    int debuffAmmont = x * User.sanity;
     Target.attackModifier -= debuffAmmont;
     Encounter.Instance.PendingAttackBuffs[Target.side].Add(debuffAmmont);
     Encounter.Instance.PendingAttackBuffRecipients[Target.side].Add(Target);
@@ -245,6 +253,34 @@ public class Ability : MonoBehaviour
       User.attackModifier -= debuffAmmont;
       Encounter.Instance.PendingAttackBuffs[User.side].Add(debuffAmmont);
       Encounter.Instance.PendingAttackBuffRecipients[User.side].Add(User);
+    }
+  }
+
+  // Convert X corpses into reborn
+  static void Reanimate(Permanent User)
+  {
+    List<Permanent> Party = Encounter.Instance.Parties[User.side];
+    int reanimations = 0;
+    int limit = 3;
+    if(User.side == 0) limit = VariableAffinity.x;
+    for(int i = Party.Count - 1; i >= 0 && reanimations < limit; i--)
+    {
+      if(Party[i].Info.id == 13)
+      {
+        Encounter.Instance.Kill(Party[i]);
+        Encounter.Instance.AddPermanentFunctions[User.side](new CardInfo(9));
+        reanimations++;
+      }
+    }
+    Party = Encounter.Instance.Parties[-1 * (User.side - 1)]; //convoluted way of flipping the bit
+    for(int i = Party.Count - 1; i >= 0 && reanimations < limit; i--)
+    {
+      if(Party[i].Info.id == 13)
+      {
+        Encounter.Instance.Kill(Party[i]);
+        Encounter.Instance.AddPermanentFunctions[User.side](new CardInfo(9));
+        reanimations++;
+      }
     }
   }
 
@@ -259,7 +295,8 @@ public class Ability : MonoBehaviour
     new Usage(Vision),
     new Usage(Harmony),
     new Usage(Melody),
-    new Usage(Shackle)
+    new Usage(Shackle),
+    new Usage(Reanimate)
   };
 
 }
