@@ -5,6 +5,7 @@ using UnityEngine;
 public class AffinityPicker : MonoBehaviour
 {
     public static AffinityPicker Instance; //singleton
+    public static bool payingUpkeep = false;
 
     public Affinity[] Costs; // costs paid when chosen
 
@@ -25,7 +26,10 @@ public class AffinityPicker : MonoBehaviour
     public void Pay(int costType)
     {
         gameObject.SetActive(false);
+        //first try to pay via upkeep bonus if in upkeep
+        Affinity Cost = Encounter.UseUpkeepBonus(Costs[costType]);
         //re-prompt in case of failure to pay
-        if(Costs[costType].Pay() == false) gameObject.SetActive(true);;
+        payingUpkeep = false;
+        if(Cost.Pay() == false) gameObject.SetActive(true);;
     }
 }

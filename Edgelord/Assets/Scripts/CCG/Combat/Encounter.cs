@@ -11,6 +11,7 @@ public class Encounter : MonoBehaviour
     public delegate void AddPermanent(CardInfo Info);
 
     public static Encounter Instance; //makes this a singleton
+    public static Affinity UpkeepBonus; //upkeep paayable by units
 
     public List<Sprite> Backgrounds; //list of backgrounds for each location
     public GameObject EnemyPrefab; //prefab copied to create enemy permanents
@@ -173,6 +174,7 @@ public class Encounter : MonoBehaviour
         PendingAttackBuffRecipients[1] = new List<Permanent>();
         //this
         yourTurn = true;
+        UpkeepBonus = new Affinity();
         //turn on player control ui
         foreach(GameObject O in PlayerTurnUI)
         {
@@ -319,6 +321,41 @@ public class Encounter : MonoBehaviour
         Parties[Loser.side].Remove(Loser);
         FrontLines[Loser.side].Remove(Loser);
         Destroy(Loser.gameObject);
+    }
+
+    public static Affinity UseUpkeepBonus(Affinity Upkeep)
+    {
+        Affinity RemainingUpkeep = Upkeep;
+        //process upkeep bonus paid from studied passive
+        if(UpkeepBonus > 0)
+        {
+            RemainingUpkeep -= UpkeepBonus;
+            if(RemainingUpkeep.radiant < 0)
+            {
+                UpkeepBonus.radiant = 0 - RemainingUpkeep.radiant;
+                RemainingUpkeep.radiant = 0;
+            } else
+            {
+                UpkeepBonus.radiant = 0;
+            }
+            if(RemainingUpkeep.lush < 0)
+            {
+                UpkeepBonus.lush = 0 - RemainingUpkeep.lush;
+                RemainingUpkeep.lush = 0;
+            } else
+            {
+                UpkeepBonus.lush = 0;
+            }
+            if(RemainingUpkeep.crimson < 0)
+            {
+                UpkeepBonus.crimson = 0 - RemainingUpkeep.crimson;
+                RemainingUpkeep.crimson = 0;
+            } else
+            {
+                UpkeepBonus.crimson = 0;
+            }
+        }
+        return RemainingUpkeep;
     }
 
     public AddPermanent[] AddPermanentFunctions = new AddPermanent[2];

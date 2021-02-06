@@ -256,8 +256,9 @@ public class Permanent : MonoBehaviour
     // Pay upkeep if able, disable upkeep ui and allow entity control
     public void PayUpkeep()
     {
+        Affinity RemainingUpkeep = Encounter.UseUpkeepBonus(Upkeep);
         //attempt to deduct upkeep, will fail if unable
-        if(Upkeep.Pay())
+        if(RemainingUpkeep.Pay())
         {
             UpkeepDisplay.SetActive(false);
             AbilityDisplay.ToggleActivation(true);

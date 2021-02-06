@@ -118,10 +118,16 @@ public class Passive : MonoBehaviour
         Ability.AbilityUsages[1](User);
     }
 
+    // Add this unit's cost to the upkeep bonus (if ally)
+    public static void Studied(Permanent User)
+    {
+        if(User.side == 0) Encounter.UpkeepBonus += User.Info.SummonCost;
+    }
+
 
     public static int[] TriggerPerPassive = new int[]
     {
-        1, 0, 0, 0, 0, 2, 3, 1, 3, 4, 1, 0, 1
+        1, 0, 0, 0, 0, 2, 3, 1, 3, 4, 1, 0, 1, 1
     };
 
     public static Usage[] PassiveUsages = new Usage[]
@@ -138,6 +144,7 @@ public class Passive : MonoBehaviour
         new Usage(Grapple),
         new Usage(HolySupport), //THIS SHOULD BE THE FIRST LISTED PASSIVE IN CARD[_].XML
         new Usage(Mirror),
-        new Usage(Guard)
+        new Usage(Guard),
+        new Usage(Studied)
     };
 }
