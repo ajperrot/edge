@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class VariableAffinity : MonoBehaviour
 {
-    public static GameObject Object; //activatable from other scripts
-    public static int x;
+    public static VariableAffinity Instance; //singleton
+    public static int x; //ammount paid
 
     public Image[] Icons;
     public int affinityType;
@@ -17,7 +17,7 @@ public class VariableAffinity : MonoBehaviour
     // Start
     void Start()
     {
-        Object = gameObject;
+        Instance = this;
         for(int i = 0; i < 3; i++)
         {
             Costs[0,i] = new Affinity();
@@ -33,15 +33,15 @@ public class VariableAffinity : MonoBehaviour
             Costs[0,i] = new Affinity();
             Costs[0,i].crimson = i + 1;
         }
-        Object.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     // Decide which affinity type to pay
-    public void setAffinityType(int affinityType)
+    public void SetAffinityType(int affinityType)
     {
         this.affinityType = affinityType;
         SetIcons(types[affinityType]);
-        Object.SetActive(true);
+        gameObject.SetActive(true);
     }
 
     // Set the icons on the buttons based on the given type
@@ -58,7 +58,7 @@ public class VariableAffinity : MonoBehaviour
     {
         if(Costs[affinityType, count].Pay() == false) return;
         x = count + 1;
-        Object.SetActive(false);
+        gameObject.SetActive(false);
         if(Ability.ActiveAbility.autoTargeting == true)
         {
             Ability.ActiveAbility.Use();

@@ -234,17 +234,17 @@ public class Affinity : Payable
         if(radiant > 99)
         {
             if(PlayerCharacter.Instance.PayableAffinity.radiant <= 0) return false;
-            VariableAffinity.Object.SetActive(true);
+            VariableAffinity.Instance.SetAffinityType(0);
             return true;
         }else if (lush > 99)
         {
             if(PlayerCharacter.Instance.PayableAffinity.lush <= 0) return false;
-            VariableAffinity.Object.SetActive(true);
+            VariableAffinity.Instance.SetAffinityType(1);
             return true;
         }else if (crimson > 99)
         {
             if(PlayerCharacter.Instance.PayableAffinity.crimson <= 0) return false;
-            VariableAffinity.Object.SetActive(true);
+            VariableAffinity.Instance.SetAffinityType(2);
             return true;
         }
         if(PlayerCharacter.Instance.PayableAffinity >= this)
