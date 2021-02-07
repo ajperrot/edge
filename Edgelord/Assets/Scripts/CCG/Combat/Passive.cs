@@ -34,7 +34,7 @@ public class Passive : MonoBehaviour
             }
         } else
         {
-            Encounter.Instance.AddEnemy(new CardInfo(12));
+            Encounter.Instance.AddAlly(new CardInfo(12), 1);
         }
         User.gated = true;
     }

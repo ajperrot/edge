@@ -8,14 +8,11 @@ using CardType = CardInfo.CardType;
 
 public class Encounter : MonoBehaviour
 {
-    public delegate void AddPermanent(CardInfo Info);
-
     public static Encounter Instance; //makes this a singleton
     public static Affinity UpkeepBonus; //upkeep paayable by units
 
     public List<Sprite> Backgrounds; //list of backgrounds for each location
-    public GameObject EnemyPrefab; //prefab copied to create enemy permanents
-    public GameObject AllyPrefab; //prefab copied to create allied permanents
+    public GameObject[] AllyPrefabs; //prefab copied to create allied permanents
     public Transform EnemiesRoot; //all enemy permanents are children of this
     public Transform AlliesRoot; //all allied permanents are children of this
     public float charSpacing = 250; //space between characters
@@ -91,7 +88,7 @@ public class Encounter : MonoBehaviour
         for(int i = 0; i < lines.Length; i++)
         {
             //generate permanent for each enemy
-            GameObject NewEnemy = Instantiate(EnemyPrefab, EnemiesRoot);
+            GameObject NewEnemy = Instantiate(AllyPrefabs[1], EnemiesRoot);
             Parties[1].Add(NewEnemy.GetComponent<Permanent>());
             Parties[1][i].Initialize(new CardInfo(int.Parse(lines[i])), 1);
             //move the enemy in some way
@@ -106,8 +103,6 @@ public class Encounter : MonoBehaviour
             OnMemberPassiveUsers[i] = new List<Permanent>();
             //set up ward lists
             Wards[i] = new List<Permanent>();
-            //set up add permanent functions
-            AddPermanentFunctions[i] = this.AddAlly;
             //set up buffies
             PendingAttackBuffs[i] = new List<int>();
             PendingAttackBuffRecipients[i] = new List<Permanent>();
@@ -208,41 +203,25 @@ public class Encounter : MonoBehaviour
     }
 
     // Adds a new permanent to your side
-    public void AddAlly(CardInfo AllyInfo)
+    public void AddAlly(CardInfo AllyInfo, int side = 0)
     {
         //generate permanent for the new ally
-        GameObject NewAlly = Instantiate(AllyPrefab, AlliesRoot);
-        int allyIndex = Parties[0].Count;
-        Parties[0].Add(NewAlly.GetComponent<Permanent>());
-        Parties[0][allyIndex].Initialize(AllyInfo);
+        GameObject NewAlly = Instantiate(AllyPrefabs[side], PartyRoots[side]);
+        int allyIndex = Parties[side].Count;
+        Parties[side].Add(NewAlly.GetComponent<Permanent>());
+        Parties[side][allyIndex].Initialize(AllyInfo);
         //move the ally to its own spot
         NewAlly.transform.localPosition += new Vector3(charSpacing * allyIndex, Random.Range(-100, 100), 0);
         //soulbind if necessary
-        if(NextAllySoulbind != null)
+        if(side == 0 && NextAllySoulbind != null)
         {
-            NextAllySoulbind.AddSoulboundEntity(Parties[0][allyIndex]);
+            NextAllySoulbind.AddSoulboundEntity(Parties[side][allyIndex]);
             NextAllySoulbind = null;
         }
         //call passives
-        CallOnMemberPassives(Parties[0][allyIndex], 0);
+        CallOnMemberPassives(Parties[side][allyIndex], 0);
         //add passives
-        AddOnMemberPassives(AllyInfo, Parties[0][allyIndex], 0);
-    }
-
-    // Adds a new permanent to the other side
-    public void AddEnemy(CardInfo EnemyInfo)
-    {
-        //generate permanent for the new ally
-        GameObject NewEnemy = Instantiate(EnemyPrefab, EnemiesRoot);
-        int enemyIndex = Parties[1].Count;
-        Parties[1].Add(NewEnemy.GetComponent<Permanent>());
-        Parties[1][enemyIndex].Initialize(EnemyInfo, 1);
-        //move the ally to its own spot
-        NewEnemy.transform.localPosition += new Vector3(charSpacing * enemyIndex, Random.Range(-100, 100), 0);
-        //call passives
-        CallOnMemberPassives(Parties[1][enemyIndex], 1);
-        //add passives
-        AddOnMemberPassives(EnemyInfo, Parties[1][enemyIndex], 1);
+        AddOnMemberPassives(AllyInfo, Parties[side][allyIndex], 0);
     }
 
     // Adds the onmember passives of the given user to the correct list
@@ -318,7 +297,7 @@ public class Encounter : MonoBehaviour
         //create a corpse if a human ally
         if(Loser.Info.Type == CardType.Human && side == 0)
         {
-            AddPermanentFunctions[0](new CardInfo(13));
+            AddAlly(new CardInfo(13));
         }
         //then kill this permanent
         RemoveOnMemberPassives(Loser, side);
@@ -366,6 +345,4 @@ public class Encounter : MonoBehaviour
         }
         return RemainingUpkeep;
     }
-
-    public AddPermanent[] AddPermanentFunctions = new AddPermanent[2];
 }

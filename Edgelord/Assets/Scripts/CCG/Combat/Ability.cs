@@ -162,7 +162,7 @@ public class Ability : MonoBehaviour
   {
     if(User.fuseCounter >= 3)
     {
-      Encounter.Instance.AddPermanentFunctions[User.side](new CardInfo(10));
+      Encounter.Instance.AddAlly(new CardInfo(10), User.side);
       Encounter.Instance.Kill(User);
     } else
     {
@@ -268,7 +268,7 @@ public class Ability : MonoBehaviour
       if(Party[i].Info.id == 13)
       {
         Encounter.Instance.Kill(Party[i]);
-        Encounter.Instance.AddPermanentFunctions[User.side](new CardInfo(9));
+        Encounter.Instance.AddAlly(new CardInfo(9), User.side);
         reanimations++;
       }
     }
@@ -278,7 +278,7 @@ public class Ability : MonoBehaviour
       if(Party[i].Info.id == 13)
       {
         Encounter.Instance.Kill(Party[i]);
-        Encounter.Instance.AddPermanentFunctions[User.side](new CardInfo(9));
+        Encounter.Instance.AddAlly(new CardInfo(9), User.side);
         reanimations++;
       }
     }

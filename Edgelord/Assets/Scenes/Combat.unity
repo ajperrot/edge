@@ -750,10 +750,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Backgrounds: []
-  EnemyPrefab: {fileID: 7074704774227669305, guid: 54ab1e900615f44ec9b63236ef0d6a19,
-    type: 3}
-  AllyPrefab: {fileID: 7074704774227669305, guid: 157d19926d6eb478da864de1eaa9518e,
-    type: 3}
+  AllyPrefabs:
+  - {fileID: 7074704774227669305, guid: 157d19926d6eb478da864de1eaa9518e, type: 3}
+  - {fileID: 7074704774227669305, guid: 54ab1e900615f44ec9b63236ef0d6a19, type: 3}
   EnemiesRoot: {fileID: 1736815959}
   AlliesRoot: {fileID: 887378593}
   charSpacing: 250
