@@ -71,7 +71,7 @@ public class Encounter : MonoBehaviour
 
     private List<int>[] OnMemberPassives = new List<int>[2]; //passives to be used when a new ally/enemy is summoned
     private List<Permanent>[] OnMemberPassiveUsers = new List<Permanent>[2]; //Users of the above passives 
-
+    private Transform[] PartyRoots = new Transform[2]; //first position in party line
 
     // Start is called before the first frame update
     void Start()
@@ -83,6 +83,9 @@ public class Encounter : MonoBehaviour
         Parties[1] = new List<Permanent>();
         // Add the player to the list of allies
         Parties[0].Add(GameObject.FindWithTag("PlayerPermanent").GetComponent<PlayerCharacter>());
+        // Store roots
+        PartyRoots[0] = AlliesRoot;
+        PartyRoots[1] = EnemiesRoot;
         // Generate the encounter
         string[] lines = File.ReadAllLines(Application.streamingAssetsPath + "/Encounters/" + Setting.location + "/" + Setting.currentDay + ".txt");
         for(int i = 0; i < lines.Length; i++)
@@ -299,6 +302,7 @@ public class Encounter : MonoBehaviour
     // Remove a permanent from existance and also from the encounter
     public void Kill(Permanent Loser)
     {
+        int side = Loser.side;
         //call your "on death" passives
         Passive.TriggerPassives(Loser, 3);
         //kill soulbound entities first
@@ -312,15 +316,20 @@ public class Encounter : MonoBehaviour
             Bind.SoulboundEntities.Remove(Loser);
         }
         //create a corpse if a human ally
-        if(Loser.Info.Type == CardType.Human && Loser.side == 0)
+        if(Loser.Info.Type == CardType.Human && side == 0)
         {
             AddPermanentFunctions[0](new CardInfo(13));
         }
         //then kill this permanent
-        RemoveOnMemberPassives(Loser, Loser.side);
-        Parties[Loser.side].Remove(Loser);
-        FrontLines[Loser.side].Remove(Loser);
+        RemoveOnMemberPassives(Loser, side);
+        Parties[side].Remove(Loser);
+        FrontLines[side].Remove(Loser);
         Destroy(Loser.gameObject);
+        //Finally, move back the others on the party
+        for(int i = 0; i < Parties[side].Count; i++)
+        {
+            Parties[side][i].transform.localPosition = new Vector3(charSpacing * i, Random.Range(-100, 100), 0);
+        }
     }
 
     public static Affinity UseUpkeepBonus(Affinity Upkeep)
