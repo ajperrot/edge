@@ -133,6 +133,8 @@ GameObject:
   - component: {fileID: 585748391}
   - component: {fileID: 585748390}
   - component: {fileID: 585748393}
+  - component: {fileID: 585748394}
+  - component: {fileID: 585748395}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -200,6 +202,106 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ebc812cf49194f0da0503424f0a7249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &585748394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585748389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49dcb1574acc44cd493477755cd8fbd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &585748395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585748389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7114923445274aaca823dbbe4a13e29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HpBar: {fileID: 0}
+  HpText: {fileID: 0}
+  MaxHpText: {fileID: 0}
+  ApDisplay: {fileID: 0}
+  SanityBar: {fileID: 0}
+  SanityText: {fileID: 0}
+  MaxSanityText: {fileID: 0}
+  AbilityDisplay: {fileID: 0}
+  RadiantHpBar: {fileID: 0}
+  RadiantHpText: {fileID: 0}
+  UpkeepDisplay: {fileID: 0}
+  side: 1
+  Info:
+    id: 0
+    name: 
+    Type: 0
+    SummonCost:
+      radiant: 0
+      lush: 0
+      crimson: 0
+      free: 0
+    hp: 0
+    attack: 0
+    cardText: 
+    cartArtPath: 
+    Abilities: 
+    Passives: 
+    pattern: 0
+    EntityClass: 0
+    Upkeep:
+      radiant: 0
+      lush: 0
+      crimson: 0
+      free: 0
+    humanClass: 
+    ap: 0
+    sanity: 0
+  Dimmer: {fileID: 0}
+  Attacker: {fileID: 0}
+  isLeader: 0
+  targetable: 1
+  Soulbinds: []
+  SoulboundEntities: []
+  gated: 0
+  flying: 0
+  fuseCounter: 0
+  attackModifier: 0
+  Grappler: {fileID: 0}
+  mirror: 0
+  AffinityDisplay: []
+  PopularityDisplay: []
+  MoneyDisplay: {fileID: 0}
+  MovementDisplay: {fileID: 0}
+  PlayerDeck:
+    Contents: []
+  Inventory: []
+  BaseAffinity:
+    radiant: 0
+    lush: 0
+    crimson: 0
+    free: 0
+  _followerCount: 0
+  _popularity: 0
+  _money: 0
+  maxMovement: 1
+  _movement: 0
+  baseHp: 5
+  baseSanity: 10
+  baseAp: 1
+  HandRoot: {fileID: 0}
+  HumanCardPrefab: {fileID: 0}
+  EntityCardPrefab: {fileID: 0}
+  PhenomenonCardPrefab: {fileID: 0}
+  cardSpacing: 0
+  Hand: []
+  HandCards: []
 --- !u!1 &1041744427
 GameObject:
   m_ObjectHideFlags: 0

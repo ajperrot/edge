@@ -34,10 +34,9 @@ public class SaveSystem
         //rename previous save if a week start
         if(File.Exists(path))
         {
-            int yesterday = Setting.currentDay - 1;
-            if(yesterday % 7 == 0)
+            if(Setting.currentDay % 7 == 0)
             {
-                string newPath = Application.persistentDataPath + "/SaveData" + yesterday + ".dat";
+                string newPath = Application.persistentDataPath + "/SaveData" + Setting.currentDay + ".dat";
                 if(File.Exists(newPath)) File.Delete(newPath);
                 File.Move(path, newPath);
             } else
@@ -62,7 +61,6 @@ public class SaveSystem
         Data.baseAp = PlayerCharacter.Instance.baseAp;
         bf.Serialize(file, Data);
         file.Close();
-        //Debug.Log("Game data saved!");//test
     }
 
     // Load previous save

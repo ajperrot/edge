@@ -19,6 +19,7 @@ public class TabManager : MonoBehaviour
         // remove stream tab for day 0
         if(Setting.currentDay == 0)
         {
+            print("i will kill, soon");//test
             Tabs[2].SetActive(false);
             TabIndicators[2].SetActive(false);
             tabCount--;

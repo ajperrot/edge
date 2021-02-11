@@ -87,7 +87,7 @@ public class PlayerCharacter : Permanent
         set
         {
             _movement = value;
-            MovementDisplay.text = "" + value;
+            if(MovementDisplay != null)MovementDisplay.text = "" + value;
         }
     }
 
@@ -119,7 +119,6 @@ public class PlayerCharacter : Permanent
         //set depletable stats to their maximum
         PayableAffinity = new PlayerAffinity(BaseAffinity);
         movement = maxMovement;
-        money = money;//test
         //do some permanent init if necessary
         if(gameObject.tag == "PlayerPermanent")
         {
