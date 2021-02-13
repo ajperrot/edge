@@ -28,21 +28,15 @@ class SaveData
 public class SaveSystem
 {
     // Save data of this day to that slot, then delete last save if it was not a week start
-    public static void SaveGame()
+    public static void SaveGame(int day = -1)
     {
-        string path = Application.persistentDataPath + "/SaveData.dat";
+        string path = Application.persistentDataPath + "/SaveData";
+        if(day != -1) path += "" + Setting.currentDay;
+        path += ".dat";
         //rename previous save if a week start
         if(File.Exists(path))
         {
-            if(Setting.currentDay % 7 == 0)
-            {
-                string newPath = Application.persistentDataPath + "/SaveData" + Setting.currentDay + ".dat";
-                if(File.Exists(newPath)) File.Delete(newPath);
-                File.Move(path, newPath);
-            } else
-            {
-                ClearSave(-1);
-            }
+            File.Delete(path);
         }
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(path); 
