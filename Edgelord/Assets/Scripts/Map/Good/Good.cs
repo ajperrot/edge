@@ -6,7 +6,7 @@ using TMPro;
 public class Good : MonoBehaviour
 {
     public int stockIndex; //where this is in the overall stock
-    public int id = -1; //id of the associated item
+    public int id = -1; //id of the associated item/card
     public TMP_Text NameTextBox; //displays the name of the associated item
     public TMP_Text CostTextBox; //displays the cost of this item
     public TMP_Text OtherTextBox; //displays additional info after cost

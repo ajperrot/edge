@@ -28,4 +28,11 @@ public class HumanCard : PermanentCard
         //then fill standard card fields
         base.FillCardUI();
     }
+
+    // Change CardInfo and re-fill the ui
+    public void Reset(CardInfo Info)
+    {
+        this.Info = Info;
+        FillCardUI();
+    }
 }
