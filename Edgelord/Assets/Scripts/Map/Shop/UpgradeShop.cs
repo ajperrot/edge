@@ -15,13 +15,7 @@ public class UpgradeShop : Shop
     {
         base.Start();
         //fill out Stock
-        if(Setting.currentDay == 0)
-        {
-            FillTutorialStock();
-        } else
-        {
-            FillStock();
-        }
+        FillStock();
         stockPurchased = new bool[Stock.Length];
     }
 
@@ -48,15 +42,15 @@ public class UpgradeShop : Shop
         //check the new index is valid
         if(sign > 0)
         {
-            if(SelectPreviousItem() == false) SelectLastItem();
+            if(SelectPreviousGood() == false) SelectLastGood();
         } else
         {
-            if(SelectNextItem() == false) SelectFirstItem();
+            if(SelectNextGood() == false) SelectFirstGood();
         }
     }
 
     // Select the given good
-    public void SelectItemAt(int index)
+    public void SelectGoodAt(int index)
     {
         //select item
         Selector.transform.localPosition = Stock[index].transform.localPosition;
@@ -81,7 +75,7 @@ public class UpgradeShop : Shop
             totalScroll -= (scrollIndex - 3) * goodSpacing;
         }
         //then actually select it
-        SelectItemAt(index);
+        SelectGoodAt(index);
     }
 
     // Purchase the selected good
@@ -89,16 +83,11 @@ public class UpgradeShop : Shop
     {
         //make sure selection exists
         if(selection < 0) return;
-        //get the item
-         //Item SelectedItem = Stock[selection].ItemForSale;
-        //return if we can't afford it
-         //if(SelectedItem.cost > PlayerCharacter.Instance.money) return;
-        //otherwise add it to inventory, and remove it from stock
-         //PlayerCharacter.Instance.GetItem(SelectedItem);
+        UpGood SelectedGood = Stock[selection];
+        //otherwise purchase (return if failed)
+        if(SelectedGood.OnPurchase() == false) return;
         Destroy(Stock[selection].gameObject);
         stockPurchased[selection] = true;
-        //and pay for it
-         //PlayerCharacter.Instance.money -= SelectedItem.cost;
         //commit to shopping here
         Commit();
         //move goods below this up a space
@@ -114,14 +103,14 @@ public class UpgradeShop : Shop
         //reduce maxScroll (absolute value)
         maxScroll += goodSpacing;
         //select a new item
-        SelectNewItem();
+        SelectNewGood();
     }
 
     // Selects the next available item, and none if none exists
-    private void SelectNewItem()
+    private void SelectNewGood()
     {
         //select next available item
-        if(SelectNextItem() == true || SelectPreviousItem() == true) return;
+        if(SelectNextGood() == true || SelectPreviousGood() == true) return;
         //if no items are available, there can be no selection
         Destroy(Selector);
         selection = -1;
@@ -129,7 +118,7 @@ public class UpgradeShop : Shop
     }
 
     // Select the next available item
-    public bool SelectNextItem()
+    public bool SelectNextGood()
     {
         for(int i = selection + 1; i < Stock.Length; i++)
         {
@@ -146,7 +135,7 @@ public class UpgradeShop : Shop
     }
 
     // Select previous available item
-    private bool SelectPreviousItem()
+    private bool SelectPreviousGood()
     {
         for(int i = selection - 1; i >= 0; i--)
         {
@@ -163,7 +152,7 @@ public class UpgradeShop : Shop
     }
 
     //Select the first available item
-    private bool SelectFirstItem()
+    private bool SelectFirstGood()
     {
         for(int i = 0; i < Stock.Length; i++)
         {
@@ -180,7 +169,7 @@ public class UpgradeShop : Shop
     }
 
     //Select the last available item
-    private bool SelectLastItem()
+    private bool SelectLastGood()
     {
         for(int i = Stock.Length - 1; i >= 0; i--)
         {
@@ -195,7 +184,6 @@ public class UpgradeShop : Shop
         //return false if no item exists
         return false;
     }
-
 
     // Randomly generate a stock based on day, etc.
     private void FillStock()
@@ -220,25 +208,15 @@ public class UpgradeShop : Shop
         maxScroll = (Stock.Length - 4) * goodSpacing * -1;
     }
 
-    // Adds the items specifically eeded on the first day
-    private void FillTutorialStock()
+    // Reset info for goods with a baseIndex matching the given index
+    public void ResetGoodInfoFor(int index)
     {
-        Stock = new UpGood[3];
-        stockPurchased = new bool[Stock.Length];
-        for(int i = 0; i < Stock.Length; i++)
+        for(int i = Stock.Length; i >= 0; i--)
         {
-            //create and position the good
-            GameObject GoodObject = Instantiate(GoodPrefab, GoodsRoot);
-            GoodObject.transform.localPosition += (Vector3.down * goodSpacing * i);
-            //then set its UpGood info
-            UpGood ThisGood = GoodObject.GetComponent<UpGood>();
-            ThisGood.id = i + 4;
-            ThisGood.stockIndex = i;
-            ThisGood.Seller = this;
-            //and add it to the stock
-            Stock[i] = ThisGood;
-            //give the player their starting ingredients as well
-            PlayerCharacter.Instance.Inventory.Add(new Item(i + 1));
+            if(stockPurchased[i] == false)
+            {
+                Stock[i].ResetIfBase(index);
+            }
         }
     }
 }

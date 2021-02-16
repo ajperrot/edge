@@ -9,6 +9,7 @@ public class UpGood : Good
     private CardInfo UpInfo; //CradInfo for the upgraded unit this will create
     private int baseId; //the id of the upgradable unit
     private int cost = 1; //the $ cost of this upgrade
+    private int baseIndex = -1; //index of the card to be upgraded, -1 if none
 
     // Initialize is called by the shop to set values in order
     public void Initialize(int id)
@@ -24,10 +25,12 @@ public class UpGood : Good
     {
         UpInfo = new CardInfo(id);
         UpInfo.name = ""; //use this to tell if the player has a matching base card
-        foreach(CardInfo Info in PlayerCharacter.Instance.PlayerDeck.Contents)
+        for(int i = 0; i < PlayerCharacter.Instance.PlayerDeck.Contents.Count; i++)
         {
+            CardInfo Info = PlayerCharacter.Instance.PlayerDeck.Contents[i];
             if(Info.id == baseId)
             {
+                baseIndex = i;
                 //only make the upinfo if there's a matching base card
                 UpInfo.name = Info.name;
                 return;
@@ -55,7 +58,7 @@ public class UpGood : Good
     // Tell the seller to selectthis item
     public void Select()
     {
-        Seller.SelectItemAt(stockIndex);
+        Seller.SelectGoodAt(stockIndex);
         // display the upgraded card if the player can make an upgrade
         if(UpInfo.name == "")
         {
@@ -71,6 +74,28 @@ public class UpGood : Good
     public void Scroll()
     {
         Seller.Scroll();
+    }
+
+    // Remove base card from player's deck, add the new one, and re-set up info for like upgoods
+    public bool OnPurchase()
+    {
+        //make sure we have the requisite base card
+        if(baseIndex < 0) return false;
+        //return if we can't afford it
+        if(cost > PlayerCharacter.Instance.money) return false;
+        //replace the old card
+        PlayerCharacter.Instance.PlayerDeck.Contents[baseIndex] = UpInfo;
+        //pay
+        PlayerCharacter.Instance.money -= cost;
+        //re-SetUpInfo for goods with the same baseIndex
+        Seller.ResetGoodInfoFor(baseIndex);
+        return true;
+    }
+
+    // SetUpInfo if baseIndex is the given value
+    public void ResetIfBase(int index)
+    {
+        if(baseIndex == index) SetUpInfo();
     }
 
 
