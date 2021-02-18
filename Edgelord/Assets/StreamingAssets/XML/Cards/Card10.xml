@@ -1,33 +1,27 @@
 <Card xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <id>10</id>
-  <name>Symphony</name>
-  <Type>1</Type>
+  <id>1</id>
+  <name>Bruiser</name>
+  <Type>0</Type>
   <SummonCost>
     <Radiant>0</Radiant>
-    <Lush>3</Lush>
+    <Lush>0</Lush>
     <Crimson>0</Crimson>
-    <Free>0</Free>
+    <Free>1</Free>
   </SummonCost>
-  <hp>15</hp>
-  <attack>3</attack>
-  <cardText>Harmony: Deals 2 unblockable damage to all enemies.
+  <hp>5</hp>
+  <attack>1</attack>
+  <cardText>Defend: Blocks a total of 3 damage.
   
-Melody: Deals 1 sanity damage to all humans.</cardText>
+  Bat: This unit deals +1 damage to units not at max HP.</cardText>
   <Abilities>
     <ability>0</ability>
-    <ability>7</ability>
-    <ability>8</ability>
+    <ability>1</ability>
   </Abilities>
   <Passives>
+    <Passives>14</Passives>
   </Passives>
   <ap>1</ap>
-  <sanity>0</sanity>
+  <sanity>4</sanity>
   <pattern>3</pattern>
-  <class>3</class>
-  <Upkeep>
-    <Radiant>0</Radiant>
-    <Lush>1</Lush>
-    <Crimson>0</Crimson>
-    <Free>0</Free>
-  </Upkeep>
+  <class>Bruiser</class>
 </Card>

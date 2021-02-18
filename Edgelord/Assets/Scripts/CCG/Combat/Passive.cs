@@ -124,10 +124,17 @@ public class Passive : MonoBehaviour
         if(User.side == 0) Encounter.UpkeepBonus += User.Info.SummonCost;
     }
 
+    // Do an extra 1 damage if the target has hp below the max
+    public static void Bat(Permanent User)
+    {
+        Permanent Target = Targeting.Target;
+        if(Target.hp < Target.maxHp) Target.TakeHit(1);
+    }
+
 
     public static int[] TriggerPerPassive = new int[]
     {
-        1, 0, 0, 0, 0, 2, 3, 1, 3, 4, 1, 0, 1, 1
+        1, 0, 0, 0, 0, 2, 3, 1, 3, 4, 1, 0, 1, 1, 4
     };
 
     public static Usage[] PassiveUsages = new Usage[]
@@ -145,6 +152,7 @@ public class Passive : MonoBehaviour
         new Usage(HolySupport), //THIS SHOULD BE THE FIRST LISTED PASSIVE IN CARD[_].XML
         new Usage(Mirror),
         new Usage(Guard),
-        new Usage(Studied)
+        new Usage(Studied),
+        new Usage(Bat)
     };
 }

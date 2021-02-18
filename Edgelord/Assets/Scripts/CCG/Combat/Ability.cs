@@ -162,7 +162,7 @@ public class Ability : MonoBehaviour
   {
     if(User.fuseCounter >= 3)
     {
-      Encounter.Instance.AddAlly(new CardInfo(10), User.side);
+      Encounter.Instance.AddAlly(new CardInfo(19), User.side);
       Encounter.Instance.Kill(User);
     } else
     {
