@@ -990,20 +990,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 604406133}
     m_Modifications:
-    - target: {fileID: 2608264983228911944, guid: cef8dbf959c3a40d199126f2679e05b1,
-        type: 3}
-      propertyPath: Info.id
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 8428880295766225320, guid: cef8dbf959c3a40d199126f2679e05b1,
         type: 3}
       propertyPath: m_Name
       value: HumanCard
-      objectReference: {fileID: 0}
-    - target: {fileID: 8428880295766225320, guid: cef8dbf959c3a40d199126f2679e05b1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8428880295766225321, guid: cef8dbf959c3a40d199126f2679e05b1,
         type: 3}
@@ -1485,7 +1475,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 604406134}
         m_MethodName: Purchase
         m_Mode: 4
         m_Arguments:

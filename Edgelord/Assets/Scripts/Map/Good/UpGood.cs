@@ -16,8 +16,8 @@ public class UpGood : Good
     {
         this.id = id;
         baseId = id/10; // JUST REMEMBER THE BASE IS ALWAYS THE ID / 10
+        cost = Costs[id];
         SetUpInfo();
-        // SOMEHOW DETERMINE COST 
     }
 
     // Fill out UpInfo based on id and the player's existing cards matching baseId
@@ -50,9 +50,8 @@ public class UpGood : Good
     // Fill out the various fields to express the associated item
     void FillUI()
     {
-        NameTextBox.text = UpInfo.name;
-        CostTextBox.text = "$" + cost;
-        OtherTextBox.text = " + " + UpInfo.humanClass;
+        NameTextBox.text = Names[id];
+        CostTextBox.text = "$" + cost + " + " + UpInfo.humanClass;
         Help.info = "Upgrade item for " + UpInfo.humanClass;
     }
 
@@ -99,5 +98,20 @@ public class UpGood : Good
         if(baseIndex == index) SetUpInfo();
     }
 
+    Dictionary<int, int> Costs = new Dictionary<int, int>()
+    {
+        {10, 30},
+        {140, 40},
+        {170, 40},
+        {180, 40}
+    };
+
+    Dictionary<int, string> Names = new Dictionary<int, string>()
+    {
+        {10, "Bat"},
+        {140, "Book1"},
+        {170, "Book2"},
+        {180, "Book3"}
+    };
 
 }

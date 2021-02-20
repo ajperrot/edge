@@ -22,7 +22,6 @@ public class ItemGood : Good
     {
         NameTextBox.text = ItemForSale.name;
         CostTextBox.text = "$" + ItemForSale.cost;
-        OtherTextBox.text = "";
         Help.info = ItemForSale.description;
     }
 
