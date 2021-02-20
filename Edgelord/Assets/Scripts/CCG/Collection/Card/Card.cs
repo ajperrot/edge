@@ -17,6 +17,8 @@ public class Card : MonoBehaviour
 
     public CardCallback OnUse;
 
+    private TMP_Text[] TextFields = null;
+
     // Runs once at start
     protected virtual void Start()
     {
@@ -28,7 +30,7 @@ public class Card : MonoBehaviour
     public virtual void FillCardUI()
     {
         //get Text boxes
-        TMP_Text[] TextFields = gameObject.GetComponentsInChildren<TMP_Text>();
+        if(TextFields == null) TextFields = gameObject.GetComponentsInChildren<TMP_Text>();
         Image[] Images = gameObject.GetComponentsInChildren<Image>();
         //add card art
         Images[0].sprite = GetCardArt(Info.id);

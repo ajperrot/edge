@@ -198,25 +198,28 @@ public class UpgradeShop : Shop
             GoodObject.transform.localPosition += (Vector3.down * goodSpacing * i);
             //then set its UpGood info
             UpGood ThisGood = GoodObject.GetComponent<UpGood>();
-            ThisGood.id = possibleGoods[(int)Random.Range(0, highestPossibleGoodIndex)];
             ThisGood.stockIndex = i;
             ThisGood.Seller = this;
+            ThisGood.Initialize(possibleGoods[(int)Random.Range(0, highestPossibleGoodIndex)]);
             //and add it to the stock
             Stock[i] = ThisGood;
         }
         //set our max scroll
         maxScroll = (Stock.Length - 4) * goodSpacing * -1;
+        //Select the first good for real
+        Stock[0].Select();
     }
 
     // Reset info for goods with a baseIndex matching the given index
     public void ResetGoodInfoFor(int index)
     {
-        for(int i = Stock.Length; i >= 0; i--)
+        for(int i = Stock.Length - 1; i >= 0; i--)
         {
             if(stockPurchased[i] == false)
             {
                 Stock[i].ResetIfBase(index);
             }
         }
+        Stock[selection].Select();
     }
 }

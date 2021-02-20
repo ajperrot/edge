@@ -15,8 +15,8 @@ public class UpGood : Good
     public void Initialize(int id)
     {
         this.id = id;
-        SetUpInfo();
         baseId = id/10; // JUST REMEMBER THE BASE IS ALWAYS THE ID / 10
+        SetUpInfo();
         // SOMEHOW DETERMINE COST 
     }
 
@@ -36,6 +36,7 @@ public class UpGood : Good
                 return;
             }
         }
+        baseIndex = -1;
     }
 
     // Start is called before the first frame update
@@ -51,7 +52,7 @@ public class UpGood : Good
     {
         NameTextBox.text = UpInfo.name;
         CostTextBox.text = "$" + cost;
-        OtherTextBox.text = "";
+        OtherTextBox.text = " + " + UpInfo.humanClass;
         Help.info = "Upgrade item for " + UpInfo.humanClass;
     }
 

@@ -1276,7 +1276,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &604406133
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1318,8 +1318,8 @@ MonoBehaviour:
   shopId: -1
   minStockCount: 2
   maxStockCount: 5
-  possibleGoods: 
-  numberOfPossibleGoodsPerDay: 
+  possibleGoods: 0a000000
+  numberOfPossibleGoodsPerDay: 01000000
   ShopNameTextBox: {fileID: 575074471}
   PurchaseTextBox: {fileID: 1087291378}
   GoodPrefab: {fileID: 4394857958457346996, guid: ab3b00a92393e46a6ac22c0f12e99958,
@@ -2126,7 +2126,31 @@ MonoBehaviour:
   MoneyDisplay: {fileID: 1585575433}
   MovementDisplay: {fileID: 1585575432}
   PlayerDeck:
-    Contents: []
+    Contents:
+    - id: 1
+      name: Jewser
+      Type: 0
+      SummonCost:
+        radiant: 0
+        lush: 0
+        crimson: 0
+        free: 0
+      hp: 0
+      attack: 0
+      cardText: 
+      cartArtPath: 
+      Abilities: 
+      Passives: 
+      pattern: 0
+      EntityClass: 0
+      Upkeep:
+        radiant: 0
+        lush: 0
+        crimson: 0
+        free: 0
+      humanClass: Bruiser
+      ap: 0
+      sanity: 0
   Inventory: []
   BaseAffinity:
     radiant: 0
