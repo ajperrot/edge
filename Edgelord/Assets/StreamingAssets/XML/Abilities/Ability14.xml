@@ -1,0 +1,11 @@
+<Ability xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Whisper</name>
+  <Cost>
+    <Radiant>0</Radiant>
+    <Lush>0</Lush>
+    <Crimson>100</Crimson>
+    <Free>0</Free>
+  </Cost>
+  <description>grants a human target 2X sanity</description>
+  <autoTargeting>0</autoTargeting>
+</Ability>

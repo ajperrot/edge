@@ -1,0 +1,29 @@
+<Card xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <id>22</id>
+  <name>Whisper</name>
+  <Type>2</Type>
+  <SummonCost>
+    <Radiant>0</Radiant>
+    <Lush>0</Lush>
+    <Crimson>100</Crimson>
+    <Free>0</Free>
+  </SummonCost>
+  <hp>0</hp>
+  <attack>0</attack>
+  <cardText>Grants a human target 2X sanity.</cardText>
+  <Abilities>
+    <ability>14</ability>
+  </Abilities>
+  <Passives>
+  </Passives>
+  <ap>0</ap>
+  <sanity>0</sanity>
+  <pattern>0</pattern>
+  <class>0</class>
+  <Upkeep>
+    <Radiant>0</Radiant>
+    <Lush>0</Lush>
+    <Crimson>0</Crimson>
+    <Free>0</Free>
+  </Upkeep>
+</Card>

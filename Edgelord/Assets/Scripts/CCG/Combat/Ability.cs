@@ -317,6 +317,15 @@ public class Ability : MonoBehaviour
     Targeting.Target.hp += 2 * VariableAffinity.x;
   }
 
+  // Grant 2X sanity
+  static void Whisper(Permanent User)
+  {
+    int x = ActiveAbility == null? 3 : ActiveAbility.Cost.radiant;
+    if(x > 3) x = VariableAffinity.x;
+    Permanent Target = Targeting.Target;
+    if(Target.sanity != 0) Target.sanity += 2 * x;
+  }
+
   public static Usage[] AbilityUsages = new Usage[]
   {
     new Usage(Attack),
@@ -332,7 +341,8 @@ public class Ability : MonoBehaviour
     new Usage(Reanimate),
     new Usage(Scorch),
     new Usage(Infect),
-    new Usage(Mend)
+    new Usage(Mend),
+    new Usage(Whisper)
   };
 
 }

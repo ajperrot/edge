@@ -225,6 +225,21 @@ public class AI
         return false;
     }
 
+    // Select a target with sanity at least 2 below their maximum
+    public static bool Whisper(Permanent User)
+    {
+        List<Permanent> Party = Encounter.Instance.Partes[User.side];
+        foreach (Permanent Member in Party)
+        {
+            if(Member.sanity != 0 && Member.maxSanity - Member.sanity >= 2)
+            {
+                Targeting.Target = Member;
+                return true;
+            }
+        }
+        return false; 
+    }
+
     // Deal damage bypassing defense
     public static bool AttackDirectly(Permanent User, Permanent Target)
     {
@@ -329,6 +344,7 @@ public class AI
         new Decision(UseInPresenceOfHumanCorpse),
         new Decision(UseIfMultipleEnemies),
         new Decision(Infect),
-        new Decision(Mend)
+        new Decision(Mend),
+        new Decision(Whisper)
     };
 }
