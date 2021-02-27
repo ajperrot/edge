@@ -34,6 +34,7 @@ public class Permanent : MonoBehaviour
     public int attackModifier = 0; //extra damage added to your attacks
     public Permanent Grappler; //only target attackable
     public bool mirror = false; //does this permanent reflect abilities?
+    public int rot = 0; //extra damage taken from attacks
 
     // Our maximum hp
     public int maxHp
@@ -236,6 +237,7 @@ public class Permanent : MonoBehaviour
                 Encounter.Instance.Wards[side][0].TakeHit(0 - defense);
             } else
             {
+                defense -= rot; //take rot damage ony if you yourself are hit
                 hp += defense;
                 if(mirror == true) Permanent.CurrentActor.hp += defense; //reflect damage with mirror
             }

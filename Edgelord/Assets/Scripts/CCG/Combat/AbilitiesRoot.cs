@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class AbilitiesRoot : MonoBehaviour
 {
+    public static Ability LastAddedAbility = null; //used by variable affinity to fill cost of phenomena
+
     public GameObject AbilityPrefab; //template for ability UI
     public float buttonSpacing = 60; //space between buttons vertically
     public Permanent User; //who is using these abilities?
     public GameObject TargetingArrow; //contains ui for targeting
 
-    private GameObject[] AbilityButtons; //array of all ability buttons
+    private List<GameObject> AbilityButtons = new List<GameObject>; //array of all ability buttons
     private List<bool> HoverStatus = new List<bool>(); //what is being hovered over
     private bool on = true;
 
@@ -21,10 +23,9 @@ public class AbilitiesRoot : MonoBehaviour
         User = transform.parent.GetComponent<Permanent>();
         HoverStatus.Add(false);
         HoverStatus.Add(false);
-        AbilityButtons = new GameObject[Abilities.Length];
-        for(int i = 0; i < AbilityButtons.Length; i++)
+        for(int i = 0; i < Abilities.Length; i++)
         {
-            AbilityButtons[i] = GameObject.Instantiate(AbilityPrefab, transform);
+            AbilityButtons.Add(GameObject.Instantiate(AbilityPrefab, transform))
             Ability CurrentAbility = AbilityButtons[i].GetComponent<Ability>();
             CurrentAbility.Initialize(this, Abilities[i]);
             CurrentAbility.hoverIndex = i + 2;
@@ -32,6 +33,19 @@ public class AbilitiesRoot : MonoBehaviour
             HoverStatus.Add(false);
         }
         gameObject.SetActive(false);
+    }
+
+    // Adds an additional ability button
+    public void AddAbilityButton(int ability)
+    {
+        AbilityButtons.Add(GameObject.Instantiate(AbilityPrefab, transform));
+        int i = AbilityButtons.Count - 1;
+        Ability CurrentAbility = AbilityButtons[i].GetComponent<Ability>();
+        CurrentAbility.Initialize(this, Abilities[i]);
+        CurrentAbility.hoverIndex = i + 2;
+        AbilityButtons[i].transform.localPosition += new Vector3(0, buttonSpacing * i + abilityOffset, 0);
+        HoverStatus.Add(false);
+        LastAddedAbility = CurrentAbility;
     }
 
     // Set the given HoverStatus to true and activate self

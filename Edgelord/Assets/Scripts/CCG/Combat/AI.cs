@@ -184,6 +184,47 @@ public class AI
         return false;
     }
 
+    // Return true if more than one permanent is on the opposing side
+    public static bool UseIfMultipleEnemies(Permanent User)
+    {
+        int opposingSide = 0;
+        if(User.side == 0) opposingSide = 1;
+        if(Encounter.Instance.Parties[opposingSide].Count > 1) return true;
+        return false;
+    }
+
+    // Selects a target with hp - (rot + 6) >= user's attack, if one exists
+    public static bool Infect(Permanent User)
+    {
+        int opposingSide = 0;
+        if(User.side == 0) opposingSide = 1;
+        List<Permanent> OpposingParty = Encounter.Instace.Parties[opposingSide];
+        foreach(Permanent PotentialTarget in OpposingParty)
+        {
+            if(PotentialTarget.hp - (PotentialTarget.rot + 6) >= User.Info.attack)
+            {
+                Targeting.Target = PotentialTarget;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Select target on the friendly party with 1hp or maxhp - 6 or more
+    public static bool Mend(Permanent User)
+    {
+        List<Permanent> Party = Encounter.Instance.Partes[User.side];
+        foreach (Permanent Member in Party)
+        {
+            if(Member.hp == 1 || Member.maxHp - Member.hp >= 6)
+            {
+                Targeting.Target = Member;
+                return true;
+            }
+        }
+        return false;
+    }
+
     // Deal damage bypassing defense
     public static bool AttackDirectly(Permanent User, Permanent Target)
     {
@@ -285,6 +326,9 @@ public class AI
         new Decision(JustUse),
         new Decision(Melody),
         new Decision(TargetStrongestOverOne),
-        new Decision(UseInPresenceOfHumanCorpse)
+        new Decision(UseInPresenceOfHumanCorpse),
+        new Decision(UseIfMultipleEnemies),
+        new Decision(Infect),
+        new Decision(Mend)
     };
 }

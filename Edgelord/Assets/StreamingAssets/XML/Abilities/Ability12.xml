@@ -1,0 +1,11 @@
+<Ability xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Infect</name>
+  <Cost>
+    <Radiant>0</Radiant>
+    <Lush>100</Lush>
+    <Crimson>0</Crimson>
+    <Free>0</Free>
+  </Cost>
+  <description>apply 2X rot to one target</description>
+  <autoTargeting>0</autoTargeting>
+</Ability>

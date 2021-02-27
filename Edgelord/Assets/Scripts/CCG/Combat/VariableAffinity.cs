@@ -59,10 +59,14 @@ public class VariableAffinity : MonoBehaviour
         if(Costs[affinityType, count].Pay() == false) return;
         x = count + 1;
         gameObject.SetActive(false);
-        if(Ability.ActiveAbility.autoTargeting == true)
+        if(Ability.ActiveAbility != null && Ability.ActiveAbility.autoTargeting == true)
         {
             Ability.ActiveAbility.Use();
             Ability.ActiveAbility = null;
+        } else if(AbilitiesRoot.LastAddedAbility != null)
+        {
+            AbilitiesRoot.LastAddedAbility.Cost = Costs[affinityType, count];
+            AbilitiesRoot.LastAddedAbility = null;
         }
     }
 

@@ -301,6 +301,22 @@ public class Ability : MonoBehaviour
     }
   }
 
+  // Apply 2X rot to target
+  static void Infect(Permanent User)
+  {
+    int x = ActiveAbility == null? 3 : ActiveAbility.Cost.lush;
+    if(x > 3) x = VariableAffinity.x;
+    Targeting.Target.rot = 2 * x;
+  }
+
+  // Heal 2X hp (no overheal)
+  static void Mend(Permanent User)
+  {
+    int x = ActiveAbility == null? 3 : ActiveAbility.Cost.radiant;
+    if(x > 3) x = VariableAffinity.x;
+    Targeting.Target.hp += 2 * VariableAffinity.x;
+  }
+
   public static Usage[] AbilityUsages = new Usage[]
   {
     new Usage(Attack),
@@ -314,7 +330,9 @@ public class Ability : MonoBehaviour
     new Usage(Melody),
     new Usage(Shackle),
     new Usage(Reanimate),
-    new Usage(Scorch)
+    new Usage(Scorch),
+    new Usage(Infect),
+    new Usage(Mend)
   };
 
 }

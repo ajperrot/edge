@@ -1,0 +1,31 @@
+<Card xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <id>20</id>
+  <name>Infect</name>
+  <Type>2</Type>
+  <SummonCost>
+    <Radiant>0</Radiant>
+    <Lush>100</Lush>
+    <Crimson>0</Crimson>
+    <Free>0</Free>
+  </SummonCost>
+  <hp>0</hp>
+  <attack>0</attack>
+  <cardText>Applies 2X rot to any target.
+  
+  Rot: Attacks to infected creatire deal additional damage equal to the ammount of rot applied.</cardText>
+  <Abilities>
+    <ability>12</ability>
+  </Abilities>
+  <Passives>
+  </Passives>
+  <ap>0</ap>
+  <sanity>0</sanity>
+  <pattern>0</pattern>
+  <class>0</class>
+  <Upkeep>
+    <Radiant>0</Radiant>
+    <Lush>0</Lush>
+    <Crimson>0</Crimson>
+    <Free>0</Free>
+  </Upkeep>
+</Card>
