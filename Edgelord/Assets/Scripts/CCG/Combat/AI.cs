@@ -198,7 +198,7 @@ public class AI
     {
         int opposingSide = 0;
         if(User.side == 0) opposingSide = 1;
-        List<Permanent> OpposingParty = Encounter.Instace.Parties[opposingSide];
+        List<Permanent> OpposingParty = Encounter.Instance.Parties[opposingSide];
         foreach(Permanent PotentialTarget in OpposingParty)
         {
             if(PotentialTarget.hp - (PotentialTarget.rot + 6) >= User.Info.attack)
@@ -213,7 +213,7 @@ public class AI
     // Select target on the friendly party with 1hp or maxhp - 6 or more
     public static bool Mend(Permanent User)
     {
-        List<Permanent> Party = Encounter.Instance.Partes[User.side];
+        List<Permanent> Party = Encounter.Instance.Parties[User.side];
         foreach (Permanent Member in Party)
         {
             if(Member.hp == 1 || Member.maxHp - Member.hp >= 6)
@@ -228,7 +228,7 @@ public class AI
     // Select a target with sanity at least 2 below their maximum
     public static bool Whisper(Permanent User)
     {
-        List<Permanent> Party = Encounter.Instance.Partes[User.side];
+        List<Permanent> Party = Encounter.Instance.Parties[User.side];
         foreach (Permanent Member in Party)
         {
             if(Member.sanity != 0 && Member.maxSanity - Member.sanity >= 2)

@@ -11,7 +11,7 @@ public class AbilitiesRoot : MonoBehaviour
     public Permanent User; //who is using these abilities?
     public GameObject TargetingArrow; //contains ui for targeting
 
-    private List<GameObject> AbilityButtons = new List<GameObject>; //array of all ability buttons
+    private List<GameObject> AbilityButtons = new List<GameObject>(); //array of all ability buttons
     private List<bool> HoverStatus = new List<bool>(); //what is being hovered over
     private bool on = true;
 
@@ -25,7 +25,7 @@ public class AbilitiesRoot : MonoBehaviour
         HoverStatus.Add(false);
         for(int i = 0; i < Abilities.Length; i++)
         {
-            AbilityButtons.Add(GameObject.Instantiate(AbilityPrefab, transform))
+            AbilityButtons.Add(GameObject.Instantiate(AbilityPrefab, transform));
             Ability CurrentAbility = AbilityButtons[i].GetComponent<Ability>();
             CurrentAbility.Initialize(this, Abilities[i]);
             CurrentAbility.hoverIndex = i + 2;
@@ -41,7 +41,7 @@ public class AbilitiesRoot : MonoBehaviour
         AbilityButtons.Add(GameObject.Instantiate(AbilityPrefab, transform));
         int i = AbilityButtons.Count - 1;
         Ability CurrentAbility = AbilityButtons[i].GetComponent<Ability>();
-        CurrentAbility.Initialize(this, Abilities[i]);
+        CurrentAbility.Initialize(this, ability);
         CurrentAbility.hoverIndex = i + 2;
         AbilityButtons[i].transform.localPosition += new Vector3(0, buttonSpacing * i + abilityOffset, 0);
         HoverStatus.Add(false);

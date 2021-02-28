@@ -18,7 +18,7 @@ public class PhenomenonCard : Card
         //check if we can pay cost while paying
         if(Info.SummonCost.Pay() == false) return;
         //add the ability for this battle
-        PlayerCharacter.Instance.AbilityDisplay.AddAbilityButton(Info.abilities[0]);
+        PlayerCharacter.Instance.AbilityDisplay.AddAbilityButton(Info.Abilities[0]);
         //remove card from hand
         PlayerCharacter.Instance.RemoveFromHand(transform.GetSiblingIndex());
         //use any necessary callbacks

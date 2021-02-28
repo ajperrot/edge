@@ -21,10 +21,10 @@ public class Ability : MonoBehaviour
   public int hoverIndex; //give this to root when hovered over
   public Permanent User; //who is using these abilities?
   public bool autoTargeting; //if true, we don't have to target manually
+  public Affinity Cost = new Affinity(); //what do we lose when using this ability
 
   private AbilitiesRoot Root; //the root which summoned us
   private int id; //which ability is this?
-  private Affinity Cost = new Affinity(); //what do we lose when using this ability
 
   // Fill in the data for this ability and write to UI
   public void Initialize(AbilitiesRoot Root, int id)
