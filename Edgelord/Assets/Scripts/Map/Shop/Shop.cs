@@ -41,6 +41,7 @@ public class Shop : MonoBehaviour
         {
             //otherwise return to map
             gameObject.SetActive(false);
+            Destination.ToggleMapIcons(true);
         }
     }
 

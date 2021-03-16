@@ -146,10 +146,10 @@ GameObject:
   - component: {fileID: 4394857958457346953}
   - component: {fileID: 4394857958457346954}
   - component: {fileID: 227146020}
-  - component: {fileID: 6487355790330092466}
   - component: {fileID: 227146017}
+  - component: {fileID: -4569387186601378329}
   m_Layer: 5
-  m_Name: UpGood
+  m_Name: CardGood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -256,7 +256,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6487355790330092466}
+      - m_Target: {fileID: -4569387186601378329}
         m_MethodName: Select
         m_Mode: 1
         m_Arguments:
@@ -282,24 +282,6 @@ MonoBehaviour:
   HelpWindowPrefab: {fileID: 1050055560308691828, guid: e7414bb2ccc5a448cb6da427f1a508c2,
     type: 3}
   WindowDisplacement: {x: 550, y: 120, z: 0}
---- !u!114 &6487355790330092466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4394857958457346996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cd9f9f35ea204b0984233b7abe05fe9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stockIndex: 0
-  id: -1
-  NameTextBox: {fileID: 4394857957540424046}
-  CostTextBox: {fileID: 3970017670657163460}
-  Help: {fileID: 227146020}
-  Seller: {fileID: 0}
 --- !u!114 &227146017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,7 +329,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 6487355790330092466}
+        - m_Target: {fileID: -4569387186601378329}
           m_MethodName: Scroll
           m_Mode: 1
           m_Arguments:
@@ -358,6 +340,24 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &-4569387186601378329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4394857958457346996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9dbaea4bcdc1425884ca8e9a4f44126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stockIndex: 0
+  id: -1
+  NameTextBox: {fileID: 4394857957540424046}
+  CostTextBox: {fileID: 3970017670657163460}
+  Help: {fileID: 0}
+  Seller: {fileID: 0}
 --- !u!1 &4855085266448888829
 GameObject:
   m_ObjectHideFlags: 0

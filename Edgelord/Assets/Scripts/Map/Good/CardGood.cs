@@ -5,38 +5,16 @@ using UnityEngine;
 public class CardGood : Good
 {
     public CardShop Seller; //the shop selling this good
-
-    private CardInfo UpInfo; //CradInfo for the upgraded unit this will create
-    private int baseId; //the id of the upgradable unit
+    public CardInfo Info; //CradInfo for the upgraded unit this will create
+    
     private int cost = 1; //the $ cost of this upgrade
-    private int baseIndex = -1; //index of the card to be upgraded, -1 if none
 
     // Initialize is called by the shop to set values in order
     public void Initialize(int id)
     {
         this.id = id;
-        baseId = id/10; // JUST REMEMBER THE BASE IS ALWAYS THE ID / 10
         cost = Costs[id];
-        SetUpInfo();
-    }
-
-    // Fill out UpInfo based on id and the player's existing cards matching baseId
-    private void SetUpInfo()
-    {
-        UpInfo = new CardInfo(id);
-        UpInfo.name = ""; //use this to tell if the player has a matching base card
-        for(int i = 0; i < PlayerCharacter.Instance.PlayerDeck.Contents.Count; i++)
-        {
-            CardInfo Info = PlayerCharacter.Instance.PlayerDeck.Contents[i];
-            if(Info.id == baseId)
-            {
-                baseIndex = i;
-                //only make the upinfo if there's a matching base card
-                UpInfo.name = Info.name;
-                return;
-            }
-        }
-        baseIndex = -1;
+        Info = new CardInfo(id);
     }
 
     // Start is called before the first frame update
@@ -50,24 +28,18 @@ public class CardGood : Good
     // Fill out the various fields to express the associated item
     void FillUI()
     {
-        NameTextBox.text = Names[id];
-        CostTextBox.text = "$" + cost + " + " + UpInfo.humanClass;
-        Help.info = "Upgrade item for " + UpInfo.humanClass;
+        NameTextBox.text = Info.name;
+        CostTextBox.text = "$" + cost;
+        Help.info = "This card, once purchased, can grant you a new ability when played.";
     }
 
     // Tell the seller to selectthis item
     public void Select()
     {
         Seller.SelectGoodAt(stockIndex);
-        // display the upgraded card if the player can make an upgrade
-        if(UpInfo.name == "")
-        {
-            Seller.CardDisplay.SetActive(false);
-        } else
-        {
-            Seller.CardDisplay.GetComponent<HumanCard>().Reset(UpInfo);
-            Seller.CardDisplay.SetActive(true);
-        }
+        // display the card
+        Seller.CardDisplay.GetComponent<PhenomenonCard>().Reset(Info);
+        Seller.CardDisplay.SetActive(true);
     }
 
     // Calls the seller's scroll function
@@ -79,39 +51,19 @@ public class CardGood : Good
     // Remove base card from player's deck, add the new one, and re-set up info for like CardGoods
     public bool OnPurchase()
     {
-        //make sure we have the requisite base card
-        if(baseIndex < 0) return false;
         //return if we can't afford it
         if(cost > PlayerCharacter.Instance.money) return false;
-        //replace the old card
-        PlayerCharacter.Instance.PlayerDeck.Contents[baseIndex] = UpInfo;
+        //add the card
+        PlayerCharacter.Instance.PlayerDeck.Contents.Add(Info);
         //pay
         PlayerCharacter.Instance.money -= cost;
-        //re-SetUpInfo for goods with the same baseIndex
-        Seller.ResetGoodInfoFor(baseIndex);
         return true;
-    }
-
-    // SetUpInfo if baseIndex is the given value
-    public void ResetIfBase(int index)
-    {
-        if(baseIndex == index) SetUpInfo();
     }
 
     Dictionary<int, int> Costs = new Dictionary<int, int>()
     {
-        {10, 30},
-        {140, 40},
-        {170, 40},
-        {180, 40}
+        {20, 30},
+        {21, 30},
+        {22, 30}
     };
-
-    Dictionary<int, string> Names = new Dictionary<int, string>()
-    {
-        {10, "Bat"},
-        {140, "Book1"},
-        {170, "Book2"},
-        {180, "Book3"}
-    };
-
 }

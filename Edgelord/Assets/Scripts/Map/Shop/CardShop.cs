@@ -55,6 +55,7 @@ public class CardShop : Shop
         //select item
         Selector.transform.localPosition = Stock[index].transform.localPosition;
         selection = index;
+        CardDisplay.GetComponent<PhenomenonCard>().Reset(Stock[index].Info);
     }
 
     // Select item and scroll to it
@@ -208,18 +209,5 @@ public class CardShop : Shop
         maxScroll = (Stock.Length - 4) * goodSpacing * -1;
         //Select the first good for real
         Stock[0].Select();
-    }
-
-    // Reset info for goods with a baseIndex matching the given index
-    public void ResetGoodInfoFor(int index)
-    {
-        for(int i = Stock.Length - 1; i >= 0; i--)
-        {
-            if(stockPurchased[i] == false)
-            {
-                Stock[i].ResetIfBase(index);
-            }
-        }
-        Stock[selection].Select();
     }
 }

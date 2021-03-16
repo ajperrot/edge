@@ -83,8 +83,7 @@ public class CardInfo
                 this.sanity = XmlConvert.ToInt32(Nodes[10].InnerText);
                 this.name = GenerateRandomName();
                 this.humanClass = Nodes[12].InnerText;
-            }
-            else
+            } else
             {
                 //include entity name, class and upkeep if entity
                 this.name = Nodes[1].InnerText;
@@ -92,8 +91,7 @@ public class CardInfo
                 this.Upkeep = GetAffinityFromXmlNodes(Nodes[13].ChildNodes);
                 if(Upkeep > 0) this.cardText += "\nUPKEEP: " + Upkeep.ToString();
             }
-        }
-        
+        } else this.name = Nodes[1].InnerText; //just a name for phenomena
     }
 
     // Load the document for a specified card

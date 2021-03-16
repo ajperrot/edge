@@ -7,6 +7,11 @@ public class PhenomenonCard : Card
     // Start is called before the first frame update
     protected override void Start()
     {
+        //randomly generate self if id is invalid
+        if(Info.id < 0)
+        {
+            Info = new CardInfo(20);
+        }
         base.Start();
     }
 

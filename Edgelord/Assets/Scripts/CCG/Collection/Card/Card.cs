@@ -40,21 +40,33 @@ public class Card : MonoBehaviour
         int currentBox = 1;
         if(Info.SummonCost.radiant > 0)
         {
-            TextFields[currentBox].text = "" + Info.SummonCost.radiant;
+            //set text, accounting for variable cost
+            if(Info.SummonCost.radiant == 100)
+            {
+                TextFields[currentBox].text = "X";
+            }else TextFields[currentBox].text = "" + Info.SummonCost.radiant;
             //set icon
             Images[1 + currentBox].sprite = Resources.Load<Sprite>("Sprites/icon_radiant");
             currentBox++;
         }
         if(Info.SummonCost.lush > 0)
         {
-            TextFields[currentBox].text = "" + Info.SummonCost.lush;
+            //set text, accounting for variable cost
+            if(Info.SummonCost.lush == 100)
+            {
+                TextFields[currentBox].text = "X";
+            }else TextFields[currentBox].text = "" + Info.SummonCost.lush;
             //set icon
             Images[1 + currentBox].sprite = Resources.Load<Sprite>("Sprites/icon_lush");
             currentBox++;
         }
         if(Info.SummonCost.crimson > 0)
         {
-            TextFields[currentBox].text = "" + Info.SummonCost.crimson;
+            //set text, accounting for variable cost
+            if(Info.SummonCost.crimson == 100)
+            {
+                TextFields[currentBox].text = "X";
+            }else TextFields[currentBox].text = "" + Info.SummonCost.crimson;
             //set icon
             Images[1 + currentBox].sprite = Resources.Load<Sprite>("Sprites/icon_crimson");
             currentBox++;
@@ -81,7 +93,7 @@ public class Card : MonoBehaviour
         }
         //card text
         TextFields[4].text = Info.cardText;
-        //name
+        //type
         TextFields[5].text = Info.Type.ToString();
         if(Info.Type == CardInfo.CardType.Human)
         {
@@ -135,5 +147,13 @@ public class Card : MonoBehaviour
         //register sprite in dictionary and return
         LoadedCardArt.Add(id, NewSprite);
         return LoadedCardArt[id];
+    }
+
+    
+    // Change CardInfo and re-fill the ui
+    public void Reset(CardInfo Info)
+    {
+        this.Info = Info;
+        FillCardUI();
     }
 }
