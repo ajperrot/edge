@@ -75,8 +75,8 @@ public class ItemShop : Shop
         totalScroll = 0;
         if(scrollIndex > 3)
         {
-            GoodsRoot.localPosition = GoodsRootOriginalPosition + (Vector3.down * (scrollIndex - 3) * goodSpacing * -1);
-            totalScroll -= (scrollIndex - 3) * goodSpacing;
+            GoodsRoot.localPosition = GoodsRootOriginalPosition + (Vector3.down * (scrollIndex - 3) * goodSpacingY * -1);
+            totalScroll -= (scrollIndex - 3) * goodSpacingY;
         }
         //then actually select it
         SelectItemAt(index);
@@ -94,23 +94,25 @@ public class ItemShop : Shop
         //otherwise add it to inventory, and remove it from stock
         PlayerCharacter.Instance.GetItem(SelectedItem);
         Destroy(Stock[selection].gameObject);
+        //show we bought it
         stockPurchased[selection] = true;
+        purchaseCount++;
         //and pay for it
         PlayerCharacter.Instance.money -= SelectedItem.cost;
         //commit to shopping here
         Commit();
-        //move goods below this up a space
+        //move goods below this up if necessary //CHANGE
         for(int i = selection; i < Stock.Length; i++)
         {
             //check first if it's been purchased
             if(stockPurchased[i] == false)
             {
                 //if not purchased, move it up
-                Stock[i].transform.localPosition += (Vector3.up * goodSpacing);
+                Stock[i].transform.localPosition += (Vector3.up * goodSpacingY);
             }
         }
         //reduce maxScroll (absolute value)
-        maxScroll += goodSpacing;
+        maxScroll += goodSpacingY;
         //select a new item
         SelectNewItem();
     }
@@ -205,7 +207,8 @@ public class ItemShop : Shop
         {
             //create and position the good
             GameObject GoodObject = Instantiate(GoodPrefab, GoodsRoot);
-            GoodObject.transform.localPosition += (Vector3.down * goodSpacing * i);
+            GoodObject.transform.localPosition += (Vector3.right * goodSpacingX * (i%goodsPerRow));
+            GoodObject.transform.localPosition += (Vector3.down * goodSpacingY * (i / goodsPerRow));
             //then set its itemgood info
             ItemGood ThisGood = GoodObject.GetComponent<ItemGood>();
             ThisGood.id = possibleGoods[(int)Random.Range(0, highestPossibleGoodIndex)];
@@ -215,19 +218,20 @@ public class ItemShop : Shop
             Stock[i] = ThisGood;
         }
         //set our max scroll
-        maxScroll = (Stock.Length - 4) * goodSpacing * -1;
+        maxScroll = Stock.Length / goodsPerRow * goodSpacingY * -1;
     }
 
     // Adds the items specifically eeded on the first day
     private void FillTutorialStock()
     {
-        Stock = new ItemGood[3];
+        Stock = new ItemGood[5];//should be 3 CHANGE
         stockPurchased = new bool[Stock.Length];
         for(int i = 0; i < Stock.Length; i++)
         {
             //create and position the good
             GameObject GoodObject = Instantiate(GoodPrefab, GoodsRoot);
-            GoodObject.transform.localPosition += (Vector3.down * goodSpacing * i);
+            GoodObject.transform.localPosition += (Vector3.right * goodSpacingX * (i%goodsPerRow));
+            GoodObject.transform.localPosition += (Vector3.down * goodSpacingY * (i / goodsPerRow));
             //then set its itemgood info
             ItemGood ThisGood = GoodObject.GetComponent<ItemGood>();
             ThisGood.id = i + 4;

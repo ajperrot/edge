@@ -127,8 +127,6 @@ public class PlayerCharacter : Permanent
             PlayerDeck.AddNewCard(4);//test
             PlayerDeck.AddNewCard(18);//test
             InitializePermanent();
-            side = 0;
-            isLeader = true;
         }
     }
 
@@ -145,10 +143,13 @@ public class PlayerCharacter : Permanent
         ap = maxAp;
         //set cardinfo stuff
         Info = new CardInfo(0);
-        // INITIALIZE ABILITIES BASED ON EQUIPMENT
+        //INITIALIZE ABILITIES BASED ON EQUIPMENT
         AbilityDisplay.InitializeAbilityButtons(Info.Abilities);
         //set up hand
         DealStartingHand();
+        //couple encounter variables
+        side = 0;
+        isLeader = true;
     }
 
     // Shuffles the deck, gets a starting hand, and puts it onscreen

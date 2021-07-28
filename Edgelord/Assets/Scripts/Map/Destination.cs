@@ -13,7 +13,7 @@ public class Destination : MonoBehaviour
     void Start()
     {
         All.Add(gameObject);
-        Overlay = transform.GetChild(0).gameObject;
+        if (transform.childCount > 0) Overlay = transform.GetChild(0).gameObject;
     }
 
     // Deactivate all shops

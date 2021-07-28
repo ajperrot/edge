@@ -5,7 +5,9 @@ using TMPro;
 
 public class Shop : MonoBehaviour
 {
-    public static float goodSpacing = 175; //space between goods on the menu
+    public static int goodsPerRow = 2; //goods displayed in one row of the menu
+    public static float goodSpacingX = 350; //horizontal space between goods on the menu
+    public static float goodSpacingY = 350; //vertical space between goods on the menu
     public static float scrollSpeed = 20; //scroll per frame scrolling
 
     public int shopId = -1; //indicates which shop this is
@@ -23,6 +25,7 @@ public class Shop : MonoBehaviour
     public float maxScroll = 0; //how far can we scroll
     public Vector3 GoodsRootOriginalPosition;
     public float totalScroll = 0; //how far have we scrolled
+    public int purchaseCount;
 
     // Start is called before the first frame update
     public void Start()

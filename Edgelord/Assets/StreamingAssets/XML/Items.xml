@@ -4,7 +4,7 @@
     <name>INVALID ITEM</name>
     <cost>0</cost>
     <stackable>0</stackable>
-    <iconPath></iconPath>
+    <iconPath>100x100</iconPath>
     <description>This is a null placeholder for the ritual validator to function</description>
   </Item>
   <Item>

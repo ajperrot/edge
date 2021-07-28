@@ -71,8 +71,8 @@ public class UpgradeShop : Shop
         totalScroll = 0;
         if(scrollIndex > 3)
         {
-            GoodsRoot.localPosition = GoodsRootOriginalPosition + (Vector3.down * (scrollIndex - 3) * goodSpacing * -1);
-            totalScroll -= (scrollIndex - 3) * goodSpacing;
+            GoodsRoot.localPosition = GoodsRootOriginalPosition + (Vector3.down * (scrollIndex - 3) * goodSpacingY * -1);
+            totalScroll -= (scrollIndex - 3) * goodSpacingY;
         }
         //then actually select it
         SelectGoodAt(index);
@@ -97,11 +97,11 @@ public class UpgradeShop : Shop
             if(stockPurchased[i] == false)
             {
                 //if not purchased, move it up
-                Stock[i].transform.localPosition += (Vector3.up * goodSpacing);
+                Stock[i].transform.localPosition += (Vector3.up * goodSpacingY);
             }
         }
         //reduce maxScroll (absolute value)
-        maxScroll += goodSpacing;
+         //maxScroll += goodSpacing;
         //select a new item
         SelectNewGood();
     }
@@ -195,7 +195,8 @@ public class UpgradeShop : Shop
         {
             //create and position the good
             GameObject GoodObject = Instantiate(GoodPrefab, GoodsRoot);
-            GoodObject.transform.localPosition += (Vector3.down * goodSpacing * i);
+            GoodObject.transform.localPosition += (Vector3.right * goodSpacingX * (i%goodsPerRow));
+            GoodObject.transform.localPosition += (Vector3.down * goodSpacingY * (i / goodsPerRow));
             //then set its UpGood info
             UpGood ThisGood = GoodObject.GetComponent<UpGood>();
             ThisGood.stockIndex = i;
@@ -205,7 +206,7 @@ public class UpgradeShop : Shop
             Stock[i] = ThisGood;
         }
         //set our max scroll
-        maxScroll = (Stock.Length - 4) * goodSpacing * -1;
+        maxScroll = Stock.Length / goodsPerRow * goodSpacingY * -1;
         //Select the first good for real
         Stock[0].Select();
     }
