@@ -23,6 +23,8 @@ public class Shop : MonoBehaviour
     public bool committed = false; //have we bought anything yet?
     public string purchaseText = "Purchase"; //what to say on the purchase button once committed
     public float maxScroll = 0; //how far can we scroll
+    public float yMax; //maximum y position
+    public float yMin; //minimum y position
     public Vector3 GoodsRootOriginalPosition;
     public float totalScroll = 0; //how far have we scrolled
     public int purchaseCount;
@@ -31,6 +33,7 @@ public class Shop : MonoBehaviour
     public void Start()
     {
         GoodsRootOriginalPosition = GoodsRoot.localPosition;
+        yMin = GoodsRootOriginalPosition.y;
     }
 
     // Return to map if uncommitted, otherwise go home

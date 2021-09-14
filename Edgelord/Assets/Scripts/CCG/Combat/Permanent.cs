@@ -314,7 +314,7 @@ public class Permanent : MonoBehaviour
         SoulboundEntities.Add(Sucker);
         Sucker.Soulbinds.Add(this);
         //holy support
-        if(Info.Passives[0] == 10 && SoulboundEntities.Count >= maxAp)
+        if(Info.Passives.Length > 0 && Info.Passives[0] == 10 && SoulboundEntities.Count >= maxAp)
         {
             maxAp++;
             ap++;

@@ -22,11 +22,12 @@ public class ItemShop : Shop
         }
         stockPurchased = new bool[Stock.Length];
     }
-
+/*
     // Enable event handlers
     void OnEnable()
     {
-        InputManager.OnInputHit[(int)InputManager.AxisEnum.Vertical] += ScrollOne;
+        InputManager.OnInputHit[(int)InputManager.AxisEnum.Vertical] += ScrollTwo;
+        InputManager.OnInputHit[(int)InputManager.AxisEnum.Horizontal] += ScrollOne;
         InputManager.OnInputHit[(int)InputManager.AxisEnum.Confirm] += Purchase;
         InputManager.OnInputHit[(int)InputManager.AxisEnum.Cancel] += Exit;
     }
@@ -34,22 +35,30 @@ public class ItemShop : Shop
     // Disable event handlers
         void OnDisable()
     {
-        InputManager.OnInputHit[(int)InputManager.AxisEnum.Vertical] -= ScrollOne;
+        InputManager.OnInputHit[(int)InputManager.AxisEnum.Vertical] -= ScrollTwo;
+        InputManager.OnInputHit[(int)InputManager.AxisEnum.Horizontal] -= ScrollOne;
         InputManager.OnInputHit[(int)InputManager.AxisEnum.Confirm] -= Purchase;
         InputManager.OnInputHit[(int)InputManager.AxisEnum.Cancel] -= Exit;
     }
-
+*/
     // React to up/down keys
+    public void ScrollTwo(float axisValue)
+    {
+        ScrollOne(axisValue);
+        ScrollOne(axisValue);
+    }
+
+    // React to right/left
     public void ScrollOne(float axisValue)
     {
-        int sign = (axisValue > 0)? 1 : -1;
+        //int sign = (axisValue > 0)? 1 : -1;
         //check the new index is valid
-        if(sign > 0)
-        {
-            if(SelectPreviousItem() == false) SelectLastItem();
-        } else
+        if(axisValue > 0)
         {
             if(SelectNextItem() == false) SelectFirstItem();
+        } else
+        {
+            if(SelectPreviousItem() == false) SelectLastItem();
         }
     }
 
@@ -64,6 +73,7 @@ public class ItemShop : Shop
     // Select item and scroll to it
     private void SelectAndScrollTo(int index)
     {
+        /*
         //calculate index of remaining items for scrolling
         int scrollIndex = 0;
         for(int i = 0; i < selection; i++)
@@ -73,13 +83,16 @@ public class ItemShop : Shop
         //scroll to item
         GoodsRoot.localPosition = GoodsRootOriginalPosition;
         totalScroll = 0;
-        if(scrollIndex > 3)
+        if(scrollIndex > 2)
         {
             GoodsRoot.localPosition = GoodsRootOriginalPosition + (Vector3.down * (scrollIndex - 3) * goodSpacingY * -1);
-            totalScroll -= (scrollIndex - 3) * goodSpacingY;
-        }
+            totalScroll -= (scrollIndex - 2) * goodSpacingY;
+        }*/
         //then actually select it
         SelectItemAt(index);
+        print(Selector.transform.localPosition);//test
+        GoodsRoot.localPosition.Set(GoodsRootOriginalPosition.x, Selector.transform.localPosition.y, 0);
+        print(GoodsRoot.localPosition);//test
     }
 
     // Purchase the selected good
@@ -219,6 +232,7 @@ public class ItemShop : Shop
         }
         //set our max scroll
         maxScroll = Stock.Length / goodsPerRow * goodSpacingY * -1;
+        yMax = (Stock.Length / goodsPerRow) * goodSpacingY + yMin;
     }
 
     // Adds the items specifically eeded on the first day
@@ -242,5 +256,7 @@ public class ItemShop : Shop
             //give the player their starting ingredients as well
             PlayerCharacter.Instance.Inventory.Add(new Item(i + 1));
         }
+        //set scroll bound
+        yMax = (Stock.Length / goodsPerRow) * goodSpacingY + yMin;
     }
 }

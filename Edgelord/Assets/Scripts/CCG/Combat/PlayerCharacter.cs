@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -7,6 +8,9 @@ using TMPro;
 public class PlayerCharacter : Permanent
 {
     public static PlayerCharacter Instance; //singleton
+
+
+    public bool isTest = false; //loads test deck when true
 
     public TMP_Text[] AffinityDisplay; //UI displaying radiance, lush, and crimson affinity
 
@@ -122,15 +126,23 @@ public class PlayerCharacter : Permanent
         //do some permanent init if necessary
         if(gameObject.tag == "PlayerPermanent")
         {
-            PlayerDeck.AddNewCard(4);//test
-            PlayerDeck.AddNewCard(4);//test
-            PlayerDeck.AddNewCard(4);//test
-            PlayerDeck.AddNewCard(18);//test
+            if(isTest == true) AddTestCards();
             InitializePermanent();
         }
     }
 
     // COMBAT
+
+    // Loads test cards into deck from file
+    void AddTestCards()
+    {
+        string[] lines = File.ReadAllLines(Application.streamingAssetsPath + "/Encounters/TestDeck.txt");
+        for(int i = 0; i < lines.Length; i++)
+        {
+            PlayerDeck.AddNewCard(int.Parse(lines[i]));
+        }
+    }
+
     // Called at start if in combat
     void InitializePermanent()
     {
