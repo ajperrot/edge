@@ -6,6 +6,6 @@ using System;
 [Serializable]
 public abstract class Payable
 {
-    public abstract void Pay();
+    public abstract bool Pay();
     public abstract void Gain(); //inverse pay
 }

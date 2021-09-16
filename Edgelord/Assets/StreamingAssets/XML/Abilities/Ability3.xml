@@ -1,0 +1,11 @@
+<Ability xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Fuse</name>
+  <Cost>
+    <Radiant>0</Radiant>
+    <Lush>0</Lush>
+    <Crimson>0</Crimson>
+    <Free>0</Free>
+  </Cost>
+  <description>Transform this bloom into a symphony. Only usable after Consuming 3 human corpses.</description>
+  <autoTargeting>1</autoTargeting>
+</Ability>

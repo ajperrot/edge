@@ -7,21 +7,7 @@ using TMPro;
 [Serializable]
 public class HumanCard : PermanentCard
 {
-    public TMP_Text SanityField; //text field to display current sanity
-
-    //current sanity of maximum
-    private int _currentSanity = -1;
-    public int currentSanity
-    {
-        get{return _currentSanity;}
-        set
-        {
-            _currentSanity = value;
-            //update UI to reflect change
-            SanityField.text = "" + currentSanity;
-        }
-
-    }
+    public TMP_Text SanityField; //text field to display sanity
 
     // Start is called before the first frame update
     protected override void Start()
@@ -34,17 +20,12 @@ public class HumanCard : PermanentCard
         base.Start();
     }
 
+    // Fill out the card with stats, art, edscription, etc
     public override void FillCardUI()
     {
         //fill our sanity, defaulting to max
-        if(currentSanity < 0) currentSanity = Info.maxSanity;
+        SanityField.text = "" + Info.sanity;
         //then fill standard card fields
         base.FillCardUI();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

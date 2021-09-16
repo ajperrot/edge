@@ -3,13 +3,29 @@
   <name>Cog</name>
   <Type>1</Type>
   <SummonCost>
+    <Radiant>1</Radiant>
+    <Lush>0</Lush>
+    <Crimson>0</Crimson>
+    <Free>0</Free>
+  </SummonCost>
+  <hp>3</hp>
+  <attack>0</attack>
+  <cardText>Light: Gives each ally besides this Cog 3 radiant hp</cardText>
+  <Abilities>
+  </Abilities>
+  <Passives>
+    <passive>4</passive>
+    <passive>5</passive>
+    <passive>6</passive>
+  </Passives>
+  <ap>0</ap>
+  <sanity>0</sanity>
+  <pattern>3</pattern>
+  <class>2</class>
+  <Upkeep>
     <Radiant>0</Radiant>
     <Lush>0</Lush>
     <Crimson>0</Crimson>
     <Free>1</Free>
-  </SummonCost>
-  <hp>5</hp>
-  <attack>1</attack>
-  <cardText>Riposte - damages attackers</cardText>
-  <sanity>5</sanity>
+  </Upkeep>
 </Card>

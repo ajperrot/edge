@@ -1,0 +1,11 @@
+<Ability xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Reanimate</name>
+  <Cost>
+    <Radiant>0</Radiant>
+    <Lush>100</Lush>
+    <Crimson>0</Crimson>
+    <Free>0</Free>
+  </Cost>
+  <description>reanimates X human corpses creating X reborn</description>
+  <autoTargeting>1</autoTargeting>
+</Ability>

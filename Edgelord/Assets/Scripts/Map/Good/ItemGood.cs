@@ -21,8 +21,7 @@ public class ItemGood : Good
     void FillUI()
     {
         NameTextBox.text = ItemForSale.name;
-        CostTextBox.text = "$" + ItemForSale.cost;
-        OtherTextBox.text = "";
+        CostTextBox.text = "" + ItemForSale.cost;
         Help.info = ItemForSale.description;
     }
 

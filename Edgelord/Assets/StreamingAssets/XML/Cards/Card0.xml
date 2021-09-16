@@ -1,0 +1,23 @@
+<Card xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <id>0</id>
+  <name>Jason Madison</name>
+  <Type>0</Type>
+  <SummonCost>
+    <Radiant>1</Radiant>
+    <Lush>1</Lush>
+    <Crimson>1</Crimson>
+    <Free>0</Free>
+  </SummonCost>
+  <hp>5</hp>
+  <attack>1</attack>
+  <cardText>You shouldn't be able to read your own card text</cardText>
+  <Abilities>
+    <ability>0</ability>
+  </Abilities>
+  <Passives>
+  </Passives>
+  <ap>1</ap>
+  <sanity>10</sanity>
+  <pattern>0</pattern>
+  <class>Godslayer</class>
+</Card>

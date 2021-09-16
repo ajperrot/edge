@@ -1,15 +1,31 @@
 <Card xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <id>8</id>
-  <name>Pike</name>
+  <name>Construct</name>
   <Type>1</Type>
   <SummonCost>
     <Radiant>0</Radiant>
     <Lush>0</Lush>
-    <Crimson>0</Crimson>
-    <Free>1</Free>
+    <Crimson>1</Crimson>
+    <Free>0</Free>
   </SummonCost>
   <hp>5</hp>
-  <attack>1</attack>
-  <cardText>Riposte - damages attackers</cardText>
-  <sanity>5</sanity>
+  <attack>0</attack>
+  <cardText>Ward: Any damage breking through the party's defense is received by this pike
+  </cardText>
+  <Abilities>
+  </Abilities>
+  <Passives>
+    <passive>7</passive>
+    <passive>8</passive>
+  </Passives>
+  <ap>0</ap>
+  <sanity>0</sanity>
+  <pattern>3</pattern>
+  <class>2</class>
+  <Upkeep>
+    <Radiant>0</Radiant>
+    <Lush>0</Lush>
+    <Crimson>0</Crimson>
+    <Free>1</Free>
+  </Upkeep>
 </Card>

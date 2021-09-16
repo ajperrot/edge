@@ -1,0 +1,30 @@
+<Card xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <id>18</id>
+  <name>Librarian</name>
+  <Type>0</Type>
+  <SummonCost>
+    <Radiant>1</Radiant>
+    <Lush>0</Lush>
+    <Crimson>0</Crimson>
+    <Free>0</Free>
+  </SummonCost>
+  <hp>3</hp>
+  <attack>1</attack>
+  <cardText>Scorch: Deal 2X damage to all enemies</cardText>
+  <Abilities>
+    <ability>0</ability>
+    <ability>11</ability>
+  </Abilities>
+  <Passives>
+  </Passives>
+  <ap>1</ap>
+  <sanity>3</sanity>
+  <pattern>0</pattern>
+  <class>0</class>
+  <Upkeep>
+    <Radiant>0</Radiant>
+    <Lush>0</Lush>
+    <Crimson>0</Crimson>
+    <Free>0</Free>
+  </Upkeep>
+</Card>

@@ -1,0 +1,11 @@
+<Ability xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Devotion</name>
+  <Cost>
+    <Radiant>0</Radiant>
+    <Lush>0</Lush>
+    <Crimson>0</Crimson>
+    <Free>0</Free>
+  </Cost>
+  <description>Soulbind this unit to another, that unit gains 5 radiant hp.</description>
+  <autoTargeting>0</autoTargeting>
+</Ability>

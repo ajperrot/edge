@@ -4,12 +4,27 @@
   <Type>1</Type>
   <SummonCost>
     <Radiant>0</Radiant>
+    <Lush>1</Lush>
+    <Crimson>0</Crimson>
+    <Free>0</Free>
+  </SummonCost>
+  <hp>5</hp>
+  <attack>2</attack>
+  <cardText>Grapple: Any unit attacked by this Reborn may only attack this Reborn for the round.</cardText>
+  <Abilities>
+    <ability>0</ability>
+  </Abilities>
+  <Passives>
+    <passive>9</passive>
+  </Passives>
+  <ap>1</ap>
+  <sanity>0</sanity>
+  <pattern>3</pattern>
+  <class>3</class>
+  <Upkeep>
+    <Radiant>0</Radiant>
     <Lush>0</Lush>
     <Crimson>0</Crimson>
     <Free>1</Free>
-  </SummonCost>
-  <hp>5</hp>
-  <attack>1</attack>
-  <cardText>Riposte - damages attackers</cardText>
-  <sanity>5</sanity>
+  </Upkeep>
 </Card>

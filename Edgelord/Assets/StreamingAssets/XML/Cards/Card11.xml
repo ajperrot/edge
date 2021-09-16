@@ -3,13 +3,30 @@
   <name>Blessed</name>
   <Type>1</Type>
   <SummonCost>
-    <Radiant>0</Radiant>
+    <Radiant>3</Radiant>
     <Lush>0</Lush>
     <Crimson>0</Crimson>
-    <Free>1</Free>
+    <Free>0</Free>
   </SummonCost>
-  <hp>5</hp>
-  <attack>1</attack>
-  <cardText>Riposte - damages attackers</cardText>
-  <sanity>5</sanity>
+  <hp>3</hp>
+  <attack>2</attack>
+  <cardText>Flying: This creature takes half damage.
+  
+Holy Support: This unit may attack an extra time for each unit soulbound to it.</cardText>
+  <Abilities>
+    <ability>0</ability>
+  </Abilities>
+  <Passives>
+    <passive>10</passive>
+  </Passives>
+  <ap>1</ap>
+  <sanity>0</sanity>
+  <pattern>3</pattern>
+  <class>3</class>
+  <Upkeep>
+    <Radiant>1</Radiant>
+    <Lush>0</Lush>
+    <Crimson>0</Crimson>
+    <Free>0</Free>
+  </Upkeep>
 </Card>

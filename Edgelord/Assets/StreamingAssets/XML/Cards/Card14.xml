@@ -1,0 +1,30 @@
+<Card xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <id>14</id>
+  <name>Librarian</name>
+  <Type>0</Type>
+  <SummonCost>
+    <Radiant>0</Radiant>
+    <Lush>0</Lush>
+    <Crimson>1</Crimson>
+    <Free>0</Free>
+  </SummonCost>
+  <hp>3</hp>
+  <attack>1</attack>
+  <cardText>Shackle: lower's a unit's atk by this unit's sanity times the crimson cost paid for this ability.</cardText>
+  <Abilities>
+    <ability>0</ability>
+    <ability>9</ability>
+  </Abilities>
+  <Passives>
+  </Passives>
+  <ap>1</ap>
+  <sanity>3</sanity>
+  <pattern>3</pattern>
+  <class>3</class>
+  <Upkeep>
+    <Radiant>0</Radiant>
+    <Lush>0</Lush>
+    <Crimson>0</Crimson>
+    <Free>0</Free>
+  </Upkeep>
+</Card>

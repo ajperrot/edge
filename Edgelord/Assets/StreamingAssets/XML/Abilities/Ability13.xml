@@ -1,0 +1,10 @@
+  <name>Mend</name>
+  <Cost>
+    <Radiant>100</Radiant>
+    <Lush>0</Lush>
+    <Crimson>0</Crimson>
+    <Free>0</Free>
+  </Cost>
+  <description>heal the target for 2X hp</description>
+  <autoTargeting>0</autoTargeting>
+</Ability>

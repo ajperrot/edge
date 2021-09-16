@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -7,6 +8,9 @@ using TMPro;
 public class PlayerCharacter : Permanent
 {
     public static PlayerCharacter Instance; //singleton
+
+
+    public bool isTest = false; //loads test deck when true
 
     public TMP_Text[] AffinityDisplay; //UI displaying radiance, lush, and crimson affinity
 
@@ -20,22 +24,21 @@ public class PlayerCharacter : Permanent
 
     // Your normal affinity
     [SerializeField]
-    private PlayerAffinity _BaseAffinity = new PlayerAffinity();
-    public PlayerAffinity BaseAffinity
-    {
-        get {return _BaseAffinity;}
-        set
-        {
-            _BaseAffinity = value;
-            //write new values to screen
-            AffinityDisplay[0].text = "" + value.radiant;
-            AffinityDisplay[1].text = "" + value.lush;
-            AffinityDisplay[2].text = "" + value.crimson;
-        }
-    }
+    public Affinity BaseAffinity = new Affinity();
 
     // Your payable Affinity
-    public Affinity PayableAffinity = new Affinity();
+    private PlayerAffinity _PayableAffinity = new PlayerAffinity();
+    public PlayerAffinity PayableAffinity
+    {
+        get {return _PayableAffinity;}
+        set
+        {
+            _PayableAffinity.radiant = value.radiant;
+            _PayableAffinity.lush = value.lush;
+            _PayableAffinity.crimson = value.crimson;
+            _PayableAffinity.free = value.free;
+        }
+    }
 
     // Your follower count
     [SerializeField]
@@ -88,9 +91,24 @@ public class PlayerCharacter : Permanent
         set
         {
             _movement = value;
-            MovementDisplay.text = "" + value;
+            if(MovementDisplay != null)MovementDisplay.text = "" + value;
         }
     }
+
+    // Combat Stats
+    public int baseHp = 5;
+    public int baseSanity = 10;
+    public int baseAp = 1;
+
+    [Header("COMBAT ONLY")]
+    public Transform HandRoot; //parent to cards in hand
+    public GameObject HumanCardPrefab; //copied to make human cards in hand
+    public GameObject EntityCardPrefab; //copied to make entity cards in hand
+    public GameObject PhenomenonCardPrefab; //copied to make phenomenon cards in hand
+    public float cardSpacing; //space between each card in the hand
+
+    public List<CardInfo> Hand; //your hand in combat
+    public List<GameObject> HandCards = new List<GameObject>(); //card ui for each card in hand
 
 
     // Called before Start
@@ -103,12 +121,107 @@ public class PlayerCharacter : Permanent
     void Start()
     {
         //set depletable stats to their maximum
-        PayableAffinity = BaseAffinity;
+        PayableAffinity = new PlayerAffinity(BaseAffinity);
         movement = maxMovement;
-        money = money;//test
-
+        //do some permanent init if necessary
+        if(gameObject.tag == "PlayerPermanent")
+        {
+            if(isTest == true) AddTestCards();
+            InitializePermanent();
+        }
     }
 
+    // COMBAT
+
+    // Loads test cards into deck from file
+    void AddTestCards()
+    {
+        string[] lines = File.ReadAllLines(Application.streamingAssetsPath + "/Encounters/TestDeck.txt");
+        for(int i = 0; i < lines.Length; i++)
+        {
+            PlayerDeck.AddNewCard(int.Parse(lines[i]));
+        }
+    }
+
+    // Called at start if in combat
+    void InitializePermanent()
+    {
+        //set stats to their base values
+        maxHp = baseHp;
+        hp = maxHp;
+        maxSanity = baseSanity;
+        sanity = maxSanity;
+        maxAp = baseAp;
+        ap = maxAp;
+        //set cardinfo stuff
+        Info = new CardInfo(0);
+        //INITIALIZE ABILITIES BASED ON EQUIPMENT
+        AbilityDisplay.InitializeAbilityButtons(Info.Abilities);
+        //set up hand
+        DealStartingHand();
+        //couple encounter variables
+        side = 0;
+        isLeader = true;
+    }
+
+    // Shuffles the deck, gets a starting hand, and puts it onscreen
+    void DealStartingHand()
+    {
+        //get cards
+        PlayerDeck.Shuffle();
+        Hand = PlayerDeck.GetHand();
+        //display cards
+        DisplayHandFrom(0);
+    }
+
+    // Add cards until the hand is full
+    public void FillHand()
+    {
+        int oldCount = Hand.Count;
+        Hand.AddRange(PlayerDeck.DrawUntilFullFrom(Hand.Count));
+        DisplayHandFrom(oldCount);
+    }
+
+    // Remove the card at the given index from the hand
+    public void RemoveFromHand(int index)
+    {
+        //delete card
+        Hand.RemoveAt(index);
+        Destroy(HandCards[index]);
+        HandCards.RemoveAt(index);
+        //move over other cards
+        for(int i = index; i < HandCards.Count; i++)
+        {
+            HandCards[i].transform.localPosition -= new Vector3(cardSpacing, 0, 0);
+        }
+    }
+
+    // Creates Card Objects for cards from a certain index in the hand
+    void DisplayHandFrom(int start = 0)
+    {
+        for(int i = start; i < Hand.Count; i++)
+        {
+            if(Hand[i].Type == CardInfo.CardType.Human)
+            {
+                //make human card
+                HandCards.Add(Instantiate(HumanCardPrefab, HandRoot));
+                HandCards[i].GetComponent<HumanCard>().Info = Hand[i];
+            } else if(Hand[i].Type == CardInfo.CardType.Entity)
+            {
+                //make entity card
+                HandCards.Add(Instantiate(EntityCardPrefab, HandRoot));
+                HandCards[i].GetComponent<EntityCard>().Info = Hand[i];
+            } else
+            {
+                //make phenomenon card
+                HandCards.Add(Instantiate(PhenomenonCardPrefab, HandRoot));
+                HandCards[i].GetComponent<PhenomenonCard>().Info = Hand[i];
+            }
+            HandCards[i].transform.localPosition += new Vector3(cardSpacing * i, 0, 0);
+        }
+    }
+
+    //INVENTORY
     // Add item to inventory and stack it if stackable
     public void GetItem(Item NewItem)
     {
@@ -140,4 +253,5 @@ public class PlayerCharacter : Permanent
             if(Inventory[i].count <= 0) Inventory.RemoveAt(i);
         }
     }
+
 }

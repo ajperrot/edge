@@ -1,0 +1,29 @@
+<Card xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <id>15</id>
+  <name>Hollow Doll</name>
+  <Type>1</Type>
+  <SummonCost>
+    <Radiant>0</Radiant>
+    <Lush>0</Lush>
+    <Crimson>0</Crimson>
+    <Free>0</Free>
+  </SummonCost>
+  <hp>6</hp>
+  <attack>0</attack>
+  <cardText>Mirror: All actions taken against this unit, positive or negative in effect, will be taken by the Hollow Doll against their original user.</cardText>
+  <Abilities>
+  </Abilities>
+  <Passives>
+    <passive>11</passive>
+  </Passives>
+  <ap>0</ap>
+  <sanity>0</sanity>
+  <pattern>2</pattern>
+  <class>0</class>
+  <Upkeep>
+    <Radiant>0</Radiant>
+    <Lush>0</Lush>
+    <Crimson>0</Crimson>
+    <Free>0</Free>
+  </Upkeep>
+</Card>

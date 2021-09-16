@@ -5,7 +5,9 @@ using TMPro;
 
 public class Shop : MonoBehaviour
 {
-    public static float goodSpacing = 175; //space between goods on the menu
+    public static int goodsPerRow = 2; //goods displayed in one row of the menu
+    public static float goodSpacingX = 350; //horizontal space between goods on the menu
+    public static float goodSpacingY = 350; //vertical space between goods on the menu
     public static float scrollSpeed = 20; //scroll per frame scrolling
 
     public int shopId = -1; //indicates which shop this is
@@ -21,13 +23,17 @@ public class Shop : MonoBehaviour
     public bool committed = false; //have we bought anything yet?
     public string purchaseText = "Purchase"; //what to say on the purchase button once committed
     public float maxScroll = 0; //how far can we scroll
+    public float yMax; //maximum y position
+    public float yMin; //minimum y position
     public Vector3 GoodsRootOriginalPosition;
     public float totalScroll = 0; //how far have we scrolled
+    public int purchaseCount;
 
     // Start is called before the first frame update
     public void Start()
     {
         GoodsRootOriginalPosition = GoodsRoot.localPosition;
+        yMin = GoodsRootOriginalPosition.y;
     }
 
     // Return to map if uncommitted, otherwise go home
@@ -36,11 +42,12 @@ public class Shop : MonoBehaviour
         if(PlayerCharacter.Instance.movement == 0)
         {
             //go to next day if we had committed
-            Calendar.AdvanceDay();
+            Setting.AdvanceDay();
         } else
         {
             //otherwise return to map
             gameObject.SetActive(false);
+            Destination.ToggleMapIcons(true);
         }
     }
 

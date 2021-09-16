@@ -1,0 +1,11 @@
+<Ability xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Scorch</name>
+  <Cost>
+    <Radiant>100</Radiant>
+    <Lush>0</Lush>
+    <Crimson>0</Crimson>
+    <Free>0</Free>
+  </Cost>
+  <description>deal 2X damage to all enemies</description>
+  <autoTargeting>1</autoTargeting>
+</Ability>

@@ -1,0 +1,33 @@
+<Card xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <id>19</id>
+  <name>Symphony</name>
+  <Type>1</Type>
+  <SummonCost>
+    <Radiant>0</Radiant>
+    <Lush>3</Lush>
+    <Crimson>0</Crimson>
+    <Free>0</Free>
+  </SummonCost>
+  <hp>15</hp>
+  <attack>3</attack>
+  <cardText>Harmony: Deals 2 unblockable damage to all enemies.
+  
+Melody: Deals 1 sanity damage to all humans.</cardText>
+  <Abilities>
+    <ability>0</ability>
+    <ability>7</ability>
+    <ability>8</ability>
+  </Abilities>
+  <Passives>
+  </Passives>
+  <ap>1</ap>
+  <sanity>0</sanity>
+  <pattern>3</pattern>
+  <class>3</class>
+  <Upkeep>
+    <Radiant>0</Radiant>
+    <Lush>1</Lush>
+    <Crimson>0</Crimson>
+    <Free>0</Free>
+  </Upkeep>
+</Card>

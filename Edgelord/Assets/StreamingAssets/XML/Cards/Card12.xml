@@ -1,0 +1,29 @@
+<Card xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <id>12</id>
+  <name>The Chained</name>
+  <Type>1</Type>
+  <SummonCost>
+    <Radiant>0</Radiant>
+    <Lush>0</Lush>
+    <Crimson>1</Crimson>
+    <Free>0</Free>
+  </SummonCost>
+  <hp>5</hp>
+  <attack>4</attack>
+  <cardText>'The Chained' are the Remnants of humans who peered too deeply into The Crimson and were taken as its prisoners.</cardText>
+  <Abilities>
+    <ability>0</ability>
+  </Abilities>
+  <Passives>
+  </Passives>
+  <ap>1</ap>
+  <sanity>0</sanity>
+  <pattern>3</pattern>
+  <class>1</class>
+  <Upkeep>
+    <Radiant>0</Radiant>
+    <Lush>0</Lush>
+    <Crimson>1</Crimson>
+    <Free>0</Free>
+  </Upkeep>
+</Card>

@@ -1,7 +1,7 @@
 <Card xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <id>10</id>
-  <name>Symphony</name>
-  <Type>1</Type>
+  <id>1</id>
+  <name>Bruiser</name>
+  <Type>0</Type>
   <SummonCost>
     <Radiant>0</Radiant>
     <Lush>0</Lush>
@@ -10,6 +10,18 @@
   </SummonCost>
   <hp>5</hp>
   <attack>1</attack>
-  <cardText>Riposte - damages attackers</cardText>
-  <sanity>5</sanity>
+  <cardText>Defend: Blocks a total of 3 damage.
+  
+  Bat: This unit deals +1 damage to units not at max HP.</cardText>
+  <Abilities>
+    <ability>0</ability>
+    <ability>1</ability>
+  </Abilities>
+  <Passives>
+    <Passives>14</Passives>
+  </Passives>
+  <ap>1</ap>
+  <sanity>4</sanity>
+  <pattern>3</pattern>
+  <class>Bruiser</class>
 </Card>

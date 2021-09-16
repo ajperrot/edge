@@ -1,0 +1,29 @@
+<Card xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <id>13</id>
+  <name>Dead Body</name>
+  <Type>1</Type>
+  <SummonCost>
+    <Radiant>0</Radiant>
+    <Lush>0</Lush>
+    <Crimson>0</Crimson>
+    <Free>0</Free>
+  </SummonCost>
+  <hp>1000</hp>
+  <attack>0</attack>
+  <cardText>This was once a human being.</cardText>
+  <Abilities>
+  </Abilities>
+  <Passives>
+    <passive>2</passive>
+  </Passives>
+  <ap>0</ap>
+  <sanity>0</sanity>
+  <pattern>3</pattern>
+  <class>3</class>
+  <Upkeep>
+    <Radiant>0</Radiant>
+    <Lush>0</Lush>
+    <Crimson>0</Crimson>
+    <Free>0</Free>
+  </Upkeep>
+</Card>

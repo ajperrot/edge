@@ -13,7 +13,7 @@ public class ItemShop : Shop
     {
         base.Start();
         //fill out Stock
-        if(Calendar.currentDay == 0)
+        if(Setting.currentDay == 0)
         {
             FillTutorialStock();
         } else
@@ -22,11 +22,12 @@ public class ItemShop : Shop
         }
         stockPurchased = new bool[Stock.Length];
     }
-
+/*
     // Enable event handlers
     void OnEnable()
     {
-        InputManager.OnInputHit[(int)InputManager.AxisEnum.Vertical] += ScrollOne;
+        InputManager.OnInputHit[(int)InputManager.AxisEnum.Vertical] += ScrollTwo;
+        InputManager.OnInputHit[(int)InputManager.AxisEnum.Horizontal] += ScrollOne;
         InputManager.OnInputHit[(int)InputManager.AxisEnum.Confirm] += Purchase;
         InputManager.OnInputHit[(int)InputManager.AxisEnum.Cancel] += Exit;
     }
@@ -34,22 +35,30 @@ public class ItemShop : Shop
     // Disable event handlers
         void OnDisable()
     {
-        InputManager.OnInputHit[(int)InputManager.AxisEnum.Vertical] -= ScrollOne;
+        InputManager.OnInputHit[(int)InputManager.AxisEnum.Vertical] -= ScrollTwo;
+        InputManager.OnInputHit[(int)InputManager.AxisEnum.Horizontal] -= ScrollOne;
         InputManager.OnInputHit[(int)InputManager.AxisEnum.Confirm] -= Purchase;
         InputManager.OnInputHit[(int)InputManager.AxisEnum.Cancel] -= Exit;
     }
-
+*/
     // React to up/down keys
+    public void ScrollTwo(float axisValue)
+    {
+        ScrollOne(axisValue);
+        ScrollOne(axisValue);
+    }
+
+    // React to right/left
     public void ScrollOne(float axisValue)
     {
-        int sign = (axisValue > 0)? 1 : -1;
+        //int sign = (axisValue > 0)? 1 : -1;
         //check the new index is valid
-        if(sign > 0)
-        {
-            if(SelectPreviousItem() == false) SelectLastItem();
-        } else
+        if(axisValue > 0)
         {
             if(SelectNextItem() == false) SelectFirstItem();
+        } else
+        {
+            if(SelectPreviousItem() == false) SelectLastItem();
         }
     }
 
@@ -64,6 +73,7 @@ public class ItemShop : Shop
     // Select item and scroll to it
     private void SelectAndScrollTo(int index)
     {
+        /*
         //calculate index of remaining items for scrolling
         int scrollIndex = 0;
         for(int i = 0; i < selection; i++)
@@ -73,13 +83,16 @@ public class ItemShop : Shop
         //scroll to item
         GoodsRoot.localPosition = GoodsRootOriginalPosition;
         totalScroll = 0;
-        if(scrollIndex > 3)
+        if(scrollIndex > 2)
         {
-            GoodsRoot.localPosition = GoodsRootOriginalPosition + (Vector3.down * (scrollIndex - 3) * goodSpacing * -1);
-            totalScroll -= (scrollIndex - 3) * goodSpacing;
-        }
+            GoodsRoot.localPosition = GoodsRootOriginalPosition + (Vector3.down * (scrollIndex - 3) * goodSpacingY * -1);
+            totalScroll -= (scrollIndex - 2) * goodSpacingY;
+        }*/
         //then actually select it
         SelectItemAt(index);
+        print(Selector.transform.localPosition);//test
+        GoodsRoot.localPosition.Set(GoodsRootOriginalPosition.x, Selector.transform.localPosition.y, 0);
+        print(GoodsRoot.localPosition);//test
     }
 
     // Purchase the selected good
@@ -94,23 +107,25 @@ public class ItemShop : Shop
         //otherwise add it to inventory, and remove it from stock
         PlayerCharacter.Instance.GetItem(SelectedItem);
         Destroy(Stock[selection].gameObject);
+        //show we bought it
         stockPurchased[selection] = true;
+        purchaseCount++;
         //and pay for it
         PlayerCharacter.Instance.money -= SelectedItem.cost;
         //commit to shopping here
         Commit();
-        //move goods below this up a space
+        //move goods below this up if necessary //CHANGE
         for(int i = selection; i < Stock.Length; i++)
         {
             //check first if it's been purchased
             if(stockPurchased[i] == false)
             {
                 //if not purchased, move it up
-                Stock[i].transform.localPosition += (Vector3.up * goodSpacing);
+                Stock[i].transform.localPosition += (Vector3.up * goodSpacingY);
             }
         }
         //reduce maxScroll (absolute value)
-        maxScroll += goodSpacing;
+        maxScroll += goodSpacingY;
         //select a new item
         SelectNewItem();
     }
@@ -200,12 +215,13 @@ public class ItemShop : Shop
     {
         Stock = new ItemGood[(int)Random.Range(minStockCount, maxStockCount)];
         stockPurchased = new bool[Stock.Length];
-        int highestPossibleGoodIndex = numberOfPossibleGoodsPerDay[Calendar.currentDay];
+        int highestPossibleGoodIndex = numberOfPossibleGoodsPerDay[Setting.currentDay];
         for(int i = 0; i < Stock.Length; i++)
         {
             //create and position the good
             GameObject GoodObject = Instantiate(GoodPrefab, GoodsRoot);
-            GoodObject.transform.localPosition += (Vector3.down * goodSpacing * i);
+            GoodObject.transform.localPosition += (Vector3.right * goodSpacingX * (i%goodsPerRow));
+            GoodObject.transform.localPosition += (Vector3.down * goodSpacingY * (i / goodsPerRow));
             //then set its itemgood info
             ItemGood ThisGood = GoodObject.GetComponent<ItemGood>();
             ThisGood.id = possibleGoods[(int)Random.Range(0, highestPossibleGoodIndex)];
@@ -215,19 +231,21 @@ public class ItemShop : Shop
             Stock[i] = ThisGood;
         }
         //set our max scroll
-        maxScroll = (Stock.Length - 4) * goodSpacing * -1;
+        maxScroll = Stock.Length / goodsPerRow * goodSpacingY * -1;
+        yMax = (Stock.Length / goodsPerRow) * goodSpacingY + yMin;
     }
 
     // Adds the items specifically eeded on the first day
     private void FillTutorialStock()
     {
-        Stock = new ItemGood[3];
+        Stock = new ItemGood[5];//should be 3 CHANGE
         stockPurchased = new bool[Stock.Length];
         for(int i = 0; i < Stock.Length; i++)
         {
             //create and position the good
             GameObject GoodObject = Instantiate(GoodPrefab, GoodsRoot);
-            GoodObject.transform.localPosition += (Vector3.down * goodSpacing * i);
+            GoodObject.transform.localPosition += (Vector3.right * goodSpacingX * (i%goodsPerRow));
+            GoodObject.transform.localPosition += (Vector3.down * goodSpacingY * (i / goodsPerRow));
             //then set its itemgood info
             ItemGood ThisGood = GoodObject.GetComponent<ItemGood>();
             ThisGood.id = i + 4;
@@ -238,5 +256,7 @@ public class ItemShop : Shop
             //give the player their starting ingredients as well
             PlayerCharacter.Instance.Inventory.Add(new Item(i + 1));
         }
+        //set scroll bound
+        yMax = (Stock.Length / goodsPerRow) * goodSpacingY + yMin;
     }
 }

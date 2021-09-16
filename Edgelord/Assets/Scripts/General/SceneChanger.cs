@@ -6,17 +6,18 @@ using UnityEngine.SceneManagement;
 public class SceneChanger : MonoBehaviour
 {
     public static SceneChanger Instance;
-    public static bool fromAutoSave = false; //are we to load the save on start
+    public static int fromSave = -2; //what save to load on start? (-2 for none)
 
 
     // Load Autosave if necesssary on start
     void Start()
     {
         Instance = this;
-        if(fromAutoSave == true)
+        if(fromSave > -2)
         {
-            SaveSystem.LoadGame(-1);
+            SaveSystem.LoadGame(fromSave);
         }
+        fromSave = -2;
     }
 
     // Changes to scene indicated by number (index in build settings scene list)
@@ -24,7 +25,7 @@ public class SceneChanger : MonoBehaviour
     {
         PlayerCharacter.Instance.RemoveAllZeroCountItems();
         SaveSystem.SaveGame();
-        fromAutoSave = true;
+        fromSave = -1;
         SceneManager.LoadScene(sceneNumber);
     }
 }
