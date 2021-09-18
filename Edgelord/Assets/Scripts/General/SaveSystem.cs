@@ -30,8 +30,8 @@ public class SaveSystem
     // Save data of this day to that slot, then delete last save if it was not a week start
     public static void SaveGame(int day = -1)
     {
-        string path = Application.persistentDataPath + "/SaveData";
-        if(day != -1) path += "" + Setting.currentDay;
+        string path = Application.persistentDataPath + "/SaveData00";
+        path += "" + Setting.currentDay;
         path += ".dat";
         //rename previous save if a week start
         if(File.Exists(path))
@@ -67,14 +67,7 @@ public class SaveSystem
     public static void LoadGame(int oldDay)
     {
         //path has no number for most recent save
-        string path;
-        if(oldDay < 0)
-        {
-            path = Application.persistentDataPath + "/SaveData.dat";
-        } else
-        {
-            path = Application.persistentDataPath + "/SaveData" + oldDay + ".dat";
-        }
+        string path = Application.persistentDataPath + "/SaveData00" + oldDay + ".dat";
         //search for file and load if possible
         if (File.Exists(path))
         {
@@ -104,14 +97,7 @@ public class SaveSystem
     public static void ClearSave(int oldDay)
     {
         //path has no number for most recent save
-        string path;
-        if(oldDay < 0)
-        {
-            path = Application.persistentDataPath + "/SaveData.dat";
-        } else
-        {
-            path = Application.persistentDataPath + "/SaveData" + oldDay + ".dat";
-        }
+        string path = Application.persistentDataPath + "/SaveData00" + oldDay + ".dat";
         //then clear save if it exists
         if (File.Exists(path))
         {

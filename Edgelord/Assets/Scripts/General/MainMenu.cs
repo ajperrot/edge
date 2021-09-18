@@ -10,19 +10,22 @@ public class MainMenu : MonoBehaviour
     public GameObject LoadMenu;
     public Transform FilesRoot;
 
-    private int[] savedDays;
+    private List<int> savedDays;
 
     // Start
     void Start()
     {
         List<string> FileNames = new List<string>(Directory.GetFiles(Application.persistentDataPath));
-        if(FileNames.Count < 2) return;
-        savedDays = new int[FileNames.Count - 1];
+        savedDays = new List<int>();
         FileNames.Sort();
-        for(int i = 1; i < FileNames.Count; i++)
+        for(int i = 0; i < FileNames.Count; i++)
         {
             string name = FileNames[i];
-            savedDays[i - 1] = int.Parse(name[name.Length - 5].ToString());
+            if(name[name.Length -1] != 't') continue; //no DS_Store, only .dat
+            string back = name.Substring(name.Length - 6, 2);
+            Debug.Log(back);//test
+            if(back == "-1") continue;
+            savedDays.Add(int.Parse(back));
         }
     }
 
@@ -36,7 +39,7 @@ public class MainMenu : MonoBehaviour
     // Load the last save
     public void Continue()
     {
-        int day = savedDays[savedDays.Length - 1];
+        int day = savedDays[savedDays.Count - 1];
         Setting.currentDay = day;
         SceneChanger.fromSave = day;
         SceneManager.LoadScene(1);
@@ -46,7 +49,7 @@ public class MainMenu : MonoBehaviour
     public void LoadGame()
     {
         LoadMenu.SetActive(true);
-        for(int i = 0; i < savedDays.Length; i++)
+        for(int i = 0; i < savedDays.Count; i++)
         {
             GameObject NewButton = Instantiate(LoadButtonPrefab, FilesRoot);
             NewButton.GetComponent<LoadButton>().day = savedDays[i];
